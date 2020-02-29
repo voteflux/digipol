@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/main.dart';
-import 'package:voting_app/allissues.dart';
+import 'package:voting_app/all_issues.dart';
 import 'package:voting_app/issue.dart';
 
 class RouteGenerator {
