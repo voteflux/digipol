@@ -13,7 +13,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => AllIssuesPage());
       case '/issue':
       // Validation of correct data type
-        if (args is String) {
+        if (args is Map) {
           return MaterialPageRoute(
             builder: (_) => IssuePage(
               data: args,

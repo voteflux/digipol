@@ -4,7 +4,7 @@ import 'package:voting_app/route_generator.dart';
 class IssuePage extends StatelessWidget {
   // This is a String for the sake of an example.
   // You can use any type you want.
-  final String data;
+  final Map data;
 
   IssuePage({
     Key key,
@@ -26,7 +26,7 @@ class IssuePage extends StatelessWidget {
               style: TextStyle(fontSize: 50),
             ),
             Text(
-              data,
+              data["URL"],
               style: TextStyle(fontSize: 20),
             ),
           ],
