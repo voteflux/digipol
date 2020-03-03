@@ -15,22 +15,25 @@ class IssuePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Routing App'),
+        title: Text('Vote on Bill'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Text(
-              'Issue',
-              style: TextStyle(fontSize: 50),
-            ),
-            Text(
-              data["URL"],
-              style: TextStyle(fontSize: 20),
-            ),
-          ],
+      body: Container(
+        child: Center(
+          child: ListView(
+            children: <Widget>[
+              Text(
+                data["Short Title"],
+                style: TextStyle(fontSize: 30),
+              ),
+              Text(
+                data["URL"],
+                style: TextStyle(fontSize: 20),
+              ),
+            ],
+          ),
         ),
+
+
       ),
     );
   }
