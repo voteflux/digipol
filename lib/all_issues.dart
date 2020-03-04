@@ -5,6 +5,7 @@ import 'package:voting_app/api/aus_bills.dart';
 import 'dart:math';
 
 class AllIssuesPage extends StatelessWidget {
+  Color appThemeColor = Colors.blueAccent;
   List billsList = fetchBills();
   @override
   Widget build(BuildContext context) {
@@ -15,8 +16,8 @@ class AllIssuesPage extends StatelessWidget {
     }
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightBlue[300],
-        title: Text('Voting App'),
+        backgroundColor: appThemeColor,
+        title: Text('Federal Bills'),
       ),
       body: Center(
         child: ListView(
@@ -24,6 +25,7 @@ class AllIssuesPage extends StatelessWidget {
             children: billWidgetList,
         ),
       ),
+
     );
   }
 }
@@ -31,7 +33,7 @@ class AllIssuesPage extends StatelessWidget {
 class BillWidget extends StatelessWidget {
   Map billsMap;
   Map billColors = {"House" : Colors.teal[100], "Senate" : Colors.deepPurple[100]};
-  Map billColorsDark = {"House" : Colors.teal[600], "Senate" : Colors.deepPurple[600]};
+  Map billColorsDark = {"House" : Colors.green[200], "Senate" : Color(0xFFebadd6)};
   Map billIntro = {"House" : "Intro House", "Senate" : "Intro Senate"};
   Random random = new Random();
   BillWidget(Map m){
@@ -44,24 +46,24 @@ class BillWidget extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
           BoxShadow(
-          color: billColorsDark[billsMap["Chamber"]],
-          blurRadius: 5.0, // has the effect of softening the shadow
-          spreadRadius: 2.0, // has the effect of extending the shadow
+          color: Colors.black,
+          blurRadius: 6.0, // has the effect of softening the shadow
+          spreadRadius: 0.0, // has the effect of extending the shadow
             offset: Offset(
               1.0, // horizontal, move right 10
               1.0, // vertical, move down 10
             ),
           )
           ],
-          color: billColors[billsMap["Chamber"]],
-//          border: Border.all(color: billColorsDark[billsMap["Chamber"]], width: 2,),
-          borderRadius: BorderRadius.circular(5),
+          color: billColorsDark[billsMap["Chamber"]],
+          border: Border.all(color: Colors.black, width: 1,),
+          borderRadius: BorderRadius.circular(4),
         ),
               margin: EdgeInsets.symmetric(vertical: 6,horizontal: 12),
 
               child: Card(
                   shadowColor: Colors.transparent,
-                  color: billColors[billsMap["Chamber"]],
+//                  color: billColors[billsMap["Chamber"]],
                   child: InkWell(
                       splashColor: Colors.blue.withAlpha(30),
                       onTap: () {
@@ -79,7 +81,22 @@ class BillWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: <Widget>[
                               Container(
-                                padding: EdgeInsets.fromLTRB(0,0,0,20),
+                                padding: EdgeInsets.fromLTRB(5,5,5,0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text(
+                                        "Introduced in the "+ billsMap["Chamber"] +"\n" + billsMap[billIntro[billsMap["Chamber"]]],
+                                        style: TextStyle(fontSize: 11, fontWeight: FontWeight.w500,fontStyle: FontStyle.italic)),
+                                    VotingStatusWidget(billsMap, random.nextInt(5) == 0)
+
+
+                                  ],
+                                ),
+                              ),
+
+                              Container(
+                                padding: EdgeInsets.fromLTRB(10,10,5,20),
                                 child: Text(
                                     billsMap["Short Title"],
                                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
@@ -87,15 +104,14 @@ class BillWidget extends StatelessWidget {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
-                                  Text(
-                                      "Introduced in the "+ billsMap["Chamber"] +"\non: " + billsMap[billIntro[billsMap["Chamber"]]],
-                                      style: TextStyle(fontSize: 10)),
-                                  VotingStatusWidget(billsMap, random.nextInt(5) == 0)
-
-
+                                  HouseIconsWidget(billsMap),
+                                  FlatButton(
+                                    onPressed: (){},
+                                    child: Icon(Icons.share, color: Colors.blueAccent,),
+                                  ),
                                 ],
                               ),
-                              HouseIconsWidget(billsMap),
+
 
                             ],
                           )
@@ -115,6 +131,9 @@ class BillWidget extends StatelessWidget {
 
 class HouseIconsWidget extends StatelessWidget {
   Map billsMap;
+  Color senateColor = Color(0xFFcc3399);
+  Color houseColor = Colors.teal[300];
+  Color noFillColor = Colors.grey[50];
 //  Map billHouseColors = {"House" : Colors.teal[200], "Senate" : Colors.deepPurple[200]};
 //  Map billSenateColors = {"House" : Colors.deepPurple[200], "Senate" : Colors.teal[200] };
 //  Map billHouseColorsOff = {"House" : Colors.teal[100], "Senate" : Colors.deepPurple[100]};
@@ -128,60 +147,60 @@ class HouseIconsWidget extends StatelessWidget {
   hiChooser(Map theBill){
     if (theBill["Chamber"] == "House"){
       if (theBill["Intro House"] == ""){
-        return Colors.teal[50];
+        return noFillColor;
       }else{
-        return Colors.teal[300];
+        return houseColor;
       }
     }else{
       if (theBill["Intro Senate"] == ""){
-        return Colors.deepPurple[50];
+        return noFillColor;
       }else{
-        return Colors.deepPurple[300];
+        return senateColor;
       }
     }
   }
   hpChooser(Map theBill){
     if (theBill["Chamber"] == "House"){
       if (theBill["Passed House"] == ""){
-        return Colors.teal[50];
+        return noFillColor;
       }else{
-        return Colors.teal[300];
+        return houseColor;
       }
     }else{
       if (theBill["Passed Senate"] == ""){
-        return Colors.deepPurple[50];
+        return noFillColor;
       }else{
-        return Colors.deepPurple[300];
+        return senateColor;
       }
     }
   }
   siChooser(Map theBill){
       if (theBill["Chamber"] == "House"){
         if (theBill["Intro Senate"] == ""){
-          return Colors.deepPurple[50];
+          return noFillColor;
         }else{
-          return Colors.deepPurple[300];
+          return senateColor;
         }
       }else{
         if (theBill["Intro House"] == ""){
-          return Colors.teal[50];
+          return noFillColor;
         }else{
-          return Colors.teal[300];
+          return houseColor;
         }
       }
   }
   spChooser(Map theBill){
     if (theBill["Chamber"] == "House"){
       if (theBill["Passed Senate"] == ""){
-        return Colors.deepPurple[50];
+        return noFillColor;
       }else{
-        return Colors.deepPurple[200];
+        return senateColor;
       }
     }else{
       if (theBill["Passed House"] == ""){
-        return Colors.teal[50];
+        return noFillColor;
       }else{
-        return Colors.teal[200];
+        return houseColor;
       }
     }
 
@@ -190,6 +209,7 @@ class HouseIconsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
       height: 20,
       width: 160,
       child: Row(
