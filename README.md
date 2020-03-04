@@ -10,7 +10,7 @@
 
 The DigiPol Voting App (temporary name for now) will allow Australian Voters to be able to vote on current _issues_ and _bills_ within the political landscape.
 
-- **Bills** will be the legislation proposals out forth in Parliament, worded as is.
+- **Bills** will be the legislation proposals put forth in Parliament, worded as is.
 - **Issues** will be generated according to public interest and contemporary topics as they arise.
 
 It will collate voting results and show users the results of their electorates voting on bills. It will allow them to send an automatically generated email to their elected representative, as well as post the results out onto various social media.
@@ -46,7 +46,7 @@ Edit `pubspec.yaml` to include other packages.
 
 A list of current items and their progress can be found [here](https://github.com/voteflux/voting_app/projects/1). If you feel comfortable diving straight in, just fork the repo, and open it up in Android Studio. We use [Effective Dart](https://dart.dev/guides/language/effective-dart) to guide our coding style, so make sure you make yourself familiar. Make the contributions you want to and create a Pull Request.
 
-For collaborating, best practice is to join our _Discord Community_ at discord.io/FluxParty and let us know where you're interested in helping out. That way we can make sure you are up to date with all the relevant information and put you in contact with others working on the project!
+For collaborating, best practice is to join our _Discord Community_ at [discord.io / FluxParty](discord.io/FluxParty) and let us know where you're interested in helping out. That way we can make sure you are up to date with all the relevant information and put you in contact with others working on the project!
 
 If you are new to Flutter here are a few resources to get you started on your first Flutter project:
 
