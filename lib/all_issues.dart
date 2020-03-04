@@ -25,7 +25,26 @@ class AllIssuesPage extends StatelessWidget {
             children: billWidgetList,
         ),
       ),
-
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: appThemeColor,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.assignment),
+            title: Text('Bills'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.assignment_late),
+            title: Text('Issues'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_box),
+            title: Text('Profile'),
+          ),
+        ],
+//          currentIndex: _selectedIndex,
+        selectedItemColor: Colors.black,
+//          onTap: _onItemTapped,
+      ),
     );
   }
 }
