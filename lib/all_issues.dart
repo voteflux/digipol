@@ -88,7 +88,7 @@ class BillWidget extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                      "Introduced in the"+ billsMap["Chamber"] +"\non: " + billsMap[billIntro[billsMap["Chamber"]]],
+                                      "Introduced in the "+ billsMap["Chamber"] +"\non: " + billsMap[billIntro[billsMap["Chamber"]]],
                                       style: TextStyle(fontSize: 10)),
                                   VotingStatusWidget(billsMap, random.nextInt(5) == 0)
 
