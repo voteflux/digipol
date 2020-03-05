@@ -35,3 +35,5 @@ class AppColors {
 
 
 }
+
+var appColors = AppColors(false);

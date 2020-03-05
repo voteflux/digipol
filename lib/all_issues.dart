@@ -5,7 +5,6 @@ import 'package:voting_app/api/aus_bills.dart';
 import 'dart:math';
 import 'package:voting_app/styles.dart';
 
-var appColors = AppColors(false);
 
 
 class AllIssuesPage extends StatelessWidget {
@@ -17,17 +16,10 @@ class AllIssuesPage extends StatelessWidget {
     for (var i in billsList) {
       billWidgetList.add(BillWidget(i));
     }
-    return Scaffold(
-      backgroundColor: appColors.background,
-      appBar: AppBar(
-        backgroundColor: appColors.mainTheme,
-        title: Text('Federal Bills', style: TextStyle(color: appColors.text),),
-      ),
-      body: Center(
-        child: ListView(
-          controller: ScrollController(),
-            children: billWidgetList,
-        ),
+    return Center(
+      child: ListView(
+        controller: ScrollController(),
+        children: billWidgetList,
       ),
     );
   }
