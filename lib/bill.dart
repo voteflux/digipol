@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/route_generator.dart';
 
-class IssuePage extends StatelessWidget {
+class BillPage extends StatelessWidget {
   // This is a String for the sake of an example.
   // You can use any type you want.
   final Map data;
 
-  IssuePage({
+  BillPage({
     Key key,
     @required this.data,
   }) : super(key: key);
@@ -15,7 +15,7 @@ class IssuePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Vote on Issue'),
+        title: Text('Vote on Bill'),
       ),
       body: Container(
         child: Center(
