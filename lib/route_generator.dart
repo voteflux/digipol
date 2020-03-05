@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/main.dart';
 import 'package:voting_app/all_issues.dart';
 import 'package:voting_app/issue.dart';
+import 'package:voting_app/styles.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {

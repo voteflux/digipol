@@ -3,9 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/api/aus_bills.dart';
 import 'dart:math';
+import 'package:voting_app/styles.dart';
+
+var appColors = AppColors();
+
 
 class AllIssuesPage extends StatelessWidget {
-  Color appThemeColor = Colors.blueAccent;
   List billsList = fetchBills();
   @override
   Widget build(BuildContext context) {
@@ -15,9 +18,10 @@ class AllIssuesPage extends StatelessWidget {
       billWidgetList.add(BillWidget(i));
     }
     return Scaffold(
+      backgroundColor: appColors.background,
       appBar: AppBar(
-        backgroundColor: appThemeColor,
-        title: Text('Federal Bills'),
+        backgroundColor: appColors.mainTheme,
+        title: Text('Federal Bills', style: TextStyle(color: appColors.text),),
       ),
       body: Center(
         child: ListView(
@@ -26,23 +30,23 @@ class AllIssuesPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: appThemeColor,
-        items: const <BottomNavigationBarItem>[
+        backgroundColor: appColors.mainTheme,
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.assignment),
-            title: Text('Bills'),
+            icon: Icon(Icons.assignment, color: appColors.text),
+            title: Text('Bills', style: TextStyle(color: appColors.text)),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.assignment_late),
-            title: Text('Issues'),
+            icon: Icon(Icons.assignment_late, color: appColors.text),
+            title: Text('Issues', style: TextStyle(color: appColors.text)),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_box),
-            title: Text('Profile'),
+            icon: Icon(Icons.account_box, color: appColors.text),
+            title: Text('Profile', style: TextStyle(color: appColors.text)),
           ),
         ],
 //          currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
+        selectedItemColor: appColors.text,
 //          onTap: _onItemTapped,
       ),
     );
@@ -52,7 +56,7 @@ class AllIssuesPage extends StatelessWidget {
 class BillWidget extends StatelessWidget {
   Map billsMap;
   Map billColors = {"House" : Colors.teal[100], "Senate" : Colors.deepPurple[100]};
-  Map billColorsDark = {"House" : Colors.green[200], "Senate" : Color(0xFFebadd6)};
+  Map billColorsDark = {"House" : appColors.house, "Senate" : appColors.senate};
   Map billIntro = {"House" : "Intro House", "Senate" : "Intro Senate"};
   Random random = new Random();
   BillWidget(Map m){
@@ -74,15 +78,15 @@ class BillWidget extends StatelessWidget {
             ),
           )
           ],
-          color: billColorsDark[billsMap["Chamber"]],
+          color: appColors.mainTheme,
           border: Border.all(color: Colors.black, width: 1,),
           borderRadius: BorderRadius.circular(4),
         ),
               margin: EdgeInsets.symmetric(vertical: 6,horizontal: 12),
 
               child: Card(
-                  shadowColor: Colors.transparent,
-//                  color: billColors[billsMap["Chamber"]],
+//                  shadowColor: Colors.transparent,
+                  color: appColors.background,
                   child: InkWell(
                       splashColor: Colors.blue.withAlpha(30),
                       onTap: () {
@@ -106,7 +110,7 @@ class BillWidget extends StatelessWidget {
                                   children: <Widget>[
                                     Text(
                                         "Introduced in the "+ billsMap["Chamber"] +"\n" + billsMap[billIntro[billsMap["Chamber"]]],
-                                        style: TextStyle(fontSize: 11, fontWeight: FontWeight.w500,fontStyle: FontStyle.italic)),
+                                        style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800,fontStyle: FontStyle.italic, color: billColorsDark[billsMap["Chamber"]])),
                                     VotingStatusWidget(billsMap, random.nextInt(5) == 0)
 
 
@@ -118,7 +122,7 @@ class BillWidget extends StatelessWidget {
                                 padding: EdgeInsets.fromLTRB(10,10,5,20),
                                 child: Text(
                                     billsMap["Short Title"],
-                                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: appColors.text)),
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -126,7 +130,7 @@ class BillWidget extends StatelessWidget {
                                   HouseIconsWidget(billsMap),
                                   FlatButton(
                                     onPressed: (){},
-                                    child: Icon(Icons.share, color: Colors.blueAccent,),
+                                    child: Icon(Icons.assessment, color: appColors.text,),
                                   ),
                                 ],
                               ),
@@ -150,9 +154,9 @@ class BillWidget extends StatelessWidget {
 
 class HouseIconsWidget extends StatelessWidget {
   Map billsMap;
-  Color senateColor = Color(0xFFcc3399);
-  Color houseColor = Colors.teal[300];
-  Color noFillColor = Colors.grey[50];
+  Color senateColor = appColors.senate;
+  Color houseColor = appColors.house;
+  Color noFillColor = appColors.greyedOut;
 //  Map billHouseColors = {"House" : Colors.teal[200], "Senate" : Colors.deepPurple[200]};
 //  Map billSenateColors = {"House" : Colors.deepPurple[200], "Senate" : Colors.teal[200] };
 //  Map billHouseColorsOff = {"House" : Colors.teal[100], "Senate" : Colors.deepPurple[100]};
@@ -241,7 +245,7 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.label_important,
-            color: Colors.grey,
+            color: appColors.greyedOut,
             size: 20,
           ),
           Icon(
@@ -251,7 +255,7 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.label_important,
-            color: Colors.grey,
+            color: appColors.greyedOut,
             size: 20,
           ),
           Icon(
@@ -261,7 +265,7 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.label_important,
-            color: Colors.grey,
+            color: appColors.greyedOut,
             size: 20,
           ),
           Icon(
