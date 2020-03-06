@@ -24,98 +24,92 @@ class AllIssuesPage extends StatelessWidget {
     );
   }
 }
-
 class BillWidget extends StatelessWidget {
-  Map billsMap;
-  Map billColors = {"House" : Colors.teal[100], "Senate" : Colors.deepPurple[100]};
-  Map billColorsDark = {"House" : appColors.house, "Senate" : appColors.senate};
-  Map billIntro = {"House" : "Intro House", "Senate" : "Intro Senate"};
-  Random random = new Random();
+  dynamic billsMap;
+//  final Map billColors = {"House" : Colors.teal[100], "Senate" : Colors.deepPurple[100]};
+  final Map billColorsDark = {"House" : appColors.house, "Senate" : appColors.senate};
+  final Map billIntro = {"House" : "Intro House", "Senate" : "Intro Senate"};
+  final Random random = new Random();
   BillWidget(Map m){
     this.billsMap = m;
   }
   @override
   Widget build(BuildContext context) {
-      return Center(
-          child: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-          BoxShadow(
-          color: Colors.black,
-          blurRadius: 6.0, // has the effect of softening the shadow
-          spreadRadius: 0.0, // has the effect of extending the shadow
-            offset: Offset(
-              1.0, // horizontal, move right 10
-              1.0, // vertical, move down 10
-            ),
-          )
-          ],
-          color: appColors.mainTheme,
-          border: Border.all(color: Colors.black, width: 1,),
-          borderRadius: BorderRadius.circular(4),
-        ),
-              margin: EdgeInsets.symmetric(vertical: 6,horizontal: 12),
-
-              child: Card(
-//                  shadowColor: Colors.transparent,
-                  color: appColors.background,
-                  child: InkWell(
-                      splashColor: Colors.blue.withAlpha(30),
-                      onTap: () {
-                        // Pushing a named route
-                        Navigator.of(context).pushNamed(
-                          '/issue',
-                          arguments: billsMap,
-                        );
-                      },
-                      child: Container(
-//                        height: 140,
-                          width: 500,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
+    return Center(
+        child: Card(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            elevation: 5.0,
+            shadowColor: Colors.black,
+            color: appColors.background,
+            child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {
+                  // Pushing a named route
+                  Navigator.of(context).pushNamed(
+                    '/issue',
+                    arguments: billsMap,
+                  );
+                },
+                child: Container(
+                    width: 500,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-                              Container(
-                                padding: EdgeInsets.fromLTRB(5,5,5,0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Text(
-                                        "Introduced in the "+ billsMap["Chamber"] +"\n" + billsMap[billIntro[billsMap["Chamber"]]],
-                                        style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800,fontStyle: FontStyle.italic, color: billColorsDark[billsMap["Chamber"]])),
-                                    VotingStatusWidget(billsMap, random.nextInt(5) == 0)
+                              VotingStatusWidget(billsMap, random.nextInt(5) == 0),
+                              Text(
+                                  billsMap[billIntro[billsMap["Chamber"]]],
+                                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800,fontStyle: FontStyle.italic, color: Colors.blue)),
 
-
-                                  ],
-                                ),
-                              ),
-
-                              Container(
-                                padding: EdgeInsets.fromLTRB(10,10,5,20),
-                                child: Text(
-                                    billsMap["Short Title"],
-                                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: appColors.text)),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  FlatButton(
-                                    onPressed: (){},
-                                    child: Icon(Icons.assessment, color: appColors.text,),
-                                  ),
-                                ],
-                              ),
 
 
                             ],
-                          )
-                      )
+                          ),
+                        ),
 
-                  )
-              )
+                        Container(
+                          padding: EdgeInsets.all(15),
+                          child: Text(
+                              "Issue to be voted on",
+                              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: appColors.text)),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          child:Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Row(
+                                children: <Widget>[
+                                  Icon(Icons.contacts,color: appColors.text,),
+                                  Text("  234,798 votes", style: TextStyle(color: appColors.text, fontSize: 10),)
+                                ],
+                              ),
+                              FlatButton(
+                                onPressed: (){},
+                                child: Icon(Icons.assessment, color: appColors.text,),
+                              ),
+                            ],
+                          ),
+                        ),
 
-          )
-      );
+
+
+                      ],
+                    )
+                )
+
+            )
+        )
+    );
+
+
+
 
   }
 }
