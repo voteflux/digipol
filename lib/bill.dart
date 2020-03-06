@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/route_generator.dart';
+import 'package:voting_app/styles.dart';
 
 class BillPage extends StatelessWidget {
   // This is a String for the sake of an example.
@@ -14,6 +15,7 @@ class BillPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: appColors.background,
       appBar: AppBar(
         title: Text('Vote on Bill'),
       ),
@@ -23,11 +25,11 @@ class BillPage extends StatelessWidget {
             children: <Widget>[
               Text(
                 data["Short Title"],
-                style: TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: 30, color: appColors.text),
               ),
               Text(
                 data["URL"],
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 20, color: appColors.text),
               ),
             ],
           ),

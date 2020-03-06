@@ -3,6 +3,7 @@ import 'package:voting_app/all_bills.dart';
 import 'package:voting_app/bill.dart';
 import 'package:voting_app/all_issues.dart';
 import 'package:voting_app/issue.dart';
+import 'package:voting_app/main.dart';
 import 'package:voting_app/profile.dart';
 
 
@@ -13,7 +14,7 @@ class RouteGenerator {
 
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => AllBillsPage());
+        return MaterialPageRoute(builder: (_) => MyApp());
 
       case '/bill':
         if (args is Map) {
@@ -42,7 +43,7 @@ class RouteGenerator {
 
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => AllIssuesPage());
+        return MaterialPageRoute(builder: (_) => MyApp());
 
       case '/issue':
         if (args is Map) {
@@ -71,7 +72,7 @@ class RouteGenerator {
 
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => ProfilePage());
+        return MaterialPageRoute(builder: (_) => MyApp());
         // If args is not of the correct type, return an error page.
         // You can also throw an exception while in development.
         return _errorRoute();
