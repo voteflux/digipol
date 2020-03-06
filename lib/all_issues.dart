@@ -124,7 +124,7 @@ class VotingStatusWidget extends StatelessWidget {
   }
 
   statusMessage(){
-    String s = "Voting Closed";
+    String s = "Closed";
     Color c = Colors.red;
     var i = Icons.adjust;
     if (voted){
@@ -134,14 +134,14 @@ class VotingStatusWidget extends StatelessWidget {
     }else{
       if (billsMap["Chamber"] == "House"){
         if (billsMap["Passed Senate"] == ""){
-          s = "Voting Open";
+          s = "Open";
           c = Colors.green;
           i = Icons.add_circle_outline;
 
         }
       }else{
         if (billsMap["Passed House"] == ""){
-          s = "Voting Open";
+          s = "Open";
           c = Colors.green;
           i = Icons.add_circle_outline;
         }
@@ -153,19 +153,17 @@ class VotingStatusWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+        child: Column(
           children: <Widget>[
-
-            Text(
-              statusMessage()[1],
-              style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: statusMessage()[0]),
-
-            ),
             Icon(
-            statusMessage()[2],
+              statusMessage()[2],
               color: statusMessage()[0],
               size: 20,
+            ),
+            Text(
+              statusMessage()[1],
+              style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: statusMessage()[0]),
+
             ),
           ],
         )
