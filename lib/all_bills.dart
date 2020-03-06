@@ -37,85 +37,67 @@ class BillWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black,
-                  blurRadius: 6.0, // has the effect of softening the shadow
-                  spreadRadius: 0.0, // has the effect of extending the shadow
-                  offset: Offset(
-                    1.0, // horizontal, move right 10
-                    1.0, // vertical, move down 10
-                  ),
-                )
-              ],
-              color: appColors.mainTheme,
-              border: Border.all(color: Colors.black, width: 1,),
-              borderRadius: BorderRadius.circular(4),
-            ),
-            margin: EdgeInsets.symmetric(vertical: 6,horizontal: 12),
-
-            child: Card(
-//                  shadowColor: Colors.transparent,
-                color: appColors.background,
-                child: InkWell(
-                    splashColor: Colors.blue.withAlpha(30),
-                    onTap: () {
-                      // Pushing a named route
-                      Navigator.of(context).pushNamed(
-                        '/bill',
-                        arguments: billsMap,
-                      );
-                    },
-                    child: Container(
-//                        height: 140,
-                        width: 500,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: Card(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          elevation: 5.0,
+          shadowColor: Colors.black,
+          color: appColors.background,
+          child: InkWell(
+              splashColor: Colors.blue.withAlpha(30),
+              onTap: () {
+                // Pushing a named route
+                Navigator.of(context).pushNamed(
+                  '/bill',
+                  arguments: billsMap,
+                );
+              },
+              child: Container(
+                  width: 500,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Container(
-                              padding: EdgeInsets.fromLTRB(5,5,5,0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Text(
-                                      "Introduced in the "+ billsMap["Chamber"] +"\n" + billsMap[billIntro[billsMap["Chamber"]]],
-                                      style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800,fontStyle: FontStyle.italic, color: billColorsDark[billsMap["Chamber"]])),
-                                  VotingStatusWidget(billsMap, random.nextInt(5) == 0)
+                            VotingStatusWidget(billsMap, random.nextInt(5) == 0),
+                            Text(
+                                billsMap[billIntro[billsMap["Chamber"]]],
+                                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800,fontStyle: FontStyle.italic, color: billColorsDark[billsMap["Chamber"]])),
 
-
-                                ],
-                              ),
-                            ),
-
-                            Container(
-                              padding: EdgeInsets.fromLTRB(10,10,5,20),
-                              child: Text(
-                                  billsMap["Short Title"],
-                                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: appColors.text)),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                HouseIconsWidget(billsMap),
-                                FlatButton(
-                                  onPressed: (){},
-                                  child: Icon(Icons.assessment, color: appColors.text,),
-                                ),
-                              ],
-                            ),
 
 
                           ],
-                        )
-                    )
+                        ),
+                      ),
 
-                )
-            )
+                      Container(
+                        padding: EdgeInsets.all(15),
+                        child: Text(
+                            billsMap["Short Title"],
+                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: appColors.text)),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          HouseIconsWidget(billsMap),
+                          FlatButton(
+                            onPressed: (){},
+                            child: Icon(Icons.assessment, color: appColors.text,),
+                          ),
+                        ],
+                      ),
+
+
+                    ],
+                  )
+              )
 
         )
+    )
     );
 
 
@@ -199,7 +181,7 @@ class HouseIconsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+      margin: EdgeInsets.all(10),
       height: 20,
       width: 160,
       child: Row(
@@ -255,7 +237,7 @@ class VotingStatusWidget extends StatelessWidget {
   }
 
   statusMessage(){
-    String s = "Voting Closed";
+    String s = "Closed";
     Color c = Colors.red;
     var i = Icons.adjust;
     if (voted){
@@ -265,14 +247,14 @@ class VotingStatusWidget extends StatelessWidget {
     }else{
       if (billsMap["Chamber"] == "House"){
         if (billsMap["Passed Senate"] == ""){
-          s = "Voting Open";
+          s = "Open";
           c = Colors.green;
           i = Icons.add_circle_outline;
 
         }
       }else{
         if (billsMap["Passed House"] == ""){
-          s = "Voting Open";
+          s = "Open";
           c = Colors.green;
           i = Icons.add_circle_outline;
         }
@@ -284,19 +266,17 @@ class VotingStatusWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+        child: Column(
           children: <Widget>[
-
-            Text(
-              statusMessage()[1],
-              style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: statusMessage()[0]),
-
-            ),
             Icon(
               statusMessage()[2],
               color: statusMessage()[0],
               size: 20,
+            ),
+            Text(
+              statusMessage()[1],
+              style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: statusMessage()[0]),
+
             ),
           ],
         )
