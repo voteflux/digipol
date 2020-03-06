@@ -47,7 +47,7 @@ class BillWidget extends StatelessWidget {
                 onTap: () {
                   // Pushing a named route
                   Navigator.of(context).pushNamed(
-                    '/issue',
+                    '/item',
                     arguments: billsMap,
                   );
                 },

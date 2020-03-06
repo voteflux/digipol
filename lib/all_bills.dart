@@ -9,9 +9,49 @@ int index = 0;
 
 class AllBillsPage extends StatelessWidget {
   final List billsList = fetchBills();
+
   @override
   Widget build(BuildContext context) {
-    List<Widget> billWidgetList = [];
+    int billNum = billsList.length;
+    List<Widget> billWidgetList = [
+      Center(
+        child: Container(
+          padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+          child: Column(
+            children: <Widget>[
+
+              Text("TOTAL BILLS", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
+              Text(billNum.toString(), style: TextStyle(fontSize: 50, color: appColors.text),),
+            ],
+          ),
+        )
+      ),
+      Center(
+        child:       Card(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+            margin: EdgeInsets.symmetric(horizontal: 0, vertical: 40),
+            elevation: 5.0,
+            shadowColor: Colors.black,
+            color: appColors.background,
+            child: Container(
+            padding: EdgeInsets.all(20),
+//              height: 150,
+              width: 300,
+              child: Column(
+                children: <Widget>[
+                  Text("A list of all Federal Bills", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
+                  Icon(Icons.subtitles, size: 80,color: appColors.text,),
+                  Text("Vote on the Bills by scrolling and tapping", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
+                  Text("on the Bills that matter most to you", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
+                ],
+              )
+            )
+        ),
+      )
+
+
+
+    ];
     billsList.shuffle();
     for (var i in billsList) {
       billWidgetList.add(BillWidget(i));
@@ -48,7 +88,7 @@ class BillWidget extends StatelessWidget {
               onTap: () {
                 // Pushing a named route
                 Navigator.of(context).pushNamed(
-                  '/bill',
+                  '/item',
                   arguments: billsMap,
                 );
               },

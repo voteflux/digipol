@@ -16,7 +16,7 @@ class RouteGenerator {
       case '/':
         return MaterialPageRoute(builder: (_) => MyApp());
 
-      case '/bill':
+      case '/item':
         if (args is Map) {
           return MaterialPageRoute(
             builder: (_) => BillPage(
@@ -45,7 +45,7 @@ class RouteGenerator {
       case '/':
         return MaterialPageRoute(builder: (_) => MyApp());
 
-      case '/issue':
+      case '/item':
         if (args is Map) {
           return MaterialPageRoute(
             builder: (_) => IssuePage(

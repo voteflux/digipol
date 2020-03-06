@@ -38,6 +38,15 @@ class AppColors {
     issues = Color(0xFF363663);
     text = Colors.black87;
     shareIcon = Color(0xFFd9b526);
+    }else if (styleNum == 3){
+      house = Color(0xFF0f4533);
+      senate = Color(0xFF2c0b56);
+      greyedOut = Colors.grey[800];
+      background = Color(0xFF2c2f34);
+      mainTheme = Color(0xFF23272a);
+      issues = Color(0xFF363663);
+      text = Colors.white;
+      shareIcon = Color(0xFFd9b526);
     }
 
   }
