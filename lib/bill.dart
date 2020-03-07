@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/styles.dart';
-import 'package:voting_app/all_bills.dart';
+import 'package:voting_app/cutom_widgets.dart';
 
 class BillPage extends StatelessWidget {
 
@@ -84,7 +85,17 @@ class BillPage extends StatelessWidget {
                               borderRadius: new BorderRadius.circular(18.0),
                               side: BorderSide(color: Colors.red)
                           ),
-                          onPressed: (){},
+                          onPressed: (){
+                            AlertDialog(
+                              title: Text("Vote"),
+                              content: Text("Are you sure you ant to vote?"),
+                              actions: <Widget>[
+                                FlatButton(child: Text("No"),),
+                                FlatButton(child: Text("Yes"),),
+                              ],
+                              elevation: 24.0,
+                            );
+                          },
                           padding: EdgeInsets.all(20),
                           color: Colors.red,
                           child: Text("Vote No",style: TextStyle(fontSize: 20, color: appColors.text)),
