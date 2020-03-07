@@ -65,4 +65,4 @@ class AppColors {
 
 }
 
-var appColors = AppColors(0);
+var appColors = AppColors(2);

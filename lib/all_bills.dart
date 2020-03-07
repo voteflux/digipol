@@ -303,8 +303,14 @@ class BillsMessageWidget extends StatelessWidget {
               width: 300,
               child: Column(
                 children: <Widget>[
-                  Text("A list of all Federal Bills", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
-                  Icon(Icons.subtitles, size: 80,color: appColors.text,),
+                  Text("A list of all Federal Bills", style: TextStyle(fontSize: 15, color: appColors.text,fontWeight: FontWeight.bold),),
+//                  Icon(Icons.subtitles, size: 80,color: appColors.text,),
+                  Container(
+                    height: 100,
+                    width: 100,
+                    child: Image(image: AssetImage('assets/graphics/point.png')),
+
+                  ),
                   Text("Vote on the Bills by scrolling and tapping", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
                   Text("on the Bills that matter most to you", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
                 ],

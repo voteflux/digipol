@@ -4,8 +4,7 @@ import 'package:voting_app/styles.dart';
 import 'package:voting_app/all_bills.dart';
 
 class BillPage extends StatelessWidget {
-  // This is a String for the sake of an example.
-  // You can use any type you want.
+
   final Map data;
 
   BillPage({
@@ -24,20 +23,47 @@ class BillPage extends StatelessWidget {
         child: Center(
           child: ListView(
             children: <Widget>[
+              Text(
+                "PAGE UNDER CONSTRUCTION",
+                style: TextStyle(fontSize: 30, color: Colors.red),
+
+              ),
               VotingStatusWidget(data,false,40),
+
 
               Text(
                 data["Short Title"],
                 style: TextStyle(fontSize: 30, color: appColors.text),
 
               ),
-              Card(
-                color: appColors.card,
-                child: HouseIconsWidget(data, 40),
-              ),
+              HouseIconsWidget(data, 40),
               Text(
                 data["Summary"],
                 style: TextStyle(fontSize: 20, color: appColors.text),
+              ),
+              Card(
+                color: appColors.card,
+                child: Container(
+                    padding: EdgeInsets.all(40),
+                    child: Row(
+                      children: <Widget>[
+
+                        FlatButton(
+                          shape: BeveledRectangleBorder(),
+                          onPressed: (){},
+                          padding: EdgeInsets.all(20),
+                          color: Colors.blue,
+                          child: Text("Full Bill Text",style: TextStyle(fontSize: 20, color: appColors.text)),
+                        ),
+                        FlatButton(
+                          onPressed: (){},
+                          padding: EdgeInsets.all(20),
+                          color: Colors.purple,
+                          child: Text("EM",style: TextStyle(fontSize: 20, color: appColors.text)),
+                        ),
+                      ],
+                    )
+                ),
               ),
               Card(
                 color: appColors.card,
@@ -47,12 +73,17 @@ class BillPage extends StatelessWidget {
                       children: <Widget>[
 
                         FlatButton(
+                          shape: BeveledRectangleBorder(),
                           onPressed: (){},
                           padding: EdgeInsets.all(20),
                           color: Colors.blue,
                           child: Text("Vote Yes",style: TextStyle(fontSize: 20, color: appColors.text)),
                         ),
                         FlatButton(
+                          shape:RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(18.0),
+                              side: BorderSide(color: Colors.red)
+                          ),
                           onPressed: (){},
                           padding: EdgeInsets.all(20),
                           color: Colors.red,
@@ -61,7 +92,7 @@ class BillPage extends StatelessWidget {
                       ],
                     )
                 ),
-              )
+              ),
             ],
           ),
         ),
