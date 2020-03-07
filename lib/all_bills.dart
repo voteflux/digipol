@@ -14,45 +14,10 @@ class AllBillsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     int billNum = billsList.length;
     List<Widget> billWidgetList = [
-      Center(
-        child: Container(
-          padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
-          child: Column(
-            children: <Widget>[
-
-              Text("TOTAL BILLS", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
-              Text(billNum.toString(), style: TextStyle(fontSize: 50, color: appColors.text),),
-            ],
-          ),
-        )
-      ),
-      Center(
-        child:       Card(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-            margin: EdgeInsets.symmetric(horizontal: 0, vertical: 40),
-            elevation: 5.0,
-            shadowColor: Colors.black,
-            color: appColors.background,
-            child: Container(
-            padding: EdgeInsets.all(20),
-//              height: 150,
-              width: 300,
-              child: Column(
-                children: <Widget>[
-                  Text("A list of all Federal Bills", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
-                  Icon(Icons.subtitles, size: 80,color: appColors.text,),
-                  Text("Vote on the Bills by scrolling and tapping", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
-                  Text("on the Bills that matter most to you", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
-                ],
-              )
-            )
-        ),
-      )
-
-
-
+      CountUpWidget(billNum, "TOTAL BILLS"),
+      BillsMessageWidget()
     ];
-    billsList.shuffle();
+//    billsList.shuffle();
     for (var i in billsList) {
       billWidgetList.add(BillWidget(i));
     }
@@ -67,7 +32,6 @@ class AllBillsPage extends StatelessWidget {
 
 class BillWidget extends StatelessWidget {
   dynamic billsMap;
-//  final Map billColors = {"House" : Colors.teal[100], "Senate" : Colors.deepPurple[100]};
   final Map billColorsDark = {"House" : appColors.house, "Senate" : appColors.senate};
   final Map billIntro = {"House" : "Intro House", "Senate" : "Intro Senate"};
   final Random random = new Random();
@@ -82,7 +46,7 @@ class BillWidget extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           elevation: 5.0,
           shadowColor: Colors.black,
-          color: appColors.background,
+          color: appColors.card,
           child: InkWell(
               splashColor: Colors.blue.withAlpha(30),
               onTap: () {
@@ -108,8 +72,6 @@ class BillWidget extends StatelessWidget {
                                 billsMap[billIntro[billsMap["Chamber"]]],
                                 style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800,fontStyle: FontStyle.italic, color: billColorsDark[billsMap["Chamber"]])),
 
-
-
                           ],
                         ),
                       ),
@@ -123,7 +85,7 @@ class BillWidget extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          HouseIconsWidget(billsMap),
+                          HouseIconsWidget(billsMap, 20),
                           FlatButton(
                             onPressed: (){},
                             child: Icon(Icons.assessment, color: appColors.text,),
@@ -140,9 +102,6 @@ class BillWidget extends StatelessWidget {
     )
     );
 
-
-
-
   }
 }
 
@@ -151,9 +110,10 @@ class HouseIconsWidget extends StatelessWidget {
   final Color senateColor = appColors.senate;
   final Color houseColor = appColors.house;
   final Color noFillColor = appColors.greyedOut;
-
-  HouseIconsWidget(Map m){
+  double size = 20;
+  HouseIconsWidget(Map m, double size){
     this.billsMap = m;
+    this.size = size;
   }
 
   hiChooser(Map theBill){
@@ -222,45 +182,45 @@ class HouseIconsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(10),
-      height: 20,
-      width: 160,
+      height: this.size,
+      width: this.size*8,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Icon(
             Icons.account_balance,
             color: hiChooser(billsMap),
-            size: 20,
+            size: this.size,
           ),
           Icon(
             Icons.label_important,
             color: appColors.greyedOut,
-            size: 20,
+            size: this.size,
           ),
           Icon(
             Icons.check_circle,
             color: hpChooser(billsMap),
-            size: 20,
+            size: this.size,
           ),
           Icon(
             Icons.label_important,
             color: appColors.greyedOut,
-            size: 20,
+            size: this.size,
           ),
           Icon(
             Icons.account_balance,
             color: siChooser(billsMap),
-            size: 20,
+            size: this.size,
           ),
           Icon(
             Icons.label_important,
             color: appColors.greyedOut,
-            size: 20,
+            size: this.size,
           ),
           Icon(
             Icons.check_circle,
             color: spChooser(billsMap),
-            size: 20,
+            size: this.size,
           ),
         ],
       ),
@@ -278,24 +238,24 @@ class VotingStatusWidget extends StatelessWidget {
 
   statusMessage(){
     String s = "Closed";
-    Color c = Colors.red;
+    Color c = appColors.voteClosed;
     var i = Icons.adjust;
     if (voted){
       s = "Voted";
-      c = Colors.blue;
+      c = appColors.voted;
       i = Icons.check_circle_outline;
     }else{
       if (billsMap["Chamber"] == "House"){
         if (billsMap["Passed Senate"] == ""){
           s = "Open";
-          c = Colors.green;
+          c = appColors.voteOpen;
           i = Icons.add_circle_outline;
 
         }
       }else{
         if (billsMap["Passed House"] == ""){
           s = "Open";
-          c = Colors.green;
+          c = appColors.voteOpen;
           i = Icons.add_circle_outline;
         }
       }
@@ -325,3 +285,81 @@ class VotingStatusWidget extends StatelessWidget {
 }
 
 
+class BillsMessageWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return       Center(
+      child:       Card(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+          margin: EdgeInsets.symmetric(horizontal: 0, vertical: 40),
+          elevation: 5.0,
+          shadowColor: Colors.black,
+          color: appColors.card,
+          child: Container(
+              padding: EdgeInsets.all(20),
+//              height: 150,
+              width: 300,
+              child: Column(
+                children: <Widget>[
+                  Text("A list of all Federal Bills", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
+                  Icon(Icons.subtitles, size: 80,color: appColors.text,),
+                  Text("Vote on the Bills by scrolling and tapping", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
+                  Text("on the Bills that matter most to you", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
+                ],
+              )
+          )
+      ),
+    );
+  }
+}
+
+
+class CountUpWidget extends StatefulWidget {
+  @override
+  _CountUpWidgetState createState() => _CountUpWidgetState();
+  int number;
+  String text;
+  List<int> delayers = [1,2,4,6,8,10,16,18,20];
+  CountUpWidget(int number, String text){
+    this.number = number;
+    this. text = text;
+  }
+}
+
+class _CountUpWidgetState extends State<CountUpWidget> {
+
+
+  int index = 0;
+  int outputNumber = 0;
+  var fw = FontWeight.normal;
+
+  @override
+  Widget build(BuildContext context) {
+
+    if (index < widget.delayers.length){
+      int d = widget.delayers[index];
+      Future.delayed(Duration(milliseconds: d*16), () {
+        setState(() {
+          this.index  = this.index + 1;
+          this.outputNumber = d*widget.number~/20;
+        });
+
+      });
+    }else{
+      fw = FontWeight.bold;
+    }
+
+    return Center(
+        child: Container(
+          padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+          child: Column(
+            children: <Widget>[
+
+              Text(widget.text, style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
+              Text(this.outputNumber.toString(), style: TextStyle(fontSize: 50, color: appColors.text, fontWeight: fw),),
+            ],
+          ),
+        )
+    );
+  }
+}

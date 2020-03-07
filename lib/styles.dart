@@ -9,6 +9,11 @@ class AppColors {
   Color issues;
   Color text;
   Color shareIcon;
+  Color voteOpen;
+  Color voteClosed;
+  Color voted;
+  Color card;
+
 
   AppColors(int styleNum){
     if (styleNum == 0){
@@ -20,6 +25,11 @@ class AppColors {
       issues = Color(0xFF363663);
       text = Color(0xFF99aab5);
       shareIcon = Color(0xFFd9b526);
+      card = Color(0xFF23272a);
+      voteOpen = Colors.green;
+      voteClosed = Colors.red;
+      voted = Colors.blue;
+
     }else if (styleNum == 1){
       house = Color(0xFF214521);
       senate = Color(0xFF772222);
@@ -29,6 +39,11 @@ class AppColors {
       issues = Color(0xFF363663);
       text = Colors.black87;
       shareIcon = Color(0xFFd9b526);
+      card = Colors.grey[300];
+      voteOpen = Colors.green;
+      voteClosed = Colors.red;
+      voted = Colors.blue;
+
     }else if (styleNum == 2){
     senate  = Colors.deepPurple;
     house = Colors.green[800];
@@ -38,15 +53,11 @@ class AppColors {
     issues = Color(0xFF363663);
     text = Colors.black87;
     shareIcon = Color(0xFFd9b526);
-    }else if (styleNum == 3){
-      house = Color(0xFF0f4533);
-      senate = Color(0xFF2c0b56);
-      greyedOut = Colors.grey[800];
-      background = Color(0xFF2c2f34);
-      mainTheme = Color(0xFF23272a);
-      issues = Color(0xFF363663);
-      text = Colors.white;
-      shareIcon = Color(0xFFd9b526);
+    card = Colors.grey[300];
+    voteOpen = Colors.green;
+    voteClosed = Colors.red;
+    voted = Colors.blue;
+
     }
 
   }
@@ -54,4 +65,4 @@ class AppColors {
 
 }
 
-var appColors = AppColors(2);
+var appColors = AppColors(0);
