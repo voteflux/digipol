@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/styles.dart';
+import 'package:voting_app/all_bills.dart';
 
 class BillPage extends StatelessWidget {
   // This is a String for the sake of an example.
@@ -23,6 +24,7 @@ class BillPage extends StatelessWidget {
         child: Center(
           child: ListView(
             children: <Widget>[
+              HouseIconsWidget(data, 40),
               Text(
                 data["Short Title"],
                 style: TextStyle(fontSize: 30, color: appColors.text),

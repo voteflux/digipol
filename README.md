@@ -28,8 +28,9 @@ It will collate voting results and show users the results of their electorates v
 
 The UI/UX is based on the [Flutter Framework](https://flutter.dev/) that uses the Dart Programming Language (this repo). The majority of development is in the `lib` directory which contains:
 
-- `main.dart` - Where the app starts
+- `main.dart` - Where the app starts (BottomNavBar here)
 - `route_generator.dart` - where all the page routing is done
+- `styles.dart` - where the colour themes are set
 - `/api` directory for the API interaction code.
 
 Edit `pubspec.yaml` to include other packages.
@@ -105,7 +106,9 @@ And Run `flutter run -d chrome` in the project dir.
 - Graphs (Public Voice)
 - Commenting on Bills
 - Weekly Reports
-- PolitiCompass - Personalised Voting History
+- Politi Compass - Personalised Voting History
 - Create Issues UI
 - User Profiles
 - Settings - Notifications, Emails
+- sorting bills - Date, title, chamber
+- results map
