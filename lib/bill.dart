@@ -24,15 +24,44 @@ class BillPage extends StatelessWidget {
         child: Center(
           child: ListView(
             children: <Widget>[
-              HouseIconsWidget(data, 40),
+              VotingStatusWidget(data,false,40),
+
               Text(
                 data["Short Title"],
                 style: TextStyle(fontSize: 30, color: appColors.text),
+
+              ),
+              Card(
+                color: appColors.card,
+                child: HouseIconsWidget(data, 40),
               ),
               Text(
-                data["URL"],
+                data["Summary"],
                 style: TextStyle(fontSize: 20, color: appColors.text),
               ),
+              Card(
+                color: appColors.card,
+                child: Container(
+                  padding: EdgeInsets.all(40),
+                    child: Row(
+                      children: <Widget>[
+
+                        FlatButton(
+                          onPressed: (){},
+                          padding: EdgeInsets.all(20),
+                          color: Colors.blue,
+                          child: Text("Vote Yes",style: TextStyle(fontSize: 20, color: appColors.text)),
+                        ),
+                        FlatButton(
+                          onPressed: (){},
+                          padding: EdgeInsets.all(20),
+                          color: Colors.red,
+                          child: Text("Vote No",style: TextStyle(fontSize: 20, color: appColors.text)),
+                        ),
+                      ],
+                    )
+                ),
+              )
             ],
           ),
         ),

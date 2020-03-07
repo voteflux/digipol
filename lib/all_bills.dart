@@ -67,7 +67,7 @@ class BillWidget extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            VotingStatusWidget(billsMap, random.nextInt(5) == 0),
+                            VotingStatusWidget(billsMap, random.nextInt(5) == 0,20),
                             Text(
                                 billsMap[billIntro[billsMap["Chamber"]]],
                                 style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800,fontStyle: FontStyle.italic, color: billColorsDark[billsMap["Chamber"]])),
@@ -231,9 +231,11 @@ class HouseIconsWidget extends StatelessWidget {
 class VotingStatusWidget extends StatelessWidget {
   dynamic billsMap;
   dynamic voted;
-  VotingStatusWidget(Map m, bool v){
+  double size;
+  VotingStatusWidget(Map m, bool v, double size){
     this.billsMap = m;
     this.voted = v;
+    this.size = size;
   }
 
   statusMessage(){
@@ -271,11 +273,11 @@ class VotingStatusWidget extends StatelessWidget {
             Icon(
               statusMessage()[2],
               color: statusMessage()[0],
-              size: 20,
+              size: this.size,
             ),
             Text(
               statusMessage()[1],
-              style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: statusMessage()[0]),
+              style: TextStyle(fontSize: this.size*4/10, fontWeight: FontWeight.bold, color: statusMessage()[0]),
 
             ),
           ],
@@ -288,8 +290,8 @@ class VotingStatusWidget extends StatelessWidget {
 class BillsMessageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return       Center(
-      child:       Card(
+    return Center(
+      child: Card(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
           margin: EdgeInsets.symmetric(horizontal: 0, vertical: 40),
           elevation: 5.0,
