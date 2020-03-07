@@ -31,6 +31,7 @@ The UI/UX is based on the [Flutter Framework](https://flutter.dev/) that uses th
 - `main.dart` - Where the app starts (BottomNavBar here)
 - `route_generator.dart` - where all the page routing is done
 - `styles.dart` - where the colour themes are set
+- `custom_widgets.dart` - where the shared widgets are kept
 - `/api` directory for the API interaction code.
 
 Edit `pubspec.yaml` to include other packages.
