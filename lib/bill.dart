@@ -92,6 +92,8 @@ class BillInfoWidget extends StatelessWidget {
         width: 1200,
         padding: EdgeInsets.all(10),
         child: Card(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+          elevation: 5.0,
           color: appColors.card,
           child: Container(
             margin: EdgeInsets.all(20),
@@ -192,6 +194,8 @@ class VoteWidget extends StatelessWidget {
         width: 1200,
         padding: EdgeInsets.all(10),
         child: Card(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+            elevation: 5.0,
             color: appColors.card,
             child: Column(
               children: <Widget>[
