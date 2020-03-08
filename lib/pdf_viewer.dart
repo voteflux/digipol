@@ -8,9 +8,8 @@ import 'package:http/http.dart' as http;
 import 'package:voting_app/styles.dart';
 
 
-class PdfPage extends StatefulWidget {
-  @override
-  _PdfPageState createState() => _PdfPageState();
+
+class PdfPage extends StatelessWidget {
   String pdfUrl;
 
   PdfPage({
@@ -18,9 +17,43 @@ class PdfPage extends StatefulWidget {
     @required this.pdfUrl,
   }) : super(key: key);
 
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: appColors.background,
+        appBar: AppBar(
+          automaticallyImplyLeading: true,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back,),
+            onPressed: (){
+              Navigator.pop(context);
+            },
+          ),
+          backgroundColor: appColors.mainTheme,
+          title: Text('Bill Info'),
+        ),
+        body: PdfWidget(pdfUrl: pdfUrl)
+      )
+    );
+  }
 }
 
-class _PdfPageState extends State<PdfPage> {
+
+
+class PdfWidget extends StatefulWidget {
+  @override
+  _PdfWidgetState createState() => _PdfWidgetState();
+  String pdfUrl;
+
+  PdfWidget({
+    Key key,
+    @required this.pdfUrl,
+  }) : super(key: key);
+
+}
+
+class _PdfWidgetState extends State<PdfWidget> {
   String path;
 
   @override
@@ -75,17 +108,8 @@ class _PdfPageState extends State<PdfPage> {
   @override
   Widget build(BuildContext context) {
     loadPdf();
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: appColors.background,
-        appBar: AppBar(
-          backgroundColor: appColors.mainTheme,
-          title: Text('Bill Info'),
-        ),
-        body: Center(
-          child: outView(),
-        ),
-      ),
+    return Center(
+      child: outView(),
     );
   }
 }
