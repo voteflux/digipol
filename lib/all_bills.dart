@@ -46,7 +46,6 @@ class BillWidget extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
           margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           elevation: 5.0,
-          shadowColor: Colors.black,
           color: appColors.card,
           child: InkWell(
               splashColor: Colors.blue.withAlpha(30),
@@ -115,7 +114,6 @@ class BillsMessageWidget extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
           margin: EdgeInsets.symmetric(horizontal: 0, vertical: 40),
           elevation: 5.0,
-          shadowColor: Colors.black,
           color: appColors.card,
           child: Container(
               padding: EdgeInsets.all(20),

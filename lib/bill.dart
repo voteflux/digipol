@@ -15,113 +15,227 @@ class BillPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double c_width = MediaQuery.of(context).size.width*0.9;
+    if (c_width > 1200){
+      c_width = 1200;
+    }
     return Scaffold(
       backgroundColor: appColors.background,
       appBar: AppBar(
         backgroundColor: appColors.mainTheme,
         title: Text('Vote on Bill'),
       ),
-      body: Container(
-        child: Center(
+      body: Center(
+        child: Container(
+          width: c_width,
+
           child: ListView(
             children: <Widget>[
-              Text(
-                "PAGE UNDER CONSTRUCTION",
-                style: TextStyle(fontSize: 30, color: Colors.red),
+              Container(
+                  width: c_width*0.8,
+                  padding: EdgeInsets.fromLTRB(10,20,20,20),
+                  child: Wrap(
+                    children: <Widget>[
+                      Text(
+                        data["Short Title"],
+                        style: TextStyle(fontSize: 30, color: appColors.text, fontWeight: FontWeight.w700,),
+                        textAlign: TextAlign.center,
 
+                      ),
+                    ],
+                  )
               ),
-              VotingStatusWidget(billsMap: data, voted: false, size: 40),
 
+              Wrap(
+                children: <Widget>[
+                  HouseIconsWidget(billsMap: data, size: 40),
+                  VotingStatusWidget(billsMap: data, voted: false, size: 40),
 
-              Text(
-                data["Short Title"],
-                style: TextStyle(fontSize: 30, color: appColors.text),
-
+                ],
               ),
-              HouseIconsWidget(billsMap: data, size: 40),
-              Text(
-                data["Summary"],
-                style: TextStyle(fontSize: 20, color: appColors.text),
-              ),
-              Card(
-                color: appColors.card,
-                child: Container(
-                    padding: EdgeInsets.all(40),
-                    child: Row(
-                      children: <Widget>[
 
-                        FlatButton(
-                          shape: BeveledRectangleBorder(),
-                          onPressed: () {
-                            // Pushing a named route
-                            Navigator.of(context).pushNamed(
-                              '/pdf',
-                              arguments: data["text link pdf"],
-                            );
-                          },
-                          padding: EdgeInsets.all(20),
-                          color: Colors.blue,
-                          child: Text("Full Bill Text",style: TextStyle(fontSize: 20, color: appColors.text)),
-                        ),
-                        FlatButton(
-                          onPressed: (){
-                            Navigator.of(context).pushNamed(
-                              '/pdf',
-                              arguments: data["em link pdf"],
-                            );
-                          },
-                          padding: EdgeInsets.all(20),
-                          color: Colors.purple,
-                          child: Text("EM",style: TextStyle(fontSize: 20, color: appColors.text)),
-                        ),
-                      ],
-                    )
+              Container(
+                width: 1200,
+                padding: EdgeInsets.all(20),
+                child: Text(
+                  data["Summary"],
+                  style: TextStyle(fontSize: 20, color: appColors.text),
                 ),
               ),
-              Card(
-                color: appColors.card,
-                child: Container(
-                  padding: EdgeInsets.all(40),
+              BillInfoWidget(billText: data["text link pdf"], billEM: data["em link pdf"],),
+              VoteWidget(data: data,),
+
+            ],
+          ),
+        ),
+        ),
+    );
+  }
+}
+
+
+class BillInfoWidget extends StatelessWidget {
+
+  String billText;
+  String billEM;
+  BillInfoWidget({
+    Key key,
+    @required this.billText,
+    @required this.billEM,
+
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: 1200,
+        padding: EdgeInsets.all(10),
+        child: Card(
+          color: appColors.card,
+          child: Container(
+            margin: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(vertical: 40,horizontal: 0),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                "Bill Information:",
+                style: TextStyle(fontSize: 30, color: appColors.text,fontWeight: FontWeight.bold),
+              ),
+
+                  Wrap(
+//                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                    children: <Widget>[
+                      Container(
+                        width: 500,
+                        padding: EdgeInsets.all(20),
+                        child: Column(
+                          children: <Widget>[
+
+
+                            Container(
+                              margin: EdgeInsets.all(20),
+                              child: FlatButton(
+                                shape:RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(50.0),
+                                ),
+                                onPressed: (){
+                                  Navigator.of(context).pushNamed(
+                                    '/pdf',
+                                    arguments: this.billText,
+                                  );
+                                },
+                                color: Colors.blue[900],
+                                child: Text("View Bill Text",style: TextStyle(fontSize: 20, color: appColors.text)),
+                              ),
+                            ),
+                            Container(
+                              child: Text("Text of the bill as introduced into the Parliament", style: TextStyle(fontSize: 20,color: appColors.text, fontStyle: FontStyle.italic ),),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(20),
+                        width: 500,
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.all(20),
+                              child: FlatButton(
+                                shape:RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(50.0),
+                                ),
+                                onPressed: (){
+                                  Navigator.of(context).pushNamed(
+                                    '/pdf',
+                                    arguments: this.billEM,
+                                  );
+                                },
+                                color: Colors.purple[900],
+                                child: Text("View Explanatory Memoranda",style: TextStyle(fontSize: 20, color: appColors.text)),
+                              ),
+                            ),
+                            Container(
+                              child: Text("Explanatory Memorandum: Accompanies and provides an explanation of the content of the introduced version (first reading) of the bill.", style: TextStyle(fontSize: 20,color: appColors.text, fontStyle: FontStyle.italic),),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+class VoteWidget extends StatelessWidget {
+  Map data;
+  VoteWidget({
+    Key key,
+    @required this.data,
+
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: 1200,
+        padding: EdgeInsets.all(10),
+        child: Card(
+            color: appColors.card,
+            child: Column(
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.all(20),
+                  child: Text("How would you like to vote on bill:" ,style: TextStyle(fontSize: 16, color: appColors.text)),
+                ),
+                Container(
+                  padding: EdgeInsets.all(20),
+                  child: Text(this.data["Short Title"],style: TextStyle(fontSize: 20, color: appColors.text, fontWeight: FontWeight.bold)),
+                ),
+                Container(
+                    padding: EdgeInsets.symmetric(vertical: 40,horizontal: 0),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
                       children: <Widget>[
 
                         FlatButton(
-                          shape: BeveledRectangleBorder(),
+                          shape:RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(50.0),
+                          ),
                           onPressed: (){},
-                          padding: EdgeInsets.all(20),
-                          color: Colors.blue,
+                          padding: EdgeInsets.all(10),
+                          color: Colors.green[900],
                           child: Text("Vote Yes",style: TextStyle(fontSize: 20, color: appColors.text)),
                         ),
                         FlatButton(
                           shape:RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(18.0),
-                              side: BorderSide(color: Colors.red)
+                            borderRadius: new BorderRadius.circular(50.0),
                           ),
-                          onPressed: (){
-                            AlertDialog(
-                              title: Text("Vote"),
-                              content: Text("Are you sure you ant to vote?"),
-                              actions: <Widget>[
-                                FlatButton(child: Text("No"),),
-                                FlatButton(child: Text("Yes"),),
-                              ],
-                              elevation: 24.0,
-                            );
-                          },
-                          padding: EdgeInsets.all(20),
-                          color: Colors.red,
+                          onPressed: (){},
+                          padding: EdgeInsets.all(10),
+                          color: Colors.red[900],
                           child: Text("Vote No",style: TextStyle(fontSize: 20, color: appColors.text)),
                         ),
                       ],
                     )
                 ),
-              ),
-            ],
-          ),
+              ],
+            )
         ),
-
-
       ),
+
     );
   }
 }
