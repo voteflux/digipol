@@ -131,8 +131,7 @@ class BillsMessageWidget extends StatelessWidget {
                     child: Image(image: AssetImage('assets/graphics/point.png')),
 
                   ),
-                  Text("Vote on the Bills by scrolling and tapping", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
-                  Text("on the Bills that matter most to you", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
+                  Text("Vote on the Bills by scrolling and tapping on the Bills that matter most to you", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
                 ],
               )
           )

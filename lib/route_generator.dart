@@ -5,6 +5,7 @@ import 'package:voting_app/all_issues.dart';
 import 'package:voting_app/issue.dart';
 import 'package:voting_app/main.dart';
 import 'package:voting_app/profile.dart';
+import 'package:voting_app/pdf_viewer.dart';
 
 
 class RouteGenerator {
@@ -22,6 +23,18 @@ class RouteGenerator {
             builder: (_) => BillPage(
               data: args,
             ),
+          );
+
+        }
+        return _errorRoute();
+
+      case '/pdf':
+        if (args is String){
+          return MaterialPageRoute(
+            builder: (_) => PdfPage(
+              pdfUrl: args,
+
+            )
           );
         }
 
