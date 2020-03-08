@@ -18,6 +18,7 @@ class BillPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: appColors.background,
       appBar: AppBar(
+        backgroundColor: appColors.mainTheme,
         title: Text('Vote on Bill'),
       ),
       body: Container(
@@ -51,13 +52,24 @@ class BillPage extends StatelessWidget {
 
                         FlatButton(
                           shape: BeveledRectangleBorder(),
-                          onPressed: (){},
+                          onPressed: () {
+                            // Pushing a named route
+                            Navigator.of(context).pushNamed(
+                              '/pdf',
+                              arguments: data["text link pdf"],
+                            );
+                          },
                           padding: EdgeInsets.all(20),
                           color: Colors.blue,
                           child: Text("Full Bill Text",style: TextStyle(fontSize: 20, color: appColors.text)),
                         ),
                         FlatButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.of(context).pushNamed(
+                              '/pdf',
+                              arguments: data["em link pdf"],
+                            );
+                          },
                           padding: EdgeInsets.all(20),
                           color: Colors.purple,
                           child: Text("EM",style: TextStyle(fontSize: 20, color: appColors.text)),
