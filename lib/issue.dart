@@ -24,11 +24,11 @@ class IssuePage extends StatelessWidget {
           child: ListView(
             children: <Widget>[
               Text(
-                data["Short Title"],
+                "Issue Title",
                 style: TextStyle(fontSize: 30, color: appColors.text),
               ),
               Text(
-                data["URL"],
+                "Issue text",
                 style: TextStyle(fontSize: 20, color: appColors.text),
               ),
             ],
