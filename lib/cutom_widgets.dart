@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/styles.dart';
 
 
-
-
 class HouseIconsWidget extends StatelessWidget {
   dynamic billsMap;
   final Color senateColor = appColors.senate;
   final Color houseColor = appColors.house;
   final Color noFillColor = appColors.greyedOut;
   double size = 20;
-  HouseIconsWidget(Map m, double size){
-    this.billsMap = m;
-    this.size = size;
-  }
+
+
+  HouseIconsWidget({
+    Key key,
+    @required this.billsMap,
+    @required this.size,
+
+  }) : super(key: key);
 
   hiChooser(Map theBill){
     if (theBill["Chamber"] == "House"){
@@ -128,14 +130,17 @@ class HouseIconsWidget extends StatelessWidget {
 }
 
 class VotingStatusWidget extends StatelessWidget {
-  dynamic billsMap;
-  dynamic voted;
+  Map billsMap;
+  bool voted;
   double size;
-  VotingStatusWidget(Map m, bool v, double size){
-    this.billsMap = m;
-    this.voted = v;
-    this.size = size;
-  }
+
+  VotingStatusWidget({
+    Key key,
+    @required this.billsMap,
+    @required this.voted,
+    @required this.size,
+
+  }) : super(key: key);
 
   statusMessage(){
     String s = "Closed";
@@ -195,10 +200,14 @@ class CountUpWidget extends StatefulWidget {
   int number;
   String text;
   List<int> delayers = [1,2,4,6,8,10,16,18,20];
-  CountUpWidget(int number, String text){
-    this.number = number;
-    this. text = text;
-  }
+
+
+  CountUpWidget({
+    Key key,
+    @required this.number,
+    @required this.text,
+  }) : super(key: key);
+
 }
 
 class _CountUpWidgetState extends State<CountUpWidget> {

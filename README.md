@@ -43,7 +43,7 @@ Edit `pubspec.yaml` to include other packages.
 - New Issues/Bills and votes are recorded on the block-chain
 
 --------------------------------------------------------------------------------
-git
+
 ## Contributing
 
 A list of current items and their progress can be found [here](https://github.com/voteflux/voting_app/projects/1). If you feel comfortable diving straight in, just fork the repo, and open it up in Android Studio. We use [Effective Dart](https://dart.dev/guides/language/effective-dart) to guide our coding style, so make sure you make yourself familiar. Make the contributions you want to and create a Pull Request.

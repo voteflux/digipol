@@ -30,7 +30,7 @@ class BillPage extends StatelessWidget {
                 style: TextStyle(fontSize: 30, color: Colors.red),
 
               ),
-              VotingStatusWidget(data,false,40),
+              VotingStatusWidget(billsMap: data, voted: false, size: 40),
 
 
               Text(
@@ -38,7 +38,7 @@ class BillPage extends StatelessWidget {
                 style: TextStyle(fontSize: 30, color: appColors.text),
 
               ),
-              HouseIconsWidget(data, 40),
+              HouseIconsWidget(billsMap: data, size: 40),
               Text(
                 data["Summary"],
                 style: TextStyle(fontSize: 20, color: appColors.text),

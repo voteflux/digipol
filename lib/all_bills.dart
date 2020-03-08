@@ -15,7 +15,7 @@ class AllBillsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     int billNum = billsList.length;
     List<Widget> billWidgetList = [
-      CountUpWidget(billNum, "TOTAL BILLS"),
+      CountUpWidget(number: billNum, text: "TOTAL BILLS"),
       BillsMessageWidget()
     ];
 //    billsList.shuffle();
@@ -68,7 +68,7 @@ class BillWidget extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            VotingStatusWidget(billsMap, random.nextInt(5) == 0,20),
+                            VotingStatusWidget(billsMap: billsMap, voted: random.nextInt(5) == 0, size: 20),
                             Text(
                                 billsMap[billIntro[billsMap["Chamber"]]],
                                 style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800,fontStyle: FontStyle.italic, color: billColorsDark[billsMap["Chamber"]])),
@@ -86,7 +86,7 @@ class BillWidget extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          HouseIconsWidget(billsMap, 20),
+                          HouseIconsWidget(billsMap: billsMap, size: 20,),
                           FlatButton(
                             onPressed: (){},
                             child: Icon(Icons.assessment, color: appColors.text,),
