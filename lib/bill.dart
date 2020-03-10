@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/styles.dart';
 import 'package:voting_app/cutom_widgets.dart';
+import 'package:pie_chart/pie_chart.dart';
 
 class BillPage extends StatelessWidget {
 
@@ -13,8 +14,15 @@ class BillPage extends StatelessWidget {
     @required this.data,
   }) : super(key: key);
 
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
+
+
     double c_width = MediaQuery.of(context).size.width*0.9;
     if (c_width > 1200){
       c_width = 1200;
@@ -63,7 +71,9 @@ class BillPage extends StatelessWidget {
                 ),
               ),
               BillInfoWidget(billText: data["text link pdf"], billEM: data["em link pdf"],),
+              PieWidget(yes: 1000,no: 551, radius: c_width,),
               VoteWidget(data: data,),
+
 
             ],
           ),

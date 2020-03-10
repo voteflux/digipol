@@ -77,7 +77,7 @@ class BillWidget extends StatelessWidget {
                       ),
 
                       Container(
-                        padding: EdgeInsets.all(15),
+                        padding: EdgeInsets.fromLTRB(15, 5, 5, 0),
                         child: Text(
                             billsMap["Short Title"],
                             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: appColors.text)),
@@ -86,10 +86,7 @@ class BillWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           HouseIconsWidget(billsMap: billsMap, size: 20,),
-                          FlatButton(
-                            onPressed: (){},
-                            child: Icon(Icons.assessment, color: appColors.text,),
-                          ),
+                          PieWidget(yes: random.nextInt(100), no: random.nextInt(100),radius: 55,)
                         ],
                       ),
 
