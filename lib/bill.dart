@@ -197,8 +197,51 @@ class VoteWidget extends StatelessWidget {
 
   }) : super(key: key);
 
+
+
+
   @override
   Widget build(BuildContext context) {
+
+
+    AreYouSure(String vote){
+      return showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: appColors.card,
+            title: Text('Confirm Vote',style: TextStyle(color: appColors.text)),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: <Widget>[
+                  Text('Are you sure you want to vote ',  style: TextStyle(color: appColors.text)),
+                  Text(vote + '?',  style: TextStyle(color: appColors.text, fontWeight: FontWeight.bold)),
+
+                ],
+              ),
+            ),
+            actions: <Widget>[
+              FlatButton(
+                child: Text('Cancel'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              FlatButton(
+                child: Text('Confirm Vote'),
+                onPressed: () {
+                  // Put the vote on the blockchain!
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+
+
     return Center(
       child: Container(
         width: 1200,
@@ -228,7 +271,9 @@ class VoteWidget extends StatelessWidget {
                           shape:RoundedRectangleBorder(
                             borderRadius: new BorderRadius.circular(50.0),
                           ),
-                          onPressed: (){},
+                          onPressed: (){
+                            AreYouSure("Yes");
+                          },
                           padding: EdgeInsets.all(10),
                           color: Colors.green[900],
                           child: Text("Vote Yes",style: TextStyle(fontSize: 20, color: appColors.text)),
@@ -237,7 +282,9 @@ class VoteWidget extends StatelessWidget {
                           shape:RoundedRectangleBorder(
                             borderRadius: new BorderRadius.circular(50.0),
                           ),
-                          onPressed: (){},
+                          onPressed: (){
+                            AreYouSure("No");
+                          },
                           padding: EdgeInsets.all(10),
                           color: Colors.red[900],
                           child: Text("Vote No",style: TextStyle(fontSize: 20, color: appColors.text)),
