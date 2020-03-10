@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/styles.dart';
 import 'package:pie_chart/pie_chart.dart';
 
-
 class HouseIconsWidget extends StatelessWidget {
   dynamic billsMap;
   final Color senateColor = appColors.senate;
@@ -262,26 +261,25 @@ class PieWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    double yesOut = (this.yes/(this.yes + this.no))*100;
+    double yesOut = (this.yes / (this.yes + this.no)) * 100;
     double noOut = 100 - yesOut;
-
 
     Map<String, double> dataMap = new Map();
     dataMap.putIfAbsent("No", () => noOut);
     dataMap.putIfAbsent("Yes", () => yesOut);
 
-
-    return  PieChart(
+    return PieChart(
       dataMap: dataMap,
       animationDuration: Duration(milliseconds: 1500),
       chartLegendSpacing: 10.0,
       chartRadius: this.radius,
       showChartValuesInPercentage: true,
-      legendStyle: TextStyle(fontSize: this.radius/20+10,color: appColors.text),
-      chartValueStyle: TextStyle(fontSize: this.radius/20+10,fontWeight: FontWeight.bold,color: Colors.black),
-
+      legendStyle:
+          TextStyle(fontSize: this.radius / 20 + 10, color: appColors.text),
+      chartValueStyle: TextStyle(
+          fontSize: this.radius / 20 + 10,
+          fontWeight: FontWeight.bold,
+          color: Colors.black),
     );
   }
 }
-

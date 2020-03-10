@@ -34,8 +34,6 @@ class IssuePage extends StatelessWidget {
             ],
           ),
         ),
-
-
       ),
     );
   }

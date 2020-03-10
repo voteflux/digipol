@@ -3,7 +3,6 @@ import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/styles.dart';
 
 class ProfilePage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,8 +18,6 @@ class ProfilePage extends StatelessWidget {
             ],
           ),
         ),
-
-
       ),
     );
   }

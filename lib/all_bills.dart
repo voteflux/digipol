@@ -23,92 +23,102 @@ class AllBillsPage extends StatelessWidget {
       billWidgetList.add(BillWidget(i));
     }
     return Center(
-        child: ListView(
-          controller: ScrollController(),
-          children: billWidgetList,
-        ),
-      );
+      child: ListView(
+        controller: ScrollController(),
+        children: billWidgetList,
+      ),
+    );
   }
 }
 
 class BillWidget extends StatelessWidget {
   dynamic billsMap;
-  final Map billColorsDark = {"House" : appColors.house, "Senate" : appColors.senate};
-  final Map billIntro = {"House" : "Intro House", "Senate" : "Intro Senate"};
+  final Map billColorsDark = {
+    "House": appColors.house,
+    "Senate": appColors.senate
+  };
+  final Map billIntro = {"House": "Intro House", "Senate": "Intro Senate"};
   final Random random = new Random();
-  BillWidget(Map m){
+  BillWidget(Map m) {
     this.billsMap = m;
   }
   @override
   Widget build(BuildContext context) {
     return Center(
         child: Card(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          elevation: 5.0,
-          color: appColors.card,
-          child: InkWell(
-              splashColor: Colors.blue.withAlpha(30),
-              onTap: () {
-                // Pushing a named route
-                Navigator.of(context).pushNamed(
-                  '/item',
-                  arguments: billsMap,
-                );
-              },
-              child: Container(
-                  width: 500,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        child: Row(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0)),
+            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            elevation: 5.0,
+            color: appColors.card,
+            child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {
+                  // Pushing a named route
+                  Navigator.of(context).pushNamed(
+                    '/item',
+                    arguments: billsMap,
+                  );
+                },
+                child: Container(
+                    width: 500,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              VotingStatusWidget(
+                                  billsMap: billsMap,
+                                  voted: random.nextInt(5) == 0,
+                                  size: 20),
+                              Text(billsMap[billIntro[billsMap["Chamber"]]],
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w800,
+                                      fontStyle: FontStyle.italic,
+                                      color:
+                                          billColorsDark[billsMap["Chamber"]])),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(15, 5, 5, 0),
+                          child: Text(billsMap["Short Title"],
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: appColors.text)),
+                        ),
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            VotingStatusWidget(billsMap: billsMap, voted: random.nextInt(5) == 0, size: 20),
-                            Text(
-                                billsMap[billIntro[billsMap["Chamber"]]],
-                                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800,fontStyle: FontStyle.italic, color: billColorsDark[billsMap["Chamber"]])),
-
+                            HouseIconsWidget(
+                              billsMap: billsMap,
+                              size: 20,
+                            ),
+                            PieWidget(
+                              yes: random.nextInt(100),
+                              no: random.nextInt(100),
+                              radius: 55,
+                            )
                           ],
                         ),
-                      ),
-
-                      Container(
-                        padding: EdgeInsets.fromLTRB(15, 5, 5, 0),
-                        child: Text(
-                            billsMap["Short Title"],
-                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: appColors.text)),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          HouseIconsWidget(billsMap: billsMap, size: 20,),
-                          PieWidget(yes: random.nextInt(100), no: random.nextInt(100),radius: 55,)
-                        ],
-                      ),
-
-
-                    ],
-                  )
-              )
-
-        )
-    )
-    );
-
+                      ],
+                    )))));
   }
 }
-
 
 class BillsMessageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
           margin: EdgeInsets.symmetric(horizontal: 0, vertical: 40),
           elevation: 5.0,
           color: appColors.card,
@@ -118,20 +128,29 @@ class BillsMessageWidget extends StatelessWidget {
               width: 300,
               child: Column(
                 children: <Widget>[
-                  Text("A list of all Federal Bills", style: TextStyle(fontSize: 15, color: appColors.text,fontWeight: FontWeight.bold),),
+                  Text(
+                    "A list of all Federal Bills",
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: appColors.text,
+                        fontWeight: FontWeight.bold),
+                  ),
 //                  Icon(Icons.subtitles, size: 80,color: appColors.text,),
                   Container(
                     height: 100,
                     width: 100,
-                    child: Image(image: AssetImage('assets/graphics/point.png')),
-
+                    child:
+                        Image(image: AssetImage('assets/graphics/point.png')),
                   ),
-                  Text("Vote on the Bills by scrolling and tapping on the Bills that matter most to you", style: TextStyle(fontSize: 13, color: appColors.text,fontWeight: FontWeight.bold),),
+                  Text(
+                    "Vote on the Bills by scrolling and tapping on the Bills that matter most to you",
+                    style: TextStyle(
+                        fontSize: 13,
+                        color: appColors.text,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ],
-              )
-          )
-      ),
+              ))),
     );
   }
 }
-

@@ -7,8 +7,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:voting_app/styles.dart';
 
-
-
 class PdfPage extends StatelessWidget {
   String pdfUrl;
 
@@ -20,26 +18,24 @@ class PdfPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: appColors.background,
-        appBar: AppBar(
-          automaticallyImplyLeading: true,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back,),
-            onPressed: (){
-              Navigator.pop(context);
-            },
-          ),
-          backgroundColor: appColors.mainTheme,
-          title: Text('Bill Info'),
-        ),
-        body: PdfWidget(pdfUrl: pdfUrl)
-      )
-    );
+        home: Scaffold(
+            backgroundColor: appColors.background,
+            appBar: AppBar(
+              automaticallyImplyLeading: true,
+              leading: IconButton(
+                icon: Icon(
+                  Icons.arrow_back,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              backgroundColor: appColors.mainTheme,
+              title: Text('Bill Info'),
+            ),
+            body: PdfWidget(pdfUrl: pdfUrl)));
   }
 }
-
-
 
 class PdfWidget extends StatefulWidget {
   @override
@@ -50,7 +46,6 @@ class PdfWidget extends StatefulWidget {
     Key key,
     @required this.pdfUrl,
   }) : super(key: key);
-
 }
 
 class _PdfWidgetState extends State<PdfWidget> {
@@ -80,8 +75,7 @@ class _PdfWidgetState extends State<PdfWidget> {
   }
 
   Future<Uint8List> fetchPost() async {
-    final response = await http.get(
-        widget.pdfUrl);
+    final response = await http.get(widget.pdfUrl);
     final responseJson = response.bodyBytes;
 
     return responseJson;
@@ -96,10 +90,10 @@ class _PdfWidgetState extends State<PdfWidget> {
     setState(() {});
   }
 
-  Widget outView(){
+  Widget outView() {
     if (path != null)
-      return  PdfViewer(
-          filePath: path,
+      return PdfViewer(
+        filePath: path,
       );
     else
       return Text("Bill info did not load :(");
