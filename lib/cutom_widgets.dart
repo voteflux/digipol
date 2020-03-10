@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/styles.dart';
+import 'package:pie_chart/pie_chart.dart';
 
 class HouseIconsWidget extends StatelessWidget {
   dynamic billsMap;
@@ -14,7 +15,7 @@ class HouseIconsWidget extends StatelessWidget {
     @required this.size,
   }) : super(key: key);
 
-  // todo: comment meaning of 'hi', 'hp', 'si', etc
+  // gets correct colour for Intro House
   hiChooser(Map theBill) {
     if (theBill["Chamber"] == "House") {
       if (theBill["Intro House"] == "") {
@@ -31,6 +32,7 @@ class HouseIconsWidget extends StatelessWidget {
     }
   }
 
+  // gets correct colour for Passed House
   hpChooser(Map theBill) {
     if (theBill["Chamber"] == "House") {
       if (theBill["Passed House"] == "") {
@@ -47,6 +49,7 @@ class HouseIconsWidget extends StatelessWidget {
     }
   }
 
+  // gets correct colour for Intro Senate
   siChooser(Map theBill) {
     if (theBill["Chamber"] == "House") {
       if (theBill["Intro Senate"] == "") {
@@ -63,6 +66,7 @@ class HouseIconsWidget extends StatelessWidget {
     }
   }
 
+  // gets correct colour for Passed Senate
   spChooser(Map theBill) {
     if (theBill["Chamber"] == "House") {
       if (theBill["Passed Senate"] == "") {
@@ -243,5 +247,42 @@ class _CountUpWidgetState extends State<CountUpWidget> {
         ],
       ),
     ));
+  }
+}
+
+class PieWidget extends StatelessWidget {
+  int yes;
+  int no;
+  double radius;
+
+  PieWidget({
+    Key key,
+    @required this.yes,
+    @required this.no,
+    @required this.radius,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double yesOut = (this.yes / (this.yes + this.no)) * 100;
+    double noOut = 100 - yesOut;
+
+    Map<String, double> dataMap = new Map();
+    dataMap.putIfAbsent("No", () => noOut);
+    dataMap.putIfAbsent("Yes", () => yesOut);
+
+    return PieChart(
+      dataMap: dataMap,
+      animationDuration: Duration(milliseconds: 1500),
+      chartLegendSpacing: 10.0,
+      chartRadius: this.radius,
+      showChartValuesInPercentage: true,
+      legendStyle:
+          TextStyle(fontSize: this.radius / 20 + 10, color: appColors.text),
+      chartValueStyle: TextStyle(
+          fontSize: this.radius / 20 + 10,
+          fontWeight: FontWeight.bold,
+          color: Colors.black),
+    );
   }
 }

@@ -7,7 +7,6 @@ import 'package:voting_app/main.dart';
 import 'package:voting_app/profile.dart';
 import 'package:voting_app/pdf_viewer.dart';
 
-
 class RouteGenerator {
   static Route<dynamic> generateBillRoute(RouteSettings settings) {
     // Getting arguments passed in while calling Navigator.pushNamed
@@ -24,18 +23,15 @@ class RouteGenerator {
               data: args,
             ),
           );
-
         }
         return _errorRoute();
 
       case '/pdf':
-        if (args is String){
+        if (args is String) {
           return MaterialPageRoute(
-            builder: (_) => PdfPage(
-              pdfUrl: args,
-
-            )
-          );
+              builder: (_) => PdfPage(
+                    pdfUrl: args,
+                  ));
         }
 
         // If args is not of the correct type, return an error page.
@@ -43,11 +39,9 @@ class RouteGenerator {
         return _errorRoute();
 
       default:
-      // If there is no such named route in the switch statement, e.g. /third
+        // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();
-
     }
-
   }
 
   static Route<dynamic> generateIssueRoute(RouteSettings settings) {
@@ -72,11 +66,9 @@ class RouteGenerator {
         return _errorRoute();
 
       default:
-      // If there is no such named route in the switch statement, e.g. /third
+        // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();
-
     }
-
   }
 
   static Route<dynamic> generateSettingsRoute(RouteSettings settings) {
@@ -91,11 +83,9 @@ class RouteGenerator {
         return _errorRoute();
 
       default:
-      // If there is no such named route in the switch statement, e.g. /third
+        // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();
-
     }
-
   }
 
   static Route<dynamic> _errorRoute() {
