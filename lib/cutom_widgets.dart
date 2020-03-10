@@ -15,7 +15,7 @@ class HouseIconsWidget extends StatelessWidget {
     @required this.size,
   }) : super(key: key);
 
-  // todo: comment meaning of 'hi', 'hp', 'si', etc
+  // gets correct colour for Intro House
   hiChooser(Map theBill) {
     if (theBill["Chamber"] == "House") {
       if (theBill["Intro House"] == "") {
@@ -32,6 +32,7 @@ class HouseIconsWidget extends StatelessWidget {
     }
   }
 
+  // gets correct colour for Passed House
   hpChooser(Map theBill) {
     if (theBill["Chamber"] == "House") {
       if (theBill["Passed House"] == "") {
@@ -48,6 +49,7 @@ class HouseIconsWidget extends StatelessWidget {
     }
   }
 
+  // gets correct colour for Intro Senate
   siChooser(Map theBill) {
     if (theBill["Chamber"] == "House") {
       if (theBill["Intro Senate"] == "") {
@@ -64,6 +66,7 @@ class HouseIconsWidget extends StatelessWidget {
     }
   }
 
+  // gets correct colour for Passed Senate
   spChooser(Map theBill) {
     if (theBill["Chamber"] == "House") {
       if (theBill["Passed Senate"] == "") {
