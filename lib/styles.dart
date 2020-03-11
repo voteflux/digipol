@@ -1,5 +1,33 @@
 import 'package:flutter/material.dart';
 
+// This file contains universal styles for the app
+// to help create a sense of consistency throwout the app
+// eg the theme colours here - have a mess around... - kc
+
+
+/// object containing the colors for the app
+///
+/// eg usage for the text color:
+///
+/// `color: appColors.text`
+var appColors = AppColors(0);
+
+/// object containing the standard sized for the app
+///
+/// eg usage for a the card corner:
+///
+/// `borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)`
+var appSizes = AppSizes();
+
+/// object containing the standard text styles for the app
+///
+/// eg usage for a heading:
+///
+/// `Text("Heading", style: appTextStyles.heading,textAlign: TextAlign.center,)`
+var appTextStyles = AppTextStyles();
+
+// Classes below
+
 class AppColors {
   Color house;
   Color senate;
@@ -13,9 +41,15 @@ class AppColors {
   Color voteClosed;
   Color voted;
   Color card;
+  Color cardInkWell;
+
+
 
   AppColors(int styleNum) {
+    /// The colors for the app
+
     if (styleNum == 0) {
+      // Dark mode
       house = Color(0xFF0f4533);
       senate = Color(0xFFa81717);
       greyedOut = Colors.grey[800];
@@ -28,7 +62,9 @@ class AppColors {
       voteOpen = Colors.green;
       voteClosed = Colors.red;
       voted = Colors.blue;
+      cardInkWell = Colors.blue.withAlpha(30);
     } else if (styleNum == 1) {
+      // Light mode
       house = Color(0xFF214521);
       senate = Color(0xFF772222);
       greyedOut = Colors.grey[300];
@@ -41,7 +77,9 @@ class AppColors {
       voteOpen = Colors.green;
       voteClosed = Colors.red;
       voted = Colors.blue;
+      cardInkWell = Colors.blue.withAlpha(30);
     } else if (styleNum == 2) {
+      // Light mode 2
       senate = Colors.deepPurple;
       house = Colors.green[800];
       greyedOut = Colors.grey[300];
@@ -54,8 +92,52 @@ class AppColors {
       voteOpen = Colors.green;
       voteClosed = Colors.red;
       voted = Colors.blue;
+      cardInkWell = Colors.blue.withAlpha(30);
     }
   }
 }
 
-var appColors = AppColors(0);
+class AppSizes {
+  /// The standard sizes for the app
+  double largeWidth;
+  double mediumWidth;
+  double smallWidth;
+  double cardCornerRadius;
+  double cardElevation;
+  double standardMargin;
+  double standardPadding;
+
+  AppSizes() {
+    largeWidth = 1200;
+    mediumWidth = 600;
+    smallWidth = 300;
+    cardCornerRadius = 15.0;
+    cardElevation = 5.0;
+    standardMargin = 20.0;
+    standardPadding = 20.0;
+  }
+}
+
+class AppTextStyles {
+  /// The standard text styles for the app
+  TextStyle heading;
+  TextStyle card;
+  TextStyle smallBold;
+
+  AppTextStyles() {
+    heading = TextStyle(
+      fontSize: 30,
+      color: appColors.text,
+      fontWeight: FontWeight.w700,
+    );
+    card = TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: appColors.text);
+
+    smallBold = TextStyle(
+        fontSize: 15,
+        color: appColors.text,
+        fontWeight: FontWeight.bold);
+  }
+}
