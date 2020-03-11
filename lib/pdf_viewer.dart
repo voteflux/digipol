@@ -7,8 +7,11 @@ import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:voting_app/styles.dart';
 
+
+/// This is the page that displays the PDFs
+
 class PdfPage extends StatelessWidget {
-  String pdfUrl;
+  final String pdfUrl;
 
   PdfPage({
     Key key,
@@ -38,9 +41,16 @@ class PdfPage extends StatelessWidget {
 }
 
 class PdfWidget extends StatefulWidget {
+  final String pdfUrl;
+
   @override
   _PdfWidgetState createState() => _PdfWidgetState();
-  String pdfUrl;
+
+  /// loads and displays the pdf from url
+  ///
+  /// Usage:
+  ///
+  /// `body: PdfWidget(pdfUrl: pdfUrl))`
 
   PdfWidget({
     Key key,
