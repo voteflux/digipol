@@ -7,7 +7,6 @@ import 'package:voting_app/main.dart';
 import 'package:voting_app/profile.dart';
 import 'package:voting_app/pdf_viewer.dart';
 
-
 // there are three separate routing's. One for each for each;
 // bills, issues and profile
 // to switch between the above, use the bottomNavBar
@@ -44,6 +43,7 @@ class RouteGenerator {
         return _errorRoute();
     }
   }
+
   /// for issues
   static Route<dynamic> generateIssueRoute(RouteSettings settings) {
     final args = settings.arguments;
@@ -66,6 +66,7 @@ class RouteGenerator {
         return _errorRoute();
     }
   }
+
   /// for profile
   static Route<dynamic> generateSettingsRoute(RouteSettings settings) {
     // Getting arguments passed in while calling Navigator.pushNamed
@@ -78,6 +79,7 @@ class RouteGenerator {
         return _errorRoute();
     }
   }
+
   /// for routing errors
   static Route<dynamic> _errorRoute() {
     return MaterialPageRoute(builder: (_) {
