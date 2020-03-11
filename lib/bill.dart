@@ -16,7 +16,6 @@ class BillPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double dynamicMediumHeight = MediaQuery.of(context).size.height * 0.25;
-
     double dynamicLargeWidth = MediaQuery.of(context).size.width * 0.95;
     if (dynamicLargeWidth > appSizes.largeWidth) {
       dynamicLargeWidth = appSizes.largeWidth;
@@ -51,7 +50,7 @@ class BillPage extends StatelessWidget {
                 ],
               ),
               Container(
-                width: 1200,
+                width: appSizes.largeWidth,
                 padding: EdgeInsets.all(20),
                 child: Text(
                   data["Summary"],
@@ -120,7 +119,8 @@ class BillInfoWidget extends StatelessWidget {
                             margin: EdgeInsets.all(appSizes.standardPadding),
                             child: FlatButton(
                               shape: RoundedRectangleBorder(
-                                side: BorderSide(color: Colors.deepOrange[900], width: 2),
+                                side: BorderSide(
+                                    color: Colors.deepOrange[900], width: 2),
                                 borderRadius: new BorderRadius.circular(
                                     appSizes.buttonRadius),
                               ),
@@ -153,7 +153,8 @@ class BillInfoWidget extends StatelessWidget {
                             margin: EdgeInsets.all(appSizes.standardMargin),
                             child: FlatButton(
                               shape: RoundedRectangleBorder(
-                                  side: BorderSide(color: Colors.purple[900], width: 3),
+                                side: BorderSide(
+                                    color: Colors.purple[900], width: 3),
                                 borderRadius: new BorderRadius.circular(
                                     appSizes.buttonRadius),
                               ),
@@ -283,7 +284,8 @@ class VoteWidget extends StatelessWidget {
                         FlatButton(
                             shape: RoundedRectangleBorder(
                               side: BorderSide(color: appColors.no, width: 2),
-                              borderRadius: new BorderRadius.circular(appSizes.buttonRadius),
+                              borderRadius: new BorderRadius.circular(
+                                  appSizes.buttonRadius),
                             ),
                             onPressed: () {
                               areYouSure("No");
