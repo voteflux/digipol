@@ -29,7 +29,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
       billWidgetList.add(BillWidget(i));
     }
 
-    Future<void> getJsonData() async {
+    Future<void> getBillsData() async {
 //      var b = await fetchBills();
       var b = await fetchBillsDev(); // Change to non Dev when using api
       setState(() {
@@ -41,7 +41,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
 
     loadedNotLoaded(){
       if (billNum == 0){
-        getJsonData();
+        getBillsData();
         return Center();
     }else{
     return Center(

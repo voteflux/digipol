@@ -19,7 +19,7 @@ import 'package:flutter/material.dart';
 ///
 /// Usage:
 ///
-/// ``
+/// `var b = await fetchBills();`
 Future<List> fetchBills() async {
   final response = await http.get(
       'https://2hqxgjv66f.execute-api.ap-southeast-2.amazonaws.com/dev/bills');

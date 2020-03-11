@@ -61,6 +61,19 @@ class BillPage extends StatelessWidget {
                 billText: data["text link pdf"],
                 billEM: data["em link pdf"],
               ),
+
+              Container(
+                  width: dynamicLargeWidth,
+                  padding: EdgeInsets.all(appSizes.standardPadding),
+                  child: Wrap(
+                    children: <Widget>[
+                      Text(
+                        "Current Voting Results",
+                        style: appTextStyles.heading,
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  )),
               PieWidget(
                 // get from data
                 yes: 1000,
@@ -257,8 +270,8 @@ class VoteWidget extends StatelessWidget {
               children: <Widget>[
                 Container(
                   padding: EdgeInsets.all(appSizes.standardPadding),
-                  child: Text("How would you like to vote on bill:",
-                      style: appTextStyles.small),
+                  child: Text("How would you like to vote on:",
+                      style: appTextStyles.standardItalic),
                 ),
                 Container(
                     padding: EdgeInsets.all(appSizes.standardPadding),
