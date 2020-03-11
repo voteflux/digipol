@@ -30,7 +30,8 @@ class _AllBillsPageState extends State<AllBillsPage> {
     }
 
     Future<void> getJsonData() async {
-      var b = await fetchBills();
+//      var b = await fetchBills();
+      var b = await fetchBillsDev(); // Change to non Dev when using api
       setState(() {
         billsList = b;
       }

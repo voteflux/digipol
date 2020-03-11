@@ -26,7 +26,8 @@ class _AllIssuesPageState extends State<AllIssuesPage> {
     }
 
     Future<void> getJsonData() async {
-      var b = await fetchBills();
+//      var b = await fetchBills();
+      var b = await fetchBillsDev();    // Change to non dev when using api
       setState(() {
         issuesList = b;
       }
