@@ -4,6 +4,7 @@ import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/api/aus_bills.dart';
 import 'dart:math';
 import 'package:voting_app/styles.dart';
+import 'package:voting_app/api/aus_issues.dart';
 
 class AllIssuesPage extends StatefulWidget {
   @override
@@ -26,8 +27,8 @@ class _AllIssuesPageState extends State<AllIssuesPage> {
     }
 
     Future<void> getJsonData() async {
-//      var b = await fetchBills();
-      var b = await fetchBillsDev();    // Change to non dev when using api
+//      var b = await fetchIssues();
+      var b = await fetchIssuesDev();    // Change to non dev when using api
       setState(() {
         issuesList = b;
       }
