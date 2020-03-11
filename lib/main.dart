@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/all_issues.dart';
-import 'package:voting_app/bill.dart';
 import 'package:voting_app/profile.dart';
 import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/all_bills.dart';
@@ -21,26 +20,25 @@ class _MyAppState extends State<MyApp> {
     var child;
     var page;
 
+    // for setting the page and the RouteGenerator
     switch (index) {
+      // bills
       case 0:
         print("Case 0");
         child = RouteGenerator.generateBillRoute;
         page = AllBillsPage();
         break;
+        // issues
       case 1:
         print("Case 1");
         page = AllIssuesPage();
         child = RouteGenerator.generateIssueRoute;
         break;
+        // profile
       case 2:
         print("Case 2");
         page = ProfilePage();
         child = RouteGenerator.generateSettingsRoute;
-        break;
-      case 3:
-        print("Case 3");
-        page = BillPage(data: {});
-        child = RouteGenerator.generateBillRoute;
         break;
     }
 
@@ -50,10 +48,13 @@ class _MyAppState extends State<MyApp> {
         home: new Scaffold(
           backgroundColor: appColors.background,
           appBar: new AppBar(
+            // Edit name and needs a good icon
             backgroundColor: appColors.mainTheme,
             title: new Text('DigiPol'),
           ),
+          //current page
           body: page,
+          // the nav bar at the bottom --> [bills - issues - profile]
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: appColors.mainTheme,
             items: const <BottomNavigationBarItem>[
@@ -70,7 +71,6 @@ class _MyAppState extends State<MyApp> {
                 title: Text('Profile'),
               ),
             ],
-            selectedItemColor: Colors.amber[900],
             unselectedItemColor: appColors.text,
             currentIndex: index,
             onTap: (int index) {
