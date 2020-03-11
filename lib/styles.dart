@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 // to help create a sense of consistency throwout the app
 // eg the theme colours here - have a mess around... - kc
 
-
 /// object containing the colors for the app
 ///
 /// eg usage for the text color:
@@ -42,8 +41,8 @@ class AppColors {
   Color voted;
   Color card;
   Color cardInkWell;
-
-
+  Color yes;
+  Color no;
 
   AppColors(int styleNum) {
     /// The colors for the app
@@ -63,6 +62,8 @@ class AppColors {
       voteClosed = Colors.red;
       voted = Colors.blue;
       cardInkWell = Colors.blue.withAlpha(30);
+      yes = Colors.lightBlueAccent;
+      no = Colors.redAccent;
     } else if (styleNum == 1) {
       // Light mode
       house = Color(0xFF214521);
@@ -78,6 +79,8 @@ class AppColors {
       voteClosed = Colors.red;
       voted = Colors.blue;
       cardInkWell = Colors.blue.withAlpha(30);
+      yes = Colors.blue;
+      no = Colors.redAccent;
     } else if (styleNum == 2) {
       // Light mode 2
       senate = Colors.deepPurple;
@@ -93,6 +96,8 @@ class AppColors {
       voteClosed = Colors.red;
       voted = Colors.blue;
       cardInkWell = Colors.blue.withAlpha(30);
+      yes = Colors.blue;
+      no = Colors.redAccent;
     }
   }
 }
@@ -103,6 +108,7 @@ class AppSizes {
   double mediumWidth;
   double smallWidth;
   double cardCornerRadius;
+  double buttonRadius;
   double cardElevation;
   double standardMargin;
   double standardPadding;
@@ -112,6 +118,7 @@ class AppSizes {
     mediumWidth = 600;
     smallWidth = 300;
     cardCornerRadius = 15.0;
+    buttonRadius = 20.0;
     cardElevation = 5.0;
     standardMargin = 20.0;
     standardPadding = 20.0;
@@ -123,6 +130,10 @@ class AppTextStyles {
   TextStyle heading;
   TextStyle card;
   TextStyle smallBold;
+  TextStyle small;
+  TextStyle standard;
+  TextStyle standardItalic;
+  TextStyle standardBold;
 
   AppTextStyles() {
     heading = TextStyle(
@@ -131,13 +142,20 @@ class AppTextStyles {
       fontWeight: FontWeight.w700,
     );
     card = TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-        color: appColors.text);
+        fontSize: 20, fontWeight: FontWeight.bold, color: appColors.text);
 
     smallBold = TextStyle(
-        fontSize: 15,
-        color: appColors.text,
-        fontWeight: FontWeight.bold);
+        fontSize: 15, color: appColors.text, fontWeight: FontWeight.bold);
+
+    small = TextStyle(
+        fontSize: 15, color: appColors.text, fontWeight: FontWeight.normal);
+
+    standard = TextStyle(fontSize: 20, color: appColors.text);
+
+    standardItalic = TextStyle(
+        fontSize: 20, color: appColors.text, fontStyle: FontStyle.italic);
+
+    standardBold = TextStyle(
+        fontSize: 20, color: appColors.text, fontStyle: FontStyle.italic);
   }
 }
