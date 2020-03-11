@@ -115,6 +115,7 @@ class BillWidget extends StatelessWidget {
 }
 
 class BillsMessageWidget extends StatelessWidget {
+  /// Card for showing a message at the top of the bills list
   @override
   Widget build(BuildContext context) {
     return Center(
