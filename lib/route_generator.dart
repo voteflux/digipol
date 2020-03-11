@@ -7,9 +7,15 @@ import 'package:voting_app/main.dart';
 import 'package:voting_app/profile.dart';
 import 'package:voting_app/pdf_viewer.dart';
 
+
+// there are three separate routing's. One for each for each;
+// bills, issues and profile
+// to switch between the above, use the bottomNavBar
+// located in main.py
+
 class RouteGenerator {
+  /// for bills
   static Route<dynamic> generateBillRoute(RouteSettings settings) {
-    // Getting arguments passed in while calling Navigator.pushNamed
     final args = settings.arguments;
 
     switch (settings.name) {
@@ -33,19 +39,13 @@ class RouteGenerator {
                     pdfUrl: args,
                   ));
         }
-
-        // If args is not of the correct type, return an error page.
-        // You can also throw an exception while in development.
         return _errorRoute();
-
       default:
-        // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();
     }
   }
-
+  /// for issues
   static Route<dynamic> generateIssueRoute(RouteSettings settings) {
-    // Getting arguments passed in while calling Navigator.pushNamed
     final args = settings.arguments;
 
     switch (settings.name) {
@@ -61,16 +61,12 @@ class RouteGenerator {
           );
         }
 
-        // If args is not of the correct type, return an error page.
-        // You can also throw an exception while in development.
         return _errorRoute();
-
       default:
-        // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();
     }
   }
-
+  /// for profile
   static Route<dynamic> generateSettingsRoute(RouteSettings settings) {
     // Getting arguments passed in while calling Navigator.pushNamed
     final args = settings.arguments;
@@ -78,16 +74,11 @@ class RouteGenerator {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => MyApp());
-        // If args is not of the correct type, return an error page.
-        // You can also throw an exception while in development.
-        return _errorRoute();
-
       default:
-        // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();
     }
   }
-
+  /// for routing errors
   static Route<dynamic> _errorRoute() {
     return MaterialPageRoute(builder: (_) {
       return Scaffold(
