@@ -209,6 +209,9 @@ class VoteWidget extends StatelessWidget {
         builder: (BuildContext context) {
           return AlertDialog(
             backgroundColor: appColors.card,
+            elevation: appSizes.cardElevation,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
             title: Text('Confirm Vote', style: appTextStyles.smallBold),
             content: SingleChildScrollView(
               child: ListBody(
