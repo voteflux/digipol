@@ -24,19 +24,16 @@ class _MyAppState extends State<MyApp> {
     switch (index) {
       // bills
       case 0:
-        print("Case 0");
         child = RouteGenerator.generateBillRoute;
         page = AllBillsPage();
         break;
         // issues
       case 1:
-        print("Case 1");
         page = AllIssuesPage();
         child = RouteGenerator.generateIssueRoute;
         break;
         // profile
       case 2:
-        print("Case 2");
         page = ProfilePage();
         child = RouteGenerator.generateSettingsRoute;
         break;
