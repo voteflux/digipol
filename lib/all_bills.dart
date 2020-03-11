@@ -18,14 +18,15 @@ class _AllBillsPageState extends State<AllBillsPage> {
   List<Widget> billWidgetList;
   @override
   Widget build(BuildContext context) {
-
-
+    final Random random = new Random(); // To DELETE
     int billNum = billsList.length;
     billWidgetList = [
       CountUpWidget(number: billNum, text: "TOTAL BILLS"),
       BillsMessageWidget()
     ];
     for (var i in billsList) {
+      i["Yes"] = random.nextInt(1000).toString(); //DELETE
+      i["No"] = random.nextInt(1000).toString();  //DELETE
       billWidgetList.add(BillWidget(i));
     }
 
@@ -128,8 +129,8 @@ class BillWidget extends StatelessWidget {
                             ),
                             PieWidget(
                               // Delete Random when vote status is obtained
-                              yes: random.nextInt(100),
-                              no: random.nextInt(100),
+                              yes: int.parse(billsMap["Yes"]),
+                              no: int.parse(billsMap["No"]),
                               radius: 55,
                             )
                           ],
