@@ -3,12 +3,18 @@ import 'package:voting_app/styles.dart';
 import 'package:pie_chart/pie_chart.dart';
 
 class HouseIconsWidget extends StatelessWidget {
-  dynamic billsMap;
+  final billsMap;
   final Color senateColor = appColors.senate;
   final Color houseColor = appColors.house;
   final Color noFillColor = appColors.greyedOut;
-  double size = 20;
+  final double size;
 
+  /// shows the progression of a bill as coloured icons
+  ///
+  /// colours represent the house and senate
+  /// usage:
+  ///
+  /// `child: HouseIconsWidget(billsMap: billsMap,size: 20,),`
   HouseIconsWidget({
     Key key,
     @required this.billsMap,
@@ -85,10 +91,11 @@ class HouseIconsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // icons
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.all(appSizes.standardPadding),
       height: this.size,
-      width: this.size * 8,
+      width: this.size * 7,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
@@ -134,9 +141,17 @@ class HouseIconsWidget extends StatelessWidget {
 }
 
 class VotingStatusWidget extends StatelessWidget {
-  Map billsMap;
-  bool voted;
-  double size;
+  final Map billsMap;
+  final bool voted;
+  final double size;
+
+  ///Widget showing the voting status
+  ///
+  /// displays as either: voting open, voting closed or voted
+  ///
+  /// Usage:
+  ///
+  /// `child:  VotingStatusWidget(billsMap: billsMap,voted: true,size: 20),`
 
   VotingStatusWidget({
     Key key,
@@ -145,6 +160,9 @@ class VotingStatusWidget extends StatelessWidget {
     @required this.size,
   }) : super(key: key);
 
+  /// To get the status message format
+  ///
+  /// Returns a list: [colour, message, icon]
   statusMessage() {
     String s = "Closed";
     Color c = appColors.voteClosed;
@@ -168,7 +186,7 @@ class VotingStatusWidget extends StatelessWidget {
         }
       }
     }
-
+    // [colour, message, icon]
     return [c, s, i];
   }
 
@@ -178,12 +196,12 @@ class VotingStatusWidget extends StatelessWidget {
         child: Column(
       children: <Widget>[
         Icon(
-          statusMessage()[2],
-          color: statusMessage()[0],
-          size: this.size,
+          statusMessage()[2], // icon
+          color: statusMessage()[0], //color
+          size: this.size, // size
         ),
         Text(
-          statusMessage()[1],
+          statusMessage()[1], // message
           style: TextStyle(
               fontSize: this.size * 4 / 10,
               fontWeight: FontWeight.bold,
@@ -200,6 +218,12 @@ class CountUpWidget extends StatefulWidget {
   final int number;
   final String text;
   final List<int> delayers = [1, 2, 4, 6, 8, 10, 16, 18, 20];
+
+  /// to display a number by counting up to it
+  ///
+  /// Usage:
+  ///
+  /// `child: CountUpWidget(number: bunnyNum, text: "Bunnies bred"),`
 
   CountUpWidget({
     Key key,
@@ -229,20 +253,17 @@ class _CountUpWidgetState extends State<CountUpWidget> {
 
     return Center(
         child: Container(
-      padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+      padding: EdgeInsets.all(appSizes.standardPadding),
       child: Column(
         children: <Widget>[
           Text(
             widget.text,
-            style: TextStyle(
-                fontSize: 13,
-                color: appColors.text,
-                fontWeight: FontWeight.bold),
+            style: appTextStyles.smallBold,
           ),
           Text(
             this.outputNumber.toString(),
             style:
-                TextStyle(fontSize: 50, color: appColors.text, fontWeight: fw),
+                TextStyle(fontSize: 55, color: appColors.text, fontWeight: fw),
           ),
         ],
       ),
@@ -251,10 +272,15 @@ class _CountUpWidgetState extends State<CountUpWidget> {
 }
 
 class PieWidget extends StatelessWidget {
-  int yes;
-  int no;
-  double radius;
+  final int yes;
+  final int no;
+  final double radius;
 
+  /// Pie graph showing yes vs no
+  ///
+  /// usage:
+  ///
+  /// `child: PieWidget(yes: 1000, no: 551, radius: 50,),`
   PieWidget({
     Key key,
     @required this.yes,
