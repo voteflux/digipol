@@ -5,27 +5,53 @@ import 'package:voting_app/api/aus_bills.dart';
 import 'dart:math';
 import 'package:voting_app/styles.dart';
 
-class AllIssuesPage extends StatelessWidget {
-  List billsList = fetchBills();
+class AllIssuesPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    List<Widget> billWidgetList = [];
-    billsList.shuffle();
-    for (var i in billsList) {
-      billWidgetList.add(BillWidget(i));
-    }
-    return Center(
-      child: ListView(
-        controller: ScrollController(),
-        children: billWidgetList,
-      ),
-    );
-  }
+  _AllIssuesPageState createState() => _AllIssuesPageState();
 }
 
+class _AllIssuesPageState extends State<AllIssuesPage> {
+  /// Where all the bills are shown (using ListView)
+  var issuesList = [];
+  List<Widget> billWidgetList;
+  @override
+  Widget build(BuildContext context) {
+
+
+    int billNum = issuesList.length;
+    billWidgetList = [
+    ];
+    for (var i in issuesList) {
+      billWidgetList.add(BillWidget(i));
+    }
+
+    Future<void> getJsonData() async {
+      var b = await fetchBills();
+      setState(() {
+        issuesList = b;
+      }
+      );
+    }
+
+
+    loadedNotLoaded(){
+      if (billNum == 0){
+        getJsonData();
+        return Center();
+      }else{
+        return Center(
+          child: ListView(
+            controller: ScrollController(),
+            children: billWidgetList,
+          ),
+        );
+      }
+    }
+    return loadedNotLoaded();
+  }
+}
 class BillWidget extends StatelessWidget {
   dynamic billsMap;
-//  final Map billColors = {"House" : Colors.teal[100], "Senate" : Colors.deepPurple[100]};
   final Map billColorsDark = {
     "House": appColors.house,
     "Senate": appColors.senate

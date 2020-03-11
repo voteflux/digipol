@@ -5,32 +5,56 @@ import 'package:voting_app/api/aus_bills.dart';
 import 'dart:math';
 import 'package:voting_app/styles.dart';
 import 'package:voting_app/cutom_widgets.dart';
+import 'dart:async';
 
-int index = 0;
+class AllBillsPage extends StatefulWidget {
+  @override
+  _AllBillsPageState createState() => _AllBillsPageState();
+}
 
-class AllBillsPage extends StatelessWidget {
+class _AllBillsPageState extends State<AllBillsPage> {
   /// Where all the bills are shown (using ListView)
-  final List billsList = fetchBills();
-
+  var billsList = [];
+  List<Widget> billWidgetList;
   @override
   Widget build(BuildContext context) {
+
+
     int billNum = billsList.length;
-    List<Widget> billWidgetList = [
+    billWidgetList = [
       CountUpWidget(number: billNum, text: "TOTAL BILLS"),
       BillsMessageWidget()
     ];
-//    billsList.shuffle();
     for (var i in billsList) {
       billWidgetList.add(BillWidget(i));
     }
+
+    Future<void> getJsonData() async {
+      var b = await fetchBills();
+      setState(() {
+        billsList = b;
+      }
+      );
+    }
+
+
+    loadedNotLoaded(){
+      if (billNum == 0){
+        getJsonData();
+        return Center();
+    }else{
     return Center(
-      child: ListView(
-        controller: ScrollController(),
-        children: billWidgetList,
-      ),
-    );
+          child: ListView(
+          controller: ScrollController(),
+          children: billWidgetList,
+          ),
+        );
+          }
+    }
+    return loadedNotLoaded();
   }
 }
+
 
 class BillWidget extends StatelessWidget {
   /// widget for the bill cards
