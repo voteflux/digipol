@@ -117,9 +117,9 @@ class AppSizes {
     largeWidth = 1200;
     mediumWidth = 600;
     smallWidth = 300;
-    cardCornerRadius = 15.0;
+    cardCornerRadius = 5.0;
     buttonRadius = 20.0;
-    cardElevation = 5.0;
+    cardElevation = 10.0;
     standardMargin = 20.0;
     standardPadding = 20.0;
   }
