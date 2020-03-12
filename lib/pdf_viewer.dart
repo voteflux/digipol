@@ -106,7 +106,14 @@ class _PdfWidgetState extends State<PdfWidget> {
         filePath: path,
       );
     else
-      return Text("Bill info did not load :(");
+      return FlatButton(
+        color: appColors.card,
+        child: Text("Failed to load info, try again.", style: appTextStyles.standard,),
+        onPressed: (){
+          loadPdf();
+          setState(() {});
+        },
+      );
   }
 
   @override
