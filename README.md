@@ -112,4 +112,5 @@ And Run `flutter run -d chrome` in the project dir.
 - User Profiles
 - Settings - Notifications, Emails
 - sorting bills - Date, title, chamber
+- Search bar
 - results map
