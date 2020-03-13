@@ -26,6 +26,10 @@ class _ProfilePageState extends State<ProfilePage> {
           child: ListView(
             children: <Widget>[
               Text(
+                "Page Under Construction",
+                style: TextStyle(fontSize: 30, color: Colors.red),
+              ),
+              Text(
                 "User Settings",
                 style: TextStyle(fontSize: 30, color: appColors.text),
               ),
