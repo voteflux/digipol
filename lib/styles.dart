@@ -156,6 +156,6 @@ class AppTextStyles {
         fontSize: 20, color: appColors.text, fontStyle: FontStyle.italic);
 
     standardBold = TextStyle(
-        fontSize: 20, color: appColors.text, fontStyle: FontStyle.italic);
+        fontSize: 20, color: appColors.text, fontWeight: FontWeight.bold);
   }
 }
