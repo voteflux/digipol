@@ -15,16 +15,16 @@ class AllIssuesPage extends StatefulWidget {
 class _AllIssuesPageState extends State<AllIssuesPage> {
   /// Where all the bills are shown (using ListView)
   var issuesList = [];
-  List<Widget> billWidgetList;
+  List<Widget> issueWidgetList;
   @override
   Widget build(BuildContext context) {
 
 
-    int billNum = issuesList.length;
-    billWidgetList = [
-    ];
+    int issueNum = issuesList.length;
+    issueWidgetList = [];
+    issueWidgetList.add(CountUpWidget(number: issueNum,text: "TOTAL ISSUES",));
     for (var i in issuesList) {
-      billWidgetList.add(IssueWidget(i));
+      issueWidgetList.add(IssueWidget(i));
     }
 
     Future<void> getJsonData() async {
@@ -38,14 +38,14 @@ class _AllIssuesPageState extends State<AllIssuesPage> {
 
 
     loadedNotLoaded(){
-      if (billNum == 0){
+      if (issueNum == 0){
         getJsonData();
         return Center();
       }else{
         return Center(
           child: ListView(
             controller: ScrollController(),
-            children: billWidgetList,
+            children: issueWidgetList,
           ),
         );
       }
