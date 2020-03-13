@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/styles.dart';
+import 'package:voting_app/cutom_widgets.dart';
 
 class IssuePage extends StatelessWidget {
   // This is a String for the sake of an example.
@@ -24,13 +25,23 @@ class IssuePage extends StatelessWidget {
           child: ListView(
             children: <Widget>[
               Text(
-                "Issue Title",
+                "Page Under Construction",
+                style: TextStyle(fontSize: 30, color: Colors.red),
+              ),
+              Text(
+                data["Short Title"],
                 style: TextStyle(fontSize: 30, color: appColors.text),
               ),
               Text(
-                "Issue text",
+                data["Summary"],
+                style: TextStyle(fontSize: 25, color: appColors.text),
+              ),
+              PieWidget(yes: data["Yes"],no: data["No"],radius: 300,),
+              Text(
+                data["Description"],
                 style: TextStyle(fontSize: 20, color: appColors.text),
               ),
+              VoteWidget(data: data),
             ],
           ),
         ),
