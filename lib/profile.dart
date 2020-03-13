@@ -2,7 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/styles.dart';
 
-class ProfilePage extends StatelessWidget {
+
+
+
+class ProfilePage extends StatefulWidget {
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
