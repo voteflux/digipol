@@ -108,7 +108,7 @@ class _PdfWidgetState extends State<PdfWidget> {
     else
       return FlatButton(
         color: appColors.card,
-        child: Text("Failed to load info, try again.", style: appTextStyles.standard,),
+        child: Text("Loading...\n(tap)", style: appTextStyles.standard,),
         onPressed: (){
           loadPdf();
           setState(() {});
