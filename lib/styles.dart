@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 ///
 /// `color: appColors.text`
 var appColors = AppColors(0);
+bool darkMode = true;
+
 
 /// object containing the standard sized for the app
 ///
@@ -43,6 +45,9 @@ class AppColors {
   Color cardInkWell;
   Color yes;
   Color no;
+  Color selected;
+  Color button;
+  Color buttonOutline;
 
   AppColors(int styleNum) {
     /// The colors for the app
@@ -64,25 +69,11 @@ class AppColors {
       cardInkWell = Colors.blue.withAlpha(30);
       yes = Colors.lightBlueAccent;
       no = Colors.redAccent;
+      selected = Colors.blue;
+      button = Colors.blue;
+      buttonOutline = Colors.transparent;
     } else if (styleNum == 1) {
       // Light mode
-      house = Color(0xFF214521);
-      senate = Color(0xFF772222);
-      greyedOut = Colors.grey[300];
-      background = Colors.white;
-      mainTheme = Colors.lightBlue;
-      issues = Color(0xFF363663);
-      text = Colors.black87;
-      shareIcon = Color(0xFFd9b526);
-      card = Colors.grey[300];
-      voteOpen = Colors.green;
-      voteClosed = Colors.red;
-      voted = Colors.blue;
-      cardInkWell = Colors.blue.withAlpha(30);
-      yes = Colors.blue;
-      no = Colors.redAccent;
-    } else if (styleNum == 2) {
-      // Light mode 2
       senate = Colors.deepPurple;
       house = Colors.green[800];
       greyedOut = Colors.grey[300];
@@ -98,6 +89,9 @@ class AppColors {
       cardInkWell = Colors.blue.withAlpha(30);
       yes = Colors.blue;
       no = Colors.redAccent;
+      selected = Colors.orangeAccent;
+      button = Colors.blue;
+      buttonOutline = Colors.transparent;
     }
   }
 }
@@ -134,6 +128,7 @@ class AppTextStyles {
   TextStyle standard;
   TextStyle standardItalic;
   TextStyle standardBold;
+  TextStyle yesnobutton;
 
   AppTextStyles() {
     heading = TextStyle(
@@ -157,5 +152,8 @@ class AppTextStyles {
 
     standardBold = TextStyle(
         fontSize: 20, color: appColors.text, fontWeight: FontWeight.bold);
+
+    yesnobutton = TextStyle(
+        fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold);
   }
 }

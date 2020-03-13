@@ -69,6 +69,7 @@ class _MyAppState extends State<MyApp> {
               ),
             ],
             unselectedItemColor: appColors.text,
+            selectedItemColor: appColors.selected,
             currentIndex: index,
             onTap: (int index) {
               setState(() {

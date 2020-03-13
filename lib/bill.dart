@@ -130,10 +130,11 @@ class BillInfoWidget extends StatelessWidget {
                         children: <Widget>[
                           Container(
                             margin: EdgeInsets.all(appSizes.standardPadding),
-                            child: FlatButton(
+                            child: RaisedButton(
+                              elevation: appSizes.cardElevation,
                               shape: RoundedRectangleBorder(
                                 side: BorderSide(
-                                    color: Colors.deepOrange[900], width: 2),
+                                    color: appColors.buttonOutline, width: 2),
                                 borderRadius: new BorderRadius.circular(
                                     appSizes.buttonRadius),
                               ),
@@ -143,9 +144,9 @@ class BillInfoWidget extends StatelessWidget {
                                   arguments: this.billText,
                                 );
                               },
-                              color: appColors.card,
+                              color: appColors.button,
                               child: Text("View Bill Text",
-                                  style: appTextStyles.standard),
+                                  style: appTextStyles.yesnobutton),
                             ),
                           ),
                           Container(
@@ -164,10 +165,11 @@ class BillInfoWidget extends StatelessWidget {
                         children: <Widget>[
                           Container(
                             margin: EdgeInsets.all(appSizes.standardMargin),
-                            child: FlatButton(
+                            child: RaisedButton(
+                              elevation: appSizes.cardElevation,
                               shape: RoundedRectangleBorder(
                                 side: BorderSide(
-                                    color: Colors.purple[900], width: 3),
+                                    color: appColors.buttonOutline, width: 3),
                                 borderRadius: new BorderRadius.circular(
                                     appSizes.buttonRadius),
                               ),
@@ -177,10 +179,10 @@ class BillInfoWidget extends StatelessWidget {
                                   arguments: this.billEM,
                                 );
                               },
-                              color: appColors.card,
+                              color: appColors.button,
                               child: Text(
                                 "View Explanatory Memoranda",
-                                style: appTextStyles.standard,
+                                style: appTextStyles.yesnobutton,
                               ),
                             ),
                           ),
@@ -285,30 +287,32 @@ class VoteWidget extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        FlatButton(
+                        RaisedButton(
+                            elevation: appSizes.cardElevation,
                             shape: RoundedRectangleBorder(
-                              side: BorderSide(color: appColors.yes, width: 2),
+                              side: BorderSide(color: appColors.buttonOutline, width: 2),
                               borderRadius: new BorderRadius.circular(
                                   appSizes.buttonRadius),
                             ),
                             onPressed: () {
                               areYouSure("Yes");
                             },
-                            color: appColors.card,
+                            color: appColors.yes,
                             child: Text("Vote Yes",
-                                style: appTextStyles.standard)),
-                        FlatButton(
+                                style: appTextStyles.yesnobutton)),
+                        RaisedButton(
+                            elevation: appSizes.cardElevation,
                             shape: RoundedRectangleBorder(
-                              side: BorderSide(color: appColors.no, width: 2),
+                              side: BorderSide(color: appColors.buttonOutline, width: 2),
                               borderRadius: new BorderRadius.circular(
                                   appSizes.buttonRadius),
                             ),
                             onPressed: () {
                               areYouSure("No");
                             },
-                            color: appColors.background,
+                            color: appColors.no,
                             child:
-                                Text("Vote No", style: appTextStyles.standard)),
+                                Text("Vote No", style: appTextStyles.yesnobutton)),
                       ],
                     )),
               ],

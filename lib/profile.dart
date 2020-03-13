@@ -12,20 +12,15 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  bool isSwitched = true;
-  Color tColor = appColors.background;
   @override
   Widget build(BuildContext context) {
-    if (isSwitched){
+    if (darkMode){
       appColors = AppColors(0);
-
-      tColor = appColors.background;
     }else{
       appColors = AppColors(1);
-      tColor = Colors.white;
     }
     return Scaffold(
-      backgroundColor: tColor,
+      backgroundColor: appColors.background,
       body: Container(
         child: Center(
           child: ListView(
@@ -42,11 +37,11 @@ class _ProfilePageState extends State<ProfilePage> {
                     width: 70,
                     child: Switch(
                       materialTapTargetSize: MaterialTapTargetSize.padded,
-                      value: isSwitched,
+                      value: darkMode,
                       onChanged: (value) {
                         setState(() {
-                          isSwitched = value;
-                          print(isSwitched);
+                          darkMode = value;
+                          print(darkMode);
                         });
                       },
                       activeTrackColor: Colors.lightBlue,
