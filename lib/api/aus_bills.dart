@@ -54,7 +54,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6356_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6356_ems_65743795-0918-474d-a518-2fa392ec84f3/upload_word/19139EMSharkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6356_ems_65743795-0918-474d-a518-2fa392ec84f3/upload_pdf/19139EMSharkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6356_ems_65743795-0918-474d-a518-2fa392ec84f3%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6356_ems_65743795-0918-474d-a518-2fa392ec84f3%22",
+          "Yes": 6866,
+          "No": 9365
         },
         {
           "Chamber": "House",
@@ -74,7 +76,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6501_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6501_ems_c9cdce94-e56a-4b8d-87dc-0b650aa24137/upload_word/732538.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6501_ems_c9cdce94-e56a-4b8d-87dc-0b650aa24137/upload_pdf/732538.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6501_ems_c9cdce94-e56a-4b8d-87dc-0b650aa24137%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6501_ems_c9cdce94-e56a-4b8d-87dc-0b650aa24137%22",
+          "Yes": 6484,
+          "No": 4018
         },
         {
           "Chamber": "House",
@@ -94,7 +98,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6357_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6357_ems_c12c9bdc-1071-4a76-82cd-7e768b344f83/upload_word/19140EMSharkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6357_ems_c12c9bdc-1071-4a76-82cd-7e768b344f83/upload_pdf/19140EMSharkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6357_ems_c12c9bdc-1071-4a76-82cd-7e768b344f83%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6357_ems_c12c9bdc-1071-4a76-82cd-7e768b344f83%22",
+          "Yes": 6116,
+          "No": 4712
         },
         {
           "Chamber": "House",
@@ -114,7 +120,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6407_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6407_ems_b0404fb4-211c-4b71-ac10-2ea2b3393ed5/upload_word/19173EM.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6407_ems_b0404fb4-211c-4b71-ac10-2ea2b3393ed5/upload_pdf/19173EM.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6407_ems_b0404fb4-211c-4b71-ac10-2ea2b3393ed5%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6407_ems_b0404fb4-211c-4b71-ac10-2ea2b3393ed5%22",
+          "Yes": 7760,
+          "No": 7005
         },
         {
           "Chamber": "House",
@@ -134,7 +142,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6324_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6324_ems_879a41e5-879a-4a12-bcfc-ddb703ba7fa1/upload_word/710911.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6324_ems_879a41e5-879a-4a12-bcfc-ddb703ba7fa1/upload_pdf/710911.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6324_ems_879a41e5-879a-4a12-bcfc-ddb703ba7fa1%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6324_ems_879a41e5-879a-4a12-bcfc-ddb703ba7fa1%22",
+          "Yes": 5827,
+          "No": 3735
         },
         {
           "Chamber": "House",
@@ -154,7 +164,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6431_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6431_ems_02d35e3c-143d-4d83-8877-e31cf490ce8a/upload_word/719554.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6431_ems_02d35e3c-143d-4d83-8877-e31cf490ce8a/upload_pdf/719554.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6431_ems_02d35e3c-143d-4d83-8877-e31cf490ce8a%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6431_ems_02d35e3c-143d-4d83-8877-e31cf490ce8a%22",
+          "Yes": 2604,
+          "No": 560
         },
         {
           "Chamber": "House",
@@ -174,7 +186,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6496_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6496_ems_40934758-2600-4ed8-9cbb-67aec2f76777/upload_word/730818.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6496_ems_40934758-2600-4ed8-9cbb-67aec2f76777/upload_pdf/730818.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6496_ems_40934758-2600-4ed8-9cbb-67aec2f76777%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6496_ems_40934758-2600-4ed8-9cbb-67aec2f76777%22",
+          "Yes": 3632,
+          "No": 8866
         },
         {
           "Chamber": "House",
@@ -194,7 +208,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6495_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6495_ems_c3c1e6f7-8653-4e3b-97f0-6add40507cef/upload_word/730819.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6495_ems_c3c1e6f7-8653-4e3b-97f0-6add40507cef/upload_pdf/730819.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6495_ems_c3c1e6f7-8653-4e3b-97f0-6add40507cef%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6495_ems_c3c1e6f7-8653-4e3b-97f0-6add40507cef%22",
+          "Yes": 612,
+          "No": 1515
         },
         {
           "Chamber": "House",
@@ -214,7 +230,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6443_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6443_ems_38fa1de7-dd8d-44af-80e4-7498e108154b/upload_word/19219EMKatter.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6443_ems_38fa1de7-dd8d-44af-80e4-7498e108154b/upload_pdf/19219EMKatter.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6443_ems_38fa1de7-dd8d-44af-80e4-7498e108154b%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6443_ems_38fa1de7-dd8d-44af-80e4-7498e108154b%22",
+          "Yes": 8789,
+          "No": 5847
         },
         {
           "Chamber": "House",
@@ -234,7 +252,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6404_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6404_ems_e8fd1431-106a-42e4-8876-523c270e7923/upload_word/19187EMWilkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6404_ems_e8fd1431-106a-42e4-8876-523c270e7923/upload_pdf/19187EMWilkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6404_ems_e8fd1431-106a-42e4-8876-523c270e7923%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6404_ems_e8fd1431-106a-42e4-8876-523c270e7923%22",
+          "Yes": 868,
+          "No": 4007
         },
         {
           "Chamber": "House",
@@ -254,7 +274,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6382_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6382_ems_c52d9bfe-849e-4ae3-893f-dbc05c9ec260/upload_word/713762.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6382_ems_c52d9bfe-849e-4ae3-893f-dbc05c9ec260/upload_pdf/713762.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6382_ems_c52d9bfe-849e-4ae3-893f-dbc05c9ec260%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6382_ems_c52d9bfe-849e-4ae3-893f-dbc05c9ec260%22",
+          "Yes": 5755,
+          "No": 9420
         },
         {
           "Chamber": "House",
@@ -274,7 +296,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6463_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6463_ems_fd18e3b4-5a9b-435c-8609-f7a0c232e0a0/upload_word/723651.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6463_ems_fd18e3b4-5a9b-435c-8609-f7a0c232e0a0/upload_pdf/723651.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6463_ems_fd18e3b4-5a9b-435c-8609-f7a0c232e0a0%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6463_ems_fd18e3b4-5a9b-435c-8609-f7a0c232e0a0%22",
+          "Yes": 788,
+          "No": 6761
         },
         {
           "Chamber": "House",
@@ -294,7 +318,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6484_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6484_ems_63080380-7e90-48ab-a56e-d70f71369ed9/upload_word/20016EMLeigh.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6484_ems_63080380-7e90-48ab-a56e-d70f71369ed9/upload_pdf/20016EMLeigh.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6484_ems_63080380-7e90-48ab-a56e-d70f71369ed9%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6484_ems_63080380-7e90-48ab-a56e-d70f71369ed9%22",
+          "Yes": 9002,
+          "No": 5735
         },
         {
           "Chamber": "House",
@@ -314,7 +340,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6409_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6409_ems_d8aa8fd3-3dbd-466a-97e1-4e72347cba0a/upload_word/19175EM.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6409_ems_d8aa8fd3-3dbd-466a-97e1-4e72347cba0a/upload_pdf/19175EM.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6409_ems_d8aa8fd3-3dbd-466a-97e1-4e72347cba0a%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6409_ems_d8aa8fd3-3dbd-466a-97e1-4e72347cba0a%22",
+          "Yes": 9128,
+          "No": 1679
         },
         {
           "Chamber": "House",
@@ -334,7 +362,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6499_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6499_ems_bb099c22-0e04-4d0b-afdd-bf7d7f3a76ca/upload_word/730946.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6499_ems_bb099c22-0e04-4d0b-afdd-bf7d7f3a76ca/upload_pdf/730946.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6499_ems_bb099c22-0e04-4d0b-afdd-bf7d7f3a76ca%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6499_ems_bb099c22-0e04-4d0b-afdd-bf7d7f3a76ca%22",
+          "Yes": 4057,
+          "No": 4586
         },
         {
           "Chamber": "House",
@@ -354,7 +384,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6386_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6386_ems_b063b85b-0541-488e-9e01-fcccdafe5f3f/upload_word/713752.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6386_ems_b063b85b-0541-488e-9e01-fcccdafe5f3f/upload_pdf/713752.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6386_ems_b063b85b-0541-488e-9e01-fcccdafe5f3f%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6386_ems_b063b85b-0541-488e-9e01-fcccdafe5f3f%22",
+          "Yes": 4652,
+          "No": 3242
         },
         {
           "Chamber": "House",
@@ -374,7 +406,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6411_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6411_ems_994c1488-e5bb-48e8-9e42-30e38e8f6aae/upload_word/716811.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6411_ems_994c1488-e5bb-48e8-9e42-30e38e8f6aae/upload_pdf/716811.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6411_ems_994c1488-e5bb-48e8-9e42-30e38e8f6aae%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6411_ems_994c1488-e5bb-48e8-9e42-30e38e8f6aae%22",
+          "Yes": 2475,
+          "No": 5882
         },
         {
           "Chamber": "House",
@@ -394,7 +428,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6432_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6432_ems_73799ab4-f25e-4dc4-b49b-96ad2ed597e6/upload_word/719465.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6432_ems_73799ab4-f25e-4dc4-b49b-96ad2ed597e6/upload_pdf/719465.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6432_ems_73799ab4-f25e-4dc4-b49b-96ad2ed597e6%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6432_ems_73799ab4-f25e-4dc4-b49b-96ad2ed597e6%22",
+          "Yes": 5075,
+          "No": 5431
         },
         {
           "Chamber": "House",
@@ -403,8 +439,8 @@ Future<List> fetchBillsDev() async {
           "Passed House": "2019-12-05",
           "Intro Senate": "2019-12-05",
           "Passed Senate": "2020-02-24",
-          "Assent Date": "",
-          "Act No.": "",
+          "Assent Date": "2020-03-06",
+          "Act No.": "11",
           "URL": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6433",
           "id": "r6433",
           "Summary": "Implements a recommendation of the Report of the Review of Australia\u2019s Sports Integrity Arrangements (the Wood review) by amending the Australian Sports Anti-Doping Authority Act 2006 to: establish Sport Integrity Australia to bring together the functions of the Australian Sports Anti-Doping Authority and the National Integrity of Sport Unit within the Department of Health, as well as the sports integrity functions of Sport Australia; and amend the short title of the Act to the Sport Integrity Australia Act 2019. Also makes consequential amendments to eight Acts; and makes amendments to three Acts contingent on the commencement of the Australian Sports Anti-Doping Authority Amendment (Enhancing Australia's Anti-Doping Capability) Act 2019.",
@@ -414,7 +450,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6433_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6433_ems_46a311d5-cb10-4f9c-80ce-f40adcea5665/upload_word/Addendum_Australian~nti-Doping%20Authority%20Amendment%20(Sport%20Integrity%20Australia)%20Bill%202019.DOCX;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6433_ems_46a311d5-cb10-4f9c-80ce-f40adcea5665/upload_pdf/Addendum_Australian~nti-Doping%20Authority%20Amendment%20(Sport%20Integrity%20Australia)%20Bill%202019.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6433_ems_46a311d5-cb10-4f9c-80ce-f40adcea5665%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6433_ems_46a311d5-cb10-4f9c-80ce-f40adcea5665%22",
+          "Yes": 5814,
+          "No": 8021
         },
         {
           "Chamber": "House",
@@ -434,7 +472,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6358_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6358_ems_786a9d6d-9c99-4656-b834-3ea2bc688af8/upload_word/19138EMSharkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6358_ems_786a9d6d-9c99-4656-b834-3ea2bc688af8/upload_pdf/19138EMSharkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6358_ems_786a9d6d-9c99-4656-b834-3ea2bc688af8%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6358_ems_786a9d6d-9c99-4656-b834-3ea2bc688af8%22",
+          "Yes": 1781,
+          "No": 5909
         },
         {
           "Chamber": "House",
@@ -454,7 +494,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6468_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6468_ems_e063b7ca-d61d-4993-a078-292990b204fc/upload_word/723538.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6468_ems_e063b7ca-d61d-4993-a078-292990b204fc/upload_pdf/723538.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6468_ems_e063b7ca-d61d-4993-a078-292990b204fc%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6468_ems_e063b7ca-d61d-4993-a078-292990b204fc%22",
+          "Yes": 5863,
+          "No": 7081
         },
         {
           "Chamber": "House",
@@ -474,7 +516,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6461_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6461_ems_b563ad10-1958-4ddc-9aee-950628793c9d/upload_word/19247EMBandt.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6461_ems_b563ad10-1958-4ddc-9aee-950628793c9d/upload_pdf/19247EMBandt.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6461_ems_b563ad10-1958-4ddc-9aee-950628793c9d%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6461_ems_b563ad10-1958-4ddc-9aee-950628793c9d%22",
+          "Yes": 6047,
+          "No": 6806
         },
         {
           "Chamber": "House",
@@ -494,7 +538,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6506_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6506_ems_b5887160-5905-4382-b5d6-27a8130f8dec/upload_word/20024EMBandt.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6506_ems_b5887160-5905-4382-b5d6-27a8130f8dec/upload_pdf/20024EMBandt.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6506_ems_b5887160-5905-4382-b5d6-27a8130f8dec%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6506_ems_b5887160-5905-4382-b5d6-27a8130f8dec%22",
+          "Yes": 728,
+          "No": 1701
         },
         {
           "Chamber": "House",
@@ -514,7 +560,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6355_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6355_ems_d18b71f0-2637-4e6d-b3d8-8135d7ad5b05/upload_word/19135EMBandt.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6355_ems_d18b71f0-2637-4e6d-b3d8-8135d7ad5b05/upload_pdf/19135EMBandt.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6355_ems_d18b71f0-2637-4e6d-b3d8-8135d7ad5b05%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6355_ems_d18b71f0-2637-4e6d-b3d8-8135d7ad5b05%22",
+          "Yes": 5558,
+          "No": 2896
         },
         {
           "Chamber": "House",
@@ -534,7 +582,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6422_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6422_ems_7c7da799-4fd7-4f07-bb83-8743c6e86bac/upload_word/19196EMBandt.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6422_ems_7c7da799-4fd7-4f07-bb83-8743c6e86bac/upload_pdf/19196EMBandt.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6422_ems_7c7da799-4fd7-4f07-bb83-8743c6e86bac%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6422_ems_7c7da799-4fd7-4f07-bb83-8743c6e86bac%22",
+          "Yes": 5821,
+          "No": 136
         },
         {
           "Chamber": "House",
@@ -554,7 +604,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6460_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6460_ems_16c0e987-b0f8-4f29-b9af-65ddf8fb1900/upload_word/19248EMSharkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6460_ems_16c0e987-b0f8-4f29-b9af-65ddf8fb1900/upload_pdf/19248EMSharkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6460_ems_16c0e987-b0f8-4f29-b9af-65ddf8fb1900%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6460_ems_16c0e987-b0f8-4f29-b9af-65ddf8fb1900%22",
+          "Yes": 4036,
+          "No": 9589
         },
         {
           "Chamber": "House",
@@ -574,7 +626,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6434_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6434_ems_e220c421-f0c7-4604-9f98-7833cca1bd20/upload_word/19207EMBandt.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6434_ems_e220c421-f0c7-4604-9f98-7833cca1bd20/upload_pdf/19207EMBandt.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6434_ems_e220c421-f0c7-4604-9f98-7833cca1bd20%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6434_ems_e220c421-f0c7-4604-9f98-7833cca1bd20%22",
+          "Yes": 5873,
+          "No": 514
         },
         {
           "Chamber": "House",
@@ -594,7 +648,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6403_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6403_ems_4226d0da-e07a-42c3-8ba8-fd06636cf80c/upload_word/19186EMSharkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6403_ems_4226d0da-e07a-42c3-8ba8-fd06636cf80c/upload_pdf/19186EMSharkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6403_ems_4226d0da-e07a-42c3-8ba8-fd06636cf80c%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6403_ems_4226d0da-e07a-42c3-8ba8-fd06636cf80c%22",
+          "Yes": 6434,
+          "No": 7459
         },
         {
           "Chamber": "House",
@@ -614,7 +670,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6469_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6469_ems_e063b7ca-d61d-4993-a078-292990b204fc/upload_word/723538.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6469_ems_e063b7ca-d61d-4993-a078-292990b204fc/upload_pdf/723538.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6469_ems_e063b7ca-d61d-4993-a078-292990b204fc%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6469_ems_e063b7ca-d61d-4993-a078-292990b204fc%22",
+          "Yes": 7421,
+          "No": 5290
         },
         {
           "Chamber": "House",
@@ -634,7 +692,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6379_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6379_ems_d9583e69-03be-457b-878c-041134e159df/upload_word/19153EMSharkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6379_ems_d9583e69-03be-457b-878c-041134e159df/upload_pdf/19153EMSharkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6379_ems_d9583e69-03be-457b-878c-041134e159df%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6379_ems_d9583e69-03be-457b-878c-041134e159df%22",
+          "Yes": 5823,
+          "No": 2898
         },
         {
           "Chamber": "House",
@@ -654,7 +714,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6380_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6380_ems_422cb3f5-8fb7-42e4-ab5b-3eabb68f89d0/upload_word/19154EMSharkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6380_ems_422cb3f5-8fb7-42e4-ab5b-3eabb68f89d0/upload_pdf/19154EMSharkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6380_ems_422cb3f5-8fb7-42e4-ab5b-3eabb68f89d0%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6380_ems_422cb3f5-8fb7-42e4-ab5b-3eabb68f89d0%22",
+          "Yes": 8740,
+          "No": 2520
         },
         {
           "Chamber": "House",
@@ -674,7 +736,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6467_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6467_ems_e063b7ca-d61d-4993-a078-292990b204fc/upload_word/723538.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6467_ems_e063b7ca-d61d-4993-a078-292990b204fc/upload_pdf/723538.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6467_ems_e063b7ca-d61d-4993-a078-292990b204fc%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6467_ems_e063b7ca-d61d-4993-a078-292990b204fc%22",
+          "Yes": 9240,
+          "No": 530
         },
         {
           "Chamber": "House",
@@ -694,7 +758,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6421_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6421_ems_74c9109b-0ebf-400e-b0d5-e4d780748396/upload_word/19197EMSharkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6421_ems_74c9109b-0ebf-400e-b0d5-e4d780748396/upload_pdf/19197EMSharkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6421_ems_74c9109b-0ebf-400e-b0d5-e4d780748396%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6421_ems_74c9109b-0ebf-400e-b0d5-e4d780748396%22",
+          "Yes": 2627,
+          "No": 312
         },
         {
           "Chamber": "House",
@@ -714,7 +780,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6396_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6396_ems_4639dbba-d525-434c-8e64-3146eeba7da9/upload_word/717035.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6396_ems_4639dbba-d525-434c-8e64-3146eeba7da9/upload_pdf/717035.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6396_ems_4639dbba-d525-434c-8e64-3146eeba7da9%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6396_ems_4639dbba-d525-434c-8e64-3146eeba7da9%22",
+          "Yes": 4834,
+          "No": 6505
         },
         {
           "Chamber": "House",
@@ -734,7 +802,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6418_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6418_ems_dff7dc12-d3ac-47cf-bdfe-945e55c984f6/upload_word/717449.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6418_ems_dff7dc12-d3ac-47cf-bdfe-945e55c984f6/upload_pdf/717449.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6418_ems_dff7dc12-d3ac-47cf-bdfe-945e55c984f6%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6418_ems_dff7dc12-d3ac-47cf-bdfe-945e55c984f6%22",
+          "Yes": 1862,
+          "No": 3641
         },
         {
           "Chamber": "House",
@@ -754,7 +824,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6391_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6391_ems_b8e0b396-373f-4395-8a9f-d3bc3373a1b4/upload_word/716881Clean.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6391_ems_b8e0b396-373f-4395-8a9f-d3bc3373a1b4/upload_pdf/716881Clean.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6391_ems_b8e0b396-373f-4395-8a9f-d3bc3373a1b4%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6391_ems_b8e0b396-373f-4395-8a9f-d3bc3373a1b4%22",
+          "Yes": 9561,
+          "No": 6522
         },
         {
           "Chamber": "House",
@@ -774,7 +846,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6485_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6485_ems_ec185e79-17a9-4fc4-8a9a-42316d4c07c6/upload_word/730393.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6485_ems_ec185e79-17a9-4fc4-8a9a-42316d4c07c6/upload_pdf/730393.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6485_ems_ec185e79-17a9-4fc4-8a9a-42316d4c07c6%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6485_ems_ec185e79-17a9-4fc4-8a9a-42316d4c07c6%22",
+          "Yes": 582,
+          "No": 9973
         },
         {
           "Chamber": "House",
@@ -794,7 +868,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6359_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6359_ems_6a43e9a9-ffc3-4d55-aa71-26e6037b4151/upload_word/19136EMSharkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6359_ems_6a43e9a9-ffc3-4d55-aa71-26e6037b4151/upload_pdf/19136EMSharkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6359_ems_6a43e9a9-ffc3-4d55-aa71-26e6037b4151%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6359_ems_6a43e9a9-ffc3-4d55-aa71-26e6037b4151%22",
+          "Yes": 526,
+          "No": 3823
         },
         {
           "Chamber": "House",
@@ -803,8 +879,8 @@ Future<List> fetchBillsDev() async {
           "Passed House": "2020-02-12",
           "Intro Senate": "2020-02-13",
           "Passed Senate": "2020-02-27",
-          "Assent Date": "",
-          "Act No.": "",
+          "Assent Date": "2020-03-06",
+          "Act No.": "14",
           "URL": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6480",
           "id": "r6480",
           "Summary": "Introduced with the Export Charges (Imposition\u2014Excise) Amendment Bill 2019 and Export Charges (Imposition\u2014General) Amendment Bill 2019, the bill amends the Export Charges (Imposition\u2014Customs) Act,2015 to make amendments consequential on the enactment of the Export Control Bill 2019 and the proposed repeal of the Export Charges (Collection) Act 2015.",
@@ -814,7 +890,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6480_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6480_ems_f508430e-71ff-42db-b160-4fdd5f359c20/upload_word/723934.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6480_ems_f508430e-71ff-42db-b160-4fdd5f359c20/upload_pdf/723934.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6480_ems_f508430e-71ff-42db-b160-4fdd5f359c20%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6480_ems_f508430e-71ff-42db-b160-4fdd5f359c20%22",
+          "Yes": 3291,
+          "No": 2327
         },
         {
           "Chamber": "House",
@@ -823,8 +901,8 @@ Future<List> fetchBillsDev() async {
           "Passed House": "2020-02-12",
           "Intro Senate": "2020-02-13",
           "Passed Senate": "2020-02-27",
-          "Assent Date": "",
-          "Act No.": "",
+          "Assent Date": "2020-03-06",
+          "Act No.": "15",
           "URL": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6479",
           "id": "r6479",
           "Summary": "Introduced with the Export Charges (Imposition\u2014Customs) Amendment Bill 2019 and Export Charges (Imposition\u2014General) Amendment Bill 2019, the bill amends the Export Charges (Imposition\u2014Excise) Act 2015 to make amendments consequential on the enactment of the Export Control Bill 2019 and the proposed repeal of the Export Charges (Collection) Act 2015.",
@@ -834,7 +912,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6479_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6479_ems_f508430e-71ff-42db-b160-4fdd5f359c20/upload_word/723934.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6479_ems_f508430e-71ff-42db-b160-4fdd5f359c20/upload_pdf/723934.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6479_ems_f508430e-71ff-42db-b160-4fdd5f359c20%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6479_ems_f508430e-71ff-42db-b160-4fdd5f359c20%22",
+          "Yes": 1104,
+          "No": 2697
         },
         {
           "Chamber": "House",
@@ -843,8 +923,8 @@ Future<List> fetchBillsDev() async {
           "Passed House": "2020-02-12",
           "Intro Senate": "2020-02-13",
           "Passed Senate": "2020-02-27",
-          "Assent Date": "",
-          "Act No.": "",
+          "Assent Date": "2020-03-06",
+          "Act No.": "16",
           "URL": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6477",
           "id": "r6477",
           "Summary": "Introduced with the Export Charges (Imposition\u2014Customs) Amendment Bill 2019 and Export Charges (Imposition\u2014Excise) Amendment Bill 2019, the bill amends the Export Charges (Imposition\u2014General) Act 2015 to make amendments consequential on the enactment of the Export Control Bill 2019 and the proposed repeal of the Export Charges (Collection) Act 2015.",
@@ -854,7 +934,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6477_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6477_ems_f508430e-71ff-42db-b160-4fdd5f359c20/upload_word/723934.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6477_ems_f508430e-71ff-42db-b160-4fdd5f359c20/upload_pdf/723934.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6477_ems_f508430e-71ff-42db-b160-4fdd5f359c20%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6477_ems_f508430e-71ff-42db-b160-4fdd5f359c20%22",
+          "Yes": 7783,
+          "No": 3087
         },
         {
           "Chamber": "House",
@@ -863,8 +945,8 @@ Future<List> fetchBillsDev() async {
           "Passed House": "2020-02-12",
           "Intro Senate": "2020-02-13",
           "Passed Senate": "2020-02-27",
-          "Assent Date": "",
-          "Act No.": "",
+          "Assent Date": "2020-03-06",
+          "Act No.": "12",
           "URL": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6481",
           "id": "r6481",
           "Summary": "Introduced with the Export Control (Consequential Amendments and Transitional Provisions) Bill 2019, the bill streamlines and consolidates existing legislation to create a new framework for regulating the export of goods, including agricultural products and food, from Australian territory.",
@@ -874,7 +956,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6481_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6481_ems_0713f727-1deb-4300-8f2d-f5551a7ccd85/upload_word/723932.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6481_ems_0713f727-1deb-4300-8f2d-f5551a7ccd85/upload_pdf/723932.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6481_ems_0713f727-1deb-4300-8f2d-f5551a7ccd85%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6481_ems_0713f727-1deb-4300-8f2d-f5551a7ccd85%22",
+          "Yes": 3251,
+          "No": 2628
         },
         {
           "Chamber": "House",
@@ -883,8 +967,8 @@ Future<List> fetchBillsDev() async {
           "Passed House": "2020-02-12",
           "Intro Senate": "2020-02-13",
           "Passed Senate": "2020-02-27",
-          "Assent Date": "",
-          "Act No.": "",
+          "Assent Date": "2020-03-06",
+          "Act No.": "13",
           "URL": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6478",
           "id": "r6478",
           "Summary": "Introduced with the Export Control Bill 2019 to create a new framework for regulating the export of goods, including agricultural products and food, from Australian territory, the bill: repeals 19 Acts; makes consequential amendments to nine Acts; and provides for transitional arrangements.",
@@ -894,7 +978,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6478_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6478_ems_38b9b705-65b0-4d3c-adf9-632820cff3d7/upload_word/723933.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6478_ems_38b9b705-65b0-4d3c-adf9-632820cff3d7/upload_pdf/723933.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6478_ems_38b9b705-65b0-4d3c-adf9-632820cff3d7%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6478_ems_38b9b705-65b0-4d3c-adf9-632820cff3d7%22",
+          "Yes": 5577,
+          "No": 5992
         },
         {
           "Chamber": "House",
@@ -914,7 +1000,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6405_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6405_ems_ef4fb57f-4eea-42ec-88ae-bd3a57f8953b/upload_word/19185EMBandt.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6405_ems_ef4fb57f-4eea-42ec-88ae-bd3a57f8953b/upload_pdf/19185EMBandt.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6405_ems_ef4fb57f-4eea-42ec-88ae-bd3a57f8953b%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6405_ems_ef4fb57f-4eea-42ec-88ae-bd3a57f8953b%22",
+          "Yes": 7943,
+          "No": 72
         },
         {
           "Chamber": "House",
@@ -934,7 +1022,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6347_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6347_ems_79e58577-9021-42ec-a63d-4a05edd1fd1c/upload_word/711371.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6347_ems_79e58577-9021-42ec-a63d-4a05edd1fd1c/upload_pdf/711371.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6347_ems_79e58577-9021-42ec-a63d-4a05edd1fd1c%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6347_ems_79e58577-9021-42ec-a63d-4a05edd1fd1c%22",
+          "Yes": 8154,
+          "No": 2340
         },
         {
           "Chamber": "House",
@@ -954,7 +1044,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6482_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6482_ems_bd86fac7-06d9-409e-b224-f4c8809829e9/upload_word/723987.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6482_ems_bd86fac7-06d9-409e-b224-f4c8809829e9/upload_pdf/723987.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6482_ems_bd86fac7-06d9-409e-b224-f4c8809829e9%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6482_ems_bd86fac7-06d9-409e-b224-f4c8809829e9%22",
+          "Yes": 8233,
+          "No": 1905
         },
         {
           "Chamber": "House",
@@ -974,7 +1066,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6504_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6504_ems_98826267-affe-48ed-8e39-444a5275ec4d/upload_word/732367.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6504_ems_98826267-affe-48ed-8e39-444a5275ec4d/upload_pdf/732367.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6504_ems_98826267-affe-48ed-8e39-444a5275ec4d%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6504_ems_98826267-affe-48ed-8e39-444a5275ec4d%22",
+          "Yes": 4660,
+          "No": 4404
         },
         {
           "Chamber": "House",
@@ -994,7 +1088,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6454_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6454_ems_4cb94a2f-9a59-43ba-8bfa-b5958f3d66c5/upload_word/722944.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6454_ems_4cb94a2f-9a59-43ba-8bfa-b5958f3d66c5/upload_pdf/722944.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6454_ems_4cb94a2f-9a59-43ba-8bfa-b5958f3d66c5%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6454_ems_4cb94a2f-9a59-43ba-8bfa-b5958f3d66c5%22",
+          "Yes": 7292,
+          "No": 5536
         },
         {
           "Chamber": "House",
@@ -1014,7 +1110,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6493_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6493_ems_4f8d9a64-4f71-4331-941c-6a0d0e667c59/upload_word/731165.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6493_ems_4f8d9a64-4f71-4331-941c-6a0d0e667c59/upload_pdf/731165.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6493_ems_4f8d9a64-4f71-4331-941c-6a0d0e667c59%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6493_ems_4f8d9a64-4f71-4331-941c-6a0d0e667c59%22",
+          "Yes": 1543,
+          "No": 8305
         },
         {
           "Chamber": "House",
@@ -1034,7 +1132,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6475_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6475_ems_e0f4b252-ccb7-4771-848a-0b748d053514/upload_word/723581.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6475_ems_e0f4b252-ccb7-4771-848a-0b748d053514/upload_pdf/723581.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6475_ems_e0f4b252-ccb7-4771-848a-0b748d053514%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6475_ems_e0f4b252-ccb7-4771-848a-0b748d053514%22",
+          "Yes": 967,
+          "No": 7454
         },
         {
           "Chamber": "House",
@@ -1054,7 +1154,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6474_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6474_ems_9d514c22-4ed2-4838-8175-917faf4057f9/upload_word/723582.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6474_ems_9d514c22-4ed2-4838-8175-917faf4057f9/upload_pdf/723582.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6474_ems_9d514c22-4ed2-4838-8175-917faf4057f9%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6474_ems_9d514c22-4ed2-4838-8175-917faf4057f9%22",
+          "Yes": 2333,
+          "No": 1612
         },
         {
           "Chamber": "House",
@@ -1074,7 +1176,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6453_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6453_ems_51ac3247-a9e9-45f5-a606-4b005cdc0b3d/upload_word/722781.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6453_ems_51ac3247-a9e9-45f5-a606-4b005cdc0b3d/upload_pdf/722781.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6453_ems_51ac3247-a9e9-45f5-a606-4b005cdc0b3d%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6453_ems_51ac3247-a9e9-45f5-a606-4b005cdc0b3d%22",
+          "Yes": 4427,
+          "No": 2991
         },
         {
           "Chamber": "House",
@@ -1094,7 +1198,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6456_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6456_ems_b1fcdeff-4e63-4108-8b15-535c8c5d173e/upload_word/722782.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6456_ems_b1fcdeff-4e63-4108-8b15-535c8c5d173e/upload_pdf/722782.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6456_ems_b1fcdeff-4e63-4108-8b15-535c8c5d173e%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6456_ems_b1fcdeff-4e63-4108-8b15-535c8c5d173e%22",
+          "Yes": 5178,
+          "No": 3921
         },
         {
           "Chamber": "House",
@@ -1114,7 +1220,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6503_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6503_ems_2e302f6c-098e-4bd8-bdee-fc5d67d02cc6/upload_word/20020EMKatter.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6503_ems_2e302f6c-098e-4bd8-bdee-fc5d67d02cc6/upload_pdf/20020EMKatter.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6503_ems_2e302f6c-098e-4bd8-bdee-fc5d67d02cc6%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6503_ems_2e302f6c-098e-4bd8-bdee-fc5d67d02cc6%22",
+          "Yes": 9503,
+          "No": 5555
         },
         {
           "Chamber": "House",
@@ -1134,7 +1242,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6505_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6505_ems_3eac2a60-e04f-4673-9ea5-e0768a2c7a07/upload_word/732317.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6505_ems_3eac2a60-e04f-4673-9ea5-e0768a2c7a07/upload_pdf/732317.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6505_ems_3eac2a60-e04f-4673-9ea5-e0768a2c7a07%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6505_ems_3eac2a60-e04f-4673-9ea5-e0768a2c7a07%22",
+          "Yes": 4900,
+          "No": 9087
         },
         {
           "Chamber": "House",
@@ -1154,7 +1264,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6417_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6417_ems_67840204-2b60-4136-ad6b-ba02eb1c1987/upload_word/717396.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6417_ems_67840204-2b60-4136-ad6b-ba02eb1c1987/upload_pdf/717396.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6417_ems_67840204-2b60-4136-ad6b-ba02eb1c1987%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6417_ems_67840204-2b60-4136-ad6b-ba02eb1c1987%22",
+          "Yes": 9596,
+          "No": 5269
         },
         {
           "Chamber": "House",
@@ -1174,7 +1286,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6387_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6387_ems_f8e7bb62-e2bd-420b-8597-8881422b4b8f/upload_word/713695.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6387_ems_f8e7bb62-e2bd-420b-8597-8881422b4b8f/upload_pdf/713695.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6387_ems_f8e7bb62-e2bd-420b-8597-8881422b4b8f%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6387_ems_f8e7bb62-e2bd-420b-8597-8881422b4b8f%22",
+          "Yes": 2084,
+          "No": 889
         },
         {
           "Chamber": "House",
@@ -1194,7 +1308,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6489_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6489_ems_3163d0cd-2e7e-427e-b261-e32acc0b4eb6/upload_word/20018EMBandt.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6489_ems_3163d0cd-2e7e-427e-b261-e32acc0b4eb6/upload_pdf/20018EMBandt.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6489_ems_3163d0cd-2e7e-427e-b261-e32acc0b4eb6%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6489_ems_3163d0cd-2e7e-427e-b261-e32acc0b4eb6%22",
+          "Yes": 9465,
+          "No": 3307
         },
         {
           "Chamber": "House",
@@ -1214,7 +1330,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6462_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6462_ems_24b606d2-9103-4d7d-b4c5-a19a45d388b4/upload_word/19246EMWilkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6462_ems_24b606d2-9103-4d7d-b4c5-a19a45d388b4/upload_pdf/19246EMWilkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6462_ems_24b606d2-9103-4d7d-b4c5-a19a45d388b4%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6462_ems_24b606d2-9103-4d7d-b4c5-a19a45d388b4%22",
+          "Yes": 9776,
+          "No": 8063
         },
         {
           "Chamber": "House",
@@ -1234,7 +1352,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6360_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6360_ems_c018d1b6-0062-48c1-b1a4-aa5439f705c3/upload_word/19137EMSharkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6360_ems_c018d1b6-0062-48c1-b1a4-aa5439f705c3/upload_pdf/19137EMSharkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6360_ems_c018d1b6-0062-48c1-b1a4-aa5439f705c3%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6360_ems_c018d1b6-0062-48c1-b1a4-aa5439f705c3%22",
+          "Yes": 9942,
+          "No": 4000
         },
         {
           "Chamber": "House",
@@ -1254,7 +1374,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6446_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6446_ems_253afc4f-5dab-4468-bc1f-1c471db7a2f5/upload_word/722996.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6446_ems_253afc4f-5dab-4468-bc1f-1c471db7a2f5/upload_pdf/722996.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6446_ems_253afc4f-5dab-4468-bc1f-1c471db7a2f5%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6446_ems_253afc4f-5dab-4468-bc1f-1c471db7a2f5%22",
+          "Yes": 5083,
+          "No": 9542
         },
         {
           "Chamber": "House",
@@ -1274,7 +1396,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6448_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6448_ems_55d9f7be-a106-4e9f-8876-52a6bff1d4f4/upload_word/722995.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6448_ems_55d9f7be-a106-4e9f-8876-52a6bff1d4f4/upload_pdf/722995.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6448_ems_55d9f7be-a106-4e9f-8876-52a6bff1d4f4%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6448_ems_55d9f7be-a106-4e9f-8876-52a6bff1d4f4%22",
+          "Yes": 4904,
+          "No": 800
         },
         {
           "Chamber": "House",
@@ -1294,7 +1418,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6352_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6352_ems_6c5ae527-a454-499f-b97f-9d093effea86/upload_word/711404.doc;fileType=application%2Fmsword",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6352_ems_6c5ae527-a454-499f-b97f-9d093effea86/upload_pdf/711404.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6352_ems_6c5ae527-a454-499f-b97f-9d093effea86%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6352_ems_6c5ae527-a454-499f-b97f-9d093effea86%22",
+          "Yes": 596,
+          "No": 6913
         },
         {
           "Chamber": "House",
@@ -1314,7 +1440,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6349_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6349_ems_6380119e-0502-4146-9ce4-029421d5ac61/upload_word/711406.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6349_ems_6380119e-0502-4146-9ce4-029421d5ac61/upload_pdf/711406.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6349_ems_6380119e-0502-4146-9ce4-029421d5ac61%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6349_ems_6380119e-0502-4146-9ce4-029421d5ac61%22",
+          "Yes": 397,
+          "No": 6795
         },
         {
           "Chamber": "House",
@@ -1334,7 +1462,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6344_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6344_ems_999b068c-ee6c-43dc-85f2-19b787efe9ac/upload_word/711193.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6344_ems_999b068c-ee6c-43dc-85f2-19b787efe9ac/upload_pdf/711193.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6344_ems_999b068c-ee6c-43dc-85f2-19b787efe9ac%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6344_ems_999b068c-ee6c-43dc-85f2-19b787efe9ac%22",
+          "Yes": 1686,
+          "No": 7184
         },
         {
           "Chamber": "House",
@@ -1354,7 +1484,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6476_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6476_ems_a8a35448-9c4c-4a56-b390-e9a1e03f1886/upload_word/723653.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6476_ems_a8a35448-9c4c-4a56-b390-e9a1e03f1886/upload_pdf/723653.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6476_ems_a8a35448-9c4c-4a56-b390-e9a1e03f1886%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6476_ems_a8a35448-9c4c-4a56-b390-e9a1e03f1886%22",
+          "Yes": 3873,
+          "No": 437
         },
         {
           "Chamber": "House",
@@ -1374,7 +1506,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6406_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6406_ems_38ff1fd3-d878-499a-a7c4-3d709cf41923/upload_word/19188EMSharkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6406_ems_38ff1fd3-d878-499a-a7c4-3d709cf41923/upload_pdf/19188EMSharkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6406_ems_38ff1fd3-d878-499a-a7c4-3d709cf41923%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6406_ems_38ff1fd3-d878-499a-a7c4-3d709cf41923%22",
+          "Yes": 4057,
+          "No": 4904
         },
         {
           "Chamber": "House",
@@ -1394,7 +1528,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6470_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6470_ems_e063b7ca-d61d-4993-a078-292990b204fc/upload_word/723538.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6470_ems_e063b7ca-d61d-4993-a078-292990b204fc/upload_pdf/723538.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6470_ems_e063b7ca-d61d-4993-a078-292990b204fc%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6470_ems_e063b7ca-d61d-4993-a078-292990b204fc%22",
+          "Yes": 3424,
+          "No": 301
         },
         {
           "Chamber": "House",
@@ -1414,7 +1550,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6490_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6490_ems_77658f3e-2f3c-4fe5-b56c-c34948525c6f/upload_word/20017EMWilkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6490_ems_77658f3e-2f3c-4fe5-b56c-c34948525c6f/upload_pdf/20017EMWilkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6490_ems_77658f3e-2f3c-4fe5-b56c-c34948525c6f%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6490_ems_77658f3e-2f3c-4fe5-b56c-c34948525c6f%22",
+          "Yes": 5934,
+          "No": 995
         },
         {
           "Chamber": "House",
@@ -1434,7 +1572,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6389_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6389_ems_158f60ae-6735-426f-ab2b-eb22bce0bb47/upload_word/19159EMBandt.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6389_ems_158f60ae-6735-426f-ab2b-eb22bce0bb47/upload_pdf/19159EMBandt.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6389_ems_158f60ae-6735-426f-ab2b-eb22bce0bb47%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6389_ems_158f60ae-6735-426f-ab2b-eb22bce0bb47%22",
+          "Yes": 2365,
+          "No": 1916
         },
         {
           "Chamber": "House",
@@ -1454,7 +1594,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6500_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6500_ems_c08f76e7-da8f-49f5-8981-25825f9ced5f/upload_word/731164.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6500_ems_c08f76e7-da8f-49f5-8981-25825f9ced5f/upload_pdf/731164.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6500_ems_c08f76e7-da8f-49f5-8981-25825f9ced5f%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6500_ems_c08f76e7-da8f-49f5-8981-25825f9ced5f%22",
+          "Yes": 2855,
+          "No": 8791
         },
         {
           "Chamber": "House",
@@ -1474,7 +1616,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6497_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6497_ems_3c6bf2ca-5f9b-48fc-be22-7a708ae537f4/upload_word/731285.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6497_ems_3c6bf2ca-5f9b-48fc-be22-7a708ae537f4/upload_pdf/731285.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6497_ems_3c6bf2ca-5f9b-48fc-be22-7a708ae537f4%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6497_ems_3c6bf2ca-5f9b-48fc-be22-7a708ae537f4%22",
+          "Yes": 7173,
+          "No": 1696
         },
         {
           "Chamber": "House",
@@ -1494,7 +1638,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6429_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6429_ems_63b0465f-e5f0-4a72-8c29-455594bc01dd/upload_word/719405.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6429_ems_63b0465f-e5f0-4a72-8c29-455594bc01dd/upload_pdf/719405.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6429_ems_63b0465f-e5f0-4a72-8c29-455594bc01dd%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6429_ems_63b0465f-e5f0-4a72-8c29-455594bc01dd%22",
+          "Yes": 388,
+          "No": 4424
         },
         {
           "Chamber": "House",
@@ -1514,7 +1660,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6384_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6384_ems_5d1fed56-38a7-4252-9ab1-595402ef71e0/upload_word/713756.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6384_ems_5d1fed56-38a7-4252-9ab1-595402ef71e0/upload_pdf/713756.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6384_ems_5d1fed56-38a7-4252-9ab1-595402ef71e0%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6384_ems_5d1fed56-38a7-4252-9ab1-595402ef71e0%22",
+          "Yes": 5263,
+          "No": 2360
         },
         {
           "Chamber": "House",
@@ -1534,7 +1682,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6437_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6437_ems_cb7bac82-88d3-4799-8188-41242b0e09ac/upload_word/719827.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6437_ems_cb7bac82-88d3-4799-8188-41242b0e09ac/upload_pdf/719827.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6437_ems_cb7bac82-88d3-4799-8188-41242b0e09ac%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6437_ems_cb7bac82-88d3-4799-8188-41242b0e09ac%22",
+          "Yes": 3590,
+          "No": 9403
         },
         {
           "Chamber": "House",
@@ -1554,7 +1704,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6465_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6465_ems_16ee027f-f585-4918-a071-b67ff8d163dc/upload_word/724068.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6465_ems_16ee027f-f585-4918-a071-b67ff8d163dc/upload_pdf/724068.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6465_ems_16ee027f-f585-4918-a071-b67ff8d163dc%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6465_ems_16ee027f-f585-4918-a071-b67ff8d163dc%22",
+          "Yes": 5606,
+          "No": 7400
         },
         {
           "Chamber": "House",
@@ -1574,7 +1726,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6464_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6464_ems_16ee027f-f585-4918-a071-b67ff8d163dc/upload_word/724068.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6464_ems_16ee027f-f585-4918-a071-b67ff8d163dc/upload_pdf/724068.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6464_ems_16ee027f-f585-4918-a071-b67ff8d163dc%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6464_ems_16ee027f-f585-4918-a071-b67ff8d163dc%22",
+          "Yes": 4182,
+          "No": 3681
         },
         {
           "Chamber": "House",
@@ -1594,7 +1748,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6486_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6486_ems_8ceed27f-2d4a-4934-ace7-b841ffec2a6f/upload_word/730098.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6486_ems_8ceed27f-2d4a-4934-ace7-b841ffec2a6f/upload_pdf/730098.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6486_ems_8ceed27f-2d4a-4934-ace7-b841ffec2a6f%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6486_ems_8ceed27f-2d4a-4934-ace7-b841ffec2a6f%22",
+          "Yes": 1178,
+          "No": 1747
         },
         {
           "Chamber": "House",
@@ -1614,7 +1770,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6442_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6442_ems_fbea0aa5-acb6-4816-bdab-0a7645a79889/upload_word/19218EMWilkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6442_ems_fbea0aa5-acb6-4816-bdab-0a7645a79889/upload_pdf/19218EMWilkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6442_ems_fbea0aa5-acb6-4816-bdab-0a7645a79889%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6442_ems_fbea0aa5-acb6-4816-bdab-0a7645a79889%22",
+          "Yes": 4144,
+          "No": 5310
         },
         {
           "Chamber": "House",
@@ -1634,7 +1792,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6435_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6435_ems_97dc1d6f-b6ac-40ba-9915-48b27f098b50/upload_word/19206EMWilkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6435_ems_97dc1d6f-b6ac-40ba-9915-48b27f098b50/upload_pdf/19206EMWilkie.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6435_ems_97dc1d6f-b6ac-40ba-9915-48b27f098b50%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6435_ems_97dc1d6f-b6ac-40ba-9915-48b27f098b50%22",
+          "Yes": 2421,
+          "No": 9623
         },
         {
           "Chamber": "House",
@@ -1654,7 +1814,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6502_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6502_ems_d4bb7700-4250-4916-b786-2d5e4174323c/upload_word/20019EMJoyce.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6502_ems_d4bb7700-4250-4916-b786-2d5e4174323c/upload_pdf/20019EMJoyce.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6502_ems_d4bb7700-4250-4916-b786-2d5e4174323c%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6502_ems_d4bb7700-4250-4916-b786-2d5e4174323c%22",
+          "Yes": 8701,
+          "No": 5223
         },
         {
           "Chamber": "House",
@@ -1674,7 +1836,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6399_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6399_ems_0db91448-bcc6-4d81-b59b-003d85d2997a/upload_word/19171EM.DOCX;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6399_ems_0db91448-bcc6-4d81-b59b-003d85d2997a/upload_pdf/19171EM.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6399_ems_0db91448-bcc6-4d81-b59b-003d85d2997a%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6399_ems_0db91448-bcc6-4d81-b59b-003d85d2997a%22",
+          "Yes": 4642,
+          "No": 3274
         },
         {
           "Chamber": "House",
@@ -1683,8 +1847,8 @@ Future<List> fetchBillsDev() async {
           "Passed House": "2020-02-12",
           "Intro Senate": "2020-02-12",
           "Passed Senate": "",
-          "Assent Date": "",
-          "Act No.": "",
+          "Assent Date": "2020-03-06",
+          "Act No.": "17",
           "URL": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6488",
           "id": "r6488",
           "Summary": "Amends the Social Security Act 1991 and four other Acts to: provide that, for the purposes of determining a person's rate of payment under social security law, employment income is assessed once it is paid to a social security recipient (replacing the current requirement for recipients to estimate and report the amount of employment income they have earned in a social security instalment period); and enable Services Australia to use data collected by the Australian Taxation Office (primarily information from the Single Touch Payroll system) in connection with the new assessment model.",
@@ -1694,7 +1858,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6488_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6488_ems_d1d3d087-21ee-4ce1-8045-0af2e7554d8b/upload_word/730099.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6488_ems_d1d3d087-21ee-4ce1-8045-0af2e7554d8b/upload_pdf/730099.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6488_ems_d1d3d087-21ee-4ce1-8045-0af2e7554d8b%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6488_ems_d1d3d087-21ee-4ce1-8045-0af2e7554d8b%22",
+          "Yes": 6131,
+          "No": 4995
         },
         {
           "Chamber": "House",
@@ -1714,7 +1880,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6400_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6400_ems_9454a3dc-a6ad-4bfa-996a-15ec252214e1/upload_word/19165EM.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6400_ems_9454a3dc-a6ad-4bfa-996a-15ec252214e1/upload_pdf/19165EM.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6400_ems_9454a3dc-a6ad-4bfa-996a-15ec252214e1%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6400_ems_9454a3dc-a6ad-4bfa-996a-15ec252214e1%22",
+          "Yes": 1082,
+          "No": 5194
         },
         {
           "Chamber": "House",
@@ -1734,7 +1902,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6395_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6395_ems_1871e79c-6e2c-4685-a704-d456be73e0c6/upload_word/716957.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6395_ems_1871e79c-6e2c-4685-a704-d456be73e0c6/upload_pdf/716957.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6395_ems_1871e79c-6e2c-4685-a704-d456be73e0c6%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6395_ems_1871e79c-6e2c-4685-a704-d456be73e0c6%22",
+          "Yes": 4210,
+          "No": 6856
         },
         {
           "Chamber": "House",
@@ -1754,7 +1924,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6401_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6401_ems_f6c5512f-ec0b-43f1-988a-2fe66a30d1e9/upload_word/719400.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6401_ems_f6c5512f-ec0b-43f1-988a-2fe66a30d1e9/upload_pdf/719400.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6401_ems_f6c5512f-ec0b-43f1-988a-2fe66a30d1e9%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6401_ems_f6c5512f-ec0b-43f1-988a-2fe66a30d1e9%22",
+          "Yes": 4032,
+          "No": 1917
         },
         {
           "Chamber": "House",
@@ -1763,8 +1935,8 @@ Future<List> fetchBillsDev() async {
           "Passed House": "2020-02-26",
           "Intro Senate": "2020-02-26",
           "Passed Senate": "2020-02-27",
-          "Assent Date": "",
-          "Act No.": "",
+          "Assent Date": "2020-03-06",
+          "Act No.": "18",
           "URL": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6494",
           "id": "r6494",
           "Summary": "Amends 10 Acts to: replace references to specific provisions of regulations with more general means of identifying the provisions, so that the correct links between the contents of regulations and Acts will remain even if the regulations are remade, renamed or renumbered; and make consequential amendments.",
@@ -1774,7 +1946,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6494_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6494_ems_9579e340-84d8-4de4-a415-16ca06d63ff5/upload_word/730655.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6494_ems_9579e340-84d8-4de4-a415-16ca06d63ff5/upload_pdf/730655.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6494_ems_9579e340-84d8-4de4-a415-16ca06d63ff5%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6494_ems_9579e340-84d8-4de4-a415-16ca06d63ff5%22",
+          "Yes": 7711,
+          "No": 9355
         },
         {
           "Chamber": "House",
@@ -1794,7 +1968,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6444_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6444_ems_68dc05c5-1897-467f-b698-33cf6ad87491/upload_word/19214EM%20Addendum.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6444_ems_68dc05c5-1897-467f-b698-33cf6ad87491/upload_pdf/19214EM%20Addendum.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6444_ems_68dc05c5-1897-467f-b698-33cf6ad87491%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6444_ems_68dc05c5-1897-467f-b698-33cf6ad87491%22",
+          "Yes": 4474,
+          "No": 4030
         },
         {
           "Chamber": "House",
@@ -1803,8 +1979,8 @@ Future<List> fetchBillsDev() async {
           "Passed House": "2020-02-24",
           "Intro Senate": "2020-02-24",
           "Passed Senate": "2020-02-27",
-          "Assent Date": "",
-          "Act No.": "",
+          "Assent Date": "2020-03-06",
+          "Act No.": "19",
           "URL": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6472",
           "id": "r6472",
           "Summary": "Amends the Student Identifiers Act 2014 to: enable the extension of the unique student identifier from vocational education and training (VET) to higher education students; expand the powers and functions of the Student Identifiers Registrar to include the operation of the student identifier in the higher education sector; and make minor amendments contingent on the commencement of the Education Legislation Amendment (Tuition Protection and Other Measures) Act 2019 and Student Identifiers Amendment (Enhanced Student Permissions) Act 2019.",
@@ -1814,7 +1990,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6472_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6472_ems_7d66d80f-d486-429f-af5b-ab753cdaef06/upload_word/723539.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6472_ems_7d66d80f-d486-429f-af5b-ab753cdaef06/upload_pdf/723539.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6472_ems_7d66d80f-d486-429f-af5b-ab753cdaef06%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6472_ems_7d66d80f-d486-429f-af5b-ab753cdaef06%22",
+          "Yes": 5468,
+          "No": 5116
         },
         {
           "Chamber": "House",
@@ -1834,7 +2012,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6498_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6498_ems_28be39f8-31d4-4963-98b2-bd6e315f78a7/upload_word/730794.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6498_ems_28be39f8-31d4-4963-98b2-bd6e315f78a7/upload_pdf/730794.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6498_ems_28be39f8-31d4-4963-98b2-bd6e315f78a7%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6498_ems_28be39f8-31d4-4963-98b2-bd6e315f78a7%22",
+          "Yes": 4697,
+          "No": 8267
         },
         {
           "Chamber": "House",
@@ -1854,7 +2034,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6451_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6451_ems_a15641ad-f2d4-4511-bb12-811c6073e6f7/upload_word/723135.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6451_ems_a15641ad-f2d4-4511-bb12-811c6073e6f7/upload_pdf/723135.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6451_ems_a15641ad-f2d4-4511-bb12-811c6073e6f7%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6451_ems_a15641ad-f2d4-4511-bb12-811c6073e6f7%22",
+          "Yes": 8567,
+          "No": 4317
         },
         {
           "Chamber": "House",
@@ -1874,7 +2056,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6511_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6511_ems_0ac5ae09-3e3e-400b-ae5e-680a68af4e45/upload_word/733176.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6511_ems_0ac5ae09-3e3e-400b-ae5e-680a68af4e45/upload_pdf/733176.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6511_ems_0ac5ae09-3e3e-400b-ae5e-680a68af4e45%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6511_ems_0ac5ae09-3e3e-400b-ae5e-680a68af4e45%22",
+          "Yes": 5462,
+          "No": 5299
         },
         {
           "Chamber": "House",
@@ -1894,7 +2078,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6452_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6452_ems_b0149742-0bf3-4d5b-a00c-4f6f6931e284/upload_word/722793.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6452_ems_b0149742-0bf3-4d5b-a00c-4f6f6931e284/upload_pdf/722793.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6452_ems_b0149742-0bf3-4d5b-a00c-4f6f6931e284%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6452_ems_b0149742-0bf3-4d5b-a00c-4f6f6931e284%22",
+          "Yes": 3510,
+          "No": 6618
         },
         {
           "Chamber": "House",
@@ -1914,7 +2100,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6483_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6483_ems_d9f89ad0-f957-4e43-873a-bff12b21d878/upload_word/723541.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6483_ems_d9f89ad0-f957-4e43-873a-bff12b21d878/upload_pdf/723541.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6483_ems_d9f89ad0-f957-4e43-873a-bff12b21d878%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6483_ems_d9f89ad0-f957-4e43-873a-bff12b21d878%22",
+          "Yes": 6877,
+          "No": 2466
         },
         {
           "Chamber": "House",
@@ -1934,7 +2122,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6507_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6507_ems_0ccb15b7-90ea-46dc-98fa-2faac66b5552/upload_word/733121.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6507_ems_0ccb15b7-90ea-46dc-98fa-2faac66b5552/upload_pdf/733121.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6507_ems_0ccb15b7-90ea-46dc-98fa-2faac66b5552%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6507_ems_0ccb15b7-90ea-46dc-98fa-2faac66b5552%22",
+          "Yes": 5301,
+          "No": 8236
         },
         {
           "Chamber": "House",
@@ -1943,8 +2133,8 @@ Future<List> fetchBillsDev() async {
           "Passed House": "2020-02-10",
           "Intro Senate": "2020-02-10",
           "Passed Senate": "2020-02-24",
-          "Assent Date": "",
-          "Act No.": "",
+          "Assent Date": "2020-03-06",
+          "Act No.": "20",
           "URL": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6458",
           "id": "r6458",
           "Summary": "Amends the Trade Support Loans Act 2014 to: enable the secretary to provide for offsetting arrangements where an amount is wrongly paid as an instalment of a trade support loan (TSL); provide the secretary with a discretion to extend the period for notifying a change of address; and align the minimum periods for TSL recipients to notify the secretary of information under the Act.",
@@ -1954,7 +2144,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6458_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6458_ems_b5efada7-6aa4-489d-b219-325b84523e82/upload_word/19231EM%20Addendum.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6458_ems_b5efada7-6aa4-489d-b219-325b84523e82/upload_pdf/19231EM%20Addendum.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6458_ems_b5efada7-6aa4-489d-b219-325b84523e82%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6458_ems_b5efada7-6aa4-489d-b219-325b84523e82%22",
+          "Yes": 1681,
+          "No": 6205
         },
         {
           "Chamber": "House",
@@ -1974,7 +2166,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6440_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6440_ems_3ec88f82-8833-45fc-8292-a0e2233f4393/upload_word/720215.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6440_ems_3ec88f82-8833-45fc-8292-a0e2233f4393/upload_pdf/720215.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6440_ems_3ec88f82-8833-45fc-8292-a0e2233f4393%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6440_ems_3ec88f82-8833-45fc-8292-a0e2233f4393%22",
+          "Yes": 5646,
+          "No": 529
         },
         {
           "Chamber": "House",
@@ -1994,7 +2188,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6341_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6341_ems_54c01a4c-d610-49a1-8822-829d8ff9c444/upload_word/711025.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6341_ems_54c01a4c-d610-49a1-8822-829d8ff9c444/upload_pdf/711025.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6341_ems_54c01a4c-d610-49a1-8822-829d8ff9c444%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6341_ems_54c01a4c-d610-49a1-8822-829d8ff9c444%22",
+          "Yes": 1217,
+          "No": 1359
         },
         {
           "Chamber": "House",
@@ -2014,7 +2210,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6487_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6487_ems_f9d91fda-d310-40bf-8db2-0f5c38416fcb/upload_word/730238.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6487_ems_f9d91fda-d310-40bf-8db2-0f5c38416fcb/upload_pdf/730238.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6487_ems_f9d91fda-d310-40bf-8db2-0f5c38416fcb%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6487_ems_f9d91fda-d310-40bf-8db2-0f5c38416fcb%22",
+          "Yes": 7957,
+          "No": 8650
         },
         {
           "Chamber": "House",
@@ -2034,7 +2232,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6466_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6466_ems_d1533a9e-7be7-4f4f-b619-2d1d9b3db016/upload_word/724071.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6466_ems_d1533a9e-7be7-4f4f-b619-2d1d9b3db016/upload_pdf/724071.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6466_ems_d1533a9e-7be7-4f4f-b619-2d1d9b3db016%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6466_ems_d1533a9e-7be7-4f4f-b619-2d1d9b3db016%22",
+          "Yes": 4709,
+          "No": 9946
         },
         {
           "Chamber": "House",
@@ -2054,7 +2254,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6492_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6492_ems_2bdf67d4-7464-4843-9015-45236739b11c/upload_word/730710.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6492_ems_2bdf67d4-7464-4843-9015-45236739b11c/upload_pdf/730710.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6492_ems_2bdf67d4-7464-4843-9015-45236739b11c%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6492_ems_2bdf67d4-7464-4843-9015-45236739b11c%22",
+          "Yes": 1412,
+          "No": 623
         },
         {
           "Chamber": "House",
@@ -2074,7 +2276,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6325_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6325_ems_782003df-72c7-424b-b07c-ff5d5c2543c1/upload_word/710915.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6325_ems_782003df-72c7-424b-b07c-ff5d5c2543c1/upload_pdf/710915.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6325_ems_782003df-72c7-424b-b07c-ff5d5c2543c1%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6325_ems_782003df-72c7-424b-b07c-ff5d5c2543c1%22",
+          "Yes": 6862,
+          "No": 8605
         },
         {
           "Chamber": "House",
@@ -2083,8 +2287,8 @@ Future<List> fetchBillsDev() async {
           "Passed House": "2019-11-28",
           "Intro Senate": "2019-12-02",
           "Passed Senate": "2020-02-24",
-          "Assent Date": "",
-          "Act No.": "",
+          "Assent Date": "2020-03-06",
+          "Act No.": "21",
           "URL": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6413",
           "id": "r6413",
           "Summary": "Amends the: Income Tax Assessment Act 1997 and Superannuation Guarantee (Administration) Act 1992 to provide for a one-off amnesty to encourage employers to self-correct historical superannuation guarantee non compliance; and Superannuation Guarantee (Administration) Act 1992 to limit the Commissioner of Taxation\u2019s ability to remit penalties for historical superannuation guarantee non-compliance, where an employer fails to disclose information relevant to their historical superannuation guarantee shortfall.",
@@ -2094,7 +2298,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6413_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6413_ems_d5231957-82d8-4145-be0f-3e5e245a7dfd/upload_word/19180EM.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6413_ems_d5231957-82d8-4145-be0f-3e5e245a7dfd/upload_pdf/19180EM.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6413_ems_d5231957-82d8-4145-be0f-3e5e245a7dfd%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6413_ems_d5231957-82d8-4145-be0f-3e5e245a7dfd%22",
+          "Yes": 4971,
+          "No": 5831
         },
         {
           "Chamber": "House",
@@ -2114,7 +2320,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6471_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6471_ems_e063b7ca-d61d-4993-a078-292990b204fc/upload_word/723538.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6471_ems_e063b7ca-d61d-4993-a078-292990b204fc/upload_pdf/723538.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6471_ems_e063b7ca-d61d-4993-a078-292990b204fc%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6471_ems_e063b7ca-d61d-4993-a078-292990b204fc%22",
+          "Yes": 6409,
+          "No": 2120
         },
         {
           "Chamber": "House",
@@ -2134,7 +2342,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6473_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6473_ems_a861d314-41c0-489b-b96e-875db0d25b75/upload_word/723652.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6473_ems_a861d314-41c0-489b-b96e-875db0d25b75/upload_pdf/723652.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6473_ems_a861d314-41c0-489b-b96e-875db0d25b75%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6473_ems_a861d314-41c0-489b-b96e-875db0d25b75%22",
+          "Yes": 1269,
+          "No": 8817
         },
         {
           "Chamber": "House",
@@ -2154,7 +2364,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6491_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6491_ems_5399c6fb-a69a-4140-9cd1-676db9a7ff12/upload_word/730648.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6491_ems_5399c6fb-a69a-4140-9cd1-676db9a7ff12/upload_pdf/730648.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6491_ems_5399c6fb-a69a-4140-9cd1-676db9a7ff12%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6491_ems_5399c6fb-a69a-4140-9cd1-676db9a7ff12%22",
+          "Yes": 495,
+          "No": 5621
         },
         {
           "Chamber": "House",
@@ -2174,7 +2386,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6447_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6447_ems_5a84afb7-ebc9-44ae-b9ec-cb03bd0c4ea1/upload_word/722780.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6447_ems_5a84afb7-ebc9-44ae-b9ec-cb03bd0c4ea1/upload_pdf/722780.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6447_ems_5a84afb7-ebc9-44ae-b9ec-cb03bd0c4ea1%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6447_ems_5a84afb7-ebc9-44ae-b9ec-cb03bd0c4ea1%22",
+          "Yes": 7182,
+          "No": 9334
         },
         {
           "Chamber": "House",
@@ -2194,7 +2408,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6416_first-reps%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6416_ems_4e374301-7160-49f8-b54d-bca9b9240fc4/upload_word/717395.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6416_ems_4e374301-7160-49f8-b54d-bca9b9240fc4/upload_pdf/717395.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6416_ems_4e374301-7160-49f8-b54d-bca9b9240fc4%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6416_ems_4e374301-7160-49f8-b54d-bca9b9240fc4%22",
+          "Yes": 9089,
+          "No": 327
         },
         {
           "Chamber": "Senate",
@@ -2214,7 +2430,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1245_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1245_ems_3d3fb98f-a96c-404f-b9ac-1e85119a6b2a/upload_word/723182em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1245_ems_3d3fb98f-a96c-404f-b9ac-1e85119a6b2a/upload_pdf/723182em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1245_ems_3d3fb98f-a96c-404f-b9ac-1e85119a6b2a%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1245_ems_3d3fb98f-a96c-404f-b9ac-1e85119a6b2a%22",
+          "Yes": 5011,
+          "No": 7812
         },
         {
           "Chamber": "Senate",
@@ -2234,7 +2452,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1125_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1125_ems_f522c04f-f872-487e-99e1-6b6df1cb940c/upload_word/18080em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1125_ems_f522c04f-f872-487e-99e1-6b6df1cb940c/upload_pdf/18080em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1125_ems_f522c04f-f872-487e-99e1-6b6df1cb940c%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1125_ems_f522c04f-f872-487e-99e1-6b6df1cb940c%22",
+          "Yes": 9045,
+          "No": 6056
         },
         {
           "Chamber": "Senate",
@@ -2254,7 +2474,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1156_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1156_ems_c9a11d1c-8a35-4904-b51a-3c9cafb140fe/upload_word/18248em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1156_ems_c9a11d1c-8a35-4904-b51a-3c9cafb140fe/upload_pdf/18248em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1156_ems_c9a11d1c-8a35-4904-b51a-3c9cafb140fe%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1156_ems_c9a11d1c-8a35-4904-b51a-3c9cafb140fe%22",
+          "Yes": 345,
+          "No": 8689
         },
         {
           "Chamber": "Senate",
@@ -2274,7 +2496,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1254_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1254_ems_2862fcdb-e6fb-4ff1-b470-7288c6fff241/upload_word/20S02em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1254_ems_2862fcdb-e6fb-4ff1-b470-7288c6fff241/upload_pdf/20S02em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1254_ems_2862fcdb-e6fb-4ff1-b470-7288c6fff241%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1254_ems_2862fcdb-e6fb-4ff1-b470-7288c6fff241%22",
+          "Yes": 6681,
+          "No": 6584
         },
         {
           "Chamber": "Senate",
@@ -2294,7 +2518,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1214_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1214_ems_3dbb231a-3057-4652-8ff6-9a384db40869/upload_word/19S01em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1214_ems_3dbb231a-3057-4652-8ff6-9a384db40869/upload_pdf/19S01em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1214_ems_3dbb231a-3057-4652-8ff6-9a384db40869%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1214_ems_3dbb231a-3057-4652-8ff6-9a384db40869%22",
+          "Yes": 6187,
+          "No": 2909
         },
         {
           "Chamber": "Senate",
@@ -2314,7 +2540,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1143_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1143_ems_e61c8a43-68bc-4cde-b0f8-b817f5fa0b45/upload_word/18176em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1143_ems_e61c8a43-68bc-4cde-b0f8-b817f5fa0b45/upload_pdf/18176em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1143_ems_e61c8a43-68bc-4cde-b0f8-b817f5fa0b45%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1143_ems_e61c8a43-68bc-4cde-b0f8-b817f5fa0b45%22",
+          "Yes": 5446,
+          "No": 5000
         },
         {
           "Chamber": "Senate",
@@ -2334,7 +2562,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1150_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1150_ems_c72285ea-587e-409c-b5b3-aee71e45ede3/upload_word/18231em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1150_ems_c72285ea-587e-409c-b5b3-aee71e45ede3/upload_pdf/18231em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1150_ems_c72285ea-587e-409c-b5b3-aee71e45ede3%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1150_ems_c72285ea-587e-409c-b5b3-aee71e45ede3%22",
+          "Yes": 218,
+          "No": 3293
         },
         {
           "Chamber": "Senate",
@@ -2354,7 +2584,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1257_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1257_ems_766940af-489b-46df-a319-1d9d35a17e22/upload_word/20S05em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1257_ems_766940af-489b-46df-a319-1d9d35a17e22/upload_pdf/20S05em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1257_ems_766940af-489b-46df-a319-1d9d35a17e22%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1257_ems_766940af-489b-46df-a319-1d9d35a17e22%22",
+          "Yes": 465,
+          "No": 4698
         },
         {
           "Chamber": "Senate",
@@ -2374,7 +2606,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1174_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1174_ems_ab14d63b-1a59-4f6f-95ee-bd34768aa4b8/upload_word/19043em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1174_ems_ab14d63b-1a59-4f6f-95ee-bd34768aa4b8/upload_pdf/19043em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1174_ems_ab14d63b-1a59-4f6f-95ee-bd34768aa4b8%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1174_ems_ab14d63b-1a59-4f6f-95ee-bd34768aa4b8%22",
+          "Yes": 5843,
+          "No": 1456
         },
         {
           "Chamber": "Senate",
@@ -2394,7 +2628,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1094_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1094_ems_e8b7ec7b-e104-425d-a5a5-66d57dee2bf2/upload_word/17245em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1094_ems_e8b7ec7b-e104-425d-a5a5-66d57dee2bf2/upload_pdf/17245em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1094_ems_e8b7ec7b-e104-425d-a5a5-66d57dee2bf2%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1094_ems_e8b7ec7b-e104-425d-a5a5-66d57dee2bf2%22",
+          "Yes": 6916,
+          "No": 2459
         },
         {
           "Chamber": "Senate",
@@ -2414,7 +2650,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1244_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1244_ems_3ea7bfd2-34aa-4d93-b5bf-f2367305417b/upload_word/20S01em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1244_ems_3ea7bfd2-34aa-4d93-b5bf-f2367305417b/upload_pdf/20S01em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1244_ems_3ea7bfd2-34aa-4d93-b5bf-f2367305417b%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1244_ems_3ea7bfd2-34aa-4d93-b5bf-f2367305417b%22",
+          "Yes": 1185,
+          "No": 9395
         },
         {
           "Chamber": "Senate",
@@ -2434,7 +2672,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1130_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1130_ems_0aca1f6c-38bf-405d-9020-044c444a69f1/upload_word/18124em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1130_ems_0aca1f6c-38bf-405d-9020-044c444a69f1/upload_pdf/18124em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1130_ems_0aca1f6c-38bf-405d-9020-044c444a69f1%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1130_ems_0aca1f6c-38bf-405d-9020-044c444a69f1%22",
+          "Yes": 703,
+          "No": 7751
         },
         {
           "Chamber": "Senate",
@@ -2454,7 +2694,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1238_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1238_ems_1cd63b88-5576-4edc-b532-4b3890f5de5f/upload_word/19S14em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1238_ems_1cd63b88-5576-4edc-b532-4b3890f5de5f/upload_pdf/19S14em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1238_ems_1cd63b88-5576-4edc-b532-4b3890f5de5f%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1238_ems_1cd63b88-5576-4edc-b532-4b3890f5de5f%22",
+          "Yes": 8060,
+          "No": 8373
         },
         {
           "Chamber": "Senate",
@@ -2474,7 +2716,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1239_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1239_ems_6ea7c59e-7e11-40a0-a739-4222a4690597/upload_word/19S15em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1239_ems_6ea7c59e-7e11-40a0-a739-4222a4690597/upload_pdf/19S15em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1239_ems_6ea7c59e-7e11-40a0-a739-4222a4690597%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1239_ems_6ea7c59e-7e11-40a0-a739-4222a4690597%22",
+          "Yes": 7975,
+          "No": 6976
         },
         {
           "Chamber": "Senate",
@@ -2494,7 +2738,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1170_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1170_ems_153d26d0-4eac-46ce-989a-39ad0a57bda7/upload_word/19044em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1170_ems_153d26d0-4eac-46ce-989a-39ad0a57bda7/upload_pdf/19044em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1170_ems_153d26d0-4eac-46ce-989a-39ad0a57bda7%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1170_ems_153d26d0-4eac-46ce-989a-39ad0a57bda7%22",
+          "Yes": 6119,
+          "No": 638
         },
         {
           "Chamber": "Senate",
@@ -2514,7 +2760,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1074_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1074_ems_96b4ad0a-54d8-4091-bcdd-a6cfb69a9d55/upload_word/17149em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1074_ems_96b4ad0a-54d8-4091-bcdd-a6cfb69a9d55/upload_pdf/17149em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1074_ems_96b4ad0a-54d8-4091-bcdd-a6cfb69a9d55%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1074_ems_96b4ad0a-54d8-4091-bcdd-a6cfb69a9d55%22",
+          "Yes": 2173,
+          "No": 143
         },
         {
           "Chamber": "Senate",
@@ -2534,7 +2782,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1212_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1212_ems_64ae0ecf-c63d-40b3-a1ab-b08e16d57ff4/upload_word/19S02em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1212_ems_64ae0ecf-c63d-40b3-a1ab-b08e16d57ff4/upload_pdf/19S02em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1212_ems_64ae0ecf-c63d-40b3-a1ab-b08e16d57ff4%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1212_ems_64ae0ecf-c63d-40b3-a1ab-b08e16d57ff4%22",
+          "Yes": 2661,
+          "No": 6280
         },
         {
           "Chamber": "Senate",
@@ -2554,7 +2804,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1213_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1213_ems_bc1248bb-ff8e-4c35-b2d7-d7ee4b5525c6/upload_word/19S03em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1213_ems_bc1248bb-ff8e-4c35-b2d7-d7ee4b5525c6/upload_pdf/19S03em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1213_ems_bc1248bb-ff8e-4c35-b2d7-d7ee4b5525c6%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1213_ems_bc1248bb-ff8e-4c35-b2d7-d7ee4b5525c6%22",
+          "Yes": 7280,
+          "No": 369
         },
         {
           "Chamber": "Senate",
@@ -2574,7 +2826,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1246_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1246_ems_15fd8d10-4450-4e77-9a87-a42506676059/upload_word/722648em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1246_ems_15fd8d10-4450-4e77-9a87-a42506676059/upload_pdf/722648em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1246_ems_15fd8d10-4450-4e77-9a87-a42506676059%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1246_ems_15fd8d10-4450-4e77-9a87-a42506676059%22",
+          "Yes": 7885,
+          "No": 5607
         },
         {
           "Chamber": "Senate",
@@ -2594,7 +2848,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1231_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1231_ems_e8a601a4-1b1c-4eba-8105-82a49b77ae01/upload_word/19S07em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1231_ems_e8a601a4-1b1c-4eba-8105-82a49b77ae01/upload_pdf/19S07em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1231_ems_e8a601a4-1b1c-4eba-8105-82a49b77ae01%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1231_ems_e8a601a4-1b1c-4eba-8105-82a49b77ae01%22",
+          "Yes": 2466,
+          "No": 3866
         },
         {
           "Chamber": "Senate",
@@ -2614,7 +2870,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1147_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1147_ems_56495903-a153-48b7-a04b-14013a24979c/upload_word/18219em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1147_ems_56495903-a153-48b7-a04b-14013a24979c/upload_pdf/18219em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1147_ems_56495903-a153-48b7-a04b-14013a24979c%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1147_ems_56495903-a153-48b7-a04b-14013a24979c%22",
+          "Yes": 1235,
+          "No": 3711
         },
         {
           "Chamber": "Senate",
@@ -2634,7 +2892,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1067_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1067_ems_c4dd6fcb-f450-40f0-bfae-739c63d80e4c/upload_word/17129em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1067_ems_c4dd6fcb-f450-40f0-bfae-739c63d80e4c/upload_pdf/17129em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1067_ems_c4dd6fcb-f450-40f0-bfae-739c63d80e4c%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1067_ems_c4dd6fcb-f450-40f0-bfae-739c63d80e4c%22",
+          "Yes": 4706,
+          "No": 3567
         },
         {
           "Chamber": "Senate",
@@ -2654,7 +2914,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1255_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1255_ems_e4e9ea76-7475-456e-bacf-8b9c372dc0ff/upload_word/20S03em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1255_ems_e4e9ea76-7475-456e-bacf-8b9c372dc0ff/upload_pdf/20S03em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1255_ems_e4e9ea76-7475-456e-bacf-8b9c372dc0ff%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1255_ems_e4e9ea76-7475-456e-bacf-8b9c372dc0ff%22",
+          "Yes": 7473,
+          "No": 7322
         },
         {
           "Chamber": "Senate",
@@ -2674,7 +2936,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1152_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1152_ems_7a7efb3e-34d6-4a81-9a03-53dc1c4eb6a1/upload_word/18229em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1152_ems_7a7efb3e-34d6-4a81-9a03-53dc1c4eb6a1/upload_pdf/18229em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1152_ems_7a7efb3e-34d6-4a81-9a03-53dc1c4eb6a1%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1152_ems_7a7efb3e-34d6-4a81-9a03-53dc1c4eb6a1%22",
+          "Yes": 9586,
+          "No": 3425
         },
         {
           "Chamber": "Senate",
@@ -2694,7 +2958,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1232_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1232_ems_6aa397b5-c15d-4e6d-a7b0-f022a8fac231/upload_word/19S09em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1232_ems_6aa397b5-c15d-4e6d-a7b0-f022a8fac231/upload_pdf/19S09em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1232_ems_6aa397b5-c15d-4e6d-a7b0-f022a8fac231%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1232_ems_6aa397b5-c15d-4e6d-a7b0-f022a8fac231%22",
+          "Yes": 7653,
+          "No": 1222
         },
         {
           "Chamber": "Senate",
@@ -2714,7 +2980,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1142_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1142_ems_6ab16212-a81e-45c0-91cd-8d0095bca254/upload_word/18174em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1142_ems_6ab16212-a81e-45c0-91cd-8d0095bca254/upload_pdf/18174em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1142_ems_6ab16212-a81e-45c0-91cd-8d0095bca254%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1142_ems_6ab16212-a81e-45c0-91cd-8d0095bca254%22",
+          "Yes": 2339,
+          "No": 5230
         },
         {
           "Chamber": "Senate",
@@ -2734,7 +3002,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1167_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1167_ems_5d3f13ec-2335-4eef-8d1f-671d5c2f9d3f/upload_word/18284em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1167_ems_5d3f13ec-2335-4eef-8d1f-671d5c2f9d3f/upload_pdf/18284em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1167_ems_5d3f13ec-2335-4eef-8d1f-671d5c2f9d3f%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1167_ems_5d3f13ec-2335-4eef-8d1f-671d5c2f9d3f%22",
+          "Yes": 6827,
+          "No": 9404
         },
         {
           "Chamber": "Senate",
@@ -2754,7 +3024,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1240_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1240_ems_bde09851-bbed-49c8-9e1d-ca1a31ed1035/upload_word/19S13em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1240_ems_bde09851-bbed-49c8-9e1d-ca1a31ed1035/upload_pdf/19S13em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1240_ems_bde09851-bbed-49c8-9e1d-ca1a31ed1035%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1240_ems_bde09851-bbed-49c8-9e1d-ca1a31ed1035%22",
+          "Yes": 9207,
+          "No": 5740
         },
         {
           "Chamber": "Senate",
@@ -2774,7 +3046,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1215_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1215_ems_13594e8d-b5a6-44fc-bc65-be598d64b30e/upload_word/19S06em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1215_ems_13594e8d-b5a6-44fc-bc65-be598d64b30e/upload_pdf/19S06em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1215_ems_13594e8d-b5a6-44fc-bc65-be598d64b30e%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1215_ems_13594e8d-b5a6-44fc-bc65-be598d64b30e%22",
+          "Yes": 2729,
+          "No": 2256
         },
         {
           "Chamber": "Senate",
@@ -2794,7 +3068,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1217_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1217_ems_a56cc723-5f21-48ba-a624-66544725ccf3/upload_word/19S05em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1217_ems_a56cc723-5f21-48ba-a624-66544725ccf3/upload_pdf/19S05em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1217_ems_a56cc723-5f21-48ba-a624-66544725ccf3%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1217_ems_a56cc723-5f21-48ba-a624-66544725ccf3%22",
+          "Yes": 2654,
+          "No": 1829
         },
         {
           "Chamber": "Senate",
@@ -2814,7 +3090,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1173_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1173_ems_21693583-b3f0-4716-b92b-5d5e4e3cb462/upload_word/19047em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1173_ems_21693583-b3f0-4716-b92b-5d5e4e3cb462/upload_pdf/19047em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1173_ems_21693583-b3f0-4716-b92b-5d5e4e3cb462%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1173_ems_21693583-b3f0-4716-b92b-5d5e4e3cb462%22",
+          "Yes": 6830,
+          "No": 6024
         },
         {
           "Chamber": "Senate",
@@ -2834,7 +3112,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1216_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1216_ems_2d30b94a-4f04-46e8-bbe4-4be1e39bad05/upload_word/712877em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1216_ems_2d30b94a-4f04-46e8-bbe4-4be1e39bad05/upload_pdf/712877em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1216_ems_2d30b94a-4f04-46e8-bbe4-4be1e39bad05%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1216_ems_2d30b94a-4f04-46e8-bbe4-4be1e39bad05%22",
+          "Yes": 6504,
+          "No": 1183
         },
         {
           "Chamber": "Senate",
@@ -2854,7 +3134,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1256_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1256_ems_a99cd29d-5571-45ea-b5d6-c9e30ed67d8c/upload_word/20S04em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1256_ems_a99cd29d-5571-45ea-b5d6-c9e30ed67d8c/upload_pdf/20S04em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1256_ems_a99cd29d-5571-45ea-b5d6-c9e30ed67d8c%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1256_ems_a99cd29d-5571-45ea-b5d6-c9e30ed67d8c%22",
+          "Yes": 8615,
+          "No": 2812
         },
         {
           "Chamber": "Senate",
@@ -2874,7 +3156,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1140_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1140_ems_f3fa007b-88bb-4610-9e4d-00d99a1e5a0a/upload_word/18154em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1140_ems_f3fa007b-88bb-4610-9e4d-00d99a1e5a0a/upload_pdf/18154em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1140_ems_f3fa007b-88bb-4610-9e4d-00d99a1e5a0a%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1140_ems_f3fa007b-88bb-4610-9e4d-00d99a1e5a0a%22",
+          "Yes": 3517,
+          "No": 9066
         },
         {
           "Chamber": "Senate",
@@ -2894,7 +3178,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs996_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s996_ems_df7d7de1-42d4-4c22-b8c1-989fee1a9748/upload_word/15028em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s996_ems_df7d7de1-42d4-4c22-b8c1-989fee1a9748/upload_pdf/15028em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs996_ems_df7d7de1-42d4-4c22-b8c1-989fee1a9748%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs996_ems_df7d7de1-42d4-4c22-b8c1-989fee1a9748%22",
+          "Yes": 7333,
+          "No": 1509
         },
         {
           "Chamber": "Senate",
@@ -2914,7 +3200,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1202_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1202_ems_84094633-16b7-4b46-89a9-5f4fb4ee4dd7/upload_word/19S04em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1202_ems_84094633-16b7-4b46-89a9-5f4fb4ee4dd7/upload_pdf/19S04em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1202_ems_84094633-16b7-4b46-89a9-5f4fb4ee4dd7%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1202_ems_84094633-16b7-4b46-89a9-5f4fb4ee4dd7%22",
+          "Yes": 7978,
+          "No": 609
         },
         {
           "Chamber": "Senate",
@@ -2934,7 +3222,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1248_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1248_ems_55211ee9-0b50-4a0a-9cd9-6a5247efaf5d/upload_word/19S20em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1248_ems_55211ee9-0b50-4a0a-9cd9-6a5247efaf5d/upload_pdf/19S20em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1248_ems_55211ee9-0b50-4a0a-9cd9-6a5247efaf5d%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1248_ems_55211ee9-0b50-4a0a-9cd9-6a5247efaf5d%22",
+          "Yes": 5550,
+          "No": 7097
         },
         {
           "Chamber": "Senate",
@@ -2954,7 +3244,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1175_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1175_ems_09e51466-8703-4796-b1b9-34185a51b8ea/upload_word/19045em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1175_ems_09e51466-8703-4796-b1b9-34185a51b8ea/upload_pdf/19045em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1175_ems_09e51466-8703-4796-b1b9-34185a51b8ea%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1175_ems_09e51466-8703-4796-b1b9-34185a51b8ea%22",
+          "Yes": 7845,
+          "No": 1291
         },
         {
           "Chamber": "Senate",
@@ -2974,7 +3266,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1187_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1187_ems_6cec1873-1b7c-44bb-9da4-a72f3d1e8d4b/upload_word/19048em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1187_ems_6cec1873-1b7c-44bb-9da4-a72f3d1e8d4b/upload_pdf/19048em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1187_ems_6cec1873-1b7c-44bb-9da4-a72f3d1e8d4b%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1187_ems_6cec1873-1b7c-44bb-9da4-a72f3d1e8d4b%22",
+          "Yes": 9905,
+          "No": 9262
         },
         {
           "Chamber": "Senate",
@@ -2994,7 +3288,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1234_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1234_ems_5b7ea0db-8571-45b1-8c46-ab6e37943f00/upload_word/19S16em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1234_ems_5b7ea0db-8571-45b1-8c46-ab6e37943f00/upload_pdf/19S16em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1234_ems_5b7ea0db-8571-45b1-8c46-ab6e37943f00%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1234_ems_5b7ea0db-8571-45b1-8c46-ab6e37943f00%22",
+          "Yes": 3147,
+          "No": 2069
         },
         {
           "Chamber": "Senate",
@@ -3014,7 +3310,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1227_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1227_ems_37fffc89-a092-486e-99c7-02a7340190cf/upload_word/19S11em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1227_ems_37fffc89-a092-486e-99c7-02a7340190cf/upload_pdf/19S11em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1227_ems_37fffc89-a092-486e-99c7-02a7340190cf%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1227_ems_37fffc89-a092-486e-99c7-02a7340190cf%22",
+          "Yes": 9386,
+          "No": 9106
         },
         {
           "Chamber": "Senate",
@@ -3034,7 +3332,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1154_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1154_ems_f8550d3e-0bc3-4996-905a-e731872b5c82/upload_word/18258em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1154_ems_f8550d3e-0bc3-4996-905a-e731872b5c82/upload_pdf/18258em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1154_ems_f8550d3e-0bc3-4996-905a-e731872b5c82%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1154_ems_f8550d3e-0bc3-4996-905a-e731872b5c82%22",
+          "Yes": 7601,
+          "No": 5003
         },
         {
           "Chamber": "Senate",
@@ -3054,7 +3354,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1251_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1251_ems_5a710be4-2b9c-47a5-ad30-2e0f36c5eafb/upload_word/723657em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1251_ems_5a710be4-2b9c-47a5-ad30-2e0f36c5eafb/upload_pdf/723657em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1251_ems_5a710be4-2b9c-47a5-ad30-2e0f36c5eafb%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1251_ems_5a710be4-2b9c-47a5-ad30-2e0f36c5eafb%22",
+          "Yes": 3816,
+          "No": 2721
         },
         {
           "Chamber": "Senate",
@@ -3074,7 +3376,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1098_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1098_ems_de876f42-54dd-48ae-a0bd-d81e3539c8f2/upload_word/17255em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1098_ems_de876f42-54dd-48ae-a0bd-d81e3539c8f2/upload_pdf/17255em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1098_ems_de876f42-54dd-48ae-a0bd-d81e3539c8f2%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1098_ems_de876f42-54dd-48ae-a0bd-d81e3539c8f2%22",
+          "Yes": 2760,
+          "No": 3445
         },
         {
           "Chamber": "Senate",
@@ -3094,7 +3398,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1226_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1226_ems_38b48e20-f649-4e48-8cfb-b4108424a320/upload_word/19S08em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1226_ems_38b48e20-f649-4e48-8cfb-b4108424a320/upload_pdf/19S08em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1226_ems_38b48e20-f649-4e48-8cfb-b4108424a320%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1226_ems_38b48e20-f649-4e48-8cfb-b4108424a320%22",
+          "Yes": 9460,
+          "No": 4726
         },
         {
           "Chamber": "Senate",
@@ -3114,7 +3420,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1066_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1066_ems_7cb3a3b2-e2b4-4391-a8c0-a9ca349a36d2/upload_word/17080em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1066_ems_7cb3a3b2-e2b4-4391-a8c0-a9ca349a36d2/upload_pdf/17080em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1066_ems_7cb3a3b2-e2b4-4391-a8c0-a9ca349a36d2%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1066_ems_7cb3a3b2-e2b4-4391-a8c0-a9ca349a36d2%22",
+          "Yes": 1168,
+          "No": 8342
         },
         {
           "Chamber": "Senate",
@@ -3134,7 +3442,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1241_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1241_ems_2caf8455-62e6-4672-9752-c576195c229a/upload_word/19S12em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1241_ems_2caf8455-62e6-4672-9752-c576195c229a/upload_pdf/19S12em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1241_ems_2caf8455-62e6-4672-9752-c576195c229a%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1241_ems_2caf8455-62e6-4672-9752-c576195c229a%22",
+          "Yes": 7438,
+          "No": 924
         },
         {
           "Chamber": "Senate",
@@ -3154,7 +3464,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1242_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1242_ems_bf89e6d8-4425-4b84-a37c-8e67056d0777/upload_word/19S17em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1242_ems_bf89e6d8-4425-4b84-a37c-8e67056d0777/upload_pdf/19S17em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1242_ems_bf89e6d8-4425-4b84-a37c-8e67056d0777%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1242_ems_bf89e6d8-4425-4b84-a37c-8e67056d0777%22",
+          "Yes": 2823,
+          "No": 4595
         },
         {
           "Chamber": "Senate",
@@ -3174,7 +3486,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1083_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1083_ems_1c560bad-ad44-486a-a1c9-7d4bff2ce235/upload_word/17196em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1083_ems_1c560bad-ad44-486a-a1c9-7d4bff2ce235/upload_pdf/17196em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1083_ems_1c560bad-ad44-486a-a1c9-7d4bff2ce235%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1083_ems_1c560bad-ad44-486a-a1c9-7d4bff2ce235%22",
+          "Yes": 4852,
+          "No": 3978
         },
         {
           "Chamber": "Senate",
@@ -3194,7 +3508,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1249_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1249_ems_7091088c-6d8d-442f-ae37-8b8b13a24f39/upload_word/19S18em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1249_ems_7091088c-6d8d-442f-ae37-8b8b13a24f39/upload_pdf/19S18em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1249_ems_7091088c-6d8d-442f-ae37-8b8b13a24f39%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1249_ems_7091088c-6d8d-442f-ae37-8b8b13a24f39%22",
+          "Yes": 314,
+          "No": 1608
         },
         {
           "Chamber": "Senate",
@@ -3214,7 +3530,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1144_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1144_ems_5bf10e44-8f1c-4cb5-8bf5-0875a2bf2e9b/upload_word/18188em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1144_ems_5bf10e44-8f1c-4cb5-8bf5-0875a2bf2e9b/upload_pdf/18188em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1144_ems_5bf10e44-8f1c-4cb5-8bf5-0875a2bf2e9b%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1144_ems_5bf10e44-8f1c-4cb5-8bf5-0875a2bf2e9b%22",
+          "Yes": 1997,
+          "No": 2127
         },
         {
           "Chamber": "Senate",
@@ -3234,7 +3552,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1247_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1247_ems_f415fdb9-1a32-412d-aaed-5d2999a5211c/upload_word/19S19em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1247_ems_f415fdb9-1a32-412d-aaed-5d2999a5211c/upload_pdf/19S19em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1247_ems_f415fdb9-1a32-412d-aaed-5d2999a5211c%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1247_ems_f415fdb9-1a32-412d-aaed-5d2999a5211c%22",
+          "Yes": 2594,
+          "No": 8153
         },
         {
           "Chamber": "Senate",
@@ -3254,7 +3574,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1181_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1181_ems_585b0ce4-2b23-44e7-88be-7c6c74482e4c/upload_word/19049em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1181_ems_585b0ce4-2b23-44e7-88be-7c6c74482e4c/upload_pdf/19049em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1181_ems_585b0ce4-2b23-44e7-88be-7c6c74482e4c%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1181_ems_585b0ce4-2b23-44e7-88be-7c6c74482e4c%22",
+          "Yes": 3549,
+          "No": 5768
         },
         {
           "Chamber": "Senate",
@@ -3274,7 +3596,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1252_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1252_ems_350b7987-1855-4e11-823f-7a9af041b3c4/upload_word/723019em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1252_ems_350b7987-1855-4e11-823f-7a9af041b3c4/upload_pdf/723019em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1252_ems_350b7987-1855-4e11-823f-7a9af041b3c4%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1252_ems_350b7987-1855-4e11-823f-7a9af041b3c4%22",
+          "Yes": 2943,
+          "No": 1296
         },
         {
           "Chamber": "Senate",
@@ -3294,7 +3618,9 @@ Future<List> fetchBillsDev() async {
           "text link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fs1243_first-senate%2F0000%22;rec=0",
           "em link doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1243_ems_d5baba5d-854e-4186-95a4-c4271021c8f8/upload_word/722602em.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
           "em link pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/s1243_ems_d5baba5d-854e-4186-95a4-c4271021c8f8/upload_pdf/722602em.pdf;fileType=application%2Fpdf",
-          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1243_ems_d5baba5d-854e-4186-95a4-c4271021c8f8%22"
+          "em link html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fs1243_ems_d5baba5d-854e-4186-95a4-c4271021c8f8%22",
+          "Yes": 7132,
+          "No": 489
         }
       ]
   );

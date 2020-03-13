@@ -25,8 +25,6 @@ class _AllBillsPageState extends State<AllBillsPage> {
       BillsMessageWidget()
     ];
     for (var i in billsList) {
-      i["Yes"] = random.nextInt(1000).toString(); //DELETE
-      i["No"] = random.nextInt(1000).toString();  //DELETE
       billWidgetList.add(BillWidget(i));
     }
 
@@ -129,8 +127,8 @@ class BillWidget extends StatelessWidget {
                             ),
                             PieWidget(
                               // Delete Random when vote status is obtained
-                              yes: int.parse(billsMap["Yes"]),
-                              no: int.parse(billsMap["No"]),
+                              yes: billsMap["Yes"],
+                              no: billsMap["No"],
                               radius: 55,
                             )
                           ],

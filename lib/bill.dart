@@ -76,8 +76,8 @@ class BillPage extends StatelessWidget {
                   )),
               PieWidget(
                 // get from data
-                yes: int.parse(data["Yes"]),
-                no: int.parse(data["No"]),
+                yes: data["Yes"],
+                no: data["No"],
                 radius: dynamicMediumHeight,
               ),
               VoteWidget(
