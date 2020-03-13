@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/styles.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:voting_app/api/vote.dart';
+import 'dart:math';
+import 'dart:async';
+
 
 class HouseIconsWidget extends StatelessWidget {
   final issuesMap;
@@ -314,13 +318,20 @@ class PieWidget extends StatelessWidget {
 }
 
 
-class VoteWidget extends StatelessWidget {
+class VoteWidget extends StatefulWidget {
   /// card with voting info and buttons
   final data;
   VoteWidget({
     Key key,
     @required this.data,
   }) : super(key: key);
+
+  @override
+  _VoteWidgetState createState() => _VoteWidgetState();
+}
+
+class _VoteWidgetState extends State<VoteWidget> {
+
 
   @override
   Widget build(BuildContext context) {
@@ -357,7 +368,7 @@ class VoteWidget extends StatelessWidget {
               FlatButton(
                 child: Text('Confirm Vote'),
                 onPressed: () {
-                  // Put the vote on the blockchain!
+                  makeVote(vote, widget.data["id"], "UserID");
                   Navigator.of(context).pop();
                 },
               ),
@@ -366,6 +377,8 @@ class VoteWidget extends StatelessWidget {
         },
       );
     }
+
+
 
     return Center(
       child: Container(
@@ -386,7 +399,7 @@ class VoteWidget extends StatelessWidget {
                 Container(
                     padding: EdgeInsets.all(appSizes.standardPadding),
                     child: Text(
-                      this.data["Short Title"],
+                      widget.data["Short Title"],
                       style: appTextStyles.standardBold,
                     )),
                 Container(
@@ -429,3 +442,6 @@ class VoteWidget extends StatelessWidget {
     );
   }
 }
+
+
+
