@@ -144,10 +144,10 @@ class IssueWidget extends StatelessWidget {
 }
 
 class VotingStatusWidget extends StatelessWidget {
-  Map billsMap;
+  Map issuesMap;
   bool voted;
   VotingStatusWidget(Map m, bool v) {
-    this.billsMap = m;
+    this.issuesMap = m;
     this.voted = v;
   }
 
@@ -160,14 +160,14 @@ class VotingStatusWidget extends StatelessWidget {
       c = Colors.blue;
       i = Icons.check_circle_outline;
     } else {
-      if (billsMap["Chamber"] == "House") {
-        if (billsMap["Passed Senate"] == "") {
+      if (issuesMap["Chamber"] == "House") {
+        if (issuesMap["Passed Senate"] == "") {
           s = "Open";
           c = Colors.green;
           i = Icons.add_circle_outline;
         }
       } else {
-        if (billsMap["Passed House"] == "") {
+        if (issuesMap["Passed House"] == "") {
           s = "Open";
           c = Colors.green;
           i = Icons.add_circle_outline;

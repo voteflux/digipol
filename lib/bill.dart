@@ -45,8 +45,8 @@ class BillPage extends StatelessWidget {
                   )),
               Wrap(
                 children: <Widget>[
-                  HouseIconsWidget(billsMap: data, size: 40),
-                  VotingStatusWidget(billsMap: data, voted: false, size: 40),
+                  HouseIconsWidget(issuesMap: data, size: 40),
+                  VotingStatusWidget(issuesMap: data, voted: false, size: 40),
                 ],
               ),
               Container(

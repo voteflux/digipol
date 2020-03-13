@@ -3,7 +3,7 @@ import 'package:voting_app/styles.dart';
 import 'package:pie_chart/pie_chart.dart';
 
 class HouseIconsWidget extends StatelessWidget {
-  final billsMap;
+  final issuesMap;
   final Color senateColor = appColors.senate;
   final Color houseColor = appColors.house;
   final Color noFillColor = appColors.greyedOut;
@@ -14,10 +14,10 @@ class HouseIconsWidget extends StatelessWidget {
   /// colours represent the house and senate
   /// usage:
   ///
-  /// `child: HouseIconsWidget(billsMap: billsMap,size: 20,),`
+  /// `child: HouseIconsWidget(issuesMap: issuesMap,size: 20,),`
   HouseIconsWidget({
     Key key,
-    @required this.billsMap,
+    @required this.issuesMap,
     @required this.size,
   }) : super(key: key);
 
@@ -101,7 +101,7 @@ class HouseIconsWidget extends StatelessWidget {
         children: <Widget>[
           Icon(
             Icons.account_balance,
-            color: hiChooser(billsMap),
+            color: hiChooser(issuesMap),
             size: this.size,
           ),
           Icon(
@@ -111,7 +111,7 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.check_circle,
-            color: hpChooser(billsMap),
+            color: hpChooser(issuesMap),
             size: this.size,
           ),
           Icon(
@@ -121,7 +121,7 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.account_balance,
-            color: siChooser(billsMap),
+            color: siChooser(issuesMap),
             size: this.size,
           ),
           Icon(
@@ -131,7 +131,7 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.check_circle,
-            color: spChooser(billsMap),
+            color: spChooser(issuesMap),
             size: this.size,
           ),
         ],
@@ -141,7 +141,7 @@ class HouseIconsWidget extends StatelessWidget {
 }
 
 class VotingStatusWidget extends StatelessWidget {
-  final Map billsMap;
+  final Map issuesMap;
   final bool voted;
   final double size;
 
@@ -151,11 +151,11 @@ class VotingStatusWidget extends StatelessWidget {
   ///
   /// Usage:
   ///
-  /// `child:  VotingStatusWidget(billsMap: billsMap,voted: true,size: 20),`
+  /// `child:  VotingStatusWidget(issuesMap: issuesMap,voted: true,size: 20),`
 
   VotingStatusWidget({
     Key key,
-    @required this.billsMap,
+    @required this.issuesMap,
     @required this.voted,
     @required this.size,
   }) : super(key: key);
@@ -172,14 +172,14 @@ class VotingStatusWidget extends StatelessWidget {
       c = appColors.voted;
       i = Icons.check_circle_outline;
     } else {
-      if (billsMap["Chamber"] == "House") {
-        if (billsMap["Passed Senate"] == "") {
+      if (issuesMap["Chamber"] == "House") {
+        if (issuesMap["Passed Senate"] == "") {
           s = "Open";
           c = appColors.voteOpen;
           i = Icons.add_circle_outline;
         }
       } else {
-        if (billsMap["Passed House"] == "") {
+        if (issuesMap["Passed House"] == "") {
           s = "Open";
           c = appColors.voteOpen;
           i = Icons.add_circle_outline;

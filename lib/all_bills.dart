@@ -58,13 +58,13 @@ class _AllBillsPageState extends State<AllBillsPage> {
 
 class BillWidget extends StatelessWidget {
   /// widget for the bill cards
-  Map billsMap;
+  Map issuesMap;
   final Map billColors = {"House": appColors.house, "Senate": appColors.senate};
   final Map billIntro = {"House": "Intro House", "Senate": "Intro Senate"};
   // Delete Random when vote status is obtained
   final Random random = new Random();
   BillWidget(Map m) {
-    this.billsMap = m;
+    this.issuesMap = m;
   }
   @override
   Widget build(BuildContext context) {
@@ -81,7 +81,7 @@ class BillWidget extends StatelessWidget {
                   // Pushing a named route
                   Navigator.of(context).pushNamed(
                     '/item',
-                    arguments: billsMap,
+                    arguments: issuesMap,
                   );
                 },
                 child: Container(
@@ -97,17 +97,17 @@ class BillWidget extends StatelessWidget {
                             children: <Widget>[
                               //
                               VotingStatusWidget(
-                                  billsMap: billsMap,
+                                  issuesMap: issuesMap,
                                   // Delete Random when vote status is obtained
                                   voted: random.nextInt(5) == 0,
                                   size: 20),
-                              Text(billsMap[billIntro[billsMap["Chamber"]]],
+                              Text(issuesMap[billIntro[issuesMap["Chamber"]]],
                                   // TextStyle specific to this widget
                                   style: TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.w800,
                                       fontStyle: FontStyle.italic,
-                                      color: billColors[billsMap["Chamber"]])),
+                                      color: billColors[issuesMap["Chamber"]])),
                             ],
                           ),
                         ),
@@ -115,20 +115,20 @@ class BillWidget extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               vertical: 0,
                               horizontal: appSizes.standardPadding),
-                          child: Text(billsMap["Short Title"],
+                          child: Text(issuesMap["Short Title"],
                               style: appTextStyles.card),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             HouseIconsWidget(
-                              billsMap: billsMap,
+                              issuesMap: issuesMap,
                               size: 20,
                             ),
                             PieWidget(
                               // Delete Random when vote status is obtained
-                              yes: billsMap["Yes"],
-                              no: billsMap["No"],
+                              yes: issuesMap["Yes"],
+                              no: issuesMap["No"],
                               radius: 55,
                             )
                           ],
