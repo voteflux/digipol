@@ -56,6 +56,13 @@ class _SettingsPageState extends State<SettingsPage> {
                 ],
               ),
               RaisedButton(
+                elevation: appSizes.cardElevation,
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(color: appColors.buttonOutline, width: 2),
+                  borderRadius: new BorderRadius.circular(
+                      appSizes.buttonRadius),
+                ),
+                  color: appColors.button,
                   onPressed: (){
                     Navigator.of(context).pushNamed(
                       '/profile',
