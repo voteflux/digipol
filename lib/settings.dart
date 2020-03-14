@@ -19,6 +19,7 @@ class _SettingsPageState extends State<SettingsPage> {
       appColors = AppColors(1);
     }
     return Scaffold(
+
       backgroundColor: appColors.background,
       body: Container(
         child: Center(

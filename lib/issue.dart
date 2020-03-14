@@ -18,6 +18,7 @@ class IssuePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: appColors.background,
       appBar: AppBar(
+        backgroundColor: appColors.mainTheme,
         title: Text('Vote on Issue'),
       ),
       body: Container(

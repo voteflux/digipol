@@ -20,6 +20,10 @@ class _ProfilePageState extends State<ProfilePage> {
       appColors = AppColors(1);
     }
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: appColors.mainTheme,
+        title: Text('Settings'),
+      ),
       backgroundColor: appColors.background,
       body: Container(
         child: Center(
