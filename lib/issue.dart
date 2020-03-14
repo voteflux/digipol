@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/styles.dart';
 import 'package:voting_app/cutom_widgets.dart';
+import 'package:voting_app/voting_widgets.dart';
 
 class IssuePage extends StatelessWidget {
   // This is a String for the sake of an example.
