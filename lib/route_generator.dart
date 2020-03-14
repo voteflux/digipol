@@ -4,7 +4,7 @@ import 'package:voting_app/bill.dart';
 import 'package:voting_app/all_issues.dart';
 import 'package:voting_app/issue.dart';
 import 'package:voting_app/main.dart';
-import 'package:voting_app/settings.dart';
+import 'package:voting_app/profile.dart';
 import 'package:voting_app/pdf_viewer.dart';
 
 // there are three separate routing's. One for each for each;
@@ -75,6 +75,10 @@ class RouteGenerator {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => MyApp());
+
+      case '/profile':
+        return MaterialPageRoute(builder: (_) => ProfilePage());
+
       default:
         return _errorRoute();
     }

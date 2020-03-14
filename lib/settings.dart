@@ -53,6 +53,14 @@ class _SettingsPageState extends State<SettingsPage> {
 
                   )
                 ],
+              ),
+              RaisedButton(
+                  onPressed: (){
+                    Navigator.of(context).pushNamed(
+                      '/profile',
+                    );
+                  },
+                child: Text("Login", style: appTextStyles.yesnobutton,),
               )
             ],
           ),
