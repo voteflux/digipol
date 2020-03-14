@@ -5,6 +5,7 @@ import 'package:voting_app/cutom_widgets.dart';
 import 'package:voting_app/voting_widgets.dart';
 
 class BillPage extends StatelessWidget {
+  /// information about the bill
   final Map data;
 
   BillPage({

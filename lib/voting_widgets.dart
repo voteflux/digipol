@@ -2,10 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/styles.dart';
 import 'package:voting_app/api/vote.dart';
 
+// The plan here is to have a card that has 3 states
+// 1 voting options - the default
+// 2 Vote processing
+// 3 Voted - showing vote info (time, hash, vote...)
+// separate into widgets
+
+
 class VoteWidget extends StatefulWidget {
-  /// card with voting info and buttons
+  // card with voting info and buttons
   final data;
   final bool loggedIn = false;
+  /// Where voting stuff happens
+  ///
+  /// usage:
+  ///
+  /// `child: VoteWidget(data: data,),`
   VoteWidget({
     Key key,
     @required this.data,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/styles.dart';
 
 class SettingsPage extends StatefulWidget {
+  /// where the app and user settings go
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
