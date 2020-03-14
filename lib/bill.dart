@@ -68,7 +68,7 @@ class BillPage extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "Current Voting Results",
-                        style: appTextStyles.heading,
+                        style: appTextStyles.standardBold,
                         textAlign: TextAlign.center,
                       ),
                     ],

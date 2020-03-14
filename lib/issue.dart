@@ -15,34 +15,73 @@ class IssuePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double dynamicMediumHeight = MediaQuery.of(context).size.height * 0.25;
+    double dynamicLargeWidth = MediaQuery.of(context).size.width * 0.95;
+    if (dynamicLargeWidth > appSizes.largeWidth) {
+      dynamicLargeWidth = appSizes.largeWidth;
+    }
     return Scaffold(
       backgroundColor: appColors.background,
       appBar: AppBar(
         backgroundColor: appColors.mainTheme,
         title: Text('Vote on Issue'),
       ),
-      body: Container(
-        child: Center(
+      body: Center(
+        child: Container(
+          width: dynamicLargeWidth,
           child: ListView(
             children: <Widget>[
-              Text(
-                "Page Under Construction",
-                style: TextStyle(fontSize: 30, color: Colors.red),
+              Container(
+                  width: dynamicLargeWidth,
+                  padding: EdgeInsets.all(appSizes.standardPadding),
+                  child: Wrap(
+                    children: <Widget>[
+                      Text(
+                        data["Short Title"],
+                        style: appTextStyles.heading,
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  )),
+
+              Container(
+                width: appSizes.largeWidth,
+                padding: EdgeInsets.all(20),
+                child: Text(
+                  data["Summary"],
+                  style: appTextStyles.standard,
+                ),
               ),
-              Text(
-                data["Short Title"],
-                style: TextStyle(fontSize: 30, color: appColors.text),
+
+              Container(
+                  width: dynamicLargeWidth,
+                  padding: EdgeInsets.all(appSizes.standardPadding),
+                  child: Wrap(
+                    children: <Widget>[
+                      Text(
+                        "Current Voting Results",
+                        style: appTextStyles.standardBold,
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  )),
+              PieWidget(
+                // get from data
+                yes: data["Yes"],
+                no: data["No"],
+                radius: dynamicMediumHeight,
               ),
-              Text(
-                data["Summary"],
-                style: TextStyle(fontSize: 25, color: appColors.text),
+              Container(
+                width: appSizes.largeWidth,
+                padding: EdgeInsets.all(20),
+                child: Text(
+                  data["Description"],
+                  style: appTextStyles.standard,
+                ),
               ),
-              PieWidget(yes: data["Yes"],no: data["No"],radius: 300,),
-              Text(
-                data["Description"],
-                style: TextStyle(fontSize: 20, color: appColors.text),
+              VoteWidget(
+                data: data,
               ),
-              VoteWidget(data: data),
             ],
           ),
         ),
