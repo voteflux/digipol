@@ -22,7 +22,7 @@ It will collate voting results and show users the results of their electorates v
 - **Voting Page** - full description/links and voting buttons
 - **Login Page** - email - password
 - **Results Page** - list of horizontal bar graphs - 1 for each electorate
-- **Verification/Profile Page** - AEC details, electorate details, representatives and voting patterns, join Flux button, link profiles (google/fb/ig)
+- **Verification/Settings Page** - AEC details, electorate details, representatives and voting patterns, join Flux button, link Settingss (google/fb/ig)
 
 ### Program Protocols
 
@@ -109,7 +109,7 @@ And Run `flutter run -d chrome` in the project dir.
 - Weekly Reports
 - Politi Compass - Personalised Voting History
 - Create Issues UI
-- User Profiles
+- User Settingss
 - Settings - Notifications, Emails
 - sorting bills - Date, title, chamber
 - Search bar

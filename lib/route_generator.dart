@@ -8,7 +8,7 @@ import 'package:voting_app/profile.dart';
 import 'package:voting_app/pdf_viewer.dart';
 
 // there are three separate routing's. One for each for each;
-// bills, issues and profile
+// bills, issues and Settings
 // to switch between the above, use the bottomNavBar
 // located in main.py
 
@@ -67,7 +67,7 @@ class RouteGenerator {
     }
   }
 
-  /// for profile
+  /// for Settings
   static Route<dynamic> generateSettingsRoute(RouteSettings settings) {
     // Getting arguments passed in while calling Navigator.pushNamed
     final args = settings.arguments;
@@ -75,6 +75,10 @@ class RouteGenerator {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => MyApp());
+
+      case '/profile':
+        return MaterialPageRoute(builder: (_) => ProfilePage());
+
       default:
         return _errorRoute();
     }

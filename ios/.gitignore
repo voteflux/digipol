@@ -11,7 +11,7 @@
 Icon?
 **/Pods/
 **/.symlinks/
-profile
+Settings
 xcuserdata
 **/.generated/
 Flutter/App.framework
