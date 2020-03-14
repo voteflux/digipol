@@ -64,8 +64,8 @@
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
-   <ProfileAction
-      buildConfiguration = "Profile"
+   <SettingsAction
+      buildConfiguration = "Settings"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -80,7 +80,7 @@
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-   </ProfileAction>
+   </SettingsAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
    </AnalyzeAction>

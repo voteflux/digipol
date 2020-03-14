@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/all_issues.dart';
-import 'package:voting_app/profile.dart';
+import 'package:voting_app/settings.dart';
 import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/all_bills.dart';
 import 'package:voting_app/styles.dart';
@@ -32,9 +32,9 @@ class _MyAppState extends State<MyApp> {
         page = AllIssuesPage();
         child = RouteGenerator.generateIssueRoute;
         break;
-        // profile
+        // Settings
       case 2:
-        page = ProfilePage();
+        page = SettingsPage();
         child = RouteGenerator.generateSettingsRoute;
         break;
     }
@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
           ),
           //current page
           body: page,
-          // the nav bar at the bottom --> [bills - issues - profile]
+          // the nav bar at the bottom --> [bills - issues - Settings]
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: appColors.mainTheme,
             items: const <BottomNavigationBarItem>[
@@ -65,7 +65,7 @@ class _MyAppState extends State<MyApp> {
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.account_circle),
-                title: Text('Profile'),
+                title: Text('Settings'),
               ),
             ],
             unselectedItemColor: appColors.text,
