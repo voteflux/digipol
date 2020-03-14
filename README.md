@@ -15,6 +15,10 @@ The DigiPol Voting App (temporary name for now) will allow Australian Voters to 
 
 It will collate voting results and show users the results of their electorates voting on bills. It will allow them to send an automatically generated email to their elected representative, as well as post the results out onto various social media.
 
+### Sample
+
+![image](/assets/graphics/sample.gif)
+
 ### Pages & Components - App Alpha
 
 - **Issues Page** - list of issues generated, sortable by date, popularity, controversiality(?)
@@ -39,7 +43,6 @@ The UI/UX is based on the [Flutter Framework](https://flutter.dev/) that uses th
 
 Edit `pubspec.yaml` to include other packages.
 
-
 #### Outside this repo:
 
 - Databases and API are managed on AWS using lambda functions Data for Bills are mirrored from the federal and state parliament websites using the [ausbills](https://github.com/KipCrossing/Aus-Bills) python package
@@ -59,7 +62,6 @@ If you are new to Flutter here are a few resources to get you started on your fi
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 - [online documentation](https://flutter.dev/docs), which offers tutorials, samples, guidance on mobile development, and a full API reference.
-
 
 ### Getting started
 
@@ -102,7 +104,6 @@ flutter devices
 ```
 
 And Run `flutter run -d chrome` in the project dir.
-
 
 --------------------------------------------------------------------------------
 
