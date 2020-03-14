@@ -27,12 +27,12 @@ class _MyAppState extends State<MyApp> {
         child = RouteGenerator.generateBillRoute;
         page = AllBillsPage();
         break;
-        // issues
+      // issues
       case 1:
         page = AllIssuesPage();
         child = RouteGenerator.generateIssueRoute;
         break;
-        // Settings
+      // Settings
       case 2:
         page = SettingsPage();
         child = RouteGenerator.generateSettingsRoute;

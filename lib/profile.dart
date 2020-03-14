@@ -4,8 +4,6 @@ import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/styles.dart';
 import 'package:flutter_login/flutter_login.dart';
 
-
-
 class ProfilePage extends StatefulWidget {
   @override
   _ProfilePageState createState() => _ProfilePageState();
@@ -16,13 +14,12 @@ class _ProfilePageState extends State<ProfilePage> {
   bool loggedIn = false;
   Widget show = LoginWidget();
 
-
   @override
   Widget build(BuildContext context) {
     // this is where we choose what to show on this page
-    if (loggedIn){
+    if (loggedIn) {
       show = ProfileWidget();
-    }else{
+    } else {
       show = LoginWidget();
     }
     return Scaffold(
@@ -35,7 +32,6 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
-
 
 class LoginWidget extends StatefulWidget {
   @override
@@ -114,8 +110,7 @@ class _LoginWidgetState extends State<LoginWidget> {
           highlightElevation: 2.0,
           shape: RoundedRectangleBorder(
             side: BorderSide(color: appColors.buttonOutline, width: 2),
-            borderRadius: new BorderRadius.circular(
-                appSizes.buttonRadius),
+            borderRadius: new BorderRadius.circular(appSizes.buttonRadius),
           ),
           // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           // shape: CircleBorder(side: BorderSide(color: Colors.green)),
@@ -125,7 +120,6 @@ class _LoginWidgetState extends State<LoginWidget> {
     );
   }
 }
-
 
 class ProfileWidget extends StatefulWidget {
   @override

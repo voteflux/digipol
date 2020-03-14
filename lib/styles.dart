@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 var appColors = AppColors(0);
 bool darkMode = true;
 
-
 /// object containing the standard sized for the app
 ///
 /// eg usage for a the card corner:

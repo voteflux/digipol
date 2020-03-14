@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/styles.dart';
 import 'package:voting_app/api/vote.dart';
 
-
-
-
-
-
 class VoteWidget extends StatefulWidget {
   /// card with voting info and buttons
   final data;
@@ -21,13 +16,9 @@ class VoteWidget extends StatefulWidget {
 }
 
 class _VoteWidgetState extends State<VoteWidget> {
-
-
   @override
   Widget build(BuildContext context) {
-
-
-    notLoggedIn(){
+    notLoggedIn() {
       showDialog<void>(
         context: context,
         barrierDismissible: false, // user must tap button!
@@ -95,13 +86,11 @@ class _VoteWidgetState extends State<VoteWidget> {
                 child: Text('Confirm Vote'),
                 onPressed: () {
                   Navigator.of(context).pop();
-                  if (widget.loggedIn){
+                  if (widget.loggedIn) {
                     makeVote(vote, widget.data["id"], "UserID");
-                  }else{
+                  } else {
                     notLoggedIn();
                   }
-
-
                 },
               ),
             ],
@@ -109,8 +98,6 @@ class _VoteWidgetState extends State<VoteWidget> {
         },
       );
     }
-
-
 
     return Center(
       child: Container(
@@ -143,7 +130,8 @@ class _VoteWidgetState extends State<VoteWidget> {
                         RaisedButton(
                             elevation: appSizes.cardElevation,
                             shape: RoundedRectangleBorder(
-                              side: BorderSide(color: appColors.buttonOutline, width: 2),
+                              side: BorderSide(
+                                  color: appColors.buttonOutline, width: 2),
                               borderRadius: new BorderRadius.circular(
                                   appSizes.buttonRadius),
                             ),
@@ -156,7 +144,8 @@ class _VoteWidgetState extends State<VoteWidget> {
                         RaisedButton(
                             elevation: appSizes.cardElevation,
                             shape: RoundedRectangleBorder(
-                              side: BorderSide(color: appColors.buttonOutline, width: 2),
+                              side: BorderSide(
+                                  color: appColors.buttonOutline, width: 2),
                               borderRadius: new BorderRadius.circular(
                                   appSizes.buttonRadius),
                             ),
@@ -164,8 +153,8 @@ class _VoteWidgetState extends State<VoteWidget> {
                               areYouSure("No");
                             },
                             color: appColors.no,
-                            child:
-                            Text("Vote No", style: appTextStyles.yesnobutton)),
+                            child: Text("Vote No",
+                                style: appTextStyles.yesnobutton)),
                       ],
                     )),
               ],

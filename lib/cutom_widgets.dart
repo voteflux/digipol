@@ -5,7 +5,6 @@ import 'package:voting_app/api/vote.dart';
 import 'dart:math';
 import 'dart:async';
 
-
 class HouseIconsWidget extends StatelessWidget {
   final issuesMap;
   final Color senateColor = appColors.senate;
@@ -316,9 +315,3 @@ class PieWidget extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-

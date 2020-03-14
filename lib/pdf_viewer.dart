@@ -7,7 +7,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:voting_app/styles.dart';
 
-
 /// This is the page that displays the PDFs
 
 class PdfPage extends StatelessWidget {
@@ -108,8 +107,11 @@ class _PdfWidgetState extends State<PdfWidget> {
     else
       return FlatButton(
         color: appColors.card,
-        child: Text("Loading...\n(tap)", style: appTextStyles.standard,),
-        onPressed: (){
+        child: Text(
+          "Loading...\n(tap)",
+          style: appTextStyles.standard,
+        ),
+        onPressed: () {
           loadPdf();
           setState(() {});
         },

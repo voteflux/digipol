@@ -60,7 +60,6 @@ class BillPage extends StatelessWidget {
                 billText: data["text link pdf"],
                 billEM: data["em link pdf"],
               ),
-
               Container(
                   width: dynamicLargeWidth,
                   padding: EdgeInsets.all(appSizes.standardPadding),
@@ -204,4 +203,3 @@ class BillInfoWidget extends StatelessWidget {
     );
   }
 }
-

@@ -33,28 +33,26 @@ class _AllBillsPageState extends State<AllBillsPage> {
       var b = await fetchBillsDev(); // Change to non Dev when using api
       setState(() {
         billsList = b;
-      }
-      );
+      });
     }
 
-
-    loadedNotLoaded(){
-      if (billNum == 0){
+    loadedNotLoaded() {
+      if (billNum == 0) {
         getBillsData();
         return Center();
-    }else{
-    return Center(
+      } else {
+        return Center(
           child: ListView(
-          controller: ScrollController(),
-          children: billWidgetList,
+            controller: ScrollController(),
+            children: billWidgetList,
           ),
         );
-          }
+      }
     }
+
     return loadedNotLoaded();
   }
 }
-
 
 class BillWidget extends StatelessWidget {
   /// widget for the bill cards

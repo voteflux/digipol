@@ -18,30 +18,29 @@ class _AllIssuesPageState extends State<AllIssuesPage> {
   List<Widget> issueWidgetList;
   @override
   Widget build(BuildContext context) {
-
-
     int issueNum = issuesList.length;
     issueWidgetList = [];
-    issueWidgetList.add(CountUpWidget(number: issueNum,text: "TOTAL ISSUES",));
+    issueWidgetList.add(CountUpWidget(
+      number: issueNum,
+      text: "TOTAL ISSUES",
+    ));
     for (var i in issuesList) {
       issueWidgetList.add(IssueWidget(i));
     }
 
     Future<void> getJsonData() async {
 //      var b = await fetchIssues();
-      var b = await fetchIssuesDev();    // Change to non dev when using api
+      var b = await fetchIssuesDev(); // Change to non dev when using api
       setState(() {
         issuesList = b;
-      }
-      );
+      });
     }
 
-
-    loadedNotLoaded(){
-      if (issueNum == 0){
+    loadedNotLoaded() {
+      if (issueNum == 0) {
         getJsonData();
         return Center();
-      }else{
+      } else {
         return Center(
           child: ListView(
             controller: ScrollController(),
@@ -50,9 +49,11 @@ class _AllIssuesPageState extends State<AllIssuesPage> {
         );
       }
     }
+
     return loadedNotLoaded();
   }
 }
+
 class IssueWidget extends StatelessWidget {
   dynamic issuesMap;
   final Map billColorsDark = {
@@ -123,7 +124,8 @@ class IssueWidget extends StatelessWidget {
                                     color: appColors.text,
                                   ),
                                   Text(
-                                    (issuesMap["Yes"]+issuesMap["No"]).toString(),
+                                    (issuesMap["Yes"] + issuesMap["No"])
+                                        .toString(),
                                     style: TextStyle(
                                         color: appColors.text, fontSize: 10),
                                   )

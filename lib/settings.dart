@@ -2,9 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/styles.dart';
 
-
-
-
 class SettingsPage extends StatefulWidget {
   @override
   _SettingsPageState createState() => _SettingsPageState();
@@ -13,16 +10,14 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
-    if (darkMode){
+    if (darkMode) {
       appColors = AppColors(0);
-    }else{
+    } else {
       appColors = AppColors(1);
     }
     return Scaffold(
-
       backgroundColor: appColors.background,
       body: Center(
-
         child: Container(
           width: appSizes.mediumWidth,
           child: ListView(
@@ -31,16 +26,18 @@ class _SettingsPageState extends State<SettingsPage> {
                 padding: EdgeInsets.all(appSizes.standardPadding),
                 child: Center(
                   child: Text(
-                  "User Settings",
-                  style: appTextStyles.heading,
-                ),
+                    "User Settings",
+                    style: appTextStyles.heading,
+                  ),
                 ),
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text("Dark mode", style: appTextStyles.standardBold,),
+                  Text(
+                    "Dark mode",
+                    style: appTextStyles.standardBold,
+                  ),
                   Container(
                     width: 70,
                     child: Switch(
@@ -55,14 +52,16 @@ class _SettingsPageState extends State<SettingsPage> {
                       activeTrackColor: Colors.lightBlue,
                       activeColor: Colors.blue,
                     ),
-
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text("Notifications", style: appTextStyles.standardBold,),
+                  Text(
+                    "Notifications",
+                    style: appTextStyles.standardBold,
+                  ),
                   Container(
                     width: 70,
                     child: Switch(
@@ -74,46 +73,13 @@ class _SettingsPageState extends State<SettingsPage> {
                       activeTrackColor: Colors.lightBlue,
                       activeColor: Colors.blue,
                     ),
-
                   )
                 ],
               ),
               Card(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
-                margin: EdgeInsets.all(appSizes.standardMargin),
-                elevation: appSizes.cardElevation,
-                color: appColors.card,
-                child: Container(
-                  width: appSizes.mediumWidth,
-                  height: 150,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      Text("User Information", style: appTextStyles.standardBold,),
-                      Text("You need to login to start voting", style: appTextStyles.standardItalic,),
-                      RaisedButton(
-                        elevation: appSizes.cardElevation,
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(color: appColors.buttonOutline, width: 2),
-                          borderRadius: new BorderRadius.circular(
-                              appSizes.buttonRadius),
-                        ),
-                        color: appColors.button,
-                        onPressed: (){
-                          Navigator.of(context).pushNamed(
-                            '/profile',
-                          );
-                        },
-                        child: Text("Login", style: appTextStyles.yesnobutton,),
-                      )
-                    ],
-                  )
-                ),
-              ),
-              Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
+                    borderRadius:
+                        BorderRadius.circular(appSizes.cardCornerRadius)),
                 margin: EdgeInsets.all(appSizes.standardMargin),
                 elevation: appSizes.cardElevation,
                 color: appColors.card,
@@ -123,26 +89,78 @@ class _SettingsPageState extends State<SettingsPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
-                        Text("Voting History", style: appTextStyles.standardBold,),
-                        Text("You need to login to view your voting history", style: appTextStyles.standardItalic,),
+                        Text(
+                          "User Information",
+                          style: appTextStyles.standardBold,
+                        ),
+                        Text(
+                          "You need to login to start voting",
+                          style: appTextStyles.standardItalic,
+                        ),
                         RaisedButton(
                           elevation: appSizes.cardElevation,
                           shape: RoundedRectangleBorder(
-                            side: BorderSide(color: appColors.buttonOutline, width: 2),
+                            side: BorderSide(
+                                color: appColors.buttonOutline, width: 2),
                             borderRadius: new BorderRadius.circular(
                                 appSizes.buttonRadius),
                           ),
                           color: appColors.button,
-                          onPressed: (){
+                          onPressed: () {
                             Navigator.of(context).pushNamed(
                               '/profile',
                             );
                           },
-                          child: Text("Login", style: appTextStyles.yesnobutton,),
+                          child: Text(
+                            "Login",
+                            style: appTextStyles.yesnobutton,
+                          ),
                         )
                       ],
-                    )
-                ),
+                    )),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(appSizes.cardCornerRadius)),
+                margin: EdgeInsets.all(appSizes.standardMargin),
+                elevation: appSizes.cardElevation,
+                color: appColors.card,
+                child: Container(
+                    width: appSizes.mediumWidth,
+                    height: 150,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        Text(
+                          "Voting History",
+                          style: appTextStyles.standardBold,
+                        ),
+                        Text(
+                          "You need to login to view your voting history",
+                          style: appTextStyles.standardItalic,
+                        ),
+                        RaisedButton(
+                          elevation: appSizes.cardElevation,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                                color: appColors.buttonOutline, width: 2),
+                            borderRadius: new BorderRadius.circular(
+                                appSizes.buttonRadius),
+                          ),
+                          color: appColors.button,
+                          onPressed: () {
+                            Navigator.of(context).pushNamed(
+                              '/profile',
+                            );
+                          },
+                          child: Text(
+                            "Login",
+                            style: appTextStyles.yesnobutton,
+                          ),
+                        )
+                      ],
+                    )),
               ),
             ],
           ),

@@ -43,7 +43,6 @@ class IssuePage extends StatelessWidget {
                       ),
                     ],
                   )),
-
               Container(
                 width: appSizes.largeWidth,
                 padding: EdgeInsets.all(20),
@@ -52,7 +51,6 @@ class IssuePage extends StatelessWidget {
                   style: appTextStyles.standard,
                 ),
               ),
-
               Container(
                   width: dynamicLargeWidth,
                   padding: EdgeInsets.all(appSizes.standardPadding),
