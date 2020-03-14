@@ -10,6 +10,7 @@ import 'package:voting_app/api/vote.dart';
 class VoteWidget extends StatefulWidget {
   /// card with voting info and buttons
   final data;
+  final bool loggedIn = false;
   VoteWidget({
     Key key,
     @required this.data,
@@ -24,6 +25,42 @@ class _VoteWidgetState extends State<VoteWidget> {
 
   @override
   Widget build(BuildContext context) {
+
+
+    notLoggedIn(){
+      showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: appColors.card,
+            elevation: appSizes.cardElevation,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
+            title: Text('Not Logged in', style: appTextStyles.smallBold),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: <Widget>[
+                  Text(
+                    'You can not make a vote because you are not logged in',
+                    style: appTextStyles.small,
+                  ),
+                ],
+              ),
+            ),
+            actions: <Widget>[
+              FlatButton(
+                child: Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+
     areYouSure(String vote) {
       /// Dialog to confirm the vote
       return showDialog<void>(
@@ -57,8 +94,14 @@ class _VoteWidgetState extends State<VoteWidget> {
               FlatButton(
                 child: Text('Confirm Vote'),
                 onPressed: () {
-                  makeVote(vote, widget.data["id"], "UserID");
                   Navigator.of(context).pop();
+                  if (widget.loggedIn){
+                    makeVote(vote, widget.data["id"], "UserID");
+                  }else{
+                    notLoggedIn();
+                  }
+
+
                 },
               ),
             ],
