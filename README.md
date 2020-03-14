@@ -32,9 +32,13 @@ The UI/UX is based on the [Flutter Framework](https://flutter.dev/) that uses th
 - `route_generator.dart` - where all the page routing is done
 - `styles.dart` - where the colour themes are set
 - `custom_widgets.dart` - where the shared widgets are kept
-- `/api` directory for the API interaction code.
+- `voting_widgt.dart` - where the voting widget + states are
+- `/lib/api` directory for the API interaction code.
+- `/assets` directory for the assets (images, media, data).
+- The rest contain the different pages of the app (hopefully naming is good enough to guide you)
 
 Edit `pubspec.yaml` to include other packages.
+
 
 #### Outside this repo:
 
