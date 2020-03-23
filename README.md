@@ -126,6 +126,15 @@ And Run `flutter run -d chrome` in the project dir.
 
 ![High level overview of the voting app system](docs/images/voting-app-system.png)
 
+### Missing components
+
+* voter sign up / validation process
+* voter roll management
+* integrations w/ member stuff
+* email / notification things
+* comments / discussion / submission features
+* etc
+
 <!-- can't put  mermaid.js code straight in an HTML comment because
 it uses the closing tag in its syntax. And can't display:none it apparently :/
 so we'll just include it all for the moment. Figure out something better later -->
