@@ -150,58 +150,59 @@ Live editor: https://mermaid-js.github.io/mermaid-live-editor/
 current source code:
 
 ```mermaid
-graph BT
+graph TB
 
 subgraph External Internet
-PH(APH or WAPH website)
+    PH(APH or WAPH website)
 end
 
 subgraph Queue
-BillQ(New Bill Queue)
+    BillQ(New Bill Queue)
 end
 
-subgraph "User (App)"
-App(App/Main UI component)
-KeyStore(Key Store component)
-end
+subgraph "User's Env (App)"
+    App(App/Main UI component)
+    KeyStore(Key Store component)
 
-subgraph "Optional User Environment"
-UserNode(Optional user-run full node)
-UserAuditor(Optional user-run auditor)
+    UserNode(Optional user-run full node)
+    UserAuditor(Optional user-run auditor)
 end
 
 subgraph Bill Tracking Environment
-BillTracker(Bill Tracking Service)
-BillDB("Bill Database<br/>(results can be in different DB)")
-BillApi(Bill info API)
-ResultsCacheApi(Results Cache API)
-AuditJob("Auditor, scheduled (Purescript/JS)")
+    BillTracker(Bill Tracking Service)
+    BillDB("Bill Database<br/>(results can be in different DB)")
+    BillApi(Bill info API)
+    ResultsCacheApi(Results Cache API)
+    AuditJob("Auditor, scheduled (Purescript/JS)")
 end
 
 subgraph Blockchain Env
-BillToBallot(Bill to Ballot handler)
-BallotArchive(Ballot Archive)
-PrivChain(Private Eth Instance)
+    BillToBallot(Bill to Ballot handler)
+    PrivChain(Custom Eth Instance)
+    BallotArchive(Ballot Archive)
 end
 
 PH -->|scraped| BillTracker
-BillTracker -.-|stores state| BillDB
 BillTracker -->|push to Q| BillQ
+BillTracker -.-|stores state| BillDB
 BillDB -.->|info served| BillApi
 
 AuditJob -.->|store results on<br/>issue close| BillDB
 BillDB -.->|serve results| ResultsCacheApi
 
 BillQ -->|retrived by| BillToBallot
-BillToBallot -->|pushes ballotspec| BallotArchive
 BillToBallot -->|creates issue on chain| PrivChain
+BillToBallot -->|pushes ballotspec| BallotArchive
 
 BillApi -->|General info,<br/>ammendments, etc| App 
 ResultsCacheApi -->|Cached results served| App 
-PrivChain -->|Democracy inst. and<br/>issue index data| App
 App -.-|Signing votes| KeyStore
 App -->|Push signed votes| PrivChain
 App -.->|Alt: push signed votes| UserNode
+BallotArchive -->|"Full ballot details<br/>(BallotSpec)"| App
+PrivChain -->|Democracy inst. and<br/>issue index data| App
+
+BallotArchive -->|BallotSpec| AuditJob
 
 UserNode -.-|sync| PrivChain
 UserNode -->|raw votes| UserAuditor
