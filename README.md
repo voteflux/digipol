@@ -119,3 +119,81 @@ And Run `flutter run -d chrome` in the project dir.
 - sorting bills - Date, title, chamber
 - Search bar
 - results map
+
+----------
+
+## Architecture Overview
+
+[!High level overview of the voting app system](/docs/images/voting-app-system-flowchart.svg)
+
+<!-- can't put  mermaid.js code straight in an HTML comment because
+it uses the closing tag in its syntax. So let's just display:none it -->
+<p style="display:none">
+
+The flowchart was generated with mermaid.js
+
+See: https://mermaid-js.github.io/mermaid/#/flowchart and https://github.com/mermaid-js/mermaid
+
+Live editor: https://mermaid-js.github.io/mermaid-live-editor/
+
+current source code:
+
+```mermaid
+graph BT
+
+subgraph External Internet
+PH(APH or WAPH website)
+end
+
+subgraph Queue
+BillQ(New Bill Queue)
+end
+
+subgraph "User (App)"
+App(App/Main UI component)
+KeyStore(Key Store component)
+end
+
+subgraph "Optional User Environment"
+UserNode(Optional user-run full node)
+UserAuditor(Optional user-run auditor)
+end
+
+subgraph Bill Tracking Environment
+BillTracker(Bill Tracking Service)
+BillDB("Bill Database<br/>(results can be in different DB)")
+BillApi(Bill info API)
+ResultsCacheApi(Results Cache API)
+AuditJob("Auditor, scheduled (Purescript/JS)")
+end
+
+subgraph Blockchain Env
+BillToBallot(Bill to Ballot handler)
+BallotArchive(Ballot Archive)
+PrivChain(Private Eth Instance)
+end
+
+PH -->|scraped| BillTracker
+BillTracker -.-|stores state| BillDB
+BillTracker -->|push to Q| BillQ
+BillDB -.->|info served| BillApi
+
+AuditJob -.->|store results on<br/>issue close| BillDB
+BillDB -.->|serve results| ResultsCacheApi
+
+BillQ -->|retrived by| BillToBallot
+BillToBallot -->|pushes ballotspec| BallotArchive
+BillToBallot -->|creates issue on chain| PrivChain
+
+BillApi -->|General info,<br/>ammendments, etc| App 
+ResultsCacheApi -->|Cached results served| App 
+PrivChain -->|Democracy inst. and<br/>issue index data| App
+App -.-|Signing votes| KeyStore
+App -->|Push signed votes| PrivChain
+App -.->|Alt: push signed votes| UserNode
+
+UserNode -.-|sync| PrivChain
+UserNode -->|raw votes| UserAuditor
+```
+
+<p>

@@ -1,0 +1,505 @@
+<svg id="mermaid-1584994352275" width="1361.5509033203125" xmlns="http://www.w3.org/2000/svg" height="1238.3125" viewBox="0 0 1361.5509033203125 1238.3125"><style>
+
+
+
+#mermaid-1584994352275 .label {
+  font-family: 'trebuchet ms', verdana, arial;
+  font-family: var(--mermaid-font-family);
+  color: #333; }
+
+#mermaid-1584994352275 .label text {
+  fill: #333; }
+
+#mermaid-1584994352275 .node rect,
+#mermaid-1584994352275 .node circle,
+#mermaid-1584994352275 .node ellipse,
+#mermaid-1584994352275 .node polygon,
+#mermaid-1584994352275 .node path {
+  fill: #ECECFF;
+  stroke: #9370DB;
+  stroke-width: 1px; }
+
+#mermaid-1584994352275 .node .label {
+  text-align: center; }
+
+#mermaid-1584994352275 .node.clickable {
+  cursor: pointer; }
+
+#mermaid-1584994352275 .arrowheadPath {
+  fill: #333333; }
+
+#mermaid-1584994352275 .edgePath .path {
+  stroke: #333333;
+  stroke-width: 1.5px; }
+
+#mermaid-1584994352275 .edgeLabel {
+  background-color: #e8e8e8;
+  text-align: center; }
+
+#mermaid-1584994352275 .cluster rect {
+  fill: #ffffde;
+  stroke: #aaaa33;
+  stroke-width: 1px; }
+
+#mermaid-1584994352275 .cluster text {
+  fill: #333; }
+
+#mermaid-1584994352275 div.mermaidTooltip {
+  position: absolute;
+  text-align: center;
+  max-width: 200px;
+  padding: 2px;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-family: var(--mermaid-font-family);
+  font-size: 12px;
+  background: #ffffde;
+  border: 1px solid #aaaa33;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 100; }
+
+#mermaid-1584994352275 .actor {
+  stroke: #CCCCFF;
+  fill: #ECECFF; }
+
+#mermaid-1584994352275 text.actor {
+  fill: black;
+  stroke: none; }
+
+#mermaid-1584994352275 .actor-line {
+  stroke: grey; }
+
+#mermaid-1584994352275 .messageLine0 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  stroke: #333; }
+
+#mermaid-1584994352275 .messageLine1 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  stroke: #333; }
+
+#mermaid-1584994352275 #arrowhead {
+  fill: #333; }
+
+#mermaid-1584994352275 .sequenceNumber {
+  fill: white; }
+
+#mermaid-1584994352275 #sequencenumber {
+  fill: #333; }
+
+#mermaid-1584994352275 #crosshead path {
+  fill: #333 !important;
+  stroke: #333 !important; }
+
+#mermaid-1584994352275 .messageText {
+  fill: #333;
+  stroke: none; }
+
+#mermaid-1584994352275 .labelBox {
+  stroke: #CCCCFF;
+  fill: #ECECFF; }
+
+#mermaid-1584994352275 .labelText {
+  fill: black;
+  stroke: none; }
+
+#mermaid-1584994352275 .loopText {
+  fill: black;
+  stroke: none; }
+
+#mermaid-1584994352275 .loopLine {
+  stroke-width: 2;
+  stroke-dasharray: '2 2';
+  stroke: #CCCCFF; }
+
+#mermaid-1584994352275 .note {
+  stroke: #aaaa33;
+  fill: #fff5ad; }
+
+#mermaid-1584994352275 .noteText {
+  fill: black;
+  stroke: none;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-family: var(--mermaid-font-family);
+  font-size: 14px; }
+
+#mermaid-1584994352275 .activation0 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+#mermaid-1584994352275 .activation1 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+#mermaid-1584994352275 .activation2 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+
+#mermaid-1584994352275 .mermaid-main-font {
+  font-family: "trebuchet ms", verdana, arial;
+  font-family: var(--mermaid-font-family); }
+
+#mermaid-1584994352275 .section {
+  stroke: none;
+  opacity: 0.2; }
+
+#mermaid-1584994352275 .section0 {
+  fill: rgba(102, 102, 255, 0.49); }
+
+#mermaid-1584994352275 .section2 {
+  fill: #fff400; }
+
+#mermaid-1584994352275 .section1,
+#mermaid-1584994352275 .section3 {
+  fill: white;
+  opacity: 0.2; }
+
+#mermaid-1584994352275 .sectionTitle0 {
+  fill: #333; }
+
+#mermaid-1584994352275 .sectionTitle1 {
+  fill: #333; }
+
+#mermaid-1584994352275 .sectionTitle2 {
+  fill: #333; }
+
+#mermaid-1584994352275 .sectionTitle3 {
+  fill: #333; }
+
+#mermaid-1584994352275 .sectionTitle {
+  text-anchor: start;
+  font-size: 11px;
+  text-height: 14px;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-family: var(--mermaid-font-family); }
+
+
+#mermaid-1584994352275 .grid .tick {
+  stroke: lightgrey;
+  opacity: 0.8;
+  shape-rendering: crispEdges; }
+#mermaid-1584994352275   .grid .tick text {
+    font-family: 'trebuchet ms', verdana, arial;
+    font-family: var(--mermaid-font-family); }
+
+#mermaid-1584994352275 .grid path {
+  stroke-width: 0; }
+
+
+#mermaid-1584994352275 .today {
+  fill: none;
+  stroke: red;
+  stroke-width: 2px; }
+
+
+
+#mermaid-1584994352275 .task {
+  stroke-width: 2; }
+
+#mermaid-1584994352275 .taskText {
+  text-anchor: middle;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-family: var(--mermaid-font-family); }
+
+#mermaid-1584994352275 .taskText:not([font-size]) {
+  font-size: 11px; }
+
+#mermaid-1584994352275 .taskTextOutsideRight {
+  fill: black;
+  text-anchor: start;
+  font-size: 11px;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-family: var(--mermaid-font-family); }
+
+#mermaid-1584994352275 .taskTextOutsideLeft {
+  fill: black;
+  text-anchor: end;
+  font-size: 11px; }
+
+
+#mermaid-1584994352275 .task.clickable {
+  cursor: pointer; }
+
+#mermaid-1584994352275 .taskText.clickable {
+  cursor: pointer;
+  fill: #003163 !important;
+  font-weight: bold; }
+
+#mermaid-1584994352275 .taskTextOutsideLeft.clickable {
+  cursor: pointer;
+  fill: #003163 !important;
+  font-weight: bold; }
+
+#mermaid-1584994352275 .taskTextOutsideRight.clickable {
+  cursor: pointer;
+  fill: #003163 !important;
+  font-weight: bold; }
+
+
+#mermaid-1584994352275 .taskText0,
+#mermaid-1584994352275 .taskText1,
+#mermaid-1584994352275 .taskText2,
+#mermaid-1584994352275 .taskText3 {
+  fill: white; }
+
+#mermaid-1584994352275 .task0,
+#mermaid-1584994352275 .task1,
+#mermaid-1584994352275 .task2,
+#mermaid-1584994352275 .task3 {
+  fill: #8a90dd;
+  stroke: #534fbc; }
+
+#mermaid-1584994352275 .taskTextOutside0,
+#mermaid-1584994352275 .taskTextOutside2 {
+  fill: black; }
+
+#mermaid-1584994352275 .taskTextOutside1,
+#mermaid-1584994352275 .taskTextOutside3 {
+  fill: black; }
+
+
+#mermaid-1584994352275 .active0,
+#mermaid-1584994352275 .active1,
+#mermaid-1584994352275 .active2,
+#mermaid-1584994352275 .active3 {
+  fill: #bfc7ff;
+  stroke: #534fbc; }
+
+#mermaid-1584994352275 .activeText0,
+#mermaid-1584994352275 .activeText1,
+#mermaid-1584994352275 .activeText2,
+#mermaid-1584994352275 .activeText3 {
+  fill: black !important; }
+
+
+#mermaid-1584994352275 .done0,
+#mermaid-1584994352275 .done1,
+#mermaid-1584994352275 .done2,
+#mermaid-1584994352275 .done3 {
+  stroke: grey;
+  fill: lightgrey;
+  stroke-width: 2; }
+
+#mermaid-1584994352275 .doneText0,
+#mermaid-1584994352275 .doneText1,
+#mermaid-1584994352275 .doneText2,
+#mermaid-1584994352275 .doneText3 {
+  fill: black !important; }
+
+
+#mermaid-1584994352275 .crit0,
+#mermaid-1584994352275 .crit1,
+#mermaid-1584994352275 .crit2,
+#mermaid-1584994352275 .crit3 {
+  stroke: #ff8888;
+  fill: red;
+  stroke-width: 2; }
+
+#mermaid-1584994352275 .activeCrit0,
+#mermaid-1584994352275 .activeCrit1,
+#mermaid-1584994352275 .activeCrit2,
+#mermaid-1584994352275 .activeCrit3 {
+  stroke: #ff8888;
+  fill: #bfc7ff;
+  stroke-width: 2; }
+
+#mermaid-1584994352275 .doneCrit0,
+#mermaid-1584994352275 .doneCrit1,
+#mermaid-1584994352275 .doneCrit2,
+#mermaid-1584994352275 .doneCrit3 {
+  stroke: #ff8888;
+  fill: lightgrey;
+  stroke-width: 2;
+  cursor: pointer;
+  shape-rendering: crispEdges; }
+
+#mermaid-1584994352275 .milestone {
+  transform: rotate(45deg) scale(0.8, 0.8); }
+
+#mermaid-1584994352275 .milestoneText {
+  font-style: italic; }
+
+#mermaid-1584994352275 .doneCritText0,
+#mermaid-1584994352275 .doneCritText1,
+#mermaid-1584994352275 .doneCritText2,
+#mermaid-1584994352275 .doneCritText3 {
+  fill: black !important; }
+
+#mermaid-1584994352275 .activeCritText0,
+#mermaid-1584994352275 .activeCritText1,
+#mermaid-1584994352275 .activeCritText2,
+#mermaid-1584994352275 .activeCritText3 {
+  fill: black !important; }
+
+#mermaid-1584994352275 .titleText {
+  text-anchor: middle;
+  font-size: 18px;
+  fill: black;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-family: var(--mermaid-font-family); }
+
+#mermaid-1584994352275 g.classGroup text {
+  fill: #9370DB;
+  stroke: none;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-family: var(--mermaid-font-family);
+  font-size: 10px; }
+#mermaid-1584994352275   g.classGroup text .title {
+    font-weight: bolder; }
+
+#mermaid-1584994352275 g.clickable {
+  cursor: pointer; }
+
+#mermaid-1584994352275 g.classGroup rect {
+  fill: #ECECFF;
+  stroke: #9370DB; }
+
+#mermaid-1584994352275 g.classGroup line {
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1584994352275 .classLabel .box {
+  stroke: none;
+  stroke-width: 0;
+  fill: #ECECFF;
+  opacity: 0.5; }
+
+#mermaid-1584994352275 .classLabel .label {
+  fill: #9370DB;
+  font-size: 10px; }
+
+#mermaid-1584994352275 .relation {
+  stroke: #9370DB;
+  stroke-width: 1;
+  fill: none; }
+
+#mermaid-1584994352275 .dashed-line {
+  stroke-dasharray: 3; }
+
+#mermaid-1584994352275 #compositionStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1584994352275 #compositionEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1584994352275 #aggregationStart {
+  fill: #ECECFF;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1584994352275 #aggregationEnd {
+  fill: #ECECFF;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1584994352275 #dependencyStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1584994352275 #dependencyEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1584994352275 #extensionStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1584994352275 #extensionEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1584994352275 .commit-id,
+#mermaid-1584994352275 .commit-msg,
+#mermaid-1584994352275 .branch-label {
+  fill: lightgrey;
+  color: lightgrey;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-family: var(--mermaid-font-family); }
+
+#mermaid-1584994352275 .pieTitleText {
+  text-anchor: middle;
+  font-size: 25px;
+  fill: black;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-family: var(--mermaid-font-family); }
+
+#mermaid-1584994352275 .slice {
+  font-family: 'trebuchet ms', verdana, arial;
+  font-family: var(--mermaid-font-family); }
+
+#mermaid-1584994352275 g.stateGroup text {
+  fill: #9370DB;
+  stroke: none;
+  font-size: 10px;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-family: var(--mermaid-font-family); }
+
+#mermaid-1584994352275 g.stateGroup text {
+  fill: #9370DB;
+  stroke: none;
+  font-size: 10px; }
+
+#mermaid-1584994352275 g.stateGroup .state-title {
+  font-weight: bolder;
+  fill: black; }
+
+#mermaid-1584994352275 g.stateGroup rect {
+  fill: #ECECFF;
+  stroke: #9370DB; }
+
+#mermaid-1584994352275 g.stateGroup line {
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1584994352275 .transition {
+  stroke: #9370DB;
+  stroke-width: 1;
+  fill: none; }
+
+#mermaid-1584994352275 .stateGroup .composit {
+  fill: white;
+  border-bottom: 1px; }
+
+#mermaid-1584994352275 .stateGroup .alt-composit {
+  fill: #e0e0e0;
+  border-bottom: 1px; }
+
+#mermaid-1584994352275 .state-note {
+  stroke: #aaaa33;
+  fill: #fff5ad; }
+#mermaid-1584994352275   .state-note text {
+    fill: black;
+    stroke: none;
+    font-size: 10px; }
+
+#mermaid-1584994352275 .stateLabel .box {
+  stroke: none;
+  stroke-width: 0;
+  fill: #ECECFF;
+  opacity: 0.5; }
+
+#mermaid-1584994352275 .stateLabel text {
+  fill: black;
+  font-size: 10px;
+  font-weight: bold;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-family: var(--mermaid-font-family); }
+
+:root {
+  --mermaid-font-family: '"trebuchet ms", verdana, arial';
+  --mermaid-font-family: "Comic Sans MS", "Comic Sans", cursive; }
+
+:root { --mermaid-font-family: "trebuchet ms", verdana, arial;}</style><style>#mermaid-1584994352275 {
+    color: rgb(0, 0, 0);
+    font: 16px "trebuchet ms", verdana, arial;
+  }</style><g transform="translate(0, 0.00000762939453125)"><g class="output"><g class="clusters"><g class="cluster" id="subGraph5" transform="translate(985.9238243103027,595.2734375)" style="opacity: 1;"><rect width="566.5663986206055" height="236.015625" x="-283.28319931030273" y="-118.0078125"></rect><g class="label" transform="translate(0, -104.0078125)" id="mermaid-1584994352275Text"><g transform="translate(-63.90625,-11.375)"><foreignObject width="127.82147216796875" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Blockchain Env</div></foreignObject></g></g></g><g class="cluster" id="subGraph4" transform="translate(345.3203125,842.671875)" style="opacity: 1;"><rect width="674.640625" height="444.28125" x="-337.3203125" y="-222.140625"></rect><g class="label" transform="translate(0, -208.140625)" id="mermaid-1584994352275Text"><g transform="translate(-109.328125,-11.375)"><foreignObject width="218.6572265625" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Bill Tracking Environment</div></foreignObject></g></g></g><g class="cluster" id="subGraph3" transform="translate(1192.1601486206055,124.625)" style="opacity: 1;"><rect width="322.78123474121094" height="233.25" x="-161.39061737060547" y="-116.625"></rect><g class="label" transform="translate(0, -102.625)" id="mermaid-1584994352275Text"><g transform="translate(-115.5,-11.375)"><foreignObject width="231.0107421875" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Optional User Environment</div></foreignObject></g></g></g><g class="cluster" id="subGraph2" transform="translate(551.359375,265.125)" style="opacity: 1;"><rect width="918.8203125" height="233.25" x="-459.41015625" y="-116.625"></rect><g class="label" transform="translate(0, -102.625)" id="mermaid-1584994352275Text"><g transform="translate(-45.3046875,-11.375)"><foreignObject width="90.61114501953125" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">User (App)</div></foreignObject></g></g></g><g class="cluster" id="Queue" transform="translate(836.734375,843.7890625)" style="opacity: 1;"><rect width="220.921875" height="115.515625" x="-110.4609375" y="-57.7578125"></rect><g class="label" transform="translate(0, -43.7578125)" id="mermaid-1584994352275Text"><g transform="translate(-27.3984375,-11.375)"><foreignObject width="54.8046875" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Queue</div></foreignObject></g></g></g><g class="cluster" id="subGraph0" transform="translate(186.265625,1183.9375)" style="opacity: 1;"><rect width="275.4375" height="92.75" x="-137.71875" y="-46.375"></rect><g class="label" transform="translate(0, -32.375)" id="mermaid-1584994352275Text"><g transform="translate(-73.5859375,-11.375)"><foreignObject width="147.17529296875" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">External Internet</div></foreignObject></g></g></g></g><g class="edgePaths"><g class="edgePath" style="opacity: 1;"><path class="path" d="M186.265625,1162.5625L186.265625,1137.5625L186.265625,1101.1875L186.265625,1064.8125L186.265625,1039.8125" marker-end="url(#arrowhead133643)" style="fill:none"></path><defs><marker id="arrowhead133643" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M169.5719166713753,997.0625L132.2734375,949.3046875L132.2734375,901.546875L173.11274495299608,876.546875" marker-end="url(#arrowhead133644)" style="fill:none;stroke-width:2px;stroke-dasharray:3;"></path><defs><marker id="arrowhead133644" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 0 0 L 0 0 z" style="fill: #333"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M214.02607109560404,997.0625L276.05078125,949.3046875L276.05078125,901.546875L761.2734375,851.5625353245724" marker-end="url(#arrowhead133645)" style="fill:none"></path><defs><marker id="arrowhead133645" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M203.73485264777491,811.03125L186.265625,786.03125L186.265625,749.65625L186.265625,713.28125L186.265625,688.28125" marker-end="url(#arrowhead133646)" style="fill:none;stroke-width:2px;stroke-dasharray:3;"></path><defs><marker id="arrowhead133646" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M490.0390625,997.0625L490.0390625,949.3046875L490.0390625,901.546875L369.890625,875.2023782049856" marker-end="url(#arrowhead133647)" style="fill:none;stroke-width:2px;stroke-dasharray:3;"></path><defs><marker id="arrowhead133647" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M369.890625,816.3058245528822L527.70703125,786.03125L527.70703125,749.65625L527.70703125,713.28125L527.70703125,688.28125" marker-end="url(#arrowhead133648)" style="fill:none;stroke-width:2px;stroke-dasharray:3;"></path><defs><marker id="arrowhead133648" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M836.734375,822.4140625L836.734375,786.03125L836.734375,749.65625L836.734375,713.28125L836.734375,688.28125" marker-end="url(#arrowhead133649)" style="fill:none"></path><defs><marker id="arrowhead133649" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M830.7496630727762,645.53125L823.75,620.53125L823.75,584.15625L823.75,546.3984375" marker-end="url(#arrowhead133650)" style="fill:none"></path><defs><marker id="arrowhead133650" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M935.828125,645.6132002262443L1052.5546875,620.53125L1052.5546875,584.15625L1052.5546875,546.3984375" marker-end="url(#arrowhead133651)" style="fill:none"></path><defs><marker id="arrowhead133651" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M186.265625,645.53125L186.265625,620.53125L186.265625,584.15625L186.265625,525.0234375L186.265625,477.265625L186.265625,429.5078125L186.265625,381.75L540.375,346.64129545188825" marker-end="url(#arrowhead133652)" style="fill:none"></path><defs><marker id="arrowhead133652" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M527.70703125,645.53125L527.70703125,620.53125L527.70703125,584.15625L527.70703125,525.0234375L527.70703125,477.265625L527.70703125,429.5078125L527.70703125,381.75L595.7937057783018,356.75" marker-end="url(#arrowhead133653)" style="fill:none"></path><defs><marker id="arrowhead133653" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M956.6796875,506.3306639659448L807.60546875,477.265625L807.60546875,429.5078125L807.60546875,381.75L724.8034977257412,356.75" marker-end="url(#arrowhead133654)" style="fill:none"></path><defs><marker id="arrowhead133654" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M540.375,317.3720262015753L289.49609375,277.625L289.49609375,241.25L289.49609375,216.25" marker-end="url(#arrowhead133655)" style="fill:none;stroke-width:2px;stroke-dasharray:3;"></path><defs><marker id="arrowhead133655" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 0 0 L 0 0 z" style="fill: #333"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M767.640625,351.0232206446973L990.76953125,381.75L990.76953125,429.5078125L990.76953125,477.265625L1024.9014587252577,503.6484375" marker-end="url(#arrowhead133656)" style="fill:none"></path><defs><marker id="arrowhead133656" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M737.4301694399351,314L879.39453125,277.625L879.39453125,241.25L1065.76953125,213.61543870243102" marker-end="url(#arrowhead133657)" style="fill:none;stroke-width:2px;stroke-dasharray:3;"></path><defs><marker id="arrowhead133657" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M1192.1601486206055,216.25L1192.1601486206055,241.25L1192.1601486206055,277.625L1192.1601486206055,335.375L1192.1601486206055,381.75L1192.1601486206055,429.5078125L1192.1601486206055,477.265625L1115.038008557742,503.6484375" marker-end="url(#arrowhead133658)" style="fill:none;stroke-width:2px;stroke-dasharray:3;"></path><defs><marker id="arrowhead133658" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 0 0 L 0 0 z" style="fill: #333"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M1192.1601486206055,173.5L1192.1601486206055,148.5L1192.1601486206055,112.125L1192.1601486206055,75.75" marker-end="url(#arrowhead133659)" style="fill:none"></path><defs><marker id="arrowhead133659" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(186.265625,1101.1875)" style="opacity: 1;"><g transform="translate(-33.2890625,-11.375)" class="label"><foreignObject width="66.578125" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">scraped</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(132.2734375,949.3046875)" style="opacity: 1;"><g transform="translate(-50.28125,-11.375)" class="label"><foreignObject width="100.56640625" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">stores state</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(276.05078125,949.3046875)" style="opacity: 1;"><g transform="translate(-40.8828125,-11.375)" class="label"><foreignObject width="81.77734375" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">push to Q</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(186.265625,749.65625)" style="opacity: 1;"><g transform="translate(-47.6328125,-11.375)" class="label"><foreignObject width="95.2734375" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">info served</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(490.0390625,949.3046875)" style="opacity: 1;"><g transform="translate(-66.5,-22.7578125)" class="label"><foreignObject width="133.0078125" height="45.52082824707031"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">store results on<br>issue close</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(527.70703125,749.65625)" style="opacity: 1;"><g transform="translate(-54.2109375,-11.375)" class="label"><foreignObject width="108.4296875" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">serve results</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(836.734375,749.65625)" style="opacity: 1;"><g transform="translate(-47.4140625,-11.375)" class="label"><foreignObject width="94.83984375" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">retrived by</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(823.75,584.15625)" style="opacity: 1;"><g transform="translate(-75.84375,-11.375)" class="label"><foreignObject width="151.6875" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">pushes ballotspec</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(1052.5546875,584.15625)" style="opacity: 1;"><g transform="translate(-94.6171875,-11.375)" class="label"><foreignObject width="189.234375" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">creates issue on chain</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(186.265625,525.0234375)" style="opacity: 1;"><g transform="translate(-83.015625,-22.7578125)" class="label"><foreignObject width="166.04296875" height="45.52082824707031"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">General info,<br>ammendments, etc</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(527.70703125,525.0234375)" style="opacity: 1;"><g transform="translate(-93.75,-11.375)" class="label"><foreignObject width="187.51171875" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">Cached results served</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(807.60546875,429.5078125)" style="opacity: 1;"><g transform="translate(-87.7265625,-22.7578125)" class="label"><foreignObject width="175.45703125" height="45.52082824707031"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">Democracy inst. and<br>issue index data</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(289.49609375,277.625)" style="opacity: 1;"><g transform="translate(-55.796875,-11.375)" class="label"><foreignObject width="111.59375" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">Signing votes</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(990.76953125,429.5078125)" style="opacity: 1;"><g transform="translate(-75.4375,-11.375)" class="label"><foreignObject width="150.87890625" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">Push signed votes</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(879.39453125,277.625)" style="opacity: 1;"><g transform="translate(-94.1171875,-11.375)" class="label"><foreignObject width="188.23828125" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">Alt: push signed votes</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(1192.1601486206055,335.375)" style="opacity: 1;"><g transform="translate(-18.5859375,-11.375)" class="label"><foreignObject width="37.171875" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">sync</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(1192.1601486206055,112.125)" style="opacity: 1;"><g transform="translate(-41.5234375,-11.375)" class="label"><foreignObject width="83.05078125" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">raw votes</span></div></foreignObject></g></g></g><g class="nodes"><g class="node" id="BillToBallot" transform="translate(836.734375,666.90625)" style="opacity: 1;"><rect rx="5" ry="5" x="-99.09375" y="-21.375" width="198.1875" height="42.75" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-89.09375,-11.375)"><foreignObject width="178.1900634765625" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Bill to Ballot handler</div></foreignObject></g></g></g><g class="node" id="BallotArchive" transform="translate(823.75,525.0234375)" style="opacity: 1;"><rect rx="5" ry="5" x="-69.9453125" y="-21.375" width="139.890625" height="42.75" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-59.9453125,-11.375)"><foreignObject width="119.90399169921875" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Ballot Archive</div></foreignObject></g></g></g><g class="node" id="PrivChain" transform="translate(1052.5546875,525.0234375)" style="opacity: 1;"><rect rx="5" ry="5" x="-95.875" y="-21.375" width="191.75" height="42.75" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-85.875,-11.375)"><foreignObject width="171.7513427734375" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Private Eth Instance</div></foreignObject></g></g></g><g class="node" id="BillTracker" transform="translate(186.265625,1018.4375)" style="opacity: 1;"><rect rx="5" ry="5" x="-96.171875" y="-21.375" width="192.34375" height="42.75" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-86.171875,-11.375)"><foreignObject width="172.3502197265625" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Bill Tracking Service</div></foreignObject></g></g></g><g class="node" id="BillDB" transform="translate(226.625,843.7890625)" style="opacity: 1;"><rect rx="5" ry="5" x="-143.265625" y="-32.7578125" width="286.53125" height="65.515625" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-133.265625,-22.7578125)"><foreignObject width="266.536376953125" height="45.52082824707031"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Bill Database<br>(results can be in different DB)</div></foreignObject></g></g></g><g class="node" id="BillApi" transform="translate(186.265625,666.90625)" style="opacity: 1;"><rect rx="5" ry="5" x="-59.8984375" y="-21.375" width="119.796875" height="42.75" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-49.8984375,-11.375)"><foreignObject width="99.80145263671875" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Bill info API</div></foreignObject></g></g></g><g class="node" id="ResultsCacheApi" transform="translate(527.70703125,666.90625)" style="opacity: 1;"><rect rx="5" ry="5" x="-85.4453125" y="-21.375" width="170.890625" height="42.75" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-75.4453125,-11.375)"><foreignObject width="150.9000244140625" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Results Cache API</div></foreignObject></g></g></g><g class="node" id="AuditJob" transform="translate(490.0390625,1018.4375)" style="opacity: 1;"><rect rx="5" ry="5" x="-157.6015625" y="-21.375" width="315.203125" height="42.75" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-147.6015625,-11.375)"><foreignObject width="295.2115478515625" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Auditor, scheduled (Purescript/JS)</div></foreignObject></g></g></g><g class="node" id="UserNode" transform="translate(1192.1601486206055,194.875)" style="opacity: 1;"><rect rx="5" ry="5" x="-126.390625" y="-21.375" width="252.78125" height="42.75" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-116.390625,-11.375)"><foreignObject width="232.7889404296875" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Optional user-run full node</div></foreignObject></g></g></g><g class="node" id="UserAuditor" transform="translate(1192.1601486206055,54.375)" style="opacity: 1;"><rect rx="5" ry="5" x="-119.140625" y="-21.375" width="238.28125" height="42.75" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-109.140625,-11.375)"><foreignObject width="218.2828369140625" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Optional user-run auditor</div></foreignObject></g></g></g><g class="node" id="App" transform="translate(654.0078125,335.375)" style="opacity: 1;"><rect rx="5" ry="5" x="-113.6328125" y="-21.375" width="227.265625" height="42.75" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-103.6328125,-11.375)"><foreignObject width="207.2769775390625" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">App/Main UI component</div></foreignObject></g></g></g><g class="node" id="KeyStore" transform="translate(289.49609375,194.875)" style="opacity: 1;"><rect rx="5" ry="5" x="-101.2734375" y="-21.375" width="202.546875" height="42.75" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-91.2734375,-11.375)"><foreignObject width="182.55126953125" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Key Store component</div></foreignObject></g></g></g><g class="node" id="BillQ" transform="translate(836.734375,843.7890625)" style="opacity: 1;"><rect rx="5" ry="5" x="-75.4609375" y="-21.375" width="150.921875" height="42.75" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-65.4609375,-11.375)"><foreignObject width="130.92852783203125" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">New Bill Queue</div></foreignObject></g></g></g><g class="node" id="PH" transform="translate(186.265625,1183.9375)" style="opacity: 1;"><rect rx="5" ry="5" x="-102.71875" y="-21.375" width="205.4375" height="42.75" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-92.71875,-11.375)"><foreignObject width="185.4525146484375" height="22.760421752929688"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">APH or WAPH website</div></foreignObject></g></g></g></g></g></g></svg>
