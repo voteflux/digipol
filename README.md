@@ -124,7 +124,7 @@ And Run `flutter run -d chrome` in the project dir.
 
 ## Architecture Overview
 
-![High level overview of the voting app system](docs/images/voting-app-system-flowchart.svg)
+![High level overview of the voting app system](docs/images/voting-app-system.png)
 
 <!-- can't put  mermaid.js code straight in an HTML comment because
 it uses the closing tag in its syntax. And can't display:none it apparently :/
