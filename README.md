@@ -124,11 +124,13 @@ And Run `flutter run -d chrome` in the project dir.
 
 ## Architecture Overview
 
-[!High level overview of the voting app system](/docs/images/voting-app-system-flowchart.svg)
+![High level overview of the voting app system](docs/images/voting-app-system-flowchart.svg)
 
 <!-- can't put  mermaid.js code straight in an HTML comment because
-it uses the closing tag in its syntax. So let's just display:none it -->
-<p style="display:none">
+it uses the closing tag in its syntax. And can't display:none it apparently :/
+so we'll just include it all for the moment. Figure out something better later -->
+
+### about this chart
 
 The flowchart was generated with mermaid.js
 
@@ -195,5 +197,3 @@ App -.->|Alt: push signed votes| UserNode
 UserNode -.-|sync| PrivChain
 UserNode -->|raw votes| UserAuditor
 ```
-
-<p>
