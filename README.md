@@ -99,6 +99,14 @@ flutter config --enable-web
 
 Make sure you have Chrome installed
 
+**BUG NOTICE**: You may need to edit a file in the flushbar Dart Package if you get this error:
+
+```shell script
+../../../.pub-cache/hosted/pub.dartlang.org/flushbar-1.9.1/lib/flushbar_route.dart:281:18: Error: Too many positional arguments: 0 allowed,
+```
+
+See [This Issue](https://github.com/AndreHaueisen/flushbar/issues/113) to make the fix. This is because we are using the master branch of flutter soe we can do web dev. 
+
 ```
 flutter devices
 ```
