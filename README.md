@@ -119,3 +119,91 @@ And Run `flutter run -d chrome` in the project dir.
 - sorting bills - Date, title, chamber
 - Search bar
 - results map
+
+----------
+
+## Architecture Overview
+
+![High level overview of the voting app system](docs/images/voting-app-system.png)
+
+### Missing components
+
+* voter sign up / validation process
+* voter roll management
+* integrations w/ member stuff
+* email / notification things
+* comments / discussion / submission features
+* etc
+
+<!-- can't put  mermaid.js code straight in an HTML comment because
+it uses the closing tag in its syntax. And can't display:none it apparently :/
+so we'll just include it all for the moment. Figure out something better later -->
+
+### about this chart
+
+The flowchart was generated with mermaid.js
+
+See: https://mermaid-js.github.io/mermaid/#/flowchart and https://github.com/mermaid-js/mermaid
+
+Live editor: https://mermaid-js.github.io/mermaid-live-editor/
+
+current source code:
+
+```mermaid
+graph TB
+
+subgraph External Internet
+    PH(APH or WAPH website)
+end
+
+subgraph Queue
+    BillQ(New Bill Queue)
+end
+
+subgraph "User's Env (App)"
+    App(App/Main UI component)
+    KeyStore(Key Store component)
+
+    UserNode(Optional user-run full node)
+    UserAuditor(Optional user-run auditor)
+end
+
+subgraph Bill Tracking Environment
+    BillTracker(Bill Tracking Service)
+    BillDB("Bill Database<br/>(results can be in different DB)")
+    BillApi(Bill info API)
+    ResultsCacheApi(Results Cache API)
+    AuditJob("Auditor, scheduled (Purescript/JS)")
+end
+
+subgraph Blockchain Env
+    BillToBallot(Bill to Ballot handler)
+    PrivChain(Custom Eth Instance)
+    BallotArchive(Ballot Archive)
+end
+
+PH -->|scraped| BillTracker
+BillTracker -->|push to Q| BillQ
+BillTracker -.-|stores state| BillDB
+BillDB -.->|info served| BillApi
+
+AuditJob -.->|store results on<br/>issue close| BillDB
+BillDB -.->|serve results| ResultsCacheApi
+
+BillQ -->|retrived by| BillToBallot
+BillToBallot -->|creates issue on chain| PrivChain
+BillToBallot -->|pushes ballotspec| BallotArchive
+
+BillApi -->|General info,<br/>ammendments, etc| App 
+ResultsCacheApi -->|Cached results served| App 
+App -.-|Signing votes| KeyStore
+App -->|Push signed votes| PrivChain
+App -.->|Alt: push signed votes| UserNode
+BallotArchive -->|"Full ballot details<br/>(BallotSpec)"| App
+PrivChain -->|Democracy inst. and<br/>issue index data| App
+
+BallotArchive -->|BallotSpec| AuditJob
+
+UserNode -.-|sync| PrivChain
+UserNode -->|raw votes| UserAuditor
+```
