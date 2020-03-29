@@ -114,7 +114,6 @@ class _VoteWidgetState extends State<VoteWidget> {
     return Center(
       child: Container(
         width: appSizes.largeWidth,
-        padding: EdgeInsets.all(appSizes.standardPadding),
         child: Card(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
@@ -123,20 +122,15 @@ class _VoteWidgetState extends State<VoteWidget> {
             child: Column(
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.all(appSizes.standardPadding),
-                  child: Text("How would you like to vote on:",
-                      style: appTextStyles.standardItalic),
-                ),
-                Container(
                     padding: EdgeInsets.all(appSizes.standardPadding),
                     child: Text(
                       widget.data["Short Title"],
                       style: appTextStyles.standardBold,
                     )),
                 Container(
-                    padding: EdgeInsets.symmetric(
-                        vertical: appSizes.standardPadding, horizontal: 0),
-                    child: Row(
+                  padding: EdgeInsets.only(bottom: 20.0),
+                    child: 
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         RaisedButton(
@@ -144,8 +138,6 @@ class _VoteWidgetState extends State<VoteWidget> {
                             shape: RoundedRectangleBorder(
                               side: BorderSide(
                                   color: appColors.buttonOutline, width: 2),
-                              borderRadius: new BorderRadius.circular(
-                                  appSizes.buttonRadius),
                             ),
                             onPressed: () {
                               areYouSure("Yes");
@@ -158,8 +150,6 @@ class _VoteWidgetState extends State<VoteWidget> {
                             shape: RoundedRectangleBorder(
                               side: BorderSide(
                                   color: appColors.buttonOutline, width: 2),
-                              borderRadius: new BorderRadius.circular(
-                                  appSizes.buttonRadius),
                             ),
                             onPressed: () {
                               areYouSure("No");

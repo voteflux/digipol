@@ -46,14 +46,14 @@ class _MyAppState extends State<MyApp> {
           backgroundColor: appColors.background,
           appBar: new AppBar(
             // Edit name and needs a good icon
-            backgroundColor: appColors.mainTheme,
+            backgroundColor: appColors.background,
             title: new Text('DigiPol'),
           ),
           //current page
           body: page,
           // the nav bar at the bottom --> [bills - issues - Settings]
           bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: appColors.mainTheme,
+            backgroundColor: appColors.background,
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.assignment),

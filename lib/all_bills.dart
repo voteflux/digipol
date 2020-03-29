@@ -4,7 +4,7 @@ import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/api/aus_bills.dart';
 import 'dart:math';
 import 'package:voting_app/styles.dart';
-import 'package:voting_app/cutom_widgets.dart';
+import 'package:voting_app/custom_widgets.dart';
 import 'dart:async';
 
 class AllBillsPage extends StatefulWidget {
@@ -29,7 +29,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
     }
 
     Future<void> getBillsData() async {
-//      var b = await fetchBills();
+//    var b = await fetchBills();
       var b = await fetchBillsDev(); // Change to non Dev when using api
       setState(() {
         billsList = b;
@@ -67,72 +67,76 @@ class BillWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
-            margin: EdgeInsets.all(appSizes.standardMargin),
-            elevation: appSizes.cardElevation,
-            color: appColors.card,
-            child: InkWell(
-                splashColor: appColors.cardInkWell,
-                onTap: () {
-                  // Pushing a named route
-                  Navigator.of(context).pushNamed(
-                    '/item',
-                    arguments: issuesMap,
-                  );
-                },
-                child: Container(
-                    width: appSizes.mediumWidth,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Container(
-                          padding: EdgeInsets.all(appSizes.standardPadding),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              //
-                              VotingStatusWidget(
-                                  issuesMap: issuesMap,
-                                  // Delete Random when vote status is obtained
-                                  voted: random.nextInt(5) == 0,
-                                  size: 20),
-                              Text(issuesMap[billIntro[issuesMap["Chamber"]]],
-                                  // TextStyle specific to this widget
-                                  style: TextStyle(
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w800,
-                                      fontStyle: FontStyle.italic,
-                                      color: billColors[issuesMap["Chamber"]])),
-                            ],
-                          ),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(appSizes.cardCornerRadius),
+        ),
+        margin: EdgeInsets.all(appSizes.standardMargin),
+        elevation: appSizes.cardElevation,
+        color: appColors.card,
+        child: InkWell(
+          splashColor: appColors.cardInkWell,
+          onTap: () {
+            Navigator.of(context).pushNamed(
+              '/item',
+              arguments: issuesMap,
+            );
+          },
+          child: Container(
+            width: appSizes.mediumWidth,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.all(appSizes.standardPadding),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      VotingStatusWidget(
+                          issuesMap: issuesMap,
+                          // Delete Random when vote status is obtained
+                          voted: random.nextInt(5) == 0,
+                          size: 20),
+                      Text(
+                        issuesMap[billIntro[issuesMap["Chamber"]]],
+                        // TextStyle specific to this widget
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w800,
+                          fontStyle: FontStyle.italic
                         ),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 0,
-                              horizontal: appSizes.standardPadding),
-                          child: Text(issuesMap["Short Title"],
-                              style: appTextStyles.card),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            HouseIconsWidget(
-                              issuesMap: issuesMap,
-                              size: 20,
-                            ),
-                            PieWidget(
-                              // Delete Random when vote status is obtained
-                              yes: issuesMap["Yes"],
-                              no: issuesMap["No"],
-                              radius: 55,
-                            )
-                          ],
-                        ),
-                      ],
-                    )))));
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(
+                      vertical: 0, horizontal: appSizes.standardPadding),
+                  child:
+                      Text(issuesMap["Short Title"], style: appTextStyles.card),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    HouseIconsWidget(
+                      issuesMap: issuesMap,
+                      size: 20,
+                    ),
+                    PieWidget(
+                      // Delete Random when vote status is obtained
+                      yes: issuesMap["Yes"],
+                      no: issuesMap["No"],
+                      radius: 55,
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 
@@ -142,34 +146,36 @@ class BillsMessageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
-          margin: EdgeInsets.symmetric(
-              horizontal: 0, vertical: appSizes.standardMargin),
-          elevation: appSizes.cardElevation,
-          color: appColors.card,
-          child: Container(
-              padding: EdgeInsets.all(appSizes.standardPadding),
-              width: appSizes.smallWidth,
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    "A list of all Federal Bills",
-                    style: appTextStyles.smallBold,
-                  ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(appSizes.cardCornerRadius),
+        ),
+        margin: EdgeInsets.symmetric(
+            horizontal: 0, vertical: appSizes.standardMargin),
+        elevation: appSizes.cardElevation,
+        color: appColors.card,
+        child: Container(
+          padding: EdgeInsets.all(appSizes.standardPadding),
+          width: appSizes.smallWidth,
+          child: Column(
+            children: <Widget>[
+              Text(
+                "A list of all Federal Bills",
+                style: appTextStyles.smallBold,
+              ),
 //                  Icon(Icons.subtitles, size: 80,color: appColors.text,),
-                  Container(
-                    height: 100,
-                    width: 100,
-                    child:
-                        Image(image: AssetImage('assets/graphics/point.png')),
-                  ),
-                  Text(
-                    "Vote on the Bills by scrolling and tapping on the Bills that matter most to you",
-                    style: appTextStyles.smallBold,
-                  ),
-                ],
-              ))),
+              Container(
+                height: 100,
+                width: 100,
+                child: Image(image: AssetImage('assets/graphics/point.png')),
+              ),
+              Text(
+                "Vote on the Bills by scrolling and tapping on the Bills that matter most to you",
+                style: appTextStyles.smallBold,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

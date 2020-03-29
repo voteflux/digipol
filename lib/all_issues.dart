@@ -5,7 +5,7 @@ import 'package:voting_app/api/aus_bills.dart';
 import 'dart:math';
 import 'package:voting_app/styles.dart';
 import 'package:voting_app/api/aus_issues.dart';
-import 'package:voting_app/cutom_widgets.dart';
+import 'package:voting_app/custom_widgets.dart';
 
 class AllIssuesPage extends StatefulWidget {
   @override
@@ -69,9 +69,9 @@ class IssueWidget extends StatelessWidget {
     return Center(
         child: Card(
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0)),
+                borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
             margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            elevation: 5.0,
+            elevation: appSizes.cardElevation,
             color: appColors.card,
             child: InkWell(
                 splashColor: Colors.blue.withAlpha(30),
