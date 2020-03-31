@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 /// eg usage for the text color:
 ///
 /// `color: appColors.text`
-var appColors = AppColors(1);
+var appColors = AppColors(0);
 bool darkMode = true;
 
 /// object containing the standard sized for the app

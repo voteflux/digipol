@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/styles.dart';
+import 'package:voting_app/custom_widgets.dart';
 
 class SettingsPage extends StatefulWidget {
-  /// where the app and user settings go
+  // where the app and user settings go
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
@@ -20,18 +21,10 @@ class _SettingsPageState extends State<SettingsPage> {
       backgroundColor: appColors.background,
       body: Center(
         child: Container(
+          padding: EdgeInsets.all(appSizes.standardPadding),
           width: appSizes.mediumWidth,
           child: ListView(
             children: <Widget>[
-              Container(
-                padding: EdgeInsets.all(appSizes.standardPadding),
-                child: Center(
-                  child: Text(
-                    "User Settings",
-                    style: appTextStyles.heading,
-                  ),
-                ),
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -81,12 +74,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 shape: RoundedRectangleBorder(
                     borderRadius:
                         BorderRadius.circular(appSizes.cardCornerRadius)),
-                margin: EdgeInsets.all(appSizes.standardMargin),
                 elevation: appSizes.cardElevation,
                 color: appColors.card,
                 child: Container(
+                    padding: const EdgeInsets.all(20.0),
                     width: appSizes.mediumWidth,
-                    height: 150,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
@@ -96,16 +88,12 @@ class _SettingsPageState extends State<SettingsPage> {
                         ),
                         Text(
                           "You need to login to start voting",
-                          style: appTextStyles.standardItalic,
+                          style: appTextStyles.small,
                         ),
-                        RaisedButton(
+                        SizedBox(
+                          width: double.infinity,
+                            child: RaisedButton(
                           elevation: appSizes.cardElevation,
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                                color: appColors.buttonOutline, width: 2),
-                            borderRadius: new BorderRadius.circular(
-                                appSizes.buttonRadius),
-                          ),
                           color: appColors.button,
                           onPressed: () {
                             Navigator.of(context).pushNamed(
@@ -116,39 +104,11 @@ class _SettingsPageState extends State<SettingsPage> {
                             "Login",
                             style: appTextStyles.yesnobutton,
                           ),
-                        )
-                      ],
-                    )),
-              ),
-              Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(appSizes.cardCornerRadius)),
-                margin: EdgeInsets.all(appSizes.standardMargin),
-                elevation: appSizes.cardElevation,
-                color: appColors.card,
-                child: Container(
-                    width: appSizes.mediumWidth,
-                    height: 150,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        Text(
-                          "Voting History",
-                          style: appTextStyles.standardBold,
-                        ),
-                        Text(
-                          "You need to login to view your voting history",
-                          style: appTextStyles.standardItalic,
-                        ),
-                        RaisedButton(
+                        )),
+                        SizedBox(
+                          width: double.infinity,
+                            child: RaisedButton(
                           elevation: appSizes.cardElevation,
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                                color: appColors.buttonOutline, width: 2),
-                            borderRadius: new BorderRadius.circular(
-                                appSizes.buttonRadius),
-                          ),
                           color: appColors.button,
                           onPressed: () {
                             Navigator.of(context).pushNamed(
@@ -156,10 +116,10 @@ class _SettingsPageState extends State<SettingsPage> {
                             );
                           },
                           child: Text(
-                            "Login",
+                            "Create Account",
                             style: appTextStyles.yesnobutton,
                           ),
-                        )
+                        ))
                       ],
                     )),
               ),

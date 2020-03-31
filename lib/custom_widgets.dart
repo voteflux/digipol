@@ -315,3 +315,84 @@ class PieWidget extends StatelessWidget {
     );
   }
 }
+
+// Button widget
+class MainButton extends StatelessWidget {
+  final String buttonText;
+  final Color buttonColor;
+  final Function pressedButtonAction;
+
+  MainButton(
+      {@required this.buttonText,
+      @required this.buttonColor,
+      @required this.pressedButtonAction});
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minWidth: double.infinity),
+          child: FlatButton(
+              color: buttonColor,
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                buttonText,
+                style: appTextStyles.yesnobutton,
+              ),
+              onPressed: pressedButtonAction),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomFormField extends StatelessWidget {
+  final String helpText;
+  final Function submitAction;
+  final Function validation;
+
+  CustomFormField(
+      {@required this.helpText, @required this.submitAction, this.validation});
+
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 10.0),
+      child: TextFormField(
+          style: TextStyle(
+            color: appColors.text,
+          ),
+          
+          decoration: InputDecoration(
+              filled: true,
+              fillColor: appColors.backgroundSecondary,
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(4)),
+                borderSide: BorderSide(width: 2, color: Colors.blue),
+              ),
+              disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(4)),
+                borderSide: BorderSide(width: 2, color: Colors.orange),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(4)),
+                borderSide: BorderSide(width: 2, color: appColors.text),
+              ),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(4)),
+                  borderSide: BorderSide(
+                    width: 2,
+                  )),
+              errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(4)),
+                  borderSide: BorderSide(width: 2, color: Colors.red)),
+              focusedErrorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(4)),
+                  borderSide: BorderSide(width: 2, color: Colors.yellowAccent)),
+              labelText: this.helpText,
+              labelStyle: TextStyle( color: appColors.text,
+            )),
+          onSaved: this.submitAction,
+          validator: this.validation),
+    );
+  }
+}

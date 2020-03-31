@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/route_generator.dart';
+import 'package:voting_app/custom_widgets.dart';
 import 'package:voting_app/styles.dart';
-import 'package:flutter_login/flutter_login.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -22,11 +22,9 @@ class _ProfilePageState extends State<ProfilePage> {
     } else {
       show = LoginWidget();
     }
+
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: appColors.mainTheme,
-        title: Text('Profile'),
-      ),
+      resizeToAvoidBottomInset: true,
       backgroundColor: appColors.background,
       body: show,
     );
@@ -39,85 +37,92 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
+  final _formKey = GlobalKey<FormState>();
+  final Map<String, dynamic> formData = {
+    'first_name': null,
+    'other_given_names': null,
+    'family_name': null,
+    'email': null,
+    'post_code': null,
+    'password': null
+  };
+
   @override
   Widget build(BuildContext context) {
-    return FlutterLogin(
-      title: 'Login',
-      onLogin: (_) => Future(null),
-      onSignup: (_) => Future(null),
-      onSubmitAnimationCompleted: () {
-        Navigator.of(context).pushNamed(
-          '/profile',
-        );
-      },
-      onRecoverPassword: (_) => Future(null),
-      theme: LoginTheme(
-        primaryColor: appColors.background,
-        accentColor: appColors.card,
-        errorColor: appColors.card,
-        titleStyle: appTextStyles.heading,
-        bodyStyle: TextStyle(
-          fontStyle: FontStyle.italic,
-          decoration: TextDecoration.underline,
-        ),
-        textFieldStyle: TextStyle(
-          color: appColors.button,
-          shadows: [Shadow(color: appColors.button, blurRadius: 2)],
-        ),
-        buttonStyle: appTextStyles.yesnobutton,
-        cardTheme: CardTheme(
-          color: appColors.card,
-          elevation: 5,
-          margin: EdgeInsets.only(top: 15),
-          shape: ContinuousRectangleBorder(
-              borderRadius: BorderRadius.circular(100.0)),
-        ),
-        inputTheme: InputDecorationTheme(
-          filled: true,
-          fillColor: Colors.grey[600],
-          contentPadding: EdgeInsets.zero,
-          errorStyle: TextStyle(
-            backgroundColor: appColors.button,
-            color: Colors.black,
-          ),
-          labelStyle: TextStyle(fontSize: 12),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.black, width: 4),
-//              borderRadius: appSizes.cardCornerRadius,
-          ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.black, width: 5),
-//              borderRadius: inputBorder,
-          ),
-          errorBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.deepPurple.shade900, width: 7),
-//              borderRadius: inputBorder,
-          ),
-          focusedErrorBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.deepPurple.shade600, width: 8),
-//              borderRadius: inputBorder,
-          ),
-          disabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey, width: 5),
-//              borderRadius: inputBorder,
-          ),
-        ),
-        buttonTheme: LoginButtonTheme(
-          splashColor: Colors.purple,
-          backgroundColor: appColors.button,
-          highlightColor: Colors.deepPurple,
-          elevation: appSizes.cardElevation,
-          highlightElevation: 2.0,
-          shape: RoundedRectangleBorder(
-            side: BorderSide(color: appColors.buttonOutline, width: 2),
-            borderRadius: new BorderRadius.circular(appSizes.buttonRadius),
-          ),
-          // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-          // shape: CircleBorder(side: BorderSide(color: Colors.green)),
-          // shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(55.0)),
+    return Form(
+      key: _formKey,
+      child: Container(
+        padding: const EdgeInsets.all(20.0),
+        child: ListView(
+          children: <Widget>[
+            CustomFormField(
+              helpText: "First Name",
+              submitAction: (String value) {
+                formData['first_name'] = value;
+              },
+            ),
+            CustomFormField(
+              helpText: "Other Given Names",
+              submitAction: (String value) {
+                formData['other_given_names'] = value;
+              },
+            ),
+            CustomFormField(
+              helpText: "Family Name",
+              submitAction: (String value) {
+                formData['family_name'] = value;
+              },
+            ),
+            CustomFormField(
+                helpText: "Email",
+                submitAction: (String value) {
+                  formData['email'] = value;
+                },
+                validation: (String value) {
+                  if (!RegExp(
+                          r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+                      .hasMatch(value)) {
+                    return 'This is not a valid email';
+                  }
+                }),
+            CustomFormField(
+              helpText: "Post Code",
+              submitAction: (String value) {
+                formData['post_code'] = value;
+              },
+            ),
+            CustomFormField(
+                helpText: "Password",
+                submitAction: (String value) {
+                  formData['password'] = value;
+                },
+                validation: (String value) {
+                  if (value.isEmpty) {
+                    return 'Enter a password';
+                  }
+                }),
+            _buildSubmitButton()
+          ],
         ),
       ),
     );
+  }
+
+  Widget _buildSubmitButton() {
+    return RaisedButton(
+      onPressed: () {
+        _submitForm();
+      },
+      child: Text('Sign Up'),
+    );
+  }
+
+  void _submitForm() {
+    print(formData);
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save(); //onSaved is called!
+      print(formData);
+    }
   }
 }
 
