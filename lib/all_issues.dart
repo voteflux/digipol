@@ -183,21 +183,22 @@ class VotingStatusWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Column(
-      children: <Widget>[
-        Icon(
-          statusMessage()[2],
-          color: statusMessage()[0],
-          size: 20,
-        ),
-        Text(
-          statusMessage()[1],
-          style: TextStyle(
-              fontSize: 8,
-              fontWeight: FontWeight.bold,
-              color: statusMessage()[0]),
-        ),
-      ],
-    ));
+      child: Column(
+        children: <Widget>[
+          Icon(
+            statusMessage()[2],
+            color: statusMessage()[0],
+            size: 20,
+          ),
+          Text(
+            statusMessage()[1],
+            style: TextStyle(
+                fontSize: 8,
+                fontWeight: FontWeight.bold,
+                color: statusMessage()[0]),
+          ),
+        ],
+      ),
+    );
   }
 }

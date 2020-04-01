@@ -4,6 +4,7 @@ import 'package:voting_app/settings.dart';
 import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/all_bills.dart';
 import 'package:voting_app/styles.dart';
+import 'package:voting_app/login.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,11 +33,15 @@ class _MyAppState extends State<MyApp> {
         page = AllIssuesPage();
         child = RouteGenerator.generateIssueRoute;
         break;
-      // Settings
+      // User
       case 2:
-        page = SettingsPage();
+        page = ProfilePage();
         child = RouteGenerator.generateSettingsRoute;
         break;
+      case 3:
+        page = SettingsPage();
+        child = RouteGenerator.generateSettingsRoute;
+        break;        
     }
 
     return MaterialApp(
@@ -44,11 +49,6 @@ class _MyAppState extends State<MyApp> {
         onGenerateRoute: child,
         home: new Scaffold(
           backgroundColor: appColors.background,
-          appBar: new AppBar(
-            // Edit name and needs a good icon
-            backgroundColor: appColors.background,
-            title: new Text('DigiPol'),
-          ),
           //current page
           body: page,
           // the nav bar at the bottom --> [bills - issues - Settings]
@@ -65,11 +65,15 @@ class _MyAppState extends State<MyApp> {
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.account_circle),
+                title: Text('Profile'),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
                 title: Text('Settings'),
               ),
             ],
             unselectedItemColor: appColors.text,
-            selectedItemColor: appColors.selected,
+            selectedItemColor: appColors.mainTheme,
             currentIndex: index,
             onTap: (int index) {
               setState(() {

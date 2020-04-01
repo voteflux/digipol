@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/styles.dart';
-import 'package:voting_app/custom_widgets.dart';
 
 class SettingsPage extends StatefulWidget {
   // where the app and user settings go
@@ -69,60 +68,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   )
                 ],
-              ),
-              Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(appSizes.cardCornerRadius)),
-                elevation: appSizes.cardElevation,
-                color: appColors.card,
-                child: Container(
-                    padding: const EdgeInsets.all(20.0),
-                    width: appSizes.mediumWidth,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        Text(
-                          "User Information",
-                          style: appTextStyles.standardBold,
-                        ),
-                        Text(
-                          "You need to login to start voting",
-                          style: appTextStyles.small,
-                        ),
-                        SizedBox(
-                          width: double.infinity,
-                            child: RaisedButton(
-                          elevation: appSizes.cardElevation,
-                          color: appColors.button,
-                          onPressed: () {
-                            Navigator.of(context).pushNamed(
-                              '/profile',
-                            );
-                          },
-                          child: Text(
-                            "Login",
-                            style: appTextStyles.yesnobutton,
-                          ),
-                        )),
-                        SizedBox(
-                          width: double.infinity,
-                            child: RaisedButton(
-                          elevation: appSizes.cardElevation,
-                          color: appColors.button,
-                          onPressed: () {
-                            Navigator.of(context).pushNamed(
-                              '/profile',
-                            );
-                          },
-                          child: Text(
-                            "Create Account",
-                            style: appTextStyles.yesnobutton,
-                          ),
-                        ))
-                      ],
-                    )),
-              ),
+              )
             ],
           ),
         ),

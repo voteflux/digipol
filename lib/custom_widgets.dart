@@ -350,9 +350,13 @@ class CustomFormField extends StatelessWidget {
   final String helpText;
   final Function submitAction;
   final Function validation;
+  final String initalTextValue;
 
   CustomFormField(
-      {@required this.helpText, @required this.submitAction, this.validation});
+      {@required this.helpText,
+      @required this.submitAction,
+      this.validation,
+      this.initalTextValue});
 
   Widget build(BuildContext context) {
     return Padding(
@@ -361,7 +365,6 @@ class CustomFormField extends StatelessWidget {
           style: TextStyle(
             color: appColors.text,
           ),
-          
           decoration: InputDecoration(
               filled: true,
               fillColor: appColors.backgroundSecondary,
@@ -389,10 +392,12 @@ class CustomFormField extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(4)),
                   borderSide: BorderSide(width: 2, color: Colors.yellowAccent)),
               labelText: this.helpText,
-              labelStyle: TextStyle( color: appColors.text,
-            )),
+              labelStyle: TextStyle(
+                color: appColors.text,
+              )),
           onSaved: this.submitAction,
-          validator: this.validation),
+          validator: this.validation,
+          initialValue: this.initalTextValue),
     );
   }
 }

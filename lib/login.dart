@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:voting_app/route_generator.dart';
 import 'package:voting_app/custom_widgets.dart';
 import 'package:voting_app/styles.dart';
 
@@ -12,21 +11,25 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   //  Need a method to show we are logged in. json file?
   bool loggedIn = false;
+  bool login = false;
   Widget show = LoginWidget();
 
   @override
   Widget build(BuildContext context) {
     // this is where we choose what to show on this page
-    if (loggedIn) {
-      show = ProfileWidget();
-    } else {
-      show = LoginWidget();
-    }
-
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: appColors.background,
-      body: show,
+      body: loggedIn ? ProfileWidget() : LoginWidget(),
+    );
+  }
+
+    Widget _buildLoginButton() {
+    return RaisedButton(
+      onPressed: () {
+        this.login =! this.login;
+      },
+      child: Text('Login'),
     );
   }
 }
@@ -37,6 +40,7 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
+
   final _formKey = GlobalKey<FormState>();
   final Map<String, dynamic> formData = {
     'first_name': null,
@@ -55,6 +59,13 @@ class _LoginWidgetState extends State<LoginWidget> {
         padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(bottom: 20.0),
+              child: Text(
+                "Your Profile",
+                style: appTextStyles.standard,
+              ),
+            ),
             CustomFormField(
               helpText: "First Name",
               submitAction: (String value) {
@@ -118,7 +129,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   }
 
   void _submitForm() {
-    print(formData);
+    print("Fix errors");
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save(); //onSaved is called!
       print(formData);
