@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:voting_app/styles.dart';
 import 'package:voting_app/api/aus_issues.dart';
 import 'package:voting_app/custom_widgets.dart';
+import 'package:voting_app/issue.dart';
 
 class AllIssuesPage extends StatefulWidget {
   @override
@@ -14,8 +15,10 @@ class AllIssuesPage extends StatefulWidget {
 
 class _AllIssuesPageState extends State<AllIssuesPage> {
   /// Where all the bills are shown (using ListView)
+  ///
   var issuesList = [];
   List<Widget> issueWidgetList;
+
   @override
   Widget build(BuildContext context) {
     int issueNum = issuesList.length;
@@ -77,9 +80,10 @@ class IssueWidget extends StatelessWidget {
                 splashColor: Colors.blue.withAlpha(30),
                 onTap: () {
                   // Pushing a named route
-                  Navigator.of(context).pushNamed(
-                    '/item',
-                    arguments: issuesMap,
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => IssuePage(data: issuesMap)),
                   );
                 },
                 child: Container(

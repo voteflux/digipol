@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:voting_app/route_generator.dart';
+import 'package:voting_app/bill.dart';
 import 'package:voting_app/api/aus_bills.dart';
 import 'dart:math';
 import 'package:voting_app/styles.dart';
@@ -77,9 +76,10 @@ class BillWidget extends StatelessWidget {
         child: InkWell(
           splashColor: appColors.cardInkWell,
           onTap: () {
-            Navigator.of(context).pushNamed(
-              '/item',
-              arguments: issuesMap,
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => BillPage(data: issuesMap)),
             );
           },
           child: Container(
@@ -102,10 +102,9 @@ class BillWidget extends StatelessWidget {
                         issuesMap[billIntro[issuesMap["Chamber"]]],
                         // TextStyle specific to this widget
                         style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w800,
-                          fontStyle: FontStyle.italic
-                        ),
+                            fontSize: 11,
+                            fontWeight: FontWeight.w800,
+                            fontStyle: FontStyle.italic),
                       ),
                     ],
                   ),

@@ -15,34 +15,12 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int index = 0;
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    
     var child;
-    var page;
-
-    // for setting the page and the RouteGenerator
-    switch (index) {
-      // bills
-      case 0:
-        child = RouteGenerator.generateBillRoute;
-        page = AllBillsPage();
-        break;
-      // issues
-      case 1:
-        page = AllIssuesPage();
-        child = RouteGenerator.generateIssueRoute;
-        break;
-      // User
-      case 2:
-        page = ProfilePage();
-        child = RouteGenerator.generateSettingsRoute;
-        break;
-      case 3:
-        page = SettingsPage();
-        child = RouteGenerator.generateSettingsRoute;
-        break;        
-    }
 
     return MaterialApp(
         initialRoute: '/',
@@ -50,7 +28,17 @@ class _MyAppState extends State<MyApp> {
         home: new Scaffold(
           backgroundColor: appColors.background,
           //current page
-          body: page,
+          body: SafeArea(
+            top: false,
+            child: IndexedStack(
+              index: _currentIndex, 
+              children: <Widget>[
+                AllBillsPage(),
+                AllIssuesPage(),
+                ProfilePage(),
+                SettingsPage()
+            ]),
+          ),
           // the nav bar at the bottom --> [bills - issues - Settings]
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: appColors.background,
@@ -74,10 +62,10 @@ class _MyAppState extends State<MyApp> {
             ],
             unselectedItemColor: appColors.text,
             selectedItemColor: appColors.mainTheme,
-            currentIndex: index,
+            currentIndex: _currentIndex,
             onTap: (int index) {
               setState(() {
-                this.index = index;
+                _currentIndex = index;
               });
             },
           ),

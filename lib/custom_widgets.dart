@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/styles.dart';
 import 'package:pie_chart/pie_chart.dart';
-import 'package:voting_app/api/vote.dart';
-import 'dart:math';
 import 'dart:async';
 
 class HouseIconsWidget extends StatelessWidget {

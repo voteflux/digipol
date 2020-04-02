@@ -2,28 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/custom_widgets.dart';
 import 'package:voting_app/styles.dart';
-import 'package:voting_app/signup.dart';
 
-class Destination {
-  const Destination(this.title, this.icon, this.color);
-  final String title;
-  final IconData icon;
-  final MaterialColor color;
-}
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({ Key key, this.destination }) : super(key: key);
+class SignUpPage extends StatefulWidget {
   
-  final Destination destination;
-
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _SignUpPageState extends State<SignUpPage> {
   //  Need a method to show we are logged in. json file?
-  bool loggedIn = false;
-  bool login = false;
 
   @override
   Widget build(BuildContext context) {
@@ -31,21 +19,25 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: appColors.background,
-      body: LogIn()
+      body: SignUp()
     );
   }
 }
 
-class LogIn extends StatefulWidget {
+class SignUp extends StatefulWidget {
   @override
-  _LogInWidgetState createState() => _LogInWidgetState();
+  _SignUpWidgetState createState() => _SignUpWidgetState();
 }
 
-class _LogInWidgetState extends State<LogIn> {
+class _SignUpWidgetState extends State<SignUp> {
 
   final _formKey = GlobalKey<FormState>();
   final Map<String, dynamic> formData = {
+    'first_name': null,
+    'other_given_names': null,
+    'family_name': null,
     'email': null,
+    'post_code': null,
     'password': null
   };
 
@@ -60,9 +52,27 @@ class _LogInWidgetState extends State<LogIn> {
             Padding(
               padding: EdgeInsets.only(bottom: 20.0),
               child: Text(
-                "Log In",
-                style: appTextStyles.heading,
+                "Your Profile",
+                style: appTextStyles.standard,
               ),
+            ),
+            CustomFormField(
+              helpText: "First Name",
+              submitAction: (String value) {
+                formData['first_name'] = value;
+              },
+            ),
+            CustomFormField(
+              helpText: "Other Given Names",
+              submitAction: (String value) {
+                formData['other_given_names'] = value;
+              },
+            ),
+            CustomFormField(
+              helpText: "Family Name",
+              submitAction: (String value) {
+                formData['family_name'] = value;
+              },
             ),
             CustomFormField(
                 helpText: "Email",
@@ -77,6 +87,12 @@ class _LogInWidgetState extends State<LogIn> {
                   }
                 }),
             CustomFormField(
+              helpText: "Post Code",
+              submitAction: (String value) {
+                formData['post_code'] = value;
+              },
+            ),
+            CustomFormField(
                 helpText: "Password",
                 submitAction: (String value) {
                   formData['password'] = value;
@@ -86,11 +102,7 @@ class _LogInWidgetState extends State<LogIn> {
                     return 'Enter a password';
                   }
                 }),
-            _buildSubmitButton(),
-            new Divider(
-              color: appColors.text,
-            ),
-            _buildSignUpButton()
+            _buildSubmitButton()
           ],
         ),
       ),
@@ -102,20 +114,7 @@ class _LogInWidgetState extends State<LogIn> {
       onPressed: () {
         _submitForm();
       },
-      child: Text('Login'),
-    );
-  }
-
-  Widget _buildSignUpButton() {
-    return RaisedButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => SignUpPage()),
-        );
-      },
-      child: Text('Sign Up Now'),
+      child: Text('Sign Up'),
     );
   }
 
@@ -125,17 +124,5 @@ class _LogInWidgetState extends State<LogIn> {
       _formKey.currentState.save(); //onSaved is called!
       print(formData);
     }
-  }
-}
-
-class ProfileWidget extends StatefulWidget {
-  @override
-  _ProfileWidgetState createState() => _ProfileWidgetState();
-}
-
-class _ProfileWidgetState extends State<ProfileWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
