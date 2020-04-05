@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/bill.dart';
+import 'package:voting_app/screens/bills/bill.dart';
 import 'package:voting_app/api/aus_bills.dart';
 import 'dart:math';
 import 'package:voting_app/styles.dart';
-import 'package:voting_app/custom_widgets.dart';
+import 'package:voting_app/widgets/custom_widgets.dart';
 import 'dart:async';
 
 class AllBillsPage extends StatefulWidget {

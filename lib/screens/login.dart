@@ -1,20 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:voting_app/custom_widgets.dart';
+import 'package:voting_app/widgets/custom_widgets.dart';
 import 'package:voting_app/styles.dart';
-import 'package:voting_app/signup.dart';
-
-class Destination {
-  const Destination(this.title, this.icon, this.color);
-  final String title;
-  final IconData icon;
-  final MaterialColor color;
-}
+import 'package:voting_app/screens/login/signup.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({ Key key, this.destination }) : super(key: key);
-  
-  final Destination destination;
 
   @override
   _ProfilePageState createState() => _ProfilePageState();

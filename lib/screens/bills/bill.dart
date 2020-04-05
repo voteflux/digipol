@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/styles.dart';
-import 'package:voting_app/custom_widgets.dart';
-import 'package:voting_app/voting_widgets.dart';
+import 'package:voting_app/widgets/custom_widgets.dart';
+import 'package:voting_app/widgets/voting_widgets.dart';
+import 'package:voting_app/screens/bills/pdf_viewer.dart';
 
 class BillPage extends StatelessWidget {
   /// information about the bill
@@ -123,9 +124,10 @@ class BillInfoWidget extends StatelessWidget {
                                   style: appTextStyles.yesnobutton,
                                 ),
                                 onPressed: () {
-                                  Navigator.of(context).pushNamed(
-                                    '/pdf',
-                                    arguments: this.billText,
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => PdfPage(pdfUrl: this.billText)),
                                   );
                                 },
                               ),
@@ -157,9 +159,10 @@ class BillInfoWidget extends StatelessWidget {
                                   style: appTextStyles.yesnobutton,
                                 ),
                                 onPressed: () {
-                                  Navigator.of(context).pushNamed(
-                                    '/pdf',
-                                    arguments: this.billEM,
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => PdfPage(pdfUrl: this.billEM)),
                                   );
                                 },
                               ),

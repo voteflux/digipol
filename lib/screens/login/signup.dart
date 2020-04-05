@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:voting_app/custom_widgets.dart';
+import 'package:voting_app/widgets/custom_widgets.dart';
 import 'package:voting_app/styles.dart';
+import 'package:voting_app/screens/login.dart';
 
 
 class SignUpPage extends StatefulWidget {
@@ -52,8 +53,8 @@ class _SignUpWidgetState extends State<SignUp> {
             Padding(
               padding: EdgeInsets.only(bottom: 20.0),
               child: Text(
-                "Your Profile",
-                style: appTextStyles.standard,
+                "Sign up",
+                style: appTextStyles.heading,
               ),
             ),
             CustomFormField(
@@ -119,7 +120,6 @@ class _SignUpWidgetState extends State<SignUp> {
   }
 
   void _submitForm() {
-    print("Fix errors");
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save(); //onSaved is called!
       print(formData);

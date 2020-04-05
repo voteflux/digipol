@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/all_issues.dart';
-import 'package:voting_app/settings.dart';
+import 'package:voting_app/screens/all_issues.dart';
+import 'package:voting_app/screens/settings.dart';
 import 'package:voting_app/route_generator.dart';
-import 'package:voting_app/all_bills.dart';
+import 'package:voting_app/screens/all_bills.dart';
 import 'package:voting_app/styles.dart';
-import 'package:voting_app/login.dart';
+import 'package:voting_app/screens/login.dart';
 
 void main() => runApp(MyApp());
 

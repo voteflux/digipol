@@ -5,8 +5,8 @@ import 'package:voting_app/api/aus_bills.dart';
 import 'dart:math';
 import 'package:voting_app/styles.dart';
 import 'package:voting_app/api/aus_issues.dart';
-import 'package:voting_app/custom_widgets.dart';
-import 'package:voting_app/issue.dart';
+import 'package:voting_app/widgets/custom_widgets.dart';
+import 'package:voting_app/screens/issues/issue.dart';
 
 class AllIssuesPage extends StatefulWidget {
   @override
