@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:voting_app/route_generator.dart';
-import 'package:voting_app/api/aus_bills.dart';
 import 'dart:math';
 import 'package:voting_app/styles.dart';
-import 'package:voting_app/api/aus_issues.dart';
+import 'package:voting_app/services/aus_issues.dart';
 import 'package:voting_app/widgets/custom_widgets.dart';
 import 'package:voting_app/screens/issues/issue.dart';
 
@@ -97,8 +94,6 @@ class IssueWidget extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-//                              VotingStatusWidget(
-//                                  issuesMap, random.nextInt(5) == 0),
                               Text("Open",
                                   style: TextStyle(
                                       fontSize: 13,

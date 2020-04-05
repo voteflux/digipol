@@ -24,9 +24,7 @@ class BillPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: appColors.background,
       appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: appColors.text
-        ),
+        iconTheme: IconThemeData(color: appColors.text),
         elevation: 0,
         backgroundColor: appColors.background,
         title: Text('Vote on Bill', style: appTextStyles.standard),
@@ -50,11 +48,17 @@ class BillPage extends StatelessWidget {
                   padding: EdgeInsets.all(appSizes.standardPadding),
                   child: Wrap(
                     children: <Widget>[
-                      VotingStatusWidget(issuesMap: data, voted: false, size: 30),
+                      VotingStatusWidget(
+                          issuesMap: data, voted: false, size: 30),
                       Padding(
                         padding: EdgeInsets.only(bottom: 20.0, top: 10.0),
-                        child: Text(data["Short Title"],
-                            style: appTextStyles.heading),
+                        child: Text(
+                          data["Short Title"],
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: appColors.text),
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsets.only(bottom: 20.0),
@@ -127,7 +131,8 @@ class BillInfoWidget extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => PdfPage(pdfUrl: this.billText)),
+                                        builder: (context) =>
+                                            PdfPage(pdfUrl: this.billText)),
                                   );
                                 },
                               ),
@@ -162,7 +167,8 @@ class BillInfoWidget extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => PdfPage(pdfUrl: this.billEM)),
+                                        builder: (context) =>
+                                            PdfPage(pdfUrl: this.billEM)),
                                   );
                                 },
                               ),

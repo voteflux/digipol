@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/screens/bills/bill.dart';
-import 'package:voting_app/api/aus_bills.dart';
+import 'package:voting_app/services/aus_bills.dart';
 import 'dart:math';
 import 'package:voting_app/styles.dart';
 import 'package:voting_app/widgets/custom_widgets.dart';
@@ -79,7 +79,7 @@ class BillWidget extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => BillPage(data: issuesMap)),
+                  builder: (context) => BillPage(data: issuesMap)),
             );
           },
           child: Container(
@@ -112,8 +112,13 @@ class BillWidget extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.symmetric(
                       vertical: 0, horizontal: appSizes.standardPadding),
-                  child:
-                      Text(issuesMap["Short Title"], style: appTextStyles.card),
+                  child: Text(
+                    issuesMap["Short Title"],
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: appColors.text),
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -161,7 +166,7 @@ class BillsMessageWidget extends StatelessWidget {
                 "A list of all Federal Bills",
                 style: appTextStyles.smallBold,
               ),
-//                  Icon(Icons.subtitles, size: 80,color: appColors.text,),
+//Icon(Icons.subtitles, size: 80,color: appColors.text,),
               Container(
                 height: 100,
                 width: 100,

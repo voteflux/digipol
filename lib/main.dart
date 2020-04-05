@@ -41,23 +41,27 @@ class _MyAppState extends State<MyApp> {
           ),
           // the nav bar at the bottom --> [bills - issues - Settings]
           bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: appColors.background,
-            items: const <BottomNavigationBarItem>[
+            type: BottomNavigationBarType.shifting,
+            items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.assignment),
                 title: Text('Bills'),
+                backgroundColor: appColors.background,              
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.assignment_late),
                 title: Text('Issues'),
+                backgroundColor: appColors.background,
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.account_circle),
                 title: Text('Profile'),
+                backgroundColor: appColors.background,
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
                 title: Text('Settings'),
+                backgroundColor: appColors.background,
               ),
             ],
             unselectedItemColor: appColors.text,

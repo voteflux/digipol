@@ -60,7 +60,7 @@ class AppColors {
       greyedOut = Colors.grey[800];
       background = Color(0xFF16171b);
       backgroundSecondary = Color(0xFF202125);
-      mainTheme = Color(0xFF23272a);
+      mainTheme = Color(0xFFE0E6E9);
       issues = Color(0xFF363663);
       text = Color(0xFF99aab5);
       shareIcon = Color(0xFFd9b526);
