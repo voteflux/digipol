@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:voting_app/styles.dart';
+import 'package:voting_app/ui/styles.dart';
 
 class SettingsPage extends StatefulWidget {
   // where the app and user settings go

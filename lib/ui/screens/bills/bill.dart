@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:voting_app/styles.dart';
-import 'package:voting_app/widgets/custom_widgets.dart';
-import 'package:voting_app/widgets/voting_widgets.dart';
-import 'package:voting_app/screens/bills/pdf_viewer.dart';
+import 'package:voting_app/ui/styles.dart';
+import 'package:voting_app/ui/widgets/custom_widgets.dart';
+import 'package:voting_app/ui/widgets/voting_widgets.dart';
+import 'package:voting_app/ui/screens/bills/pdf_viewer.dart';
 
 class BillPage extends StatelessWidget {
   /// information about the bill

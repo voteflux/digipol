@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/styles.dart';
-import 'package:voting_app/widgets/custom_widgets.dart';
-import 'package:voting_app/widgets/voting_widgets.dart';
+import 'package:voting_app/ui/styles.dart';
+import 'package:voting_app/ui/widgets/custom_widgets.dart';
+import 'package:voting_app/ui/widgets/voting_widgets.dart';
 
 class IssuePage extends StatelessWidget {
   /// information about the issue

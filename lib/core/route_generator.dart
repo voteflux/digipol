@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/screens/bills/bill.dart';
-import 'package:voting_app/screens/issues/issue.dart';
+import 'package:voting_app/ui/screens/bills/bill.dart';
+import 'package:voting_app/ui/screens/issues/issue.dart';
 import 'package:voting_app/main.dart';
-import 'package:voting_app/screens/login.dart';
-import 'package:voting_app/screens/bills/pdf_viewer.dart';
+import 'package:voting_app/ui/screens/login.dart';
+import 'package:voting_app/ui/screens/bills/pdf_viewer.dart';
 
 // there are three separate routing's. One for each for each;
 // bills, issues and Settings

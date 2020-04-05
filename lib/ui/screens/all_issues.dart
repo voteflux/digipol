@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'package:voting_app/styles.dart';
-import 'package:voting_app/services/aus_issues.dart';
-import 'package:voting_app/widgets/custom_widgets.dart';
-import 'package:voting_app/screens/issues/issue.dart';
+import 'package:voting_app/ui/styles.dart';
+import 'package:voting_app/core/services/aus_issues.dart';
+import 'package:voting_app/ui/widgets/custom_widgets.dart';
+import 'package:voting_app/ui/screens/issues/issue.dart';
 
 class AllIssuesPage extends StatefulWidget {
   @override

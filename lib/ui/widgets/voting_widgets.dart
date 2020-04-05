@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/styles.dart';
-import 'package:voting_app/services/vote.dart';
+import 'package:voting_app/ui/styles.dart';
+import 'package:voting_app/core/services/vote.dart';
 
 // The plan here is to have a card that has 3 states
 // 1 voting options - the default

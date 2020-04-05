@@ -1,19 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:voting_app/widgets/custom_widgets.dart';
-import 'package:voting_app/styles.dart';
-import 'package:voting_app/screens/login/signup.dart';
+import 'package:voting_app/ui/widgets/custom_widgets.dart';
+import 'package:voting_app/ui/styles.dart';
+import 'package:voting_app/ui/screens/login.dart';
 
-class ProfilePage extends StatefulWidget {
-
+class SignUpPage extends StatefulWidget {
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _SignUpPageState extends State<SignUpPage> {
   //  Need a method to show we are logged in. json file?
-  bool loggedIn = false;
-  bool login = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,21 +18,29 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: appColors.background,
-      body: LogIn()
+      body: (Center(
+        child: Container(
+          width: appSizes.mediumWidth,
+          child: SignUp(),
+        ),
+      )),
     );
   }
 }
 
-class LogIn extends StatefulWidget {
+class SignUp extends StatefulWidget {
   @override
-  _LogInWidgetState createState() => _LogInWidgetState();
+  _SignUpWidgetState createState() => _SignUpWidgetState();
 }
 
-class _LogInWidgetState extends State<LogIn> {
-
+class _SignUpWidgetState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
   final Map<String, dynamic> formData = {
+    'first_name': null,
+    'other_given_names': null,
+    'family_name': null,
     'email': null,
+    'post_code': null,
     'password': null
   };
 
@@ -50,9 +55,27 @@ class _LogInWidgetState extends State<LogIn> {
             Padding(
               padding: EdgeInsets.only(bottom: 20.0),
               child: Text(
-                "Log In",
+                "Sign up",
                 style: appTextStyles.heading,
               ),
+            ),
+            CustomFormField(
+              helpText: "First Name",
+              submitAction: (String value) {
+                formData['first_name'] = value;
+              },
+            ),
+            CustomFormField(
+              helpText: "Other Given Names",
+              submitAction: (String value) {
+                formData['other_given_names'] = value;
+              },
+            ),
+            CustomFormField(
+              helpText: "Family Name",
+              submitAction: (String value) {
+                formData['family_name'] = value;
+              },
             ),
             CustomFormField(
                 helpText: "Email",
@@ -67,6 +90,12 @@ class _LogInWidgetState extends State<LogIn> {
                   }
                 }),
             CustomFormField(
+              helpText: "Post Code",
+              submitAction: (String value) {
+                formData['post_code'] = value;
+              },
+            ),
+            CustomFormField(
                 helpText: "Password",
                 submitAction: (String value) {
                   formData['password'] = value;
@@ -76,11 +105,7 @@ class _LogInWidgetState extends State<LogIn> {
                     return 'Enter a password';
                   }
                 }),
-            _buildSubmitButton(),
-            new Divider(
-              color: appColors.text,
-            ),
-            _buildSignUpButton()
+            _buildSubmitButton()
           ],
         ),
       ),
@@ -92,40 +117,14 @@ class _LogInWidgetState extends State<LogIn> {
       onPressed: () {
         _submitForm();
       },
-      child: Text('Login'),
-    );
-  }
-
-  Widget _buildSignUpButton() {
-    return RaisedButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => SignUpPage()),
-        );
-      },
-      child: Text('Sign Up Now'),
+      child: Text('Sign Up'),
     );
   }
 
   void _submitForm() {
-    print("Fix errors");
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save(); //onSaved is called!
       print(formData);
     }
-  }
-}
-
-class ProfileWidget extends StatefulWidget {
-  @override
-  _ProfileWidgetState createState() => _ProfileWidgetState();
-}
-
-class _ProfileWidgetState extends State<ProfileWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
