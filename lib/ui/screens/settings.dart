@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/ui/styles.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 class SettingsPage extends StatefulWidget {
   // where the app and user settings go
@@ -39,6 +40,8 @@ class _SettingsPageState extends State<SettingsPage> {
                       onChanged: (value) {
                         setState(() {
                           darkMode = value;
+                          FlutterStatusbarcolor.setStatusBarWhiteForeground(
+                              darkMode);
                           print(darkMode);
                         });
                       },

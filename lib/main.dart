@@ -5,6 +5,7 @@ import 'package:voting_app/core/route_generator.dart';
 import 'package:voting_app/ui/screens/all_bills.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/screens/login.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,9 +20,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    
     var child;
-
+    FlutterStatusbarcolor.setStatusBarWhiteForeground(darkMode);
     return MaterialApp(
         initialRoute: '/',
         onGenerateRoute: child,
@@ -30,13 +30,11 @@ class _MyAppState extends State<MyApp> {
           //current page
           body: SafeArea(
             top: false,
-            child: IndexedStack(
-              index: _currentIndex, 
-              children: <Widget>[
-                AllBillsPage(),
-                AllIssuesPage(),
-                ProfilePage(),
-                SettingsPage()
+            child: IndexedStack(index: _currentIndex, children: <Widget>[
+              AllBillsPage(),
+              AllIssuesPage(),
+              ProfilePage(),
+              SettingsPage()
             ]),
           ),
           // the nav bar at the bottom --> [bills - issues - Settings]
@@ -46,7 +44,7 @@ class _MyAppState extends State<MyApp> {
               BottomNavigationBarItem(
                 icon: Icon(Icons.assignment),
                 title: Text('Bills'),
-                backgroundColor: appColors.background,              
+                backgroundColor: appColors.background,
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.assignment_late),
