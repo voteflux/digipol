@@ -4,6 +4,8 @@ import 'package:voting_app/ui/widgets/custom_widgets.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/screens/login/signup.dart';
 import 'package:provider/provider.dart';
+import 'package:voting_app/core/services/auth/user_auth.dart';
+
 
 class ProfilePage extends StatefulWidget {
 
@@ -38,12 +40,12 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInWidgetState extends State<LogIn> {
-
+  
   final _formKey = GlobalKey<FormState>();
   final Map<String, dynamic> formData = {
-    'email': null,
-    'password': null
+    'name': null
   };
+  String _name;
 
   @override
   Widget build(BuildContext context) {
@@ -56,37 +58,19 @@ class _LogInWidgetState extends State<LogIn> {
             Padding(
               padding: EdgeInsets.only(bottom: 20.0),
               child: Text(
-                "Log In",
+                "Register to vote",
                 style: appTextStyles.heading,
               ),
             ),
             CustomFormField(
-                helpText: "Email",
+                helpText: "Your name",
                 submitAction: (String value) {
-                  formData['email'] = value;
-                },
-                validation: (String value) {
-                  if (!RegExp(
-                          r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-                      .hasMatch(value)) {
-                    return 'This is not a valid email';
-                  }
-                }),
-            CustomFormField(
-                helpText: "Password",
-                submitAction: (String value) {
-                  formData['password'] = value;
-                },
-                validation: (String value) {
-                  if (value.isEmpty) {
-                    return 'Enter a password';
-                  }
-                }),
+                   _name = value;
+                },),
             _buildSubmitButton(),
             new Divider(
               color: appColors.text,
-            ),
-            _buildSignUpButton()
+            )
           ],
         ),
       ),
@@ -98,28 +82,15 @@ class _LogInWidgetState extends State<LogIn> {
       onPressed: () {
         _submitForm();
       },
-      child: Text('Login'),
+      child: Text('Register'),
     );
   }
-
-  Widget _buildSignUpButton() {
-    return RaisedButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => SignUpPage()),
-        );
-      },
-      child: Text('Sign Up Now'),
-    );
-  }
-
   void _submitForm() {
     print("Fix errors");
     if (_formKey.currentState.validate()) {
-      _formKey.currentState.save(); //onSaved is called!
-      print(formData);
+      _formKey.currentState.save();
+      Provider.of<UserRepository>(context,listen: false).signIn(_name);
+      print(_name);
     }
   }
 }
