@@ -57,7 +57,33 @@ class _AllBillsPageState extends State<AllBillsPage> {
       });
 
     }else{
-      List<Widget> bwl = [];
+      List<Widget> bwl = [
+      Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(appSizes.cardCornerRadius),
+          ),
+          margin: EdgeInsets.all(appSizes.standardMargin),
+          elevation: appSizes.cardElevation,
+          color: appColors.card,
+          child: InkWell(
+              splashColor: appColors.cardInkWell,
+              onTap: () {
+                setState(() {
+                  searchString = '';
+                });
+              },
+              child: Container(
+                padding: EdgeInsets.all(appSizes.standardPadding),
+                child: Center(
+                  child: Text(
+                      "Clear Search",
+                    style: appTextStyles.standardItalic,
+                  ),
+                )
+              )
+          )
+      )
+      ];
       for (var i in billsList) {
         if (i["Short Title"].toLowerCase().contains(searchString.toLowerCase()) | i["Summary"].toLowerCase().contains(searchString.toLowerCase()) | i["Sponsor"].toLowerCase().contains(searchString.toLowerCase()))
 
