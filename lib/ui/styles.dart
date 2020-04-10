@@ -33,6 +33,7 @@ class AppColors {
   Color senate;
   Color greyedOut;
   Color background;
+  Color backgroundSecondary;
   Color mainTheme;
   Color issues;
   Color text;
@@ -45,6 +46,7 @@ class AppColors {
   Color yes;
   Color no;
   Color selected;
+  Color unSelected;
   Color button;
   Color buttonOutline;
 
@@ -56,8 +58,9 @@ class AppColors {
       house = Color(0xFF0f4533);
       senate = Color(0xFFa81717);
       greyedOut = Colors.grey[800];
-      background = Color(0xFF2c2f33);
-      mainTheme = Color(0xFF23272a);
+      background = Color(0xFF16171b);
+      backgroundSecondary = Color(0xFF202125);
+      mainTheme = Color(0xFFE0E6E9);
       issues = Color(0xFF363663);
       text = Color(0xFF99aab5);
       shareIcon = Color(0xFFd9b526);
@@ -69,6 +72,7 @@ class AppColors {
       yes = Colors.lightBlueAccent;
       no = Colors.redAccent;
       selected = Colors.blue;
+      unSelected = Color(0xff818181);
       button = Colors.blue;
       buttonOutline = Colors.transparent;
     } else if (styleNum == 1) {
@@ -76,19 +80,21 @@ class AppColors {
       senate = Colors.deepPurple;
       house = Colors.green[800];
       greyedOut = Colors.grey[300];
-      background = Colors.white;
+      background = Color(0xffEFEEEE);
+      backgroundSecondary = Color(0xFFF3F3F3);
       mainTheme = Colors.blue;
       issues = Color(0xFF363663);
-      text = Colors.black87;
+      text = Color(0xff797979);
       shareIcon = Color(0xFFd9b526);
-      card = Colors.grey[300];
+      card = Color(0xffF9F9F9);
       voteOpen = Colors.green;
       voteClosed = Colors.red;
       voted = Colors.blue;
       cardInkWell = Colors.blue.withAlpha(30);
       yes = Colors.blue;
       no = Colors.redAccent;
-      selected = Colors.orangeAccent;
+      selected = Color(0xff818181);
+      unSelected = Color(0xffB9B9B9);
       button = Colors.blue;
       buttonOutline = Colors.transparent;
     }
@@ -110,17 +116,19 @@ class AppSizes {
     largeWidth = 1200;
     mediumWidth = 600;
     smallWidth = 300;
-    cardCornerRadius = 5.0;
+    cardCornerRadius = 9.0;
     buttonRadius = 20.0;
-    cardElevation = 10.0;
+    cardElevation = 2.0;
     standardMargin = 20.0;
-    standardPadding = 20.0;
+    standardPadding = 30.0;
   }
 }
 
 class AppTextStyles {
   /// The standard text styles for the app
   TextStyle heading;
+  TextStyle heading2;
+  TextStyle heading3;
   TextStyle card;
   TextStyle smallBold;
   TextStyle small;
@@ -131,7 +139,17 @@ class AppTextStyles {
 
   AppTextStyles() {
     heading = TextStyle(
-      fontSize: 30,
+      fontSize: 24,
+      color: appColors.text,
+      fontWeight: FontWeight.w700,
+    );
+    heading2 = TextStyle(
+      fontSize: 20,
+      color: appColors.text,
+      fontWeight: FontWeight.w700,
+    );
+    heading3 = TextStyle(
+      fontSize: 16,
       color: appColors.text,
       fontWeight: FontWeight.w700,
     );
@@ -144,7 +162,7 @@ class AppTextStyles {
     small = TextStyle(
         fontSize: 15, color: appColors.text, fontWeight: FontWeight.normal);
 
-    standard = TextStyle(fontSize: 20, color: appColors.text);
+    standard = TextStyle(fontSize: 16, color: appColors.text, height: 1.5);
 
     standardItalic = TextStyle(
         fontSize: 20, color: appColors.text, fontStyle: FontStyle.italic);
@@ -153,6 +171,6 @@ class AppTextStyles {
         fontSize: 20, color: appColors.text, fontWeight: FontWeight.bold);
 
     yesnobutton = TextStyle(
-        fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold);
+        fontSize: 14, color: Colors.white, fontWeight: FontWeight.bold);
   }
 }

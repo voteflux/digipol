@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:voting_app/route_generator.dart';
-import 'package:voting_app/api/aus_bills.dart';
 import 'dart:math';
-import 'package:voting_app/styles.dart';
-import 'package:voting_app/api/aus_issues.dart';
-import 'package:voting_app/cutom_widgets.dart';
+import 'package:voting_app/ui/styles.dart';
+import 'package:voting_app/core/services/aus_issues.dart';
+import 'package:voting_app/ui/widgets/custom_widgets.dart';
+import 'package:voting_app/ui/screens/issues/issue.dart';
 
 class AllIssuesPage extends StatefulWidget {
   @override
@@ -14,8 +12,10 @@ class AllIssuesPage extends StatefulWidget {
 
 class _AllIssuesPageState extends State<AllIssuesPage> {
   /// Where all the bills are shown (using ListView)
+  ///
   var issuesList = [];
   List<Widget> issueWidgetList;
+
   @override
   Widget build(BuildContext context) {
     int issueNum = issuesList.length;
@@ -69,17 +69,18 @@ class IssueWidget extends StatelessWidget {
     return Center(
         child: Card(
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0)),
+                borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
             margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            elevation: 5.0,
+            elevation: appSizes.cardElevation,
             color: appColors.card,
             child: InkWell(
                 splashColor: Colors.blue.withAlpha(30),
                 onTap: () {
                   // Pushing a named route
-                  Navigator.of(context).pushNamed(
-                    '/item',
-                    arguments: issuesMap,
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => IssuePage(data: issuesMap)),
                   );
                 },
                 child: Container(
@@ -93,8 +94,6 @@ class IssueWidget extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-//                              VotingStatusWidget(
-//                                  issuesMap, random.nextInt(5) == 0),
                               Text("Open",
                                   style: TextStyle(
                                       fontSize: 13,
@@ -183,21 +182,22 @@ class VotingStatusWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Column(
-      children: <Widget>[
-        Icon(
-          statusMessage()[2],
-          color: statusMessage()[0],
-          size: 20,
-        ),
-        Text(
-          statusMessage()[1],
-          style: TextStyle(
-              fontSize: 8,
-              fontWeight: FontWeight.bold,
-              color: statusMessage()[0]),
-        ),
-      ],
-    ));
+      child: Column(
+        children: <Widget>[
+          Icon(
+            statusMessage()[2],
+            color: statusMessage()[0],
+            size: 20,
+          ),
+          Text(
+            statusMessage()[1],
+            style: TextStyle(
+                fontSize: 8,
+                fontWeight: FontWeight.bold,
+                color: statusMessage()[0]),
+          ),
+        ],
+      ),
+    );
   }
 }

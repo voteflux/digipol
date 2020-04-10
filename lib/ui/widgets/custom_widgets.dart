@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/styles.dart';
+import 'package:voting_app/ui/styles.dart';
 import 'package:pie_chart/pie_chart.dart';
-import 'package:voting_app/api/vote.dart';
-import 'dart:math';
 import 'dart:async';
 
 class HouseIconsWidget extends StatelessWidget {
@@ -312,6 +310,92 @@ class PieWidget extends StatelessWidget {
           fontSize: this.radius / 20 + 10,
           fontWeight: FontWeight.bold,
           color: Colors.black),
+    );
+  }
+}
+
+// Button widget
+class MainButton extends StatelessWidget {
+  final String buttonText;
+  final Color buttonColor;
+  final Function pressedButtonAction;
+
+  MainButton(
+      {@required this.buttonText,
+      @required this.buttonColor,
+      @required this.pressedButtonAction});
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minWidth: double.infinity),
+          child: FlatButton(
+              color: buttonColor,
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                buttonText,
+                style: appTextStyles.yesnobutton,
+              ),
+              onPressed: pressedButtonAction),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomFormField extends StatelessWidget {
+  final String helpText;
+  final Function submitAction;
+  final Function validation;
+  final String initalTextValue;
+
+  CustomFormField(
+      {@required this.helpText,
+      @required this.submitAction,
+      this.validation,
+      this.initalTextValue});
+
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 10.0),
+      child: TextFormField(
+          style: TextStyle(
+            color: appColors.text,
+          ),
+          decoration: InputDecoration(
+              filled: true,
+              fillColor: appColors.backgroundSecondary,
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(4)),
+                borderSide: BorderSide(width: 2, color: Colors.blue),
+              ),
+              disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(4)),
+                borderSide: BorderSide(width: 2, color: Colors.orange),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(4)),
+                borderSide: BorderSide(width: 2, color: appColors.text),
+              ),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(4)),
+                  borderSide: BorderSide(
+                    width: 2,
+                  )),
+              errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(4)),
+                  borderSide: BorderSide(width: 2, color: Colors.red)),
+              focusedErrorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(4)),
+                  borderSide: BorderSide(width: 2, color: Colors.yellowAccent)),
+              labelText: this.helpText,
+              labelStyle: TextStyle(
+                color: appColors.text,
+              )),
+          onSaved: this.submitAction,
+          validator: this.validation,
+          initialValue: this.initalTextValue),
     );
   }
 }
