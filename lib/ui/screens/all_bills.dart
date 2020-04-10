@@ -97,6 +97,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                       child: Container(
                         padding: EdgeInsets.symmetric(horizontal: appSizes.standardPadding,vertical: 0),
                         child: TextField(
+                          style: appTextStyles.standard,
                           onSubmitted: (searchValue){
                             setState(() {
                               searchString = searchValue;
