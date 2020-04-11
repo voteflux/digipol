@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/core/services/auth/user_auth.dart';
+import 'package:voting_app/core/providers/auth/user_auth.dart';
 import 'package:voting_app/ui/screens/all_issues.dart';
 import 'package:voting_app/ui/screens/settings.dart';
 import 'package:voting_app/ui/screens/all_bills.dart';
