@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/ui/screens/bills/bill.dart';
 import 'package:voting_app/core/services/aus_bills.dart';
@@ -12,20 +13,90 @@ class AllBillsPage extends StatefulWidget {
 }
 
 class _AllBillsPageState extends State<AllBillsPage> {
+
+  final searchBarController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    searchBarController.dispose();
+    super.dispose();
+  }
+
   /// Where all the bills are shown (using ListView)
   var billsList = [];
   List<Widget> billWidgetList;
+  String searchString = '';
+
+
+
   @override
   Widget build(BuildContext context) {
+    double windowWidth = MediaQuery.of(context).size.width;
+    double windowHeight = MediaQuery.of(context).size.height;
+    double bottom = MediaQuery.of(context).viewInsets.bottom;
+    double searchBarHeight = 80;
     final Random random = new Random(); // To DELETE
+
+
     int billNum = billsList.length;
-    billWidgetList = [
-      CountUpWidget(number: billNum, text: "TOTAL BILLS"),
-      BillsMessageWidget()
-    ];
-    for (var i in billsList) {
-      billWidgetList.add(BillWidget(i));
+
+
+    print('Search: '+searchString);
+    if (searchString == ''){
+
+      List<Widget> bwl = [
+        CountUpWidget(number: billNum, text: "TOTAL BILLS"),
+        BillsMessageWidget()
+      ];
+      for (var i in billsList) {
+        bwl.add(BillWidget(i));
+      }
+      setState(() {
+        billWidgetList = bwl;
+      });
+
+    }else{
+      List<Widget> bwl = [
+      Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(appSizes.cardCornerRadius),
+          ),
+          margin: EdgeInsets.all(appSizes.standardMargin),
+          elevation: appSizes.cardElevation,
+          color: appColors.card,
+          child: InkWell(
+              splashColor: appColors.cardInkWell,
+              onTap: () {
+                setState(() {
+                  searchString = '';
+                });
+              },
+              child: Container(
+                padding: EdgeInsets.all(appSizes.standardPadding),
+                child: Center(
+                  child: Text(
+                      "Clear Search",
+                    style: appTextStyles.standardItalic,
+                  ),
+                )
+              )
+          )
+      )
+      ];
+      for (var i in billsList) {
+        if (i["Short Title"].toLowerCase().contains(searchString.toLowerCase()) | i["Summary"].toLowerCase().contains(searchString.toLowerCase()) | i["Sponsor"].toLowerCase().contains(searchString.toLowerCase()))
+
+        bwl.add(BillWidget(i));
+      }
+      setState(() {
+        billWidgetList = bwl;
+      });
+
     }
+
+
+
 
     Future<void> getBillsData() async {
 //    var b = await fetchBills();
@@ -41,10 +112,55 @@ class _AllBillsPageState extends State<AllBillsPage> {
         return Center();
       } else {
         return Center(
-          child: ListView(
-            controller: ScrollController(),
-            children: billWidgetList,
-          ),
+          child: Column(
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.all(10),
+              ),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: appSizes.standardPadding,vertical: 0),
+                        child: TextField(
+                          style: appTextStyles.standard,
+                          onSubmitted: (searchValue){
+                            setState(() {
+                              searchString = searchValue;
+                            });
+                          },
+                          textInputAction: TextInputAction.search,
+                          controller: searchBarController,
+                          decoration: InputDecoration(
+                            fillColor: Colors.transparent,
+//                              icon: Icon(Icons.search),
+                              border: InputBorder.none,
+                              hintText: 'Search',
+                          ),
+                        ),
+                      )
+                  ),
+                  IconButton(icon: Icon(Icons.search),
+                      iconSize: 40,
+                      color: appColors.text,
+                      onPressed: (){
+                    print(searchBarController.text);
+                    setState(() {
+                      searchString = searchBarController.text;
+                    });
+                      }
+                  ),
+                ],
+              ),
+
+              Expanded(
+                child: ListView(
+                  controller: ScrollController(),
+                  children: billWidgetList,
+                ),
+              )
+            ],
+          )
         );
       }
     }
