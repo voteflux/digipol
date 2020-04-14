@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:voting_app/core/enums/viewstate.dart';
+import 'package:voting_app/core/viewmodels/user_model.dart';
+import 'package:voting_app/ui/screens/base_view.dart';
+import 'package:voting_app/core/models/user.dart';
 import 'package:voting_app/ui/widgets/custom_widgets.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/screens/login/signup.dart';
 import 'package:provider/provider.dart';
-import 'package:voting_app/core/providers/auth/user_auth.dart';
+import 'package:voting_app/core/enums/authstate.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -12,31 +16,17 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  //  Need a method to show we are logged in. json file?
-  bool loggedIn = false;
-  bool login = false;
-
   @override
   Widget build(BuildContext context) {
-    // this is where we choose what to show on this page
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      backgroundColor: appColors.background,
-      body: (Center(
-        child: Consumer(
-          builder: (context, UserRepository user, _) {
-            switch (user.status) {
-              case Status.Uninitialized:
-                return LogIn();
-              case Status.Unauthenticated:
-              case Status.Authenticating:
-                return ProfileWidget();
-              case Status.Authenticated:
-                return ProfileWidget();
-            }
-          },
+    return BaseView<UserModel>(
+      builder: (context, model, child) => Scaffold(
+        backgroundColor: appColors.background,
+        body: Center(
+          child: model.state == ViewState.Busy
+              ? CircularProgressIndicator()
+              : LogIn(),
         ),
-      )),
+      ),
     );
   }
 }
@@ -47,6 +37,7 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInWidgetState extends State<LogIn> {
+
   final _formKey = GlobalKey<FormState>();
   final Map<String, dynamic> formData = {'name': null};
   String _name;
@@ -92,46 +83,16 @@ class _LogInWidgetState extends State<LogIn> {
     );
   }
 
-  void _submitForm() {
+  void _submitForm() async {
     if (_formKey.currentState.validate()) {
+      
       _formKey.currentState.save();
-      Provider.of<UserRepository>(context, listen: false).signIn(_name);
+      var loginSuccess = await Provider.of<UserModel>(context, listen: false).login(_name);
+      if(loginSuccess) {
+        Navigator.pushNamed(context, '/');
+      }
+
       print(_name);
     }
-  }
-}
-
-class ProfileWidget extends StatefulWidget {
-  @override
-  _ProfileWidgetState createState() => _ProfileWidgetState();
-}
-
-class _ProfileWidgetState extends State<ProfileWidget> {
-
-  
-  @override
-  Widget build(BuildContext context) {
-
-    return Container(
-        width: appSizes.mediumWidth,
-        padding: const EdgeInsets.all(20.0),
-        child: ListView(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(bottom: 20.0),
-              child: Text(
-                "Your Profile",
-                style: appTextStyles.heading,
-              ),
-            ),
-            Consumer<UserRepository>( // <=== DEPENDENT
-              builder: (context, UserRepository name, _) => Text(
-                '${name}',
-                style: appTextStyles.heading,
-              ),
-            ),
-          ],
-        ),
-      );
   }
 }

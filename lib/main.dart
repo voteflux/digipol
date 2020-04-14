@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/core/providers/auth/user_auth.dart';
-import 'package:voting_app/ui/screens/all_issues.dart';
+import 'package:voting_app/core/models/user.dart';
+import 'package:voting_app/ui/screens/all_issues_view.dart';
 import 'package:voting_app/ui/screens/settings.dart';
-import 'package:voting_app/ui/screens/all_bills.dart';
+import 'package:voting_app/core/services/auth_service.dart';
+import 'package:voting_app/core/route_generator.dart';
+import 'package:voting_app/ui/screens/all_bills_view.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/screens/login.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:provider/provider.dart';
+import 'package:voting_app/locator.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  setupLocator();
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override
@@ -18,40 +24,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    var child;
     FlutterStatusbarcolor.setStatusBarWhiteForeground(darkMode);
-    return MaterialApp(
-        initialRoute: '/', 
-        onGenerateRoute: child, 
-        home: HomePage());
-  }
-}
-
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => UserRepository(),
-      child: Consumer(
-        builder: (context, UserRepository user, _) {
-          switch (user.status) {
-            case Status.Uninitialized:
-              return ProfilePage();
-            case Status.Unauthenticated:
-            case Status.Authenticating:
-              return MainScreen();
-            case Status.Authenticated:
-              return MainScreen();
-          }
-        },
-      ),
-    );
+    return StreamProvider<User>(
+      initialData: User.initial(),
+      create:(BuildContext context) => locator<AuthenticationService>().userController.stream,
+        child: MaterialApp(
+      initialRoute: '/profile',
+      home: MainScreen(),
+      onGenerateRoute: RouteGenerator.generateSettingsRoute,
+    ));
   }
 }
 

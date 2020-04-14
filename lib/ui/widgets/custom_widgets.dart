@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'dart:async';
 
 class HouseIconsWidget extends StatelessWidget {
-  final issuesMap;
+
+  final Bill bill;
   final Color senateColor = appColors.senate;
   final Color houseColor = appColors.house;
   final Color noFillColor = appColors.greyedOut;
@@ -18,20 +20,20 @@ class HouseIconsWidget extends StatelessWidget {
   /// `child: HouseIconsWidget(issuesMap: issuesMap,size: 20,),`
   HouseIconsWidget({
     Key key,
-    @required this.issuesMap,
     @required this.size,
+    @required this.bill
   }) : super(key: key);
 
   // gets correct colour for Intro House
-  hiChooser(Map theBill) {
-    if (theBill["Chamber"] == "House") {
-      if (theBill["Intro House"] == "") {
+  hiChooser(theBill) {
+    if (theBill.chamber == "House") {
+      if (theBill.introHouse == "") {
         return noFillColor;
       } else {
         return houseColor;
       }
     } else {
-      if (theBill["Intro Senate"] == "") {
+      if (theBill.introSenate == "") {
         return noFillColor;
       } else {
         return senateColor;
@@ -40,15 +42,15 @@ class HouseIconsWidget extends StatelessWidget {
   }
 
   // gets correct colour for Passed House
-  hpChooser(Map theBill) {
-    if (theBill["Chamber"] == "House") {
-      if (theBill["Passed House"] == "") {
+  hpChooser(theBill) {
+    if (theBill.chamber == "House") {
+      if (theBill.passedHouse == "") {
         return noFillColor;
       } else {
         return houseColor;
       }
     } else {
-      if (theBill["Passed Senate"] == "") {
+      if (theBill.passedSenate == "") {
         return noFillColor;
       } else {
         return senateColor;
@@ -57,15 +59,15 @@ class HouseIconsWidget extends StatelessWidget {
   }
 
   // gets correct colour for Intro Senate
-  siChooser(Map theBill) {
-    if (theBill["Chamber"] == "House") {
-      if (theBill["Intro Senate"] == "") {
+  siChooser(theBill) {
+    if (theBill.chamber == "House") {
+      if (theBill.introHouse == "") {
         return noFillColor;
       } else {
         return senateColor;
       }
     } else {
-      if (theBill["Intro House"] == "") {
+      if (theBill.introHouse == "") {
         return noFillColor;
       } else {
         return houseColor;
@@ -74,15 +76,15 @@ class HouseIconsWidget extends StatelessWidget {
   }
 
   // gets correct colour for Passed Senate
-  spChooser(Map theBill) {
-    if (theBill["Chamber"] == "House") {
-      if (theBill["Passed Senate"] == "") {
+  spChooser(theBill) {
+    if (theBill.chamber == "House") {
+      if (theBill.passedSenate == "") {
         return noFillColor;
       } else {
         return senateColor;
       }
     } else {
-      if (theBill["Passed House"] == "") {
+      if (theBill.passedHouse == "") {
         return noFillColor;
       } else {
         return houseColor;
@@ -102,7 +104,7 @@ class HouseIconsWidget extends StatelessWidget {
         children: <Widget>[
           Icon(
             Icons.account_balance,
-            color: hiChooser(issuesMap),
+            color: hiChooser(bill),
             size: this.size,
           ),
           Icon(
@@ -112,7 +114,7 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.check_circle,
-            color: hpChooser(issuesMap),
+            color: hpChooser(bill),
             size: this.size,
           ),
           Icon(
@@ -122,7 +124,7 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.account_balance,
-            color: siChooser(issuesMap),
+            color: siChooser(bill),
             size: this.size,
           ),
           Icon(
@@ -132,7 +134,7 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.check_circle,
-            color: spChooser(issuesMap),
+            color: spChooser(bill),
             size: this.size,
           ),
         ],
@@ -142,7 +144,7 @@ class HouseIconsWidget extends StatelessWidget {
 }
 
 class VotingStatusWidget extends StatelessWidget {
-  final Map issuesMap;
+  final Bill bill;
   final bool voted;
   final double size;
 
@@ -156,7 +158,7 @@ class VotingStatusWidget extends StatelessWidget {
 
   VotingStatusWidget({
     Key key,
-    @required this.issuesMap,
+    @required this.bill,
     @required this.voted,
     @required this.size,
   }) : super(key: key);
@@ -173,14 +175,14 @@ class VotingStatusWidget extends StatelessWidget {
       c = appColors.voted;
       i = Icons.check_circle_outline;
     } else {
-      if (issuesMap["Chamber"] == "House") {
-        if (issuesMap["Passed Senate"] == "") {
+      if (bill.chamber == "House") {
+        if (bill.passedSenate == "") {
           s = "Open";
           c = appColors.voteOpen;
           i = Icons.add_circle_outline;
         }
       } else {
-        if (issuesMap["Passed House"] == "") {
+        if (bill.passedHouse == "") {
           s = "Open";
           c = appColors.voteOpen;
           i = Icons.add_circle_outline;

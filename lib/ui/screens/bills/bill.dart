@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/widgets/custom_widgets.dart';
 import 'package:voting_app/ui/widgets/voting_widgets.dart';
@@ -7,11 +8,11 @@ import 'package:voting_app/ui/screens/bills/pdf_viewer.dart';
 
 class BillPage extends StatelessWidget {
   /// information about the bill
-  final Map data;
+  final Bill bill;
 
   BillPage({
     Key key,
-    @required this.data,
+    @required this.bill,
   }) : super(key: key);
 
   @override
@@ -35,12 +36,12 @@ class BillPage extends StatelessWidget {
           child: ListView(
             children: <Widget>[
               PieWidget(
-                // get from data
-                yes: data["Yes"],
-                no: data["No"],
+                // get from bill
+                yes: bill.yes,
+                no: bill.no,
                 radius: dynamicMediumHeight,
               ),
-              HouseIconsWidget(issuesMap: data, size: 25),
+              HouseIconsWidget(bill: bill, size: 25),
               Container(
                   width: dynamicLargeWidth,
                   color: appColors.backgroundSecondary,
@@ -49,11 +50,11 @@ class BillPage extends StatelessWidget {
                   child: Wrap(
                     children: <Widget>[
                       VotingStatusWidget(
-                          issuesMap: data, voted: false, size: 30),
+                          bill: bill, voted: false, size: 30),
                       Padding(
                         padding: EdgeInsets.only(bottom: 20.0, top: 10.0),
                         child: Text(
-                          data["Short Title"],
+                          bill.shortTitle,
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -63,16 +64,16 @@ class BillPage extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.only(bottom: 20.0),
                         child: Text(
-                          data["Summary"],
+                          bill.summary,
                           style: appTextStyles.standard,
                         ),
                       ),
                       BillInfoWidget(
-                        billText: data["text link pdf"],
-                        billEM: data["em link pdf"],
+                        billText: bill.textLinkPdf,
+                        billEM: bill.emLinkPdf,
                       ),
                       VoteWidget(
-                        data: data,
+                        data: bill,
                       ),
                     ],
                   )),

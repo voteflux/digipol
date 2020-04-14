@@ -19,16 +19,6 @@ class RouteGenerator {
       case '/':
         return MaterialPageRoute(builder: (_) => MyApp());
 
-      case '/item':
-        if (args is Map) {
-          return MaterialPageRoute(
-            builder: (_) => BillPage(
-              data: args,
-            ),
-          );
-        }
-        return _errorRoute();
-
       case '/pdf':
         if (args is String) {
           return MaterialPageRoute(
@@ -50,16 +40,6 @@ class RouteGenerator {
       case '/':
         return MaterialPageRoute(builder: (_) => MyApp());
 
-      case '/item':
-        if (args is Map) {
-          return MaterialPageRoute(
-            builder: (_) => IssuePage(
-              data: args,
-            ),
-          );
-        }
-
-        return _errorRoute();
       default:
         return _errorRoute();
     }

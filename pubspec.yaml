@@ -32,6 +32,7 @@ dependencies:
   pie_chart: ^3.1.1
   provider: ^4.0.4
   web3dart: ^1.2.3
+  get_it: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -55,6 +56,9 @@ flutter:
     - assets/graphics/octo.png
     - assets/graphics/point.png
     - assets/graphics/vote.png
+    - assets/data/sample_bills.json
+    - assets/data/sample_issues.json 
+    - assets/data/sample_user.json      
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
