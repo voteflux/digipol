@@ -27,12 +27,16 @@ class _MyAppState extends State<MyApp> {
     FlutterStatusbarcolor.setStatusBarWhiteForeground(darkMode);
     return StreamProvider<User>(
       initialData: User.initial(),
-      create:(BuildContext context) => locator<AuthenticationService>().userController.stream,
-        child: MaterialApp(
-      initialRoute: '/profile',
-      home: MainScreen(),
-      onGenerateRoute: RouteGenerator.generateSettingsRoute,
-    ));
+      create: (BuildContext context) =>
+          locator<AuthenticationService>().userController.stream,
+      child: MaterialApp(
+        initialRoute: '/profile',
+        home: MainScreen(),
+        theme: ThemeData.light(),
+        darkTheme: ThemeData.dark(),
+        onGenerateRoute: RouteGenerator.generateSettingsRoute,
+      ),
+    );
   }
 }
 

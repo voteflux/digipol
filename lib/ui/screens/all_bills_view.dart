@@ -49,7 +49,6 @@ class _AllBillsPageState extends State<AllBillsPage> {
   @override
   Widget build(BuildContext context) {
     return BaseView<BillsModel>(
-      onModelReady: (model) => model.getBills(),
       builder: (context, model, child) => Scaffold(
         backgroundColor: appColors.background,
         appBar: AppBar(

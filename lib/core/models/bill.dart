@@ -37,22 +37,22 @@ class Bill {
       this.no});
 
   Bill.fromJson(Map<String, dynamic> json){
-    chamber = json['Chamber'];
-    shortTitle = json['Short_Title'];
-    introHouse = json['Intro_House'];
-    passedHouse = json['Passed_House'];
-    introSenate = json['Intro_Senate'];
-    passedSenate = json['Passed_Senate'];
-    assentDate = json['Assent_Date'];
-    actNo = json['Act_No.'];
-    url = json['URL'];
-    summary = json['Summary'];
-    sponsor = json['Sponsor'];
+    chamber = json['chamber'];
+    shortTitle = json['short_title'];
+    introHouse = json['intro_house'];
+    passedHouse = json['passed_house'];
+    introSenate = json['intro_senate'];
+    passedSenate = json['passed_senate'];
+    assentDate = json['assent_date'];
+    actNo = json['act_no'];
+    url = json['url'];
+    summary = json['summary'];
+    sponsor = json['sponsor'];
     textLinkDoc = json['text_link_doc'];
     textLinkPdf = json['text_link_pdf'];
     emLinkPdf = json['em_link_pdf'];
     emLinkHtml = json['em_link_html'];
-    yes = json['Yes'];
-    no = json['No'];
+    yes = json['yes'];
+    no = json['no'];
   }
 }
