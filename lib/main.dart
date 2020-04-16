@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/user.dart';
-import 'package:voting_app/ui/screens/all_issues_view.dart';
-import 'package:voting_app/ui/screens/settings.dart';
+import 'package:voting_app/ui/views/all_issues_view.dart';
+import 'package:voting_app/ui/views/settings.dart';
 import 'package:voting_app/core/services/auth_service.dart';
 import 'package:voting_app/core/route_generator.dart';
-import 'package:voting_app/ui/screens/all_bills_view.dart';
+import 'package:voting_app/ui/views/all_bills_view.dart';
 import 'package:voting_app/ui/styles.dart';
-import 'package:voting_app/ui/screens/login.dart';
+import 'package:voting_app/ui/views/login.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:voting_app/locator.dart';

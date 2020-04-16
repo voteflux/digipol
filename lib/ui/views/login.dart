@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/viewmodels/user_model.dart';
-import 'package:voting_app/ui/screens/base_view.dart';
+import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/core/models/user.dart';
 import 'package:voting_app/ui/widgets/custom_widgets.dart';
 import 'package:voting_app/ui/styles.dart';
-import 'package:voting_app/ui/screens/login/signup.dart';
+import 'package:voting_app/ui/views/login/signup.dart';
 import 'package:provider/provider.dart';
 import 'package:voting_app/core/enums/authstate.dart';
 

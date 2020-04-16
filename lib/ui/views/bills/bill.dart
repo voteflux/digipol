@@ -4,7 +4,7 @@ import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/widgets/custom_widgets.dart';
 import 'package:voting_app/ui/widgets/voting_widgets.dart';
-import 'package:voting_app/ui/screens/bills/pdf_viewer.dart';
+import 'package:voting_app/ui/views/bills/pdf_viewer.dart';
 
 class BillPage extends StatelessWidget {
   /// information about the bill

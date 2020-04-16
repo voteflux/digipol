@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/bill.dart';
-import 'package:voting_app/ui/screens/bills/bill.dart';
+import 'package:voting_app/ui/views/bills/bill.dart';
 import 'dart:math';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/widgets/custom_widgets.dart';

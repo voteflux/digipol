@@ -5,7 +5,7 @@ import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/core/viewmodels/all_bills_model.dart';
 import 'package:voting_app/locator.dart';
-import 'package:voting_app/ui/screens/base_view.dart';
+import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/widgets/bill_list_item.dart';
 

@@ -3,7 +3,7 @@ import 'package:voting_app/core/models/issue.dart';
 import 'dart:math';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/widgets/custom_widgets.dart';
-import 'package:voting_app/ui/screens/issues/issue.dart';
+import 'package:voting_app/ui/views/issues/issue.dart';
 
 class IssueListItem extends StatelessWidget {
 
