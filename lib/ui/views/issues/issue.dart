@@ -22,11 +22,9 @@ class IssuePage extends StatelessWidget {
       dynamicLargeWidth = appSizes.largeWidth;
     }
     return Scaffold(
-      backgroundColor: appColors.background,
       appBar: AppBar(
         iconTheme: IconThemeData(color: appColors.text),
         elevation: 0,
-        backgroundColor: appColors.background,
         title: Text('Vote on Issue', style: appTextStyles.standard),
       ),
       body: Center(
@@ -39,12 +37,17 @@ class IssuePage extends StatelessWidget {
                 child: PieWidget(
                   // get from data
                   yes: issue.yes,
+                  showValues: true,
                   no: issue.no,
                   radius: dynamicMediumHeight,
                 ),
               ),
               Container(
-                  color: appColors.backgroundSecondary,
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.surface,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(25.0),
+                          topRight: Radius.circular(25.0))),
                   width: dynamicLargeWidth,
                   padding: EdgeInsets.all(appSizes.standardPadding),
                   child: Wrap(
@@ -53,16 +56,17 @@ class IssuePage extends StatelessWidget {
                         padding: EdgeInsets.only(bottom: 20.0),
                         child: Text(
                           issue.shortTitle,
-                          style: appTextStyles.heading,
+                          style: Theme.of(context).textTheme.headline5,
                         ),
                       ),
                       Text(
                         issue.summary,
-                        style: appTextStyles.standard,
+                        style: Theme.of(context).textTheme.bodyText1,
                       ),
+                      Divider(),
                       Text(
                         issue.description,
-                        style: appTextStyles.standard,
+                        style: Theme.of(context).textTheme.bodyText2,
                       ),
                       Padding(
                         padding: EdgeInsets.only(bottom: 20.0, top: 20.0),

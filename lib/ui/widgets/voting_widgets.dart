@@ -36,7 +36,6 @@ class _VoteWidgetState extends State<VoteWidget> {
         barrierDismissible: false, // user must tap button!
         builder: (BuildContext context) {
           return AlertDialog(
-            backgroundColor: appColors.card,
             elevation: appSizes.cardElevation,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
@@ -71,7 +70,6 @@ class _VoteWidgetState extends State<VoteWidget> {
         barrierDismissible: false, // user must tap button!
         builder: (BuildContext context) {
           return AlertDialog(
-            backgroundColor: appColors.card,
             elevation: appSizes.cardElevation,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),

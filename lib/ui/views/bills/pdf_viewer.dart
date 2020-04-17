@@ -21,7 +21,6 @@ class PdfPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            backgroundColor: appColors.background,
             appBar: AppBar(
               automaticallyImplyLeading: true,
               leading: IconButton(
@@ -32,7 +31,6 @@ class PdfPage extends StatelessWidget {
                   Navigator.pop(context);
                 },
               ),
-              backgroundColor: appColors.mainTheme,
               title: Text('Bill Info'),
             ),
             body: PdfWidget(pdfUrl: pdfUrl)));

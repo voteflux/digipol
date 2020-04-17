@@ -24,8 +24,6 @@ class BillListItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(appSizes.cardCornerRadius),
         ),
         margin: EdgeInsets.all(appSizes.standardMargin),
-        elevation: appSizes.cardElevation,
-        color: appColors.card,
         child: InkWell(
           splashColor: appColors.cardInkWell,
           onTap: () {
@@ -48,8 +46,7 @@ class BillListItem extends StatelessWidget {
                       Text(
                         bill.chamber,
                         // TextStyle specific to this widget
-                        style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.w800),
+                        style: Theme.of(context).textTheme.bodyText1
                       ),
                     ],
                   ),
@@ -59,10 +56,7 @@ class BillListItem extends StatelessWidget {
                       vertical: 0, horizontal: appSizes.standardPadding),
                   child: Text(
                     bill.shortTitle,
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: appColors.text),
+                    style: Theme.of(context).textTheme.headline6
                   ),
                 ),
                 Row(
@@ -75,6 +69,7 @@ class BillListItem extends StatelessWidget {
                     PieWidget(
                       // Delete Random when vote status is obtained
                       yes: bill.yes,
+                      showValues: false,
                       no: bill.no,
                       radius: 55,
                     )

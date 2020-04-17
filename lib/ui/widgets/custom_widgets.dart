@@ -278,6 +278,7 @@ class PieWidget extends StatelessWidget {
   final int yes;
   final int no;
   final double radius;
+  final bool showValues;
 
   /// Pie graph showing yes vs no
   ///
@@ -289,6 +290,7 @@ class PieWidget extends StatelessWidget {
     @required this.yes,
     @required this.no,
     @required this.radius,
+    @required this.showValues
   }) : super(key: key);
 
   @override
@@ -302,16 +304,13 @@ class PieWidget extends StatelessWidget {
 
     return PieChart(
       dataMap: dataMap,
-      animationDuration: Duration(milliseconds: 1500),
+      animationDuration: Duration(milliseconds: 800),
       chartLegendSpacing: 10.0,
       chartRadius: this.radius,
-      showChartValuesInPercentage: true,
+      showChartValues: false,
+      showChartValueLabel: false,
       legendStyle:
           TextStyle(fontSize: this.radius / 20 + 10, color: appColors.text),
-      chartValueStyle: TextStyle(
-          fontSize: this.radius / 20 + 10,
-          fontWeight: FontWeight.bold,
-          color: Colors.black),
     );
   }
 }
@@ -367,7 +366,6 @@ class CustomFormField extends StatelessWidget {
           ),
           decoration: InputDecoration(
               filled: true,
-              fillColor: appColors.backgroundSecondary,
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(4)),
                 borderSide: BorderSide(width: 2, color: Colors.blue),

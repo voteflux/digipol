@@ -23,8 +23,6 @@ class IssueListItem extends StatelessWidget {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
         margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-        elevation: appSizes.cardElevation,
-        color: appColors.card,
         child: InkWell(
           splashColor: Colors.blue.withAlpha(30),
           onTap: () {
@@ -58,10 +56,7 @@ class IssueListItem extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(15),
                   child: Text(issue.shortTitle,
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: appColors.text)),
+                      style: Theme.of(context).textTheme.headline6),
                 ),
                 Container(
                   padding: EdgeInsets.all(10),
@@ -86,6 +81,7 @@ class IssueListItem extends StatelessWidget {
                         yes: issue.yes,
                         no: issue.no,
                         radius: 55,
+                        showValues: false,
                       )
                     ],
                   ),

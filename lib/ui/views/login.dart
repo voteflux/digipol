@@ -20,7 +20,6 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return BaseView<UserModel>(
       builder: (context, model, child) => Scaffold(
-        backgroundColor: appColors.background,
         body: Center(
           child: model.state == ViewState.Busy
               ? CircularProgressIndicator()

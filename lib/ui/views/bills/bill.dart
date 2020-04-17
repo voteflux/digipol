@@ -23,11 +23,9 @@ class BillPage extends StatelessWidget {
       dynamicLargeWidth = appSizes.largeWidth;
     }
     return Scaffold(
-      backgroundColor: appColors.background,
       appBar: AppBar(
         iconTheme: IconThemeData(color: appColors.text),
         elevation: 0,
-        backgroundColor: appColors.background,
         title: Text('Vote on Bill', style: appTextStyles.standard),
       ),
       body: Center(
@@ -38,34 +36,33 @@ class BillPage extends StatelessWidget {
               PieWidget(
                 // get from bill
                 yes: bill.yes,
+                showValues: true,
                 no: bill.no,
                 radius: dynamicMediumHeight,
               ),
               HouseIconsWidget(bill: bill, size: 25),
               Container(
                   width: dynamicLargeWidth,
-                  color: appColors.backgroundSecondary,
                   margin: EdgeInsets.all(0.0),
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.surface,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(25.0),
+                          topRight: Radius.circular(25.0))),
                   padding: EdgeInsets.all(appSizes.standardPadding),
                   child: Wrap(
                     children: <Widget>[
-                      VotingStatusWidget(
-                          bill: bill, voted: false, size: 30),
+                      VotingStatusWidget(bill: bill, voted: false, size: 30),
                       Padding(
                         padding: EdgeInsets.only(bottom: 20.0, top: 10.0),
-                        child: Text(
-                          bill.shortTitle,
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: appColors.text),
-                        ),
+                        child: Text(bill.shortTitle,
+                            style: Theme.of(context).textTheme.headline5),
                       ),
                       Padding(
                         padding: EdgeInsets.only(bottom: 20.0),
                         child: Text(
                           bill.summary,
-                          style: appTextStyles.standard,
+                          style: Theme.of(context).textTheme.bodyText2,
                         ),
                       ),
                       BillInfoWidget(
@@ -104,14 +101,12 @@ class BillInfoWidget extends StatelessWidget {
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
           elevation: appSizes.cardElevation,
-          color: appColors.card,
           child: Container(
             padding: const EdgeInsets.all(5.0),
             margin: EdgeInsets.all(appSizes.standardMargin),
             child: Column(
               children: <Widget>[
                 Wrap(
-//                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Container(
                       width: appSizes.smallWidth,
@@ -143,7 +138,7 @@ class BillInfoWidget extends StatelessWidget {
                             padding: const EdgeInsets.all(20.0),
                             child: Text(
                               "Text of the bill as introduced into the Parliament",
-                              style: appTextStyles.small,
+                              style: Theme.of(context).textTheme.bodyText1,
                             ),
                           ),
                         ],
@@ -179,7 +174,7 @@ class BillInfoWidget extends StatelessWidget {
                             padding: const EdgeInsets.all(20.0),
                             child: Text(
                               "Accompanies and provides an explanation of the content of the introduced version (first reading) of the bill.",
-                              style: appTextStyles.small,
+                              style: Theme.of(context).textTheme.bodyText1,
                             ),
                           ),
                         ],

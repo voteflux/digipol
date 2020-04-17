@@ -46,29 +46,31 @@ class _AllBillsPageState extends State<AllBillsPage> {
     getBills();
   }
 
+    @override
+  void dispose() {
+    _textController.dispose();
+    super.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return BaseView<BillsModel>(
       builder: (context, model, child) => Scaffold(
-        backgroundColor: appColors.background,
         appBar: AppBar(
           automaticallyImplyLeading: false, 
           elevation: 0,
-          backgroundColor: appColors.backgroundSecondary,
           title: InkWell(
             child: TextField(
               autofocus: false,
               enableInteractiveSelection: false,
               controller: _textController,
-              style: appTextStyles.standard,
               onChanged: (value) {
                 _filterList(value);
               },
               decoration: InputDecoration(
                 icon: Icon(Icons.search),
-                fillColor: appColors.text,
                 hintText: "Search Bills",
-                hintStyle: appTextStyles.standard,
                 border: InputBorder.none
                 ),
             ),

@@ -48,25 +48,21 @@ class _AllIssuesPageState extends State<AllIssuesPage> {
     return BaseView<IssuesModel>(
       onModelReady: (model) => model.getIssues(),
       builder: (context, model, child) => Scaffold(
-        backgroundColor: appColors.background,
         appBar: AppBar(
           automaticallyImplyLeading: false, 
           elevation: 0,
-          backgroundColor: appColors.backgroundSecondary,
           title: InkWell(
             child: TextField(
               autofocus: false,
               enableInteractiveSelection: false,
               controller: _textController,
-              style: appTextStyles.standard,
               onChanged: (value) {
                 _filterList(value);
               },
               decoration: InputDecoration(
                 icon: Icon(Icons.search),
                 fillColor: appColors.text,
-                hintText: "Search Bills",
-                hintStyle: appTextStyles.standard,
+                hintText: "Search Issues",
                 border: InputBorder.none
                 ),
             ),
