@@ -8,11 +8,11 @@ import 'package:voting_app/core/services/vote.dart';
 // 3 Voted - showing vote info (time, hash, vote...)
 // separate into widgets
 
-
 class VoteWidget extends StatefulWidget {
   // card with voting info and buttons
   final data;
   final bool loggedIn = false;
+
   /// Where voting stuff happens
   ///
   /// usage:
@@ -113,22 +113,18 @@ class _VoteWidgetState extends State<VoteWidget> {
       child: Container(
         width: appSizes.largeWidth,
         child: Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
-            elevation: appSizes.cardElevation,
-            color: appColors.card,
+            margin: EdgeInsets.all(0.0),
             child: Column(
               children: <Widget>[
                 Container(
                     padding: EdgeInsets.all(appSizes.standardPadding),
                     child: Text(
                       widget.data.shortTitle,
-                      style: appTextStyles.standardBold,
+                      style: Theme.of(context).textTheme.headline6,
                     )),
                 Container(
-                  padding: EdgeInsets.only(bottom: 20.0),
-                    child: 
-                    Row(
+                    padding: EdgeInsets.all(appSizes.standardPadding),
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         RaisedButton(

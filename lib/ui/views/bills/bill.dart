@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/ui/styles.dart';
-import 'package:voting_app/ui/widgets/custom_widgets.dart';
+import 'package:voting_app/ui/widgets/house_icon_widget.dart';
+import 'package:voting_app/ui/widgets/pie_chart.dart';
+import 'package:voting_app/ui/widgets/voting_status_widget.dart';
 import 'package:voting_app/ui/widgets/voting_widgets.dart';
 import 'package:voting_app/ui/views/bills/pdf_viewer.dart';
 
@@ -40,10 +42,12 @@ class BillPage extends StatelessWidget {
                 no: bill.no,
                 radius: dynamicMediumHeight,
               ),
-              HouseIconsWidget(bill: bill, size: 25),
+              Padding(
+                padding: EdgeInsets.only(bottom: 20.0, top: 10.0, left: 20.0),
+                child: HouseIconsWidget(bill: bill, size: 25),
+              ),
               Container(
                   width: dynamicLargeWidth,
-                  margin: EdgeInsets.all(0.0),
                   decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.only(
@@ -65,6 +69,7 @@ class BillPage extends StatelessWidget {
                           style: Theme.of(context).textTheme.bodyText2,
                         ),
                       ),
+                      Divider(),
                       BillInfoWidget(
                         billText: bill.textLinkPdf,
                         billEM: bill.emLinkPdf,
@@ -98,11 +103,9 @@ class BillInfoWidget extends StatelessWidget {
       child: Container(
         width: appSizes.largeWidth,
         child: Card(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
-          elevation: appSizes.cardElevation,
+          margin: EdgeInsets.only(bottom: 20.0),
           child: Container(
-            padding: const EdgeInsets.all(5.0),
+            padding: EdgeInsets.all(5.0),
             margin: EdgeInsets.all(appSizes.standardMargin),
             child: Column(
               children: <Widget>[
@@ -114,11 +117,11 @@ class BillInfoWidget extends StatelessWidget {
                         children: <Widget>[
                           Container(
                             child: ConstrainedBox(
-                              constraints: const BoxConstraints(
+                              constraints: BoxConstraints(
                                   minWidth: double.infinity),
                               child: FlatButton(
                                 color: Colors.blue,
-                                padding: const EdgeInsets.all(20.0),
+                                padding: EdgeInsets.all(20.0),
                                 child: Text(
                                   "View Bill Text",
                                   style: appTextStyles.yesnobutton,
@@ -135,10 +138,10 @@ class BillInfoWidget extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            padding: const EdgeInsets.all(20.0),
+                            padding: EdgeInsets.all(20.0),
                             child: Text(
                               "Text of the bill as introduced into the Parliament",
-                              style: Theme.of(context).textTheme.bodyText1,
+                              style: Theme.of(context).textTheme.bodyText2,
                             ),
                           ),
                         ],
@@ -150,11 +153,11 @@ class BillInfoWidget extends StatelessWidget {
                         children: <Widget>[
                           Container(
                             child: ConstrainedBox(
-                              constraints: const BoxConstraints(
+                              constraints: BoxConstraints(
                                   minWidth: double.infinity),
                               child: FlatButton(
                                 color: Colors.blue,
-                                padding: const EdgeInsets.all(20.0),
+                                padding: EdgeInsets.all(20.0),
                                 child: Text(
                                   "View Explanatory Memoranda",
                                   style: appTextStyles.yesnobutton,
@@ -171,10 +174,10 @@ class BillInfoWidget extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            padding: const EdgeInsets.all(20.0),
+                            padding: EdgeInsets.all(20.0),
                             child: Text(
                               "Accompanies and provides an explanation of the content of the introduced version (first reading) of the bill.",
-                              style: Theme.of(context).textTheme.bodyText1,
+                              style: Theme.of(context).textTheme.bodyText2,
                             ),
                           ),
                         ],

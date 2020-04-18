@@ -4,7 +4,9 @@ import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/ui/views/bills/bill.dart';
 import 'dart:math';
 import 'package:voting_app/ui/styles.dart';
-import 'package:voting_app/ui/widgets/custom_widgets.dart';
+import 'package:voting_app/ui/widgets/house_icon_widget.dart';
+import 'package:voting_app/ui/widgets/pie_chart.dart';
+import 'package:voting_app/ui/widgets/voting_status_widget.dart';
 
 class BillListItem extends StatelessWidget {
   final Bill bill;
@@ -33,31 +35,31 @@ class BillListItem extends StatelessWidget {
             );
           },
           child: Container(
+            padding: EdgeInsets.all(appSizes.standardPadding),
             width: appSizes.mediumWidth,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.all(appSizes.standardPadding),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text(
-                        bill.chamber,
-                        // TextStyle specific to this widget
-                        style: Theme.of(context).textTheme.bodyText1
-                      ),
+                      VotingStatusWidget(
+                          bill: bill,
+                          // Delete Random when vote status is obtained
+                          voted: random.nextInt(5) == 0,
+                          size: 20),
+                      Text(bill.chamber,
+                          // TextStyle specific to this widget
+                          style: Theme.of(context).textTheme.bodyText1),
                     ],
                   ),
                 ),
+                Divider(),
                 Container(
-                  padding: EdgeInsets.symmetric(
-                      vertical: 0, horizontal: appSizes.standardPadding),
-                  child: Text(
-                    bill.shortTitle,
-                    style: Theme.of(context).textTheme.headline6
-                  ),
+                  child: Text(bill.shortTitle,
+                      style: Theme.of(context).textTheme.headline6),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -71,7 +73,7 @@ class BillListItem extends StatelessWidget {
                       yes: bill.yes,
                       showValues: false,
                       no: bill.no,
-                      radius: 55,
+                      radius: 50,
                     )
                   ],
                 ),

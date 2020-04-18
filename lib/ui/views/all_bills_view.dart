@@ -14,8 +14,8 @@ class AllBillsPage extends StatefulWidget {
   _AllBillsPageState createState() => _AllBillsPageState();
 }
 
-/// Where all the bills are shown (using ListView)
 
+// Where all the bills are shown (using ListView)
 TextEditingController _textController = TextEditingController();
 
 class _AllBillsPageState extends State<AllBillsPage> {
@@ -30,6 +30,8 @@ class _AllBillsPageState extends State<AllBillsPage> {
       _filterBills = _billList;
     });
   }
+  
+  // TODO Move search logic to core
 
   void _filterList(value) {
     setState(() {
@@ -56,6 +58,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
   @override
   Widget build(BuildContext context) {
     return BaseView<BillsModel>(
+      onModelReady: (model) => model.getBills(),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false, 

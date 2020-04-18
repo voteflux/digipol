@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/issue.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/widgets/custom_widgets.dart';
+import 'package:voting_app/ui/widgets/pie_chart.dart';
 import 'package:voting_app/ui/widgets/voting_widgets.dart';
 
 class IssuePage extends StatelessWidget {
