@@ -1,0 +1,57 @@
+classDiagram
+    class SvIndex
+    SvIndex : -SvIndexBackend backend
+    SvIndex : -SvPayments payments
+    SvIndex : -bbFarms Array~BBFarm~
+    SvIndex : +getBackend() SvIndexBackend
+    SvIndex : +getBBFarm(uint8 bbFarmId) BBFarm
+    SvIndex : +dDeployBallot(bytes32 democHash, bytes32 specHash, bytes32 extraData, uint256 packed)
+
+    class SvIndexBackend
+    SvIndexBackend : -Mapping~bytes32,Democ~ democs
+    SvIndexBackend : +getGDemoc(uint id) bytes32 democHash
+
+    class Democ {
+        <<struct>>
+        +address erc20
+        +address owner
+        +bool communityBallotsDisabled
+        +bool erc20OwnerClaimDisabled
+        +uint editorEpoch
+        +Mapping~uint,Mapping&ltaddress,bool&gt~ editors
+        +Array~uint256~ allBallots
+        +Array~uint256~ includedBasicBallots
+    }
+
+    class SvPayments
+    SvPayments : -stuff probsNotRelevant
+
+    class BBFarm
+    BBFarm : +getNBallots() uint256
+    BBFarm : +initBallot(bytes32 specHash, uint256 packed, IxIface ix, address bbAdmin, bytes24 extraData) uint256 ballotId
+    BBFarm : +submitVote(uint ballotId, bytes32 vote, bytes extra)
+    BBFarm : +submitProxyVote(bytes32[5] proxyReq, bytes extra)
+    BBFarm : +getDetails(uint ballotId, address voter) DetailsPayload
+
+    class DetailsPayload {
+        <<10-tuple>>
+        +bool hasVoted
+        +uint nVotesCast
+        +bytes32 secKey
+        +uint16 submissionBits
+        +uint64 startTime
+        +uint64 endTime
+        +bytes32 specHash
+        +bool deprecated
+        +address ballotOwner
+        +bytes16 extraData
+    }
+
+    SvIndex -- SvIndexBackend
+    SvIndexBackend <|.. Democ
+
+    SvIndex -- BBFarm
+    BBFarm <|.. DetailsPayload
+
+    SvIndex -- SvPayments
+
