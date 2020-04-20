@@ -47,38 +47,80 @@ class BillPage extends StatelessWidget {
                 child: HouseIconsWidget(bill: bill, size: 25),
               ),
               Container(
-                  width: dynamicLargeWidth,
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.surface,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(25.0),
-                          topRight: Radius.circular(25.0))),
-                  padding: EdgeInsets.all(appSizes.standardPadding),
-                  child: Wrap(
-                    children: <Widget>[
-                      VotingStatusWidget(bill: bill, voted: false, size: 30),
-                      Padding(
+                width: dynamicLargeWidth,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.surface,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25.0),
+                        topRight: Radius.circular(25.0))),
+                padding: EdgeInsets.all(appSizes.standardPadding),
+                child: Column(
+                  children: <Widget>[
+                    Align(
+                      child: VotingStatusWidget(
+                          bill: bill, voted: false, size: 20),
+                      alignment: Alignment.centerLeft,
+                    ),
+                    Align(
+                      child: Padding(
                         padding: EdgeInsets.only(bottom: 20.0, top: 10.0),
                         child: Text(bill.shortTitle,
                             style: Theme.of(context).textTheme.headline5),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 20.0),
-                        child: Text(
-                          bill.summary,
-                          style: Theme.of(context).textTheme.bodyText2,
-                        ),
+                      alignment: Alignment.centerLeft,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 20.0),
+                      child: Text(
+                        bill.summary,
+                        style: Theme.of(context).textTheme.bodyText2,
                       ),
-                      Divider(),
-                      BillInfoWidget(
-                        billText: bill.textLinkPdf,
-                        billEM: bill.emLinkPdf,
+                    ),
+                    Divider(),
+                    RaisedButton(
+                      padding: EdgeInsets.all(20.0),
+                      child: Text("View Bill Text"),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  PdfPage(pdfUrl: bill.textLinkPdf)),
+                        );
+                      },
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(20.0),
+                      child: Text(
+                        "Text of the bill as introduced into the Parliament",
+                        style: Theme.of(context).textTheme.bodyText2,
                       ),
-                      VoteWidget(
-                        data: bill,
+                    ),
+                    RaisedButton(
+                      child: Text("View Explanatory Memoranda"),
+                      padding: EdgeInsets.all(20.0),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  PdfPage(pdfUrl: bill.emLinkPdf)),
+                        );
+                      },
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(20.0),
+                      child: Text(
+                        "Accompanies and provides an explanation of the content of the introduced version (first reading) of the bill.",
+                        style: Theme.of(context).textTheme.bodyText2,
                       ),
-                    ],
-                  )),
+                    ),
+                  ],
+                ),
+              ),
+              VoteWidget(
+                data: bill,
+              ),
             ],
           ),
         ),
@@ -115,27 +157,16 @@ class BillInfoWidget extends StatelessWidget {
                       width: appSizes.smallWidth,
                       child: Column(
                         children: <Widget>[
-                          Container(
-                            child: ConstrainedBox(
-                              constraints: BoxConstraints(
-                                  minWidth: double.infinity),
-                              child: FlatButton(
-                                color: Colors.blue,
-                                padding: EdgeInsets.all(20.0),
-                                child: Text(
-                                  "View Bill Text",
-                                  style: appTextStyles.yesnobutton,
-                                ),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            PdfPage(pdfUrl: this.billText)),
-                                  );
-                                },
-                              ),
-                            ),
+                          RaisedButton(
+                            child: Text("View Bill Text"),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        PdfPage(pdfUrl: this.billText)),
+                              );
+                            },
                           ),
                           Container(
                             padding: EdgeInsets.all(20.0),
@@ -151,27 +182,16 @@ class BillInfoWidget extends StatelessWidget {
                       width: appSizes.smallWidth,
                       child: Column(
                         children: <Widget>[
-                          Container(
-                            child: ConstrainedBox(
-                              constraints: BoxConstraints(
-                                  minWidth: double.infinity),
-                              child: FlatButton(
-                                color: Colors.blue,
-                                padding: EdgeInsets.all(20.0),
-                                child: Text(
-                                  "View Explanatory Memoranda",
-                                  style: appTextStyles.yesnobutton,
-                                ),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            PdfPage(pdfUrl: this.billEM)),
-                                  );
-                                },
-                              ),
-                            ),
+                          RaisedButton(
+                            child: Text("View Explanatory Memoranda"),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        PdfPage(pdfUrl: this.billEM)),
+                              );
+                            },
                           ),
                           Container(
                             padding: EdgeInsets.all(20.0),

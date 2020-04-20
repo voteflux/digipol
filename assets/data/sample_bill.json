@@ -1,0 +1,44 @@
+{
+    "_id": "r6503",
+    "data": {
+        "chamber": "House",
+        "short_title": "Foreign Acquisitions and Takeovers Amendment (Strategic Assets) 2020",
+        "intro_house": "2020-02-24",
+        "passed_house": "",
+        "intro_senate": "",
+        "passed_senate": "",
+        "assent_date": "",
+        "act_no": "",
+        "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6503",
+        "id": "r6503",
+        "current_reading": "first",
+        "summary": "Amends the Foreign Acquisitions and Takeovers Act 1975 to: prevent foreign persons or entities from acquiring more than 10 per cent or greater interest in Australian land, water or other assets that are of 'strategic economic importance' or 'strategic defensive importance' to Australia; and establish the Foreign Ownership Assessment Board.",
+        "sponsor": "KATTER,Bob,Jnr,MP",
+        "readings": {
+            "first": {
+                "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6503_first-reps/toc_word/20020b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+                "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6503_first-reps/toc_pdf/20020b01.pdf;fileType=application%2Fpdf",
+                "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6503_first-reps%2F0000%22;rec=0"
+            },
+            "third": {
+                "doc": "",
+                "pdf": "",
+                "html": ""
+            },
+            "aspassed": {
+                "doc": "",
+                "pdf": "",
+                "html": ""
+            }
+        },
+        "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6503_first-reps/toc_word/20020b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+        "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6503_ems_2e302f6c-098e-4bd8-bdee-fc5d67d02cc6/upload_word/20020EMKatter.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+        "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6503_first-reps/toc_pdf/20020b01.pdf;fileType=application%2Fpdf",
+        "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6503_ems_2e302f6c-098e-4bd8-bdee-fc5d67d02cc6/upload_pdf/20020EMKatter.pdf;fileType=application%2Fpdf",
+        "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6503_first-reps%2F0000%22;rec=0",
+        "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6503_ems_2e302f6c-098e-4bd8-bdee-fc5d67d02cc6%22",
+        "yes": 539,
+        "no": 1096,
+        "ballotspec_hash": "COWIBY3978QCNYOXIURY3B8O7T5CNOQ8XW37C5N89347TY"
+    }
+}
