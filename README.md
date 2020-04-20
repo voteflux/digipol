@@ -177,6 +177,7 @@ Live editor: https://mermaid-js.github.io/mermaid-live-editor/
 current source code:
 
 ```mermaid
+
 graph TB
 
 subgraph External Internet
@@ -233,4 +234,5 @@ BallotArchive -->|BallotSpec| AuditJob
 
 UserNode -.-|sync| PrivChain
 UserNode -->|raw votes| UserAuditor
+
 ```
