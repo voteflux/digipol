@@ -33,10 +33,10 @@ class Api {
     var response = await rootBundle.loadString('assets/data/sample_bill.json');
 
     // parse into List
-    var parsed = json.decode(response) as Bill;
+    var parsed = json.decode(response) as Map<String, dynamic>;
 
-    // loop and convert each item to bill
-    return parsed;
+    print(parsed);
+    return Bill.fromJson(parsed);
   }
 
   // get issues

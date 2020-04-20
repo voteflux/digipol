@@ -23,7 +23,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
   List<Bill> _filterBills;
   List<Bill> _billList;
   ScrollController controller;
-  var listItemAmount = 5;
+  var listItemAmount = 20;
 
   Future getBills() async {
     _billList = await _api.getBills();

@@ -10,7 +10,7 @@ class BillModel extends BaseModel {
 
   Bill bill;
 
-  Future getBill() async {
+  Future getBill(String billID) async {
     setState(ViewState.Busy);
     bill = await _api.getBill();
     print('all_bills');

@@ -5,7 +5,6 @@ import 'package:voting_app/core/viewmodels/user_model.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/core/models/user.dart';
 import 'package:voting_app/ui/widgets/custom_form_feild_widget.dart';
-import 'package:voting_app/ui/widgets/custom_widgets.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/login/signup.dart';
 import 'package:provider/provider.dart';

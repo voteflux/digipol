@@ -1,4 +1,5 @@
 class Bill {
+  String id;
   String chamber;
   String shortTitle;
   String introHouse;
@@ -18,7 +19,8 @@ class Bill {
   int no;
 
   Bill(
-      {this.chamber,
+      {this.id,
+      this.chamber,
       this.shortTitle,
       this.introHouse,
       this.passedHouse,
@@ -37,6 +39,7 @@ class Bill {
       this.no});
 
   Bill.fromJson(Map<String, dynamic> json){
+    id = json['_id'];
     chamber = json['data']['chamber'];
     shortTitle = json['data']['short_title'];
     introHouse = json['data']['intro_house'];
