@@ -30,7 +30,7 @@ jobs:
         echo ${{ steps.getfile.outputs.files }}
 
     - name: compile mermaid
-      uses: neenjaw/compile-mermaid-markdown-action@master
+      uses: XertroV/compile-mermaid-markdown-action@master
       with:
         files: ${{ steps.getfile.outputs.files }}
         output: 'output'
