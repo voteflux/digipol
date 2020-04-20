@@ -1,5 +1,11 @@
 # Blockchain details
 
+## test blockchain
+
+* download Parity (now known as OpenEthereum) <https://github.com/openethereum/openethereum/releases/tag/v2.7.2>
+  * use v2.7.2 bc we haven't tested stack with v3 (which is what's known as OpenEthereum)
+* run the dev chain (local): `parity --config dev`
+
 ## Smart Contract system
 
 ### Things to know
