@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:voting_app/core/viewmodels/settings_model.dart';
 import 'package:voting_app/ui/styles.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 class SettingsPage extends StatefulWidget {
   // where the app and user settings go
@@ -12,13 +13,7 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
-    if (darkMode) {
-      appColors = AppColors(0);
-    } else {
-      appColors = AppColors(1);
-    }
     return Scaffold(
-      backgroundColor: appColors.background,
       body: Center(
         child: Container(
           padding: EdgeInsets.all(appSizes.standardPadding),
@@ -36,13 +31,10 @@ class _SettingsPageState extends State<SettingsPage> {
                     width: 70,
                     child: Switch(
                       materialTapTargetSize: MaterialTapTargetSize.padded,
-                      value: darkMode,
+                      value: Provider.of<SettingsModel>(context).isDarkMode,
                       onChanged: (value) {
                         setState(() {
-                          darkMode = value;
-                          FlutterStatusbarcolor.setStatusBarWhiteForeground(
-                              darkMode);
-                          print(darkMode);
+                          Provider.of<SettingsModel>(context, listen: false).updateTheme(value);
                         });
                       },
                       activeTrackColor: Colors.lightBlue,
@@ -79,3 +71,4 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 }
+

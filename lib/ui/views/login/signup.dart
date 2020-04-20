@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/ui/widgets/custom_widgets.dart';
 import 'package:voting_app/ui/styles.dart';
-import 'package:voting_app/ui/screens/login.dart';
+import 'package:voting_app/ui/views/login.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -17,7 +17,6 @@ class _SignUpPageState extends State<SignUpPage> {
     // this is where we choose what to show on this page
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: appColors.background,
       body: (Center(
         child: Container(
           width: appSizes.mediumWidth,

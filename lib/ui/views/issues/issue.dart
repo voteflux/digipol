@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app/core/models/issue.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/widgets/custom_widgets.dart';
+import 'package:voting_app/ui/widgets/pie_chart.dart';
 import 'package:voting_app/ui/widgets/voting_widgets.dart';
 
 class IssuePage extends StatelessWidget {
   /// information about the issue
-  final Map data;
+
+  final Issue issue;
 
   IssuePage({
     Key key,
-    @required this.data,
+    @required this.issue,
   }) : super(key: key);
 
   @override
@@ -20,11 +23,9 @@ class IssuePage extends StatelessWidget {
       dynamicLargeWidth = appSizes.largeWidth;
     }
     return Scaffold(
-      backgroundColor: appColors.background,
       appBar: AppBar(
         iconTheme: IconThemeData(color: appColors.text),
         elevation: 0,
-        backgroundColor: appColors.background,
         title: Text('Vote on Issue', style: appTextStyles.standard),
       ),
       body: Center(
@@ -36,13 +37,18 @@ class IssuePage extends StatelessWidget {
                 padding: EdgeInsets.only(bottom: 20.0, top: 10.0),
                 child: PieWidget(
                   // get from data
-                  yes: data["Yes"],
-                  no: data["No"],
+                  yes: issue.yes,
+                  showValues: true,
+                  no: issue.no,
                   radius: dynamicMediumHeight,
                 ),
               ),
               Container(
-                  color: appColors.backgroundSecondary,
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.surface,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(25.0),
+                          topRight: Radius.circular(25.0))),
                   width: dynamicLargeWidth,
                   padding: EdgeInsets.all(appSizes.standardPadding),
                   child: Wrap(
@@ -50,22 +56,23 @@ class IssuePage extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.only(bottom: 20.0),
                         child: Text(
-                          data["Short Title"],
-                          style: appTextStyles.heading,
+                          issue.shortTitle,
+                          style: Theme.of(context).textTheme.headline5,
                         ),
                       ),
                       Text(
-                        data["Summary"],
-                        style: appTextStyles.standard,
+                        issue.summary,
+                        style: Theme.of(context).textTheme.bodyText1,
                       ),
+                      Divider(),
                       Text(
-                        data["Description"],
-                        style: appTextStyles.standard,
+                        issue.description,
+                        style: Theme.of(context).textTheme.bodyText2,
                       ),
                       Padding(
                         padding: EdgeInsets.only(bottom: 20.0, top: 20.0),
                         child: VoteWidget(
-                          data: data,
+                          data: issue,
                         ),
                       )
                     ],

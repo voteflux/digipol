@@ -1,0 +1,764 @@
+[
+    {
+      "chamber": "House",
+      "short_title": "Aged Care Amendment (Staffing Ratio Disclosure) 2019",
+      "intro_house": "2019-07-22",
+      "passed_house": "",
+      "intro_senate": "",
+      "passed_senate": "",
+      "assent_date": "",
+      "act_no": "",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6356",
+      "id": "r6356",
+      "current_reading": "first",
+      "summary": "Amends the Aged Care Act 1997 to: require approved residential care service providers to notify the secretary of the ratios of aged care recipients to staff members, broken down into categories of staff members, on a quarterly basis; and require a review of the proposed amendments 12 months after their commencement.",
+      "sponsor": "SHARKIE,Rebekha,MP",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6356_first-reps/toc_word/19139b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6356_first-reps/toc_pdf/19139b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6356_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {"doc": "", "pdf": "", "html": ""}
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6356_first-reps/toc_word/19139b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6356_ems_65743795-0918-474d-a518-2fa392ec84f3/upload_word/19139EMSharkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6356_first-reps/toc_pdf/19139b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6356_ems_65743795-0918-474d-a518-2fa392ec84f3/upload_pdf/19139EMSharkie.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6356_first-reps%2F0000%22;rec=0",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6356_ems_65743795-0918-474d-a518-2fa392ec84f3%22",
+      "yes": 978,
+      "no": 673,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Aged Care Legislation Amendment (Improved Home Care Payment Administration No. 1) 2020",
+      "intro_house": "2020-02-27",
+      "passed_house": "",
+      "intro_senate": "",
+      "passed_senate": "",
+      "assent_date": "",
+      "act_no": "",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6501",
+      "id": "r6501",
+      "current_reading": "first",
+      "summary": "Amends the Aged Care Act 1997 and Aged Care (Transitional Provisions) Act 1997 to change home care subsidy from being paid to an approved provider in advance of the home care services being delivered to a consumer, to a payment made in arrears after the services have been delivered.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6501_first-reps/toc_word/20014b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6501_first-reps/toc_pdf/20014b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6501_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {"doc": "", "pdf": "", "html": ""}
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6501_first-reps/toc_word/20014b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6501_ems_c9cdce94-e56a-4b8d-87dc-0b650aa24137/upload_word/732538.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6501_first-reps/toc_pdf/20014b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6501_ems_c9cdce94-e56a-4b8d-87dc-0b650aa24137/upload_pdf/732538.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6501_first-reps%2F0000%22;rec=0",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6501_ems_c9cdce94-e56a-4b8d-87dc-0b650aa24137%22",
+      "yes": 965,
+      "no": 682,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Aged Care Quality and Safety Commission Amendment (Worker Screening Database) 2019",
+      "intro_house": "2019-07-22",
+      "passed_house": "",
+      "intro_senate": "",
+      "passed_senate": "",
+      "assent_date": "",
+      "act_no": "",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6357",
+      "id": "r6357",
+      "current_reading": "first",
+      "summary": "Amends the Aged Care Quality and Safety Commission Act 2018 to establish a database for nationally consistent worker screening to enable employers to search the database to screen potential employees for any history of misconduct.",
+      "sponsor": "SHARKIE,Rebekha,MP",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6357_first-reps/toc_word/19140b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6357_first-reps/toc_pdf/19140b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6357_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {"doc": "", "pdf": "", "html": ""}
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6357_first-reps/toc_word/19140b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6357_ems_c12c9bdc-1071-4a76-82cd-7e768b344f83/upload_word/19140EMSharkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6357_first-reps/toc_pdf/19140b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6357_ems_c12c9bdc-1071-4a76-82cd-7e768b344f83/upload_pdf/19140EMSharkie.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6357_first-reps%2F0000%22;rec=0",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6357_ems_c12c9bdc-1071-4a76-82cd-7e768b344f83%22",
+      "yes": 571,
+      "no": 600,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Agricultural and Veterinary Chemicals Legislation Amendment (Australian Pesticides and Veterinary Medicines Authority Board and Other Improvements) 2019",
+      "intro_house": "2019-09-18",
+      "passed_house": "2019-12-03",
+      "intro_senate": "2019-12-05",
+      "passed_senate": "",
+      "assent_date": "",
+      "act_no": "",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6407",
+      "id": "r6407",
+      "current_reading": "first",
+      "summary": "Amends the: Agricultural and Veterinary Chemicals Code Act 1994 in relation to: information to be taken into account by the Australian Pesticides and Veterinary Medicines Authority (APVMA) in determining applications; approval and registration for prescribed active constituents, chemical products or labels; limits on use of information; computerised decision-making by the APVMA; management of errors in an application at the preliminary assessment stage; variation of relevant particulars and conditions; variation of approval or registration during suspension; suspension or cancellation of approval or registration for provision of false or misleading information; notification and publication of voluntary recalls; obligations on holders and applicants to inform the APVMA of new information where it relates to the safety criteria; definition of \u2018registered chemical product\u2019; supply or registered chemical products with unapproved label; safety, efficacy, trade and labelling criteria; clarification that the \u2018expiry date\u2019 is the date after which a chemical product must not be used; Agricultural and Veterinary Chemicals Products (Collection of Levy) Act 1994 and Agricultural and Veterinary Chemicals (Administration) Act 1992 to simplify reporting requirements for annual returns; Agricultural and Veterinary Chemicals (Administration) Act 1992 and Agricultural and Veterinary Chemicals Code Act 1994 in relation to: the establishment of civil pecuniary penalties for providing false or misleading information; the Maximum Residue Limits Standard; and minor and technical amendments, including the removal of redundant provisions; and Agricultural and Veterinary Chemicals (Administration) Act 1992 to: remove the requirement for the APVMA to prepare an annual operational plan; and establish a governance board for the APVMA and cease the existing APVMA Advisory Board. Also repeals the Agricultural and Veterinary Chemicals Legislation Amendment (Removing Re-approval and Re-registration) Act 2014.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6407_first-reps/toc_word/19173b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6407_first-reps/toc_pdf/19173b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6407_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {"doc": "", "pdf": "", "html": ""}
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6407_first-reps/toc_word/19173b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6407_ems_b0404fb4-211c-4b71-ac10-2ea2b3393ed5/upload_word/19173EM.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6407_first-reps/toc_pdf/19173b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6407_ems_b0404fb4-211c-4b71-ac10-2ea2b3393ed5/upload_pdf/19173EM.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6407_first-reps%2F0000%22;rec=0",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6407_ems_b0404fb4-211c-4b71-ac10-2ea2b3393ed5%22",
+      "yes": 671,
+      "no": 605,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Agriculture Legislation Repeal 2019",
+      "intro_house": "2019-07-02",
+      "passed_house": "",
+      "intro_senate": "",
+      "passed_senate": "",
+      "assent_date": "",
+      "act_no": "",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6324",
+      "id": "r6324",
+      "current_reading": "first",
+      "summary": "Repeals the Australian Meat and Live-stock Corporation Amendment Act 1990, National Residue Survey (Consequential Provisions) Act 1992, Wool International Act 1993 and Wool International Privatisation Act 1999.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6324_first-reps/toc_word/19084b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6324_first-reps/toc_pdf/19084b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6324_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {"doc": "", "pdf": "", "html": ""}
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6324_first-reps/toc_word/19084b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6324_ems_879a41e5-879a-4a12-bcfc-ddb703ba7fa1/upload_word/710911.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6324_first-reps/toc_pdf/19084b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6324_ems_879a41e5-879a-4a12-bcfc-ddb703ba7fa1/upload_pdf/710911.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6324_first-reps%2F0000%22;rec=0",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6324_ems_879a41e5-879a-4a12-bcfc-ddb703ba7fa1%22",
+      "yes": 696,
+      "no": 666,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Anti-Money Laundering and Counter-Terrorism Financing and Other Legislation Amendment 2019",
+      "intro_house": "2019-10-17",
+      "passed_house": "",
+      "intro_senate": "",
+      "passed_senate": "",
+      "assent_date": "",
+      "act_no": "",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6431",
+      "id": "r6431",
+      "current_reading": "first",
+      "summary": "Amends the: Anti-Money Laundering and Counter-Terrorism Financing Act 2006 to: expand the circumstances in which reporting entities may rely on customer identification and verification procedures undertaken by a third party; explicitly prohibit reporting entities from providing a designated service if customer identification procedures cannot be performed; prohibit financial institutions from entering into a correspondent banking relationship that permits its accounts to be used by a shell bank; require banks to conduct due diligence assessments before entering, and during, all correspondent banking relationships; and expand exceptions to the prohibition on tipping off to permit reporting entities to share suspicious matter reports and related information with external auditors and foreign members of corporate and designated business groups; Anti-Money Laundering and Counter-Terrorism Financing Act 2006 and Inspector-General of Intelligence and Security Act 1986 to replace existing \u2018designated agency\u2019 information sharing provisions (relating to the use and disclosure of AUSTRAC information) with a more general information sharing power; Anti-Money Laundering and Counter-Terrorism Financing Act 2006, Proceeds of Crime Act 2002 and Surveillance Devices Act 2004 to create a single reporting requirement for the cross-border movement of monetary instruments; Criminal Code Act 1995 to: clarify that the existence of one Commonwealth constitutional connector is sufficient to establish an instrument of crime offence; deem money or property provided by undercover law enforcement as part of a controlled operation to be the proceeds of crime for the purposes of prosecution; and provide for transitional arrangements; and Australian Federal Police Act 1979 to create a new offence of dishonestly representing conferral of police awards.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6431_first-reps/toc_word/19202b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6431_first-reps/toc_pdf/19202b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6431_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {"doc": "", "pdf": "", "html": ""}
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6431_first-reps/toc_word/19202b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6431_ems_02d35e3c-143d-4d83-8877-e31cf490ce8a/upload_word/719554.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6431_first-reps/toc_pdf/19202b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6431_ems_02d35e3c-143d-4d83-8877-e31cf490ce8a/upload_pdf/719554.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6431_first-reps%2F0000%22;rec=0",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6431_ems_02d35e3c-143d-4d83-8877-e31cf490ce8a%22",
+      "yes": 677,
+      "no": 886,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Appropriation (Coronavirus Economic Response Package) (No. 1) 2019-2020",
+      "intro_house": "2019-03-23",
+      "passed_house": "2019-03-23",
+      "intro_senate": "2019-03-23",
+      "passed_senate": "2019-03-23",
+      "assent_date": "2019-03-24",
+      "act_no": "25",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6524",
+      "id": "r6524",
+      "current_reading": "aspassed",
+      "summary": "Part of a package of eight bills to respond to the economic impacts of the coronavirus, the bill appropriates money out of the Consolidated Revenue Fund for the ordinary annual services of the government, in addition to the appropriations provided for by the Appropriation Act (No. 1) 2019-2020 and the Supply Act (No. 1) 2019-2020.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6524_first-reps/toc_word/20046b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6524_first-reps/toc_pdf/20046b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6524_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6524_aspassed/toc_word/20046b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6524_aspassed/toc_pdf/20046b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6524_aspassed/0000%22"
+        }
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6524_aspassed/toc_word/20046b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6524_ems_64759256-8ca2-4609-8ed2-6374637e1fa3/upload_word/20044EM%20Correction.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6524_aspassed/toc_pdf/20046b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6524_ems_64759256-8ca2-4609-8ed2-6374637e1fa3/upload_pdf/20044EM%20Correction.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6524_aspassed/0000%22",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6524_ems_64759256-8ca2-4609-8ed2-6374637e1fa3%22",
+      "yes": 703,
+      "no": 957,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Appropriation (Coronavirus Economic Response Package) (No. 2) 2019-2020",
+      "intro_house": "2019-03-23",
+      "passed_house": "2019-03-23",
+      "intro_senate": "2019-03-23",
+      "passed_senate": "2019-03-23",
+      "assent_date": "2019-03-24",
+      "act_no": "26",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6530",
+      "id": "r6530",
+      "current_reading": "aspassed",
+      "summary": "Part of a package of eight bills to respond to the economic impacts of the coronavirus, the bill appropriates money out of the Consolidated Revenue Fund for certain expenditure, in addition to the appropriations provided for by the Appropriation Act (No. 2) 2019-2020 and the Supply Act (No. 2) 2019-2020.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6530_first-reps/toc_word/20047b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6530_first-reps/toc_pdf/20047b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6530_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6530_aspassed/toc_word/20047b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6530_aspassed/toc_pdf/20047b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6530_aspassed/0000%22"
+        }
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6530_aspassed/toc_word/20047b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6530_ems_64759256-8ca2-4609-8ed2-6374637e1fa3/upload_word/20044EM%20Correction.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6530_aspassed/toc_pdf/20047b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6530_ems_64759256-8ca2-4609-8ed2-6374637e1fa3/upload_pdf/20044EM%20Correction.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6530_aspassed/0000%22",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6530_ems_64759256-8ca2-4609-8ed2-6374637e1fa3%22",
+      "yes": 781,
+      "no": 815,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Appropriation (No. 3) 2019-2020",
+      "intro_house": "2019-02-13",
+      "passed_house": "2019-03-04",
+      "intro_senate": "2019-03-23",
+      "passed_senate": "2019-03-23",
+      "assent_date": "2019-03-26",
+      "act_no": "33",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6496",
+      "id": "r6496",
+      "current_reading": "aspassed",
+      "summary": "Appropriates additional money out of the Consolidated Revenue Fund for the ordinary annual services of the government, in addition to the appropriations provided for by the Appropriation Act (No. 1) 2019-2020 and the Supply Act (No. 1) 2019-2020.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6496_first-reps/toc_word/20012b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6496_first-reps/toc_pdf/20012b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6496_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6496_aspassed/toc_word/20012b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6496_aspassed/toc_pdf/20012b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6496_aspassed/0000%22"
+        }
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6496_aspassed/toc_word/20012b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6496_ems_40934758-2600-4ed8-9cbb-67aec2f76777/upload_word/730818.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6496_aspassed/toc_pdf/20012b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6496_ems_40934758-2600-4ed8-9cbb-67aec2f76777/upload_pdf/730818.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6496_aspassed/0000%22",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6496_ems_40934758-2600-4ed8-9cbb-67aec2f76777%22",
+      "yes": 633,
+      "no": 657,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Appropriation (No. 4) 2019-2020",
+      "intro_house": "2019-02-13",
+      "passed_house": "2019-03-04",
+      "intro_senate": "2019-03-23",
+      "passed_senate": "2019-03-23",
+      "assent_date": "2019-03-26",
+      "act_no": "34",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6495",
+      "id": "r6495",
+      "current_reading": "aspassed",
+      "summary": "Appropriates additional money out of the Consolidated Revenue Fund for certain expenditure, in addition to the appropriations provided for by the Appropriation Act (No. 2) 2019-2020 and the Supply Act (No. 2) 2019-2020.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6495_first-reps/toc_word/20013b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6495_first-reps/toc_pdf/20013b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6495_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6495_aspassed/toc_word/20013b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6495_aspassed/toc_pdf/20013b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6495_aspassed/0000%22"
+        }
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6495_aspassed/toc_word/20013b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6495_ems_c3c1e6f7-8653-4e3b-97f0-6add40507cef/upload_word/730819.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6495_aspassed/toc_pdf/20013b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6495_ems_c3c1e6f7-8653-4e3b-97f0-6add40507cef/upload_pdf/730819.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6495_aspassed/0000%22",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6495_ems_c3c1e6f7-8653-4e3b-97f0-6add40507cef%22",
+      "yes": 885,
+      "no": 631,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Appropriation (No. 5) 2019-2020",
+      "intro_house": "2019-04-08",
+      "passed_house": "2019-04-08",
+      "intro_senate": "2019-04-08",
+      "passed_senate": "2019-04-08",
+      "assent_date": "",
+      "act_no": "",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6532",
+      "id": "r6532",
+      "current_reading": "aspassed",
+      "summary": "",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6532_first-reps/toc_word/20051b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6532_first-reps/toc_pdf/20051b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6532_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6532_aspassed/toc_word/20051b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6532_aspassed/toc_pdf/20051b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6532_aspassed/0000%22"
+        }
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6532_aspassed/toc_word/20051b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6532_ems_676cabef-1401-46bb-b360-272a43e4d63e/upload_word/735823.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6532_aspassed/toc_pdf/20051b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6532_ems_676cabef-1401-46bb-b360-272a43e4d63e/upload_pdf/735823.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6532_aspassed/0000%22",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6532_ems_676cabef-1401-46bb-b360-272a43e4d63e%22",
+      "yes": 659,
+      "no": 912,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Appropriation (No. 6) 2019-2020",
+      "intro_house": "2019-04-08",
+      "passed_house": "2019-04-08",
+      "intro_senate": "2019-04-08",
+      "passed_senate": "2019-04-08",
+      "assent_date": "",
+      "act_no": "",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6534",
+      "id": "r6534",
+      "current_reading": "aspassed",
+      "summary": "",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6534_first-reps/toc_word/20052b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6534_first-reps/toc_pdf/20052b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6534_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6534_aspassed/toc_word/20052b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6534_aspassed/toc_pdf/20052b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6534_aspassed/0000%22"
+        }
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6534_aspassed/toc_word/20052b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6534_ems_c6b35b4b-9780-463c-a01c-66b740f43476/upload_word/735824.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6534_aspassed/toc_pdf/20052b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6534_ems_c6b35b4b-9780-463c-a01c-66b740f43476/upload_pdf/735824.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6534_aspassed/0000%22",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6534_ems_c6b35b4b-9780-463c-a01c-66b740f43476%22",
+      "yes": 538,
+      "no": 519,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Assistance for Severely Affected Regions (Special Appropriation) (Coronavirus Economic Response Package) 2020",
+      "intro_house": "2020-03-23",
+      "passed_house": "2020-03-23",
+      "intro_senate": "2020-03-23",
+      "passed_senate": "2020-03-23",
+      "assent_date": "2020-03-24",
+      "act_no": "24",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6523",
+      "id": "r6523",
+      "current_reading": "aspassed",
+      "summary": "Part of a package of eight bills to respond to the economic impacts of the coronavirus, the bill appropriates the Consolidated Revenue Fund for the purposes of making payments to support regions, industry sectors and communities in severely affected regions.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6523_first-reps/toc_word/20040b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6523_first-reps/toc_pdf/20040b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6523_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6523_aspassed/toc_word/20040b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6523_aspassed/toc_pdf/20040b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6523_aspassed/0000%22"
+        }
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6523_aspassed/toc_word/20040b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6523_ems_64759256-8ca2-4609-8ed2-6374637e1fa3/upload_word/20044EM%20Correction.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6523_aspassed/toc_pdf/20040b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6523_ems_64759256-8ca2-4609-8ed2-6374637e1fa3/upload_pdf/20044EM%20Correction.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6523_aspassed/0000%22",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6523_ems_64759256-8ca2-4609-8ed2-6374637e1fa3%22",
+      "yes": 639,
+      "no": 866,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Australian Banks (Government Audit) 2019",
+      "intro_house": "2019-12-02",
+      "passed_house": "",
+      "intro_senate": "",
+      "passed_senate": "",
+      "assent_date": "",
+      "act_no": "",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6443",
+      "id": "r6443",
+      "current_reading": "first",
+      "summary": "Provides for independent audits of Australian banking corporations and their subsidiaries by the Auditor-General.",
+      "sponsor": "KATTER,Bob,Jnr,MP",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6443_first-reps/toc_word/19219b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6443_first-reps/toc_pdf/19219b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6443_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {"doc": "", "pdf": "", "html": ""}
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6443_first-reps/toc_word/19219b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6443_ems_38fa1de7-dd8d-44af-80e4-7498e108154b/upload_word/19219EMKatter.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6443_first-reps/toc_pdf/19219b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6443_ems_38fa1de7-dd8d-44af-80e4-7498e108154b/upload_pdf/19219EMKatter.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6443_first-reps%2F0000%22;rec=0",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6443_ems_38fa1de7-dd8d-44af-80e4-7498e108154b%22",
+      "yes": 757,
+      "no": 663,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Australian Bill of Rights 2019",
+      "intro_house": "2019-09-16",
+      "passed_house": "",
+      "intro_senate": "",
+      "passed_senate": "",
+      "assent_date": "",
+      "act_no": "",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6404",
+      "id": "r6404",
+      "current_reading": "first",
+      "summary": "Gives effect to certain provisions of the International Covenant on Civil and Political Rights, the International Covenant on Economic, Social and Cultural Rights, the Convention on the Rights of the Child and the Convention against Torture and Other Cruel, Inhumane or Degrading Treatment or Punishment by: declaring an Australian Bill of Rights; providing that any Commonwealth, state or territory law that is inconsistent with the Bill of Rights is invalid to the extent of the inconsistency; specifying that Commonwealth, state and territory laws must be interpreted consistently with the Bill of Rights; and providing the Australian Human Rights Commission with a range of additional powers and functions in relation to the rights and freedoms in the Bill of Rights.",
+      "sponsor": "WILKIE,Andrew,MP",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6404_first-reps/toc_word/19187b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6404_first-reps/toc_pdf/19187b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6404_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {"doc": "", "pdf": "", "html": ""}
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6404_first-reps/toc_word/19187b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6404_ems_e8fd1431-106a-42e4-8876-523c270e7923/upload_word/19187EMWilkie.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6404_first-reps/toc_pdf/19187b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6404_ems_e8fd1431-106a-42e4-8876-523c270e7923/upload_pdf/19187EMWilkie.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6404_first-reps%2F0000%22;rec=0",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6404_ems_e8fd1431-106a-42e4-8876-523c270e7923%22",
+      "yes": 801,
+      "no": 595,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Australian Broadcasting Corporation Amendment (Rural and Regional Measures) 2019",
+      "intro_house": "2019-07-31",
+      "passed_house": "",
+      "intro_senate": "",
+      "passed_senate": "",
+      "assent_date": "",
+      "act_no": "",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6382",
+      "id": "r6382",
+      "current_reading": "first",
+      "summary": "Amends the Australian Broadcasting Corporation Act 1983 to: amend the Australian Broadcasting Corporation (ABC) Charter to require the ABC to broadcast programs that contribute to a sense of regional and national identity, and inform and entertain, and reflect the geographic and cultural diversity of, the Australian community; require the ABC Board to have two members with a substantial connection to, or substantial experience in, a regional area through business, industry or community involvement; establish a Regional Advisory Council to advise the ABC Board; and require the ABC Board to report annually on a range of additional matters, including the total number of individuals employed in regional and metropolitan areas, and the journalist to support staff ratio of employees.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6382_first-reps/toc_word/19106b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6382_first-reps/toc_pdf/19106b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6382_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {"doc": "", "pdf": "", "html": ""}
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6382_first-reps/toc_word/19106b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6382_ems_c52d9bfe-849e-4ae3-893f-dbc05c9ec260/upload_word/713762.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6382_first-reps/toc_pdf/19106b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6382_ems_c52d9bfe-849e-4ae3-893f-dbc05c9ec260/upload_pdf/713762.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6382_first-reps%2F0000%22;rec=0",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6382_ems_c52d9bfe-849e-4ae3-893f-dbc05c9ec260%22",
+      "yes": 545,
+      "no": 753,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Australian Business Growth Fund 2019",
+      "intro_house": "2019-12-05",
+      "passed_house": "2020-02-06",
+      "intro_senate": "2020-02-10",
+      "passed_senate": "",
+      "assent_date": "",
+      "act_no": "",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6463",
+      "id": "r6463",
+      "current_reading": "first",
+      "summary": "Establishes the Australian Business Growth Fund (ABGF) to: provide a source of 'patient capital' for small and medium enterprises; authorise investment by the Commonwealth in the ABGF; and appropriate AUD 100 million for the purposes of the ABGF.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6463_first-reps/toc_word/19234b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6463_first-reps/toc_pdf/19234b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6463_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {"doc": "", "pdf": "", "html": ""}
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6463_first-reps/toc_word/19234b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6463_ems_fd18e3b4-5a9b-435c-8609-f7a0c232e0a0/upload_word/723651.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6463_first-reps/toc_pdf/19234b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6463_ems_fd18e3b4-5a9b-435c-8609-f7a0c232e0a0/upload_pdf/723651.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6463_first-reps%2F0000%22;rec=0",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6463_ems_fd18e3b4-5a9b-435c-8609-f7a0c232e0a0%22",
+      "yes": 652,
+      "no": 779,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Australian Business Growth Fund (Coronavirus Economic Response Package) 2020",
+      "intro_house": "2020-03-23",
+      "passed_house": "2020-03-23",
+      "intro_senate": "2020-03-23",
+      "passed_senate": "2020-03-23",
+      "assent_date": "2020-03-24",
+      "act_no": "28",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6519",
+      "id": "r6519",
+      "current_reading": "aspassed",
+      "summary": "Part of a package of eight bills to respond to the economic impacts of the coronavirus, the bill: establishes the Australian Business Growth Fund to provide a source of patient capital for small and medium enterprises; and authorises investment by the Commonwealth in the Fund, and appropriates the Consolidated Revenue Fund for the purposes of that investment.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6519_first-reps/toc_word/20033b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6519_first-reps/toc_pdf/20033b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6519_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6519_aspassed/toc_word/20033b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6519_aspassed/toc_pdf/20033b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6519_aspassed/0000%22"
+        }
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6519_aspassed/toc_word/20033b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6519_ems_64759256-8ca2-4609-8ed2-6374637e1fa3/upload_word/20044EM%20Correction.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6519_aspassed/toc_pdf/20033b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6519_ems_64759256-8ca2-4609-8ed2-6374637e1fa3/upload_pdf/20044EM%20Correction.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6519_aspassed/0000%22",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6519_ems_64759256-8ca2-4609-8ed2-6374637e1fa3%22",
+      "yes": 841,
+      "no": 692,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Australian Capital Territory (Self-Government) Amendment (ACT Integrity Commission Powers) 2020",
+      "intro_house": "2020-02-24",
+      "passed_house": "",
+      "intro_senate": "",
+      "passed_senate": "",
+      "assent_date": "",
+      "act_no": "",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6484",
+      "id": "r6484",
+      "current_reading": "first",
+      "summary": "Amends the Australian Capital Territory (Self-Government) Act 1988 to allow the Australian Capital Territory (ACT) Legislative Assembly to make laws relating to the Australian Federal Police's (AFP) provision of police services, where those laws relate to the investigation of integrity and corruption with respect to AFP services provided for the ACT.",
+      "sponsor": "LEIGH,Andrew,MP",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6484_first-reps/toc_word/20016b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6484_first-reps/toc_pdf/20016b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6484_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {"doc": "", "pdf": "", "html": ""}
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6484_first-reps/toc_word/20016b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6484_ems_63080380-7e90-48ab-a56e-d70f71369ed9/upload_word/20016EMLeigh.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6484_first-reps/toc_pdf/20016b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6484_ems_63080380-7e90-48ab-a56e-d70f71369ed9/upload_pdf/20016EMLeigh.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6484_first-reps%2F0000%22;rec=0",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6484_ems_63080380-7e90-48ab-a56e-d70f71369ed9%22",
+      "yes": 554,
+      "no": 757,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Australian Citizenship Amendment (Citizenship Cessation) 2019",
+      "intro_house": "2019-09-19",
+      "passed_house": "",
+      "intro_senate": "",
+      "passed_senate": "",
+      "assent_date": "",
+      "act_no": "",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6409",
+      "id": "r6409",
+      "current_reading": "first",
+      "summary": "Amends the: Australian Citizenship Act 2007 to: replace the current arrangements, whereby a person\u2019s Australian citizenship automatically ceases through certain conduct, with a discretion for the Minister for Home Affairs to determine that a person who is a national or citizen of a country other than Australia ceases to be an Australian citizen if they have: engaged in specified terrorism-related conduct; fought for, or been in the service of, a declared terrorist organisation outside Australia; or engaged in conduct that results in a conviction for a specified terrorism offence; include transitional provisions to deal with cases where the minister is unaware that a person may have lost their citizenship under the current provisions; reduce the sentence term threshold for which a person convicted of a specified terrorism offence may be considered for citizenship cessation from 6 to 3 years; and extend the period in which persons convicted of a specified terrorism offence resulting in at least 3 years imprisonment may be considered for citizenship cessation from 12 December 2015 to 29 May 2003; and Independent National Security Legislation Monitor Act 2010 and Intelligence Services Act 2001 to enable the Independent National Security Legislation Monitor and the Parliamentary Joint Committee on Intelligence and Security to review the operation, effectiveness and implication of the citizenship cessation provisions.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6409_first-reps/toc_word/19175b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6409_first-reps/toc_pdf/19175b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6409_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {"doc": "", "pdf": "", "html": ""}
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6409_first-reps/toc_word/19175b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6409_ems_d8aa8fd3-3dbd-466a-97e1-4e72347cba0a/upload_word/19175EM.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6409_first-reps/toc_pdf/19175b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6409_ems_d8aa8fd3-3dbd-466a-97e1-4e72347cba0a/upload_pdf/19175EM.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6409_first-reps%2F0000%22;rec=0",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6409_ems_d8aa8fd3-3dbd-466a-97e1-4e72347cba0a%22",
+      "yes": 710,
+      "no": 876,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Australian Education Amendment (Direct Measure of Income) 2020",
+      "intro_house": "2020-02-26",
+      "passed_house": "2020-03-04",
+      "intro_senate": "2020-03-23",
+      "passed_senate": "2020-03-23",
+      "assent_date": "2020-03-26",
+      "act_no": "36",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6499",
+      "id": "r6499",
+      "current_reading": "aspassed",
+      "summary": "Amends the Australian Education Act 2013 to: introduce a new measure of income methodology for calculating a school community's capacity to contribute financially to a non-government school; enable adjustments to be made to the transition pathways of non-government schools to a nationally consistent Commonwealth share of the Schooling Resource Standard; and provide the authority and appropriation for the Commonwealth to make GST-inclusive payments where necessary.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6499_first-reps/toc_word/20009b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6499_first-reps/toc_pdf/20009b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6499_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6499_aspassed/toc_word/20009b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6499_aspassed/toc_pdf/20009b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6499_aspassed/0000%22"
+        }
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6499_aspassed/toc_word/20009b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6499_ems_bb099c22-0e04-4d0b-afdd-bf7d7f3a76ca/upload_word/730946.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6499_aspassed/toc_pdf/20009b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6499_ems_bb099c22-0e04-4d0b-afdd-bf7d7f3a76ca/upload_pdf/730946.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22legislation/bills/r6499_aspassed/0000%22",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6499_ems_bb099c22-0e04-4d0b-afdd-bf7d7f3a76ca%22",
+      "yes": 708,
+      "no": 700,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    },
+    {
+      "chamber": "House",
+      "short_title": "Australian Passports Amendment (Identity-matching Services) 2019",
+      "intro_house": "2019-07-31",
+      "passed_house": "",
+      "intro_senate": "",
+      "passed_senate": "",
+      "assent_date": "",
+      "act_no": "",
+      "url": "http://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r6386",
+      "id": "r6386",
+      "current_reading": "first",
+      "summary": "Amends the Australian Passports Act 2005 to enable the minister to make Australian travel document data available for the purposes of, and by the automated means intrinsic to, the identity-matching services to which the Commonwealth, states and territories agreed in the Intergovernmental Agreement on Identity Matching Services, agreed by COAG on 5 October 2017.",
+      "sponsor": "",
+      "readings": {
+        "first": {
+          "doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6386_first-reps/toc_word/19150b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+          "pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6386_first-reps/toc_pdf/19150b01.pdf;fileType=application%2Fpdf",
+          "html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6386_first-reps%2F0000%22;rec=0"
+        },
+        "third": {"doc": "", "pdf": "", "html": ""},
+        "aspassed": {"doc": "", "pdf": "", "html": ""}
+      },
+      "text_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6386_first-reps/toc_word/19150b01.docx;fileType=application%2Fvnd%2Eopenxmlformats%2Dofficedocument%2Ewordprocessingml%2Edocument",
+      "em_link_doc": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6386_ems_b063b85b-0541-488e-9e01-fcccdafe5f3f/upload_word/713752.docx;fileType=application%2Fvnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/bills/r6386_first-reps/toc_pdf/19150b01.pdf;fileType=application%2Fpdf",
+      "em_link_pdf": "https://parlinfo.aph.gov.au/parlInfo/download/legislation/ems/r6386_ems_b063b85b-0541-488e-9e01-fcccdafe5f3f/upload_pdf/713752.pdf;fileType=application%2Fpdf",
+      "text_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fbills%2Fr6386_first-reps%2F0000%22;rec=0",
+      "em_link_html": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22legislation%2Fems%2Fr6386_ems_b063b85b-0541-488e-9e01-fcccdafe5f3f%22",
+      "yes": 517,
+      "no": 863,
+      "ballotspec_hash": "blahblahblahblahblahblahblahblahblah"
+    }
+  ]

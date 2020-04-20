@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/core/services/auth/user_auth.dart';
-import 'package:voting_app/ui/screens/all_issues.dart';
-import 'package:voting_app/ui/screens/settings.dart';
-import 'package:voting_app/ui/screens/all_bills.dart';
+import 'package:voting_app/core/models/user.dart';
+import 'package:voting_app/core/viewmodels/settings_model.dart';
+import 'package:voting_app/ui/appTheme.dart';
+import 'package:voting_app/ui/views/all_issues_view.dart';
+import 'package:voting_app/ui/views/settings.dart';
+import 'package:voting_app/core/services/auth_service.dart';
+import 'package:voting_app/core/route_generator.dart';
+import 'package:voting_app/ui/views/all_bills_view.dart';
 import 'package:voting_app/ui/styles.dart';
-import 'package:voting_app/ui/screens/login.dart';
+import 'package:voting_app/ui/views/login.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:provider/provider.dart';
+import 'package:voting_app/locator.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  setupLocator();
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override
@@ -18,40 +26,35 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    var child;
     FlutterStatusbarcolor.setStatusBarWhiteForeground(darkMode);
-    return MaterialApp(
-        initialRoute: '/', 
-        onGenerateRoute: child, 
-        home: HomePage());
+    return MultiProvider(providers: [
+      StreamProvider<User>(
+        initialData: User.initial(),
+        create: (BuildContext context) =>
+            locator<AuthenticationService>().userController.stream,
+      ),
+      ListenableProvider<SettingsModel>(create: (context) => SettingsModel())
+    ], child: MyMaterialApp());
   }
 }
 
-class HomePage extends StatefulWidget {
+class MyMaterialApp extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _MyMaterialAppState createState() => _MyMaterialAppState();
 }
 
-class _HomePageState extends State<HomePage> {
-
+class _MyMaterialAppState extends State<MyMaterialApp> {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => UserRepository(),
-      child: Consumer(
-        builder: (context, UserRepository user, _) {
-          switch (user.status) {
-            case Status.Uninitialized:
-              return ProfilePage();
-            case Status.Unauthenticated:
-            case Status.Authenticating:
-              return MainScreen();
-            case Status.Authenticated:
-              return MainScreen();
-          }
-        },
-      ),
-    );
+    return Consumer<SettingsModel>(builder: (context, model, child) {
+      return MaterialApp(
+          initialRoute: '/profile',
+          home: MainScreen(),
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          onGenerateRoute: RouteGenerator.generateSettingsRoute,
+          themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light);
+    });
   }
 }
 
@@ -67,7 +70,6 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: appColors.background,
       //current page
       body: SafeArea(
         top: false,
@@ -80,31 +82,31 @@ class _MainScreenState extends State<MainScreen> {
       ),
       // the nav bar at the bottom --> [bills - issues - Settings]
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Theme.of(context).colorScheme.primary,
+        unselectedItemColor: Theme.of(context).colorScheme.primaryVariant,
         type: BottomNavigationBarType.shifting,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.assignment),
             title: Text('Bills'),
-            backgroundColor: appColors.background,
+            backgroundColor: Theme.of(context).backgroundColor
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.assignment_late),
             title: Text('Issues'),
-            backgroundColor: appColors.background,
+            backgroundColor: Theme.of(context).backgroundColor
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
             title: Text('Profile'),
-            backgroundColor: appColors.background,
+            backgroundColor: Theme.of(context).backgroundColor
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             title: Text('Settings'),
-            backgroundColor: appColors.background,
+            backgroundColor: Theme.of(context).backgroundColor
           ),
         ],
-        unselectedItemColor: appColors.text,
-        selectedItemColor: appColors.mainTheme,
         currentIndex: _currentIndex,
         onTap: (int index) {
           setState(() {
