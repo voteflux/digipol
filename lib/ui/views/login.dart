@@ -4,7 +4,7 @@ import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/viewmodels/user_model.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/core/models/user.dart';
-import 'package:voting_app/ui/widgets/custom_widgets.dart';
+import 'package:voting_app/ui/widgets/custom_form_feild_widget.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/login/signup.dart';
 import 'package:provider/provider.dart';
@@ -54,7 +54,7 @@ class _LogInWidgetState extends State<LogIn> {
               padding: EdgeInsets.only(bottom: 20.0),
               child: Text(
                 "Register to vote",
-                style: appTextStyles.heading,
+                style: Theme.of(context).textTheme.headline4,
               ),
             ),
             CustomFormField(
@@ -63,10 +63,7 @@ class _LogInWidgetState extends State<LogIn> {
                 _name = value;
               },
             ),
-            _buildSubmitButton(),
-            new Divider(
-              color: appColors.text,
-            )
+            _buildSubmitButton()
           ],
         ),
       ),

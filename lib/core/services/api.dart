@@ -11,10 +11,9 @@ class Api {
 
   // get bills
   Future<List<Bill>> getBills() async {
-    
     var bills = List<Bill>();
 
-    //var response = await client.get('https://2hqxgjv66f.execute-api.ap-southeast-2.amazonaws.com/dev/bills');
+    //var response = await client.get('http://localhost:3000/dev/bill');
     var response = await rootBundle.loadString('assets/data/sample_bills.json');
 
     // parse into List
@@ -24,9 +23,20 @@ class Api {
     for (var bill in parsed) {
       bills.add(Bill.fromJson(bill));
     }
-
-    print('complete bills');
     return bills;
+  }
+
+  // get bill
+  Future<Bill> getBill() async {
+    
+    //var response = await client.get('http://localhost:3000/dev/bill');
+    var response = await rootBundle.loadString('assets/data/sample_bill.json');
+
+    // parse into List
+    var parsed = json.decode(response) as Map<String, dynamic>;
+
+    print(parsed);
+    return Bill.fromJson(parsed);
   }
 
   // get issues

@@ -113,7 +113,8 @@ class _VoteWidgetState extends State<VoteWidget> {
       child: Container(
         width: appSizes.largeWidth,
         child: Card(
-            margin: EdgeInsets.all(0.0),
+            margin: EdgeInsets.all(30.0),
+            color: Theme.of(context).scaffoldBackgroundColor,
             child: Column(
               children: <Widget>[
                 Container(
@@ -128,11 +129,6 @@ class _VoteWidgetState extends State<VoteWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         RaisedButton(
-                            elevation: appSizes.cardElevation,
-                            shape: RoundedRectangleBorder(
-                              side: BorderSide(
-                                  color: appColors.buttonOutline, width: 2),
-                            ),
                             onPressed: () {
                               areYouSure("Yes");
                             },
@@ -140,11 +136,6 @@ class _VoteWidgetState extends State<VoteWidget> {
                             child: Text("Vote Yes",
                                 style: appTextStyles.yesnobutton)),
                         RaisedButton(
-                            elevation: appSizes.cardElevation,
-                            shape: RoundedRectangleBorder(
-                              side: BorderSide(
-                                  color: appColors.buttonOutline, width: 2),
-                            ),
                             onPressed: () {
                               areYouSure("No");
                             },

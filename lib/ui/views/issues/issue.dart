@@ -44,39 +44,49 @@ class IssuePage extends StatelessWidget {
                 ),
               ),
               Container(
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.surface,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(25.0),
-                          topRight: Radius.circular(25.0))),
-                  width: dynamicLargeWidth,
-                  padding: EdgeInsets.all(appSizes.standardPadding),
-                  child: Wrap(
-                    children: <Widget>[
-                      Padding(
+                decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.surface,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25.0),
+                        topRight: Radius.circular(25.0))),
+                width: dynamicLargeWidth,
+                padding: EdgeInsets.all(appSizes.standardPadding),
+                child: Column(
+                  children: <Widget>[
+                    Align(
+                      child: Padding(
                         padding: EdgeInsets.only(bottom: 20.0),
                         child: Text(
                           issue.shortTitle,
                           style: Theme.of(context).textTheme.headline5,
                         ),
                       ),
-                      Text(
-                        issue.summary,
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
-                      Divider(),
-                      Text(
-                        issue.description,
-                        style: Theme.of(context).textTheme.bodyText2,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 20.0, top: 20.0),
-                        child: VoteWidget(
-                          data: issue,
+                      alignment: Alignment.centerLeft,
+                    ),
+                    Align(
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: 20.0),
+                        child: Text(
+                          issue.summary,
+                          style: Theme.of(context).textTheme.bodyText1,
                         ),
-                      )
-                    ],
-                  )),
+                      ),
+                      alignment: Alignment.centerLeft,
+                    ),
+                    Divider(),
+                    Text(
+                      issue.description,
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 20.0, top: 20.0),
+                      child: VoteWidget(
+                        data: issue,
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),

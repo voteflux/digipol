@@ -22,6 +22,8 @@ class _AllBillsPageState extends State<AllBillsPage> {
   Api _api = locator<Api>();
   List<Bill> _filterBills;
   List<Bill> _billList;
+  ScrollController controller;
+  var listItemAmount = 20;
 
   Future getBills() async {
     _billList = await _api.getBills();
@@ -46,6 +48,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
   void initState() {
     super.initState();
     getBills();
+    controller = ScrollController()..addListener(_scrollListener);
   }
 
     @override
@@ -54,11 +57,20 @@ class _AllBillsPageState extends State<AllBillsPage> {
     super.dispose();
   }
 
+  // TODO: When scroll gets to 100 from bottom, add to listItem
+  void _scrollListener() {
+    print(controller.position.extentAfter);
+    print('printeing');
+    if (controller.position.extentAfter < 100) {
+      setState(() {
+        listItemAmount = listItemAmount + 5;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return BaseView<BillsModel>(
-      onModelReady: (model) => model.getBills(),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false, 
@@ -88,7 +100,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                     //CountUpWidget(
                     //    number: model.bills.length, text: "TOTAL BILLS"),
                     //BillsMessageWidget(),
-                    billsList(_filterBills)
+                    billsList(_filterBills, listItemAmount, controller)
                   ],
                 ),
               ),
@@ -97,8 +109,9 @@ class _AllBillsPageState extends State<AllBillsPage> {
   }
 }
 
-Widget billsList(List<Bill> bills) => ListView.builder(
-    itemCount: bills.length,
+Widget billsList(List<Bill> bills, int itemCountAmount, ScrollController controller) => ListView.builder(
+    itemCount: itemCountAmount,
+    controller: controller,
     shrinkWrap: true,
     physics: ClampingScrollPhysics(),
     itemBuilder: (context, index) => BillListItem(bill: bills[index]));
