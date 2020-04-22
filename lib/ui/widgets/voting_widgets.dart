@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app/core/models/bill_vote.dart';
+import 'package:voting_app/core/services/voting_service.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/core/services/vote.dart';
 
@@ -30,39 +32,6 @@ class VoteWidget extends StatefulWidget {
 class _VoteWidgetState extends State<VoteWidget> {
   @override
   Widget build(BuildContext context) {
-    notLoggedIn() {
-      showDialog<void>(
-        context: context,
-        barrierDismissible: false, // user must tap button!
-        builder: (BuildContext context) {
-          return AlertDialog(
-            elevation: appSizes.cardElevation,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
-            title: Text('Not Logged in', style: appTextStyles.smallBold),
-            content: SingleChildScrollView(
-              child: ListBody(
-                children: <Widget>[
-                  Text(
-                    'You can not make a vote because you are not logged in',
-                    style: appTextStyles.small,
-                  ),
-                ],
-              ),
-            ),
-            actions: <Widget>[
-              FlatButton(
-                child: Text('OK'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
-    }
-
     areYouSure(String vote) {
       /// Dialog to confirm the vote
       return showDialog<void>(
@@ -73,15 +42,16 @@ class _VoteWidgetState extends State<VoteWidget> {
             elevation: appSizes.cardElevation,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
-            title: Text('Confirm Vote', style: appTextStyles.smallBold),
+            title: Text('Confirm Vote', style: Theme.of(context).textTheme.headline6),
             content: SingleChildScrollView(
               child: ListBody(
                 children: <Widget>[
                   Text(
                     'Are you sure you want to vote ',
-                    style: appTextStyles.small,
+                    style: Theme.of(context).textTheme.bodyText1,
                   ),
-                  Text(vote + '?', style: appTextStyles.smallBold),
+                  Text(vote + '?',
+                      style: Theme.of(context).textTheme.headline6),
                 ],
               ),
             ),
@@ -96,11 +66,16 @@ class _VoteWidgetState extends State<VoteWidget> {
                 child: Text('Confirm Vote'),
                 onPressed: () {
                   Navigator.of(context).pop();
-                  if (widget.loggedIn) {
-                    makeVote(vote, widget.data["id"], "UserID");
-                  } else {
-                    notLoggedIn();
-                  }
+                  submitBillVote(
+                    BillVote(
+                        //TO DO: update to real data
+                        pubKey: "lafksdjfnhc934y8q5pcn98xpc5ny85y410c5mp9xnyv",
+                        ballotId: "r6434",
+                        ballotSpecHash:
+                            "86d9935a4fcdd7d517293229527ace224287cb6ba2d07115f4784db16fece5af",
+                        constituency: "Australia",
+                        vote: vote),
+                  );
                 },
               ),
             ],

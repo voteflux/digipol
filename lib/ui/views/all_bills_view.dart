@@ -110,7 +110,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
 }
 
 Widget billsList(List<Bill> bills, int itemCountAmount, ScrollController controller) => ListView.builder(
-    itemCount: itemCountAmount,
+    itemCount: bills.length,
     controller: controller,
     shrinkWrap: true,
     physics: ClampingScrollPhysics(),
