@@ -49,6 +49,13 @@ void main() {
       expect(threwException, true);    
     });
 
+    test('make wallet from random mnemomic', () async {
+      List<String> wordList = WalletService.makeRandomWords();
+      expect(wordList.length, equals(12));
+      var wallet = await service.make(words: wordList);  
+      expect(wallet, isA<Wallet>());
+    });
+
     test('making wallet with known mnemonic should generate correct key', () async {
       const wordList = ["leader", "shadow", "labor", "imitate", "vivid", "left", "critic", "giant", "repair", "they", "delay", "matter"];
       const knownDerivedAddress = "0x8a4AD0054E4bE3c752b8CDC6F9674f094d11cD81";
@@ -59,5 +66,4 @@ void main() {
       expect(derivedAddress, equalsIgnoringCase(knownDerivedAddress));
     });
   });
-
 }

@@ -29,6 +29,8 @@ class WalletService {
   WalletService(this._walletDirectoryPath);
 
   /// Create a new wallet and save it to the wallet file.
+  /// If a list of strings is supplied as the parameter [words], they are used to generate the private key via BIP-39
+  /// Otherwise, a random private key is generated from scratch.
   Future<Wallet> make({List<String> words}) async {
     EthPrivateKey ethKey;
     var rand = Random.secure();
@@ -48,6 +50,12 @@ class WalletService {
     return wallet;
   }
 
+  static List<String> makeRandomWords() {
+    String words = bip39.generateMnemonic();
+    return words.split(" ");
+  }
+
+  ///Make a private key, given a list of words
   static EthPrivateKey _makePrivKeyFromWords(List<String> words) {
     //Make into a string
     var mnemonic = words.reduce((value, element) => "$value $element");
