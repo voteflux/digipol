@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:http/http.dart' as http;
+import 'package:voting_app/core/models/bill_vote.dart';
+import 'package:voting_app/core/models/bill_vote_success.dart';
 import 'package:voting_app/core/models/issue.dart';
 import 'package:voting_app/core/models/user.dart';
 
@@ -28,7 +30,6 @@ class Api {
 
   // get bill
   Future<Bill> getBill() async {
-    
     //var response = await client.get('http://localhost:3000/dev/bill');
     var response = await rootBundle.loadString('assets/data/sample_bill.json');
 
@@ -43,7 +44,8 @@ class Api {
   Future<List<Issue>> getIssues() async {
     var issues = List<Issue>();
 
-    var response = await rootBundle.loadString('assets/data/sample_issues.json');
+    var response =
+        await rootBundle.loadString('assets/data/sample_issues.json');
 
     var parsed = json.decode(response) as List<dynamic>;
 
@@ -53,7 +55,7 @@ class Api {
     }
 
     print('complete issues');
-    return issues;    
+    return issues;
   }
 
   // user login
@@ -61,6 +63,28 @@ class Api {
     var response = await rootBundle.loadString('assets/data/sample_user.json');
 
     print('complete user');
-    return User.fromJson(json.decode(response));    
+    return User.fromJson(json.decode(response));
+  }
+
+  Future<BillVoteSuccess> submitBillVote(BillVote vote) async {
+    final http.Response response = await http.post(
+      'http://192.168.0.146/dev/shitchain/',
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        "pub_key": vote.pubKey,
+        "ballot_id": vote.ballotId,
+        "ballotspec_hash": vote.ballotSpecHash,
+        "constituency": vote.constituency,
+        "vote": vote.vote
+      }),
+    );
+    if (response.statusCode == 201) {
+      print(BillVoteSuccess.fromJson(json.decode(response.body)));
+      return BillVoteSuccess.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('Failed cast vote');
+    }
   }
 }
