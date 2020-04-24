@@ -1,9 +1,10 @@
 # DigiPol - Parliament of the People
-**NOTE: App is in pre-Alpha - We welcome criticism, if you think you can improve the structure, please fork and do a pull request :)**
 
-Join us on 
-[![image](/assets/graphics/discord.png)](https://discord.gg/743s6G)
-<!-- .element height="50%" width="50%" -->
+_NOTE: App is in pre-Alpha - We welcome criticism, if you think you can improve the structure, please fork and do a pull request_
+
+Join us on
+
+[![image](/assets/graphics/discord.png)](https://discord.gg/743s6G) <!-- .element height="50%" width="50%" -->
 
 ## Primary Program Objectives
 
@@ -18,19 +19,21 @@ It will collate voting results and show users the results of their electorates v
 
 ![image](/assets/graphics/sample.gif)
 
-
 # The App Architecture
 
-### Front end 
-The app frontend is built with [Flutter](https://flutter.dev/) using the Dart Programming Language. This repo will focus entirely on this part of the project. 
+## Front end
 
-### Back end
+The app frontend is built with [Flutter](https://flutter.dev/) using the Dart Programming Language. This repo will focus entirely on this part of the project.
+
+## Back end
+
 - The app backend is built using multiple serverless lambdas to interact with mongodb and other external services. **(NOTE: This repo will only cover the UI Architecture, for information on the backend head over to [Voting-app-api](https://github.com/KipCrossing/voting-app-api))**
 - Databases and API are managed on AWS using lambda functions Data for Bills are mirrored from the federal and state parliament websites using the [ausbills](https://github.com/KipCrossing/Aus-Bills) python package
 - The app will utilise the Ethereum blockchain to validate votes.
 - Issues are manually entered into the database for now
 
 # Flutter Architecture
+
 _This section assumes you have basic understanding of Flutter. If you are new to Flutter see the bottom of the repo for resources_.
 
 The app uses a [Provider](https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple) Architecture for state management. It is structured so data flows to only the views that need it. _The apps structure was inspired by this [Filledstacks](https://www.filledstacks.com/post/flutter-architecture-my-provider-implementation-guide/) guide. If you are new to flutter and plan on contributing we highly recommend you check out this tutorial._
@@ -38,35 +41,39 @@ The app uses a [Provider](https://flutter.dev/docs/development/data-and-backend/
 The idea behind the directory architecture is to abstract the logic away from the UI. This allows for more maintainable code and extensibility. Simply as is sounds, any app logic goes into the Core any UI goes into the UI.
 
 **High level Architecture Points**
+
 - Each view will have it's own model that extends the ChangeNotifier.
 - Notify listeners for a view will ONLY BE CALLED when the View's state changes.
 - Each view only has 2 states. Idle and Busy. Any other piece of UI contained in a view, that requires logic and state / UI updates will have it's own model associated with it. This way the main view only paints when the main view state changes.
 - Providers will NOT be passed in through app level global provider, unless it's required by more than 1 view in the app architecture (Users information).
 - Models will ONLY request data from Services and reduce state from that DATA. Nothing else.
 
----
-### Core
-All app logic is contained in this directory. 
+--------------------------------------------------------------------------------
+
+## Core
+
+All app logic is contained in this directory.
+
 - **models** - Contains all the plain data models
 - **services** - Contains the dedicated files that will handle actual app logic
 - **viewmodels** - Contains the Provider models for each of the Widget views
 - **enums** - Storing any reusable enums
 
+## UI
 
-### UI
 Any UI element or styling feature is contained here. Avoid using app logic in this folder or any descendant.
+
 - **views** - Contains any full screen that is used in the app
 - **widgets** - Contains any resuable widgets.
 
+### Views
 
-#### Views
 - **All issues view** - List of issues generated, sortable by date, popularity, controversiality(?)
 - **All bills view** - List of bills sortable by house, date, progress
 - **Bill page with voting option** - Full description/links and voting buttons
 - **Login Page** - email - password
 - **Results Page** - List of horizontal bar graphs - 1 for each electorate
 - **Verification/Settings Page** - AEC details, electorate details, representatives and voting patterns, join Flux button, link Settingss (google/fb/ig)
-
 
 --------------------------------------------------------------------------------
 
@@ -120,15 +127,16 @@ Make sure you have Chrome installed
 
 **BUG NOTICE**: You may need to edit a file in the flushbar Dart Package if you get this error:
 
-```shell script
-../../../.pub-cache/hosted/pub.dartlang.org/flushbar-1.9.1/lib/flushbar_route.dart:281:18: Error: Too many positional arguments: 0 allowed,
-```
-
-See [This Issue](https://github.com/AndreHaueisen/flushbar/issues/113) to make the fix. This is because we are using the master branch of flutter soe we can do web dev. 
+```shell script ../../../.pub-cache/hosted/pub.dartlang.org/flushbar-1.9.1/lib/flushbar_route.dart:281:18: Error: Too many positional arguments: 0 allowed,
 
 ```
+
+See [This Issue](https://github.com/AndreHaueisen/flushbar/issues/113) to make the fix. This is because we are using the master branch of flutter soe we can do web dev.
+```
+
 flutter devices
-```
+
+````
 
 And Run `flutter run -d chrome` in the project dir.
 
@@ -221,8 +229,8 @@ BillQ -->|retrived by| BillToBallot
 BillToBallot -->|creates issue on chain| PrivChain
 BillToBallot -->|pushes ballotspec| BallotArchive
 
-BillApi -->|General info,<br/>ammendments, etc| App 
-ResultsCacheApi -->|Cached results served| App 
+BillApi -->|General info,<br/>ammendments, etc| App
+ResultsCacheApi -->|Cached results served| App
 App -.-|Signing votes| KeyStore
 App -->|Push signed votes| PrivChain
 App -.->|Alt: push signed votes| UserNode
@@ -233,4 +241,4 @@ BallotArchive -->|BallotSpec| AuditJob
 
 UserNode -.-|sync| PrivChain
 UserNode -->|raw votes| UserAuditor
-```
+````
