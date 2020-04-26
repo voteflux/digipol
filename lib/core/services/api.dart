@@ -70,7 +70,7 @@ class Api {
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(<String, String>{
+      body: jsonEncode(<String, dynamic>{
         "pub_key": vote.pubKey,
         "ballot_id": vote.ballotId,
         "ballotspec_hash": vote.ballotSpecHash,

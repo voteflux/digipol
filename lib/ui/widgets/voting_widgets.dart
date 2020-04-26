@@ -40,60 +40,70 @@ class _VoteWidgetState extends State<VoteWidget> {
       builder: (context, model, child) => Center(
         child: Container(
           width: appSizes.largeWidth,
-          child: (_futureSuccess == null)
-              ? Card(
-                  margin: EdgeInsets.all(30.0),
-                  color: Theme.of(context).scaffoldBackgroundColor,
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                          padding: EdgeInsets.all(appSizes.standardPadding),
-                          child: Text(
-                            widget.data.shortTitle,
-                            style: Theme.of(context).textTheme.headline6,
-                          )),
-                      Container(
+          child: Card(
+            margin: EdgeInsets.all(30.0),
+            color: Theme.of(context).scaffoldBackgroundColor,
+            child: (_futureSuccess == null)
+                ? Column(children: <Widget>[
+                    Container(
                         padding: EdgeInsets.all(appSizes.standardPadding),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            RaisedButton(
-                                onPressed: () {
-                                  areYouSure("Yes", model);
-                                },
-                                color: appColors.yes,
-                                child: Text("Vote Yes",
-                                    style: appTextStyles.yesnobutton)),
-                            RaisedButton(
-                                onPressed: () {
-                                  areYouSure("No", model);
-                                },
-                                color: appColors.no,
-                                child: Text("Vote No",
-                                    style: appTextStyles.yesnobutton)),
-                          ],
-                        ),
+                        child: Text(
+                          widget.data.shortTitle,
+                          style: Theme.of(context).textTheme.headline6,
+                        )),
+                    Container(
+                      padding: EdgeInsets.all(appSizes.standardPadding),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          RaisedButton(
+                              onPressed: () {
+                                areYouSure("yes", model, widget.data.id);
+                              },
+                              color: appColors.yes,
+                              child: Text("Vote Yes",
+                                  style: appTextStyles.yesnobutton)),
+                          RaisedButton(
+                              onPressed: () {
+                                areYouSure("no", model, widget.data.id);
+                              },
+                              color: appColors.no,
+                              child: Text("Vote No",
+                                  style: appTextStyles.yesnobutton)),
+                        ],
                       ),
-                    ],
+                    ),
+                  ])
+                : FutureBuilder<BillVoteSuccess>(
+                    future: _futureSuccess,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Container(
+                            padding: EdgeInsets.all(appSizes.standardPadding),
+                            child: Text(
+                              "Successful vote: " + snapshot.data.ballotspecHash,
+                              style: Theme.of(context).textTheme.headline6,
+                            ));
+                      } else if (snapshot.hasError) {
+                        return Container(
+                            padding: EdgeInsets.all(appSizes.standardPadding),
+                            child: Text(
+                              "${snapshot.error}",
+                              style: Theme.of(context).textTheme.headline6,
+                            ));
+                      }
+                      return Container(
+                          padding: EdgeInsets.all(appSizes.standardPadding),
+                          child: CircularProgressIndicator());
+                    },
                   ),
-                )
-              : FutureBuilder(
-                  future: _futureSuccess,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return Text(snapshot.data.ballotspecHash);
-                    } else if (snapshot.hasError) {
-                      return Text("${snapshot.error}");
-                    }
-                    return CircularProgressIndicator();
-                  },
-                ),
+          ),
         ),
       ),
     );
   }
 
-  areYouSure(String vote, model) {
+  areYouSure(String vote, model, String id) {
     /// Dialog to confirm the vote
     return showDialog<void>(
       context: context,
@@ -127,16 +137,18 @@ class _VoteWidgetState extends State<VoteWidget> {
               child: Text('Confirm Vote'),
               onPressed: () {
                 Navigator.of(context).pop();
-                _futureSuccess = model.postVote(
-                  BillVote(
-                      //TO DO: update to real data
-                      pubKey: "lafksdjfnhc934y8q5pcn98xpc5ny85y410c5mp9xnyv",
-                      ballotId: "r6434",
-                      ballotSpecHash:
-                          "86d9935a4fcdd7d517293229527ace224287cb6ba2d07115f4784db16fece5af",
-                      constituency: "Australia",
-                      vote: vote),
-                );
+                setState(() {
+                  _futureSuccess = model.postVote(
+                    BillVote(
+                        //TO DO: update to real data
+                        pubKey: "lafksdjfnhc934y8q5pcn98xpc5ny85y410c5mp9xnyv",
+                        ballotId: id,
+                        ballotSpecHash:
+                            "86d9935a4fcdd7d517293229527ace224287cb6ba2d07115f4784db16fece5af",
+                        constituency: "Australia",
+                        vote: vote),
+                  );
+                });
               },
             ),
           ],
