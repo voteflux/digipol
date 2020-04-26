@@ -2,9 +2,11 @@
 
 _NOTE: App is in pre-Alpha - We welcome criticism, if you think you can improve the structure, please fork and do a pull request_
 
+**Attention:** Alpha testers, please read [this guide](docs/ALPHATESTING.md).
+
 Join us on
 
-[![image](/assets/graphics/discord.png)](https://discord.gg/743s6G) <!-- .element height="50%" width="50%" -->
+[![image](/assets/graphics/discord.png)](https://discord.gg/xFMUTZw) <!-- .element height="50%" width="50%" -->
 
 ## Primary Program Objectives
 
@@ -27,7 +29,7 @@ The app frontend is built with [Flutter](https://flutter.dev/) using the Dart Pr
 
 ## Back end
 
-- The app backend is built using multiple serverless lambdas to interact with mongodb and other external services. **(NOTE: This repo will only cover the UI Architecture, for information on the backend head over to [Voting-app-api](https://github.com/KipCrossing/voting-app-api))**
+- The app backend is built using multiple serverless lambdas to interact with mongodb and other external services. **(NOTE: This repo will only cover the UI Architecture, for information on the backend head over to [Voting-app-api](https://github.com/KipCrossing/voting-app-api)**
 - Databases and API are managed on AWS using lambda functions Data for Bills are mirrored from the federal and state parliament websites using the [ausbills](https://github.com/KipCrossing/Aus-Bills) python package
 - The app will utilise the Ethereum blockchain to validate votes.
 - Issues are manually entered into the database for now
@@ -79,7 +81,9 @@ Any UI element or styling feature is contained here. Avoid using app logic in th
 
 ## Contributing
 
-A list of current items and their progress can be found [here](https://github.com/voteflux/voting_app/projects/1). If you feel comfortable diving straight in, just fork the repo, and open it up in Android Studio. We use [Effective Dart](https://dart.dev/guides/language/effective-dart) to guide our coding style, so make sure you make yourself familiar. Make the contributions you want to and create a Pull Request.
+A list of current items and their progress can be found [here](https://github.com/voteflux/voting_app/projects/1). If you feel comfortable diving straight in, just fork the repo, and open it up in Android Studio.
+
+We use [Effective Dart](https://dart.dev/guides/language/effective-dart) to guide our coding style, so make sure you make yourself familiar. Make the contributions you want to and create a Pull Request.
 
 For collaborating, best practice is to join our _Discord Community_ at [discord.io / FluxParty](discord.io/FluxParty) and let us know where you're interested in helping out. That way we can make sure you are up to date with all the relevant information and put you in contact with others working on the project!
 
