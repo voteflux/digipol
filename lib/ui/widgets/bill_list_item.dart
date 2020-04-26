@@ -70,9 +70,9 @@ class BillListItem extends StatelessWidget {
                     ),
                     PieWidget(
                       // Delete Random when vote status is obtained
-                      yes: bill.yes,
+                      yes: 10,
                       showValues: false,
-                      no: bill.no,
+                      no: 10,
                       radius: 50,
                     )
                   ],

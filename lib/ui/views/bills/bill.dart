@@ -47,17 +47,15 @@ class BillPage extends StatelessWidget {
                   child: ListView(
                     children: <Widget>[
                       PieWidget(
-                        // get from bill
-                        // currne
-                        yes: bill.yes,
+                        yes: 2,
                         showValues: true,
-                        no: bill.no,
+                        no: 3,
                         radius: dynamicMediumHeight,
                       ),
                       Padding(
                         padding: EdgeInsets.only(
                             bottom: 20.0, top: 10.0, left: 20.0),
-                        child: HouseIconsWidget(bill: bill, size: 25),
+                        child: HouseIconsWidget(bill: model.bill, size: 25),
                       ),
                       Container(
                         width: dynamicLargeWidth,
@@ -71,14 +69,14 @@ class BillPage extends StatelessWidget {
                           children: <Widget>[
                             Align(
                               child: VotingStatusWidget(
-                                  bill: bill, voted: false, size: 20),
+                                  bill: model.bill, voted: false, size: 20),
                               alignment: Alignment.centerLeft,
                             ),
                             Align(
                               child: Padding(
                                 padding:
                                     EdgeInsets.only(bottom: 20.0, top: 10.0),
-                                child: Text(bill.shortTitle,
+                                child: Text(model.bill.shortTitle,
                                     style:
                                         Theme.of(context).textTheme.headline5),
                               ),
@@ -87,7 +85,7 @@ class BillPage extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.only(bottom: 20.0),
                               child: Text(
-                                bill.summary,
+                                model.bill.summary,
                                 style: Theme.of(context).textTheme.bodyText2,
                               ),
                             ),
@@ -100,7 +98,7 @@ class BillPage extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          PdfPage(pdfUrl: bill.textLinkPdf)),
+                                          PdfPage(pdfUrl: model.bill.textLinkPdf)),
                                 );
                               },
                             ),
@@ -119,7 +117,7 @@ class BillPage extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          PdfPage(pdfUrl: bill.emLinkPdf)),
+                                          PdfPage(pdfUrl: model.bill.emLinkPdf)),
                                 );
                               },
                             ),
@@ -134,7 +132,7 @@ class BillPage extends StatelessWidget {
                         ),
                       ),
                       VoteWidget(
-                        data: bill,
+                        data: model.billChainData
                       ),
                     ],
                   ),

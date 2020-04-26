@@ -71,6 +71,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
   @override
   Widget build(BuildContext context) {
     return BaseView<BillsModel>(
+      onModelReady: (model) => model.getBills(),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false, 
@@ -100,7 +101,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                     //CountUpWidget(
                     //    number: model.bills.length, text: "TOTAL BILLS"),
                     //BillsMessageWidget(),
-                    billsList(_filterBills, listItemAmount, controller)
+                    billsList(model.bills)
                   ],
                 ),
               ),
@@ -109,9 +110,8 @@ class _AllBillsPageState extends State<AllBillsPage> {
   }
 }
 
-Widget billsList(List<Bill> bills, int itemCountAmount, ScrollController controller) => ListView.builder(
+Widget billsList(List<Bill> bills) => ListView.builder(
     itemCount: bills.length,
-    controller: controller,
     shrinkWrap: true,
     physics: ClampingScrollPhysics(),
     itemBuilder: (context, index) => BillListItem(bill: bills[index]));

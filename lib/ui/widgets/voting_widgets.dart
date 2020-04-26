@@ -58,14 +58,14 @@ class _VoteWidgetState extends State<VoteWidget> {
                         children: <Widget>[
                           RaisedButton(
                               onPressed: () {
-                                areYouSure("yes", model, widget.data.id);
+                                areYouSure("yes", model, widget.data.id, widget.data.ballotSpecHash);
                               },
                               color: appColors.yes,
                               child: Text("Vote Yes",
                                   style: appTextStyles.yesnobutton)),
                           RaisedButton(
                               onPressed: () {
-                                areYouSure("no", model, widget.data.id);
+                                areYouSure("no", model, widget.data.id, widget.data.ballotSpecHash);
                               },
                               color: appColors.no,
                               child: Text("Vote No",
@@ -103,16 +103,13 @@ class _VoteWidgetState extends State<VoteWidget> {
     );
   }
 
-  areYouSure(String vote, model, String id) {
+  areYouSure(String vote, model, String id, String ballotSpecHash) {
     /// Dialog to confirm the vote
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          elevation: appSizes.cardElevation,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
           title: Text('Confirm Vote',
               style: Theme.of(context).textTheme.headline6),
           content: SingleChildScrollView(
@@ -143,8 +140,7 @@ class _VoteWidgetState extends State<VoteWidget> {
                         //TO DO: update to real data
                         pubKey: "lafksdjfnhc934y8q5pcn98xpc5ny85y410c5mp9xnyv",
                         ballotId: id,
-                        ballotSpecHash:
-                            "86d9935a4fcdd7d517293229527ace224287cb6ba2d07115f4784db16fece5af",
+                        ballotSpecHash: ballotSpecHash,
                         constituency: "Australia",
                         vote: vote),
                   );
