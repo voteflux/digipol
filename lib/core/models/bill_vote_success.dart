@@ -1,10 +1,9 @@
 class BillVoteSuccess {
-  String hash;
+  String ballotspecHash;
 
-  BillVoteSuccess(
-      {this.hash});
+  BillVoteSuccess({this.ballotspecHash});
 
-  BillVoteSuccess.fromJson(Map<String, dynamic> json) {
-    hash = json['hash'];
+  factory BillVoteSuccess.fromJson(Map<String, dynamic> json) {
+    return BillVoteSuccess(ballotspecHash: json['data']['ballotspec_hash']);
   }
 }

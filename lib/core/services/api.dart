@@ -36,7 +36,6 @@ class Api {
     // parse into List
     var parsed = json.decode(response) as Map<String, dynamic>;
 
-    print(parsed);
     return Bill.fromJson(parsed);
   }
 
@@ -54,7 +53,6 @@ class Api {
       issues.add(Issue.fromJson(issue));
     }
 
-    print('complete issues');
     return issues;
   }
 
@@ -68,7 +66,7 @@ class Api {
 
   Future<BillVoteSuccess> submitBillVote(BillVote vote) async {
     final http.Response response = await http.post(
-      'http://192.168.0.146/dev/shitchain/',
+      'https://1j56c60pb0.execute-api.ap-southeast-2.amazonaws.com/dev/shitchain/',
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -80,7 +78,9 @@ class Api {
         "vote": vote.vote
       }),
     );
-    if (response.statusCode == 201) {
+    print('vote success');
+    print(BillVoteSuccess.fromJson(json.decode(response.body)));
+    if (response.statusCode == 200) {
       print(BillVoteSuccess.fromJson(json.decode(response.body)));
       return BillVoteSuccess.fromJson(json.decode(response.body));
     } else {

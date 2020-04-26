@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
-import 'package:voting_app/core/services/voting_service.dart';
+import 'package:voting_app/core/models/bill_vote_success.dart';
 import 'package:voting_app/core/viewmodels/bill_vote_model.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
@@ -32,27 +32,16 @@ class VoteWidget extends StatefulWidget {
 }
 
 class _VoteWidgetState extends State<VoteWidget> {
+  Future<BillVoteSuccess> _futureSuccess;
+
   @override
   Widget build(BuildContext context) {
     return BaseView<BillVoteModel>(
       builder: (context, model, child) => Center(
         child: Container(
           width: appSizes.largeWidth,
-          child: model.state == ViewState.Busy
+          child: (_futureSuccess == null)
               ? Card(
-                  margin: EdgeInsets.all(30.0),
-                  color: Theme.of(context).scaffoldBackgroundColor,
-                  child: Column(
-                    children: <Widget>[
-                      Text("Voting ",
-                          style: Theme.of(context).textTheme.headline6),
-                      Container(
-                        padding: EdgeInsets.all(appSizes.standardPadding),
-                        child: CircularProgressIndicator(),
-                      )
-                    ],
-                  ))
-              : Card(
                   margin: EdgeInsets.all(30.0),
                   color: Theme.of(context).scaffoldBackgroundColor,
                   child: Column(
@@ -87,6 +76,17 @@ class _VoteWidgetState extends State<VoteWidget> {
                       ),
                     ],
                   ),
+                )
+              : FutureBuilder(
+                  future: _futureSuccess,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return Text(snapshot.data.ballotspecHash);
+                    } else if (snapshot.hasError) {
+                      return Text("${snapshot.error}");
+                    }
+                    return CircularProgressIndicator();
+                  },
                 ),
         ),
       ),
@@ -127,7 +127,7 @@ class _VoteWidgetState extends State<VoteWidget> {
               child: Text('Confirm Vote'),
               onPressed: () {
                 Navigator.of(context).pop();
-                model.postVote(
+                _futureSuccess = model.postVote(
                   BillVote(
                       //TO DO: update to real data
                       pubKey: "lafksdjfnhc934y8q5pcn98xpc5ny85y410c5mp9xnyv",
