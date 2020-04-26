@@ -1,4 +1,6 @@
-# DigiPol - Parliament of the People
+# DigiPol
+
+## Parliament of the People
 
 _NOTE: App is in pre-Alpha - We welcome criticism, if you think you can improve the structure, please fork and do a pull request_
 
@@ -7,6 +9,8 @@ _NOTE: App is in pre-Alpha - We welcome criticism, if you think you can improve 
 Join us on
 
 [![image](/assets/graphics/discord.png)](https://discord.gg/xFMUTZw) <!-- .element height="50%" width="50%" -->
+
+--------------------------------------------------------------------------------
 
 ## Primary Program Objectives
 
@@ -80,6 +84,8 @@ Any UI element or styling feature is contained here. Avoid using app logic in th
 --------------------------------------------------------------------------------
 
 ## Contributing
+
+We are planning on implementing [C4](docs/CONTRIBUTING.md)
 
 A list of current items and their progress can be found [here](https://github.com/voteflux/voting_app/projects/1). If you feel comfortable diving straight in, just fork the repo, and open it up in Android Studio.
 
