@@ -1,7 +1,7 @@
-# Releasa Information
+# Release Information
 
 
-|                | Aplpha | Beta | Version 1 |
+|                | Alpha | Beta | Version 1 |
 |----------------|--------|------|-----------|
 | **Anonymity**      |Sudo-anonymity|Copperfield|Copperfield|
 | **Democracy Type** |Direct Democracy|Direct Democracy|IBDD|
