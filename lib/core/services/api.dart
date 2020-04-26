@@ -4,6 +4,7 @@ import 'package:voting_app/core/models/bill.dart';
 import 'package:http/http.dart' as http;
 import 'package:voting_app/core/models/bill_chain_data.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
+import 'package:voting_app/core/models/bill_vote_result.dart';
 import 'package:voting_app/core/models/bill_vote_success.dart';
 import 'package:voting_app/core/models/issue.dart';
 import 'package:voting_app/core/models/user.dart';
@@ -50,6 +51,17 @@ class Api {
     var parsed = json.decode(response.body) as Map<String, dynamic>;
 
     return BillChainData.fromJson(parsed);
+  }
+
+  // get block chain data, will replace with function with actual blockchain call once ready
+  Future<BillVoteResult> getBillResults(String id) async {
+    var response = await client.get(endpoint + 'dev/result/' + id);
+    //var response = await rootBundle.loadString('assets/data/sample_bill.json');
+
+    // parse into List
+    var parsed = json.decode(response.body) as Map<String, dynamic>;
+
+    return BillVoteResult.fromJson(parsed);
   }
 
   // get issues

@@ -47,9 +47,9 @@ class BillPage extends StatelessWidget {
                   child: ListView(
                     children: <Widget>[
                       PieWidget(
-                        yes: 2,
+                        yes: model.billVoteResult.yes,
                         showValues: true,
-                        no: 3,
+                        no: model.billVoteResult.no,
                         radius: dynamicMediumHeight,
                       ),
                       Padding(
