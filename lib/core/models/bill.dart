@@ -2,6 +2,7 @@ class Bill {
   String id;
   String chamber;
   String shortTitle;
+  String question;
   String introHouse;
   String passedHouse;
   String introSenate;
@@ -22,6 +23,7 @@ class Bill {
       {this.id,
       this.chamber,
       this.shortTitle,
+      this.question,
       this.introHouse,
       this.passedHouse,
       this.introSenate,
@@ -42,6 +44,7 @@ class Bill {
     id = json['_id'];
     chamber = json['data']['chamber'];
     shortTitle = json['data']['short_title'];
+    question = json['data']['question'];
     introHouse = json['data']['intro_house'];
     passedHouse = json['data']['passed_house'];
     introSenate = json['data']['intro_senate'];
