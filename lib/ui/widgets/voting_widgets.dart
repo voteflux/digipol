@@ -48,7 +48,7 @@ class _VoteWidgetState extends State<VoteWidget> {
                     Container(
                         padding: EdgeInsets.all(appSizes.standardPadding),
                         child: Text(
-                          widget.data.shortTitle,
+                          widget.data.question,
                           style: Theme.of(context).textTheme.headline6,
                         )),
                     Container(
