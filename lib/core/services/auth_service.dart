@@ -14,13 +14,13 @@ class AuthenticationService {
 
   StreamController<User> userController = StreamController<User>();
 
-  Future<bool> createUser(String name) async {
- 
+  Future<String> createUser(String name) async {
+
+    
     final prefs = await SharedPreferences.getInstance();
 
     //set name
     prefs.setString('name', name);
-
 
     Directory appDocDir = await getApplicationDocumentsDirectory();
     String appDocPath = appDocDir.path;
@@ -31,22 +31,18 @@ class AuthenticationService {
     // TO DO: check not to override existing wallet
     prefs.setString('ethereumAddress', walletService.ethereumAddress().toString());
 
-
     print(name);
-    return true;
+    return name;
   }
 
 
 
-  Future<bool> login(String name) async {
+  Future<String> getUser() async {
 
-    var fetchedUser = await _api.getUser();
+    final prefs = await SharedPreferences.getInstance();
+    final user = prefs.getString('name') ?? null;
 
-    var hasUser = fetchedUser != null;
-    if(hasUser) {
-      userController.add(fetchedUser);
-    }
-    print(fetchedUser);
-    return hasUser;
+    print(user);
+    return user;
   }
 }

@@ -10,19 +10,24 @@ class UserModel extends BaseModel {
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
 
-  Future<bool> login(String name) async {
+  Future<String> login() async {
     setState(ViewState.Busy);
 
-    // Not a number
-    if (name == null) {
-      setState(ViewState.Idle);
-      return false;
-    }
-
-    var success = await _authenticationService.login(name);
+    var name = await _authenticationService.getUser();
 
     setState(ViewState.Idle);
-    print(success);
-    return success;
+    print(name);
+    return name;
   }
+
+  Future<String> create(String name) async {
+    setState(ViewState.Busy);
+
+    var user = await _authenticationService.createUser(name);
+
+    setState(ViewState.Idle);
+    print(user);
+    return user;
+  }
+
 }
