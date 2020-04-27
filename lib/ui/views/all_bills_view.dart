@@ -101,7 +101,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                     //CountUpWidget(
                     //    number: model.bills.length, text: "TOTAL BILLS"),
                     //BillsMessageWidget(),
-                    billsList(model.bills)
+                    billsList(_filterBills)
                   ],
                 ),
               ),

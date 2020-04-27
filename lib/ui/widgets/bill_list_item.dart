@@ -22,12 +22,8 @@ class BillListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(appSizes.cardCornerRadius),
-        ),
         margin: EdgeInsets.all(appSizes.standardMargin),
         child: InkWell(
-          splashColor: appColors.cardInkWell,
           onTap: () {
             Navigator.push(
               context,

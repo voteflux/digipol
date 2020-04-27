@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/issue.dart';
 import 'dart:math';
 import 'package:voting_app/ui/styles.dart';
-import 'package:voting_app/ui/views/issues/issue.dart';
+import 'package:voting_app/ui/views/issues/issue_view.dart';
 import 'package:voting_app/ui/widgets/pie_chart.dart';
 
 class IssueListItem extends StatelessWidget {
@@ -19,13 +19,8 @@ class IssueListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(appSizes.cardCornerRadius)),
-        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: InkWell(
-          splashColor: Colors.blue.withAlpha(30),
           onTap: () {
-            // Pushing a named route
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => IssuePage(issue: issue)),
@@ -43,16 +38,16 @@ class IssueListItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text("Open",
-                          // TextStyle specific to this widget
                           style: Theme.of(context).textTheme.bodyText1),
                     ],
                   ),
                 ),
                 Divider(),
-                Container(
-                  child: Text(issue.shortTitle,
-                      style: Theme.of(context).textTheme.headline6),
-                ),
+                Text(issue.shortTitle,
+                    style: Theme.of(context).textTheme.headline6),
+                Text(issue.question,
+                    style: Theme.of(context).textTheme.bodyText2),
+                Divider(),
                 Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -60,23 +55,16 @@ class IssueListItem extends StatelessWidget {
                       Row(
                         children: <Widget>[
                           Icon(
-                            Icons.contacts,
+                            Icons.supervised_user_circle,
                             color: appColors.text,
                           ),
                           Text(
-                            (issue.yes + issue.no).toString(),
+                            (1).toString(),
                             style:
                                 TextStyle(color: appColors.text, fontSize: 10),
                           )
                         ],
                       ),
-                      PieWidget(
-                        // Delete Random when vote status is obtained
-                        yes: issue.yes,
-                        no: issue.no,
-                        radius: 55,
-                        showValues: false,
-                      )
                     ],
                   ),
                 ),

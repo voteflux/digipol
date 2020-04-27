@@ -58,14 +58,16 @@ class _VoteWidgetState extends State<VoteWidget> {
                         children: <Widget>[
                           RaisedButton(
                               onPressed: () {
-                                areYouSure("yes", model, widget.data.id, widget.data.ballotSpecHash);
+                                areYouSure("yes", model, widget.data.id,
+                                    widget.data.ballotSpecHash);
                               },
                               color: appColors.yes,
                               child: Text("Vote Yes",
                                   style: appTextStyles.yesnobutton)),
                           RaisedButton(
                               onPressed: () {
-                                areYouSure("no", model, widget.data.id, widget.data.ballotSpecHash);
+                                areYouSure("no", model, widget.data.id,
+                                    widget.data.ballotSpecHash);
                               },
                               color: appColors.no,
                               child: Text("Vote No",
@@ -81,7 +83,8 @@ class _VoteWidgetState extends State<VoteWidget> {
                         return Container(
                             padding: EdgeInsets.all(appSizes.standardPadding),
                             child: Text(
-                              "Successful vote: " + snapshot.data.ballotspecHash,
+                              "Successful vote: " +
+                                  snapshot.data.ballotspecHash,
                               style: Theme.of(context).textTheme.headline6,
                             ));
                       } else if (snapshot.hasError) {
@@ -93,8 +96,9 @@ class _VoteWidgetState extends State<VoteWidget> {
                             ));
                       }
                       return Container(
-                          padding: EdgeInsets.all(appSizes.standardPadding),
-                          child: CircularProgressIndicator());
+                        padding: EdgeInsets.all(appSizes.standardPadding),
+                        child: Center(child: CircularProgressIndicator()),
+                      );
                     },
                   ),
           ),
