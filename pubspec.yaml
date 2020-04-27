@@ -32,6 +32,7 @@ dependencies:
   get_it: ^4.0.1
   test: ^1.14.2
   bip32: ^1.0.5
+  shared_preferences: "^0.5.7"
 
 dev_dependencies:
   flutter_test:
