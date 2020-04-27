@@ -1,4 +1,5 @@
 class Bill {
+  String id;
   String chamber;
   String shortTitle;
   String introHouse;
@@ -18,7 +19,8 @@ class Bill {
   int no;
 
   Bill(
-      {this.chamber,
+      {this.id,
+      this.chamber,
       this.shortTitle,
       this.introHouse,
       this.passedHouse,
@@ -37,22 +39,23 @@ class Bill {
       this.no});
 
   Bill.fromJson(Map<String, dynamic> json){
-    chamber = json['chamber'];
-    shortTitle = json['short_title'];
-    introHouse = json['intro_house'];
-    passedHouse = json['passed_house'];
-    introSenate = json['intro_senate'];
-    passedSenate = json['passed_senate'];
-    assentDate = json['assent_date'];
-    actNo = json['act_no'];
-    url = json['url'];
-    summary = json['summary'];
+    id = json['_id'];
+    chamber = json['data']['chamber'];
+    shortTitle = json['data']['short_title'];
+    introHouse = json['data']['intro_house'];
+    passedHouse = json['data']['passed_house'];
+    introSenate = json['data']['intro_senate'];
+    passedSenate = json['data']['passed_senate'];
+    assentDate = json['data']['assent_date'];
+    actNo = json['data']['act_no'];
+    url = json['data']['url'];
+    summary = json['data']['summary'];
     sponsor = json['sponsor'];
-    textLinkDoc = json['text_link_doc'];
-    textLinkPdf = json['text_link_pdf'];
-    emLinkPdf = json['em_link_pdf'];
-    emLinkHtml = json['em_link_html'];
-    yes = json['yes'];
-    no = json['no'];
+    textLinkDoc = json['data']['text_link_doc'];
+    textLinkPdf = json['data']['text_link_pdf'];
+    emLinkPdf = json['data']['em_link_pdf'];
+    emLinkHtml = json['data']['em_link_html'];
+    yes = json['data']['yes'];
+    no = json['data']['no'];
   }
 }

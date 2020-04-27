@@ -43,6 +43,7 @@ class _AllIssuesPageState extends State<AllIssuesPage> {
     super.initState();
     getBills();
   }
+  
   @override
   Widget build(BuildContext context) {
     return BaseView<IssuesModel>(

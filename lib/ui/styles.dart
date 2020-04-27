@@ -119,7 +119,7 @@ class AppSizes {
     cardCornerRadius = 9.0;
     buttonRadius = 20.0;
     cardElevation = 2.0;
-    standardMargin = 20.0;
+    standardMargin = 10.0;
     standardPadding = 30.0;
   }
 }
