@@ -42,8 +42,10 @@ class AuthenticationService {
 
     final prefs = await SharedPreferences.getInstance();
     final user = prefs.getString('name') ?? null;
+    final ethereumAddress = prefs.getString('ethereumAddress') ?? null;
 
     print(user);
+    print(ethereumAddress);
     return user;
   }
 
