@@ -12,7 +12,7 @@ import 'package:voting_app/ui/views/login.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:voting_app/locator.dart';
-import 'package:instabug_flutter/Instabug.dart';
+//import 'package:instabug_flutter/Instabug.dart';
 
 
 void main() {
@@ -29,7 +29,8 @@ class _MyAppState extends State<MyApp> {
   @override
   initState() {
     super.initState();
-    Instabug.start('dfdea6cecd71ae7d94d60d24dc881ff3', [InvocationEvent.shake]);
+    print("InstaBug here");
+//    Instabug.start('dfdea6cecd71ae7d94d60d24dc881ff3', [InvocationEvent.shake]);
   }
 
   @override
