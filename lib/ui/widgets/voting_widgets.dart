@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/bill_vote_success.dart';
+import 'package:voting_app/core/services/auth_service.dart';
 import 'package:voting_app/core/viewmodels/bill_vote_model.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
@@ -33,9 +35,26 @@ class VoteWidget extends StatefulWidget {
 
 class _VoteWidgetState extends State<VoteWidget> {
   Future<BillVoteSuccess> _futureSuccess;
+  String _ethereumAddress;
 
   @override
   Widget build(BuildContext context) {
+
+    Future setUser() async {
+      var authservice = AuthenticationService();
+
+      var ethereumAddress = await authservice.getEthereumAddress();
+
+      setState(() {
+        _ethereumAddress = ethereumAddress;
+      });
+    }
+
+    @override
+    void initState() {
+      super.initState();
+      setUser();
+    }
     return BaseView<BillVoteModel>(
       builder: (context, model, child) => Center(
         child: Container(
@@ -142,7 +161,7 @@ class _VoteWidgetState extends State<VoteWidget> {
                   _futureSuccess = model.postVote(
                     BillVote(
                         //TO DO: update to real data
-                        pubKey: "lafksdjfnhc934y8q5pcn98xpc5ny85y410c5mp9xnyv",
+                        pubKey: _ethereumAddress,
                         ballotId: id,
                         ballotSpecHash: ballotSpecHash,
                         constituency: "Australia",

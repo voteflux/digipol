@@ -19,6 +19,7 @@ class IssueListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
+        margin: EdgeInsets.all(appSizes.standardMargin),
         child: InkWell(
           onTap: () {
             Navigator.push(

@@ -6,6 +6,7 @@ import 'base_model.dart';
 
 class BillVoteModel extends BaseModel {
   Future<BillVoteSuccess> postVote(BillVote vote) async {
+    print(vote.pubKey);
 
     var body = json.encode(<String, dynamic>{
       "pub_key": vote.pubKey,

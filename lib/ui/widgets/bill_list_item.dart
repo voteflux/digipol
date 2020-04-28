@@ -57,6 +57,7 @@ class BillListItem extends StatelessWidget {
                   child: Text(bill.shortTitle,
                       style: Theme.of(context).textTheme.headline6),
                 ),
+                Divider(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -64,13 +65,13 @@ class BillListItem extends StatelessWidget {
                       bill: bill,
                       size: 20,
                     ),
-                    PieWidget(
+                    //PieWidget(
                       // Delete Random when vote status is obtained
-                      yes: 10,
-                      showValues: false,
-                      no: 10,
-                      radius: 50,
-                    )
+                    //  yes: 10,
+                    //  showValues: false,
+                    //  no: 10,
+                    //  radius: 50,
+                    //)
                   ],
                 ),
               ],
