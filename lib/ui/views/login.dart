@@ -19,6 +19,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return BaseView<UserModel>(
+      onModelReady: (model) => model.login(),
       builder: (context, model, child) => Scaffold(
         body: Center(
           child: model.state == ViewState.Busy
@@ -83,8 +84,8 @@ class _LogInWidgetState extends State<LogIn> {
     if (_formKey.currentState.validate()) {
       
       _formKey.currentState.save();
-      var loginSuccess = await Provider.of<UserModel>(context, listen: false).login(_name);
-      if(loginSuccess) {
+      var loginSuccess = await Provider.of<UserModel>(context, listen: false).create(_name);
+      if(true) {
         Navigator.pushNamed(context, '/');
       }
 

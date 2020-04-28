@@ -52,11 +52,29 @@ class MyMaterialApp extends StatefulWidget {
 }
 
 class _MyMaterialAppState extends State<MyMaterialApp> {
+  String user;
+
   @override
   Widget build(BuildContext context) {
+    Future setUser() async {
+      var authservice = AuthenticationService();
+
+      var isUser = await authservice.getUser();
+
+      setState(() {
+        user = isUser;
+      });
+    }
+
+    @override
+    void initState() {
+      super.initState();
+      setUser();
+    }
+
     return Consumer<SettingsModel>(builder: (context, model, child) {
       return MaterialApp(
-          initialRoute: '/profile',
+          initialRoute: user != null ? '/profile' : '/',
           home: MainScreen(),
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
@@ -95,25 +113,21 @@ class _MainScreenState extends State<MainScreen> {
         type: BottomNavigationBarType.shifting,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.assignment),
-            title: Text('Bills'),
-            backgroundColor: Theme.of(context).backgroundColor
-          ),
+              icon: Icon(Icons.assignment),
+              title: Text('Bills'),
+              backgroundColor: Theme.of(context).backgroundColor),
           BottomNavigationBarItem(
-            icon: Icon(Icons.assignment_late),
-            title: Text('Issues'),
-            backgroundColor: Theme.of(context).backgroundColor
-          ),
+              icon: Icon(Icons.assignment_late),
+              title: Text('Issues'),
+              backgroundColor: Theme.of(context).backgroundColor),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            title: Text('Profile'),
-            backgroundColor: Theme.of(context).backgroundColor
-          ),
+              icon: Icon(Icons.account_circle),
+              title: Text('Profile'),
+              backgroundColor: Theme.of(context).backgroundColor),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            title: Text('Settings'),
-            backgroundColor: Theme.of(context).backgroundColor
-          ),
+              icon: Icon(Icons.settings),
+              title: Text('Settings'),
+              backgroundColor: Theme.of(context).backgroundColor),
         ],
         currentIndex: _currentIndex,
         onTap: (int index) {

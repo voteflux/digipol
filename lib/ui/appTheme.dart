@@ -60,7 +60,8 @@ class AppTheme {
       ),
       subtitle1: TextStyle(
         color: lightAppColors.text,
-        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
+        fontSize: 16.0,
       ),
       bodyText1: TextStyle(
         color: lightAppColors.textSecondary,
