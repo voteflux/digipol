@@ -15,19 +15,10 @@ import 'package:voting_app/ui/views/base_view.dart';
 // separate into widgets
 
 class VoteWidget extends StatefulWidget {
-  // card with voting info and buttons
   final data;
-  final bool loggedIn = false;
+  final String vote;
 
-  /// Where voting stuff happens
-  ///
-  /// usage:
-  ///
-  /// `child: VoteWidget(data: data,),`
-  VoteWidget({
-    Key key,
-    @required this.data,
-  }) : super(key: key);
+  VoteWidget({Key key, @required this.data, this.vote}) : super(key: key);
 
   @override
   _VoteWidgetState createState() => _VoteWidgetState();
@@ -38,7 +29,6 @@ class _VoteWidgetState extends State<VoteWidget> {
 
   @override
   Widget build(BuildContext context) {
-
     return BaseView<BillVoteModel>(
       builder: (context, model, child) => Center(
         child: Container(
@@ -46,64 +36,72 @@ class _VoteWidgetState extends State<VoteWidget> {
           child: Card(
             margin: EdgeInsets.all(30.0),
             color: Theme.of(context).scaffoldBackgroundColor,
-            child: (_futureSuccess == null)
-                ? Column(children: <Widget>[
-                    Container(
-                        padding: EdgeInsets.all(appSizes.standardPadding),
-                        child: Text(
-                          widget.data.shortTitle,
-                          style: Theme.of(context).textTheme.headline6,
-                        )),
-                    Container(
-                      padding: EdgeInsets.all(appSizes.standardPadding),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          RaisedButton(
-                              onPressed: () {
-                                areYouSure("yes", model, widget.data.id,
-                                    widget.data.ballotSpecHash);
-                              },
-                              color: appColors.yes,
-                              child: Text("Vote Yes",
-                                  style: appTextStyles.yesnobutton)),
-                          RaisedButton(
-                              onPressed: () {
-                                areYouSure("no", model, widget.data.id,
-                                    widget.data.ballotSpecHash);
-                              },
-                              color: appColors.no,
-                              child: Text("Vote No",
-                                  style: appTextStyles.yesnobutton)),
-                        ],
+            child: widget.vote != null
+                ? Container(
+                    padding: EdgeInsets.all(appSizes.standardPadding),
+                    child: Text("You voted " + widget.vote,
+                        style: Theme.of(context).textTheme.headline6))
+                : (_futureSuccess == null)
+                    ? Column(children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.all(appSizes.standardPadding),
+                          child: Text(
+                            widget.data.shortTitle,
+                            style: Theme.of(context).textTheme.headline6,
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(appSizes.standardPadding),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              RaisedButton(
+                                  onPressed: () {
+                                    areYouSure("yes", model, widget.data.id,
+                                        widget.data.ballotSpecHash);
+                                  },
+                                  color: appColors.yes,
+                                  child: Text("Vote Yes",
+                                      style: appTextStyles.yesnobutton)),
+                              RaisedButton(
+                                  onPressed: () {
+                                    areYouSure("no", model, widget.data.id,
+                                        widget.data.ballotSpecHash);
+                                  },
+                                  color: appColors.no,
+                                  child: Text("Vote No",
+                                      style: appTextStyles.yesnobutton)),
+                            ],
+                          ),
+                        ),
+                      ])
+                    : FutureBuilder<BillVoteSuccess>(
+                        future: _futureSuccess,
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return Container(
+                                padding:
+                                    EdgeInsets.all(appSizes.standardPadding),
+                                child: Text(
+                                  "Successful vote: " +
+                                      snapshot.data.ballotspecHash,
+                                  style: Theme.of(context).textTheme.headline6,
+                                ));
+                          } else if (snapshot.hasError) {
+                            return Container(
+                                padding:
+                                    EdgeInsets.all(appSizes.standardPadding),
+                                child: Text(
+                                  "${snapshot.error}",
+                                  style: Theme.of(context).textTheme.headline6,
+                                ));
+                          }
+                          return Container(
+                            padding: EdgeInsets.all(appSizes.standardPadding),
+                            child: Center(child: CircularProgressIndicator()),
+                          );
+                        },
                       ),
-                    ),
-                  ])
-                : FutureBuilder<BillVoteSuccess>(
-                    future: _futureSuccess,
-                    builder: (context, snapshot) {
-                      if (snapshot.hasData) {
-                        return Container(
-                            padding: EdgeInsets.all(appSizes.standardPadding),
-                            child: Text(
-                              "Successful vote: " +
-                                  snapshot.data.ballotspecHash,
-                              style: Theme.of(context).textTheme.headline6,
-                            ));
-                      } else if (snapshot.hasError) {
-                        return Container(
-                            padding: EdgeInsets.all(appSizes.standardPadding),
-                            child: Text(
-                              "${snapshot.error}",
-                              style: Theme.of(context).textTheme.headline6,
-                            ));
-                      }
-                      return Container(
-                        padding: EdgeInsets.all(appSizes.standardPadding),
-                        child: Center(child: CircularProgressIndicator()),
-                      );
-                    },
-                  ),
           ),
         ),
       ),
