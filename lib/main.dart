@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/user.dart';
-import 'package:voting_app/core/viewmodels/settings_model.dart';
+import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/appTheme.dart';
 import 'package:voting_app/ui/views/all_issues_view.dart';
+import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/views/settings.dart';
 import 'package:voting_app/core/services/auth_service.dart';
 import 'package:voting_app/core/route_generator.dart';
@@ -12,6 +13,8 @@ import 'package:voting_app/ui/views/login.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:voting_app/locator.dart';
+//import 'package:instabug_flutter/Instabug.dart';
+
 
 void main() {
   setupLocator();
@@ -25,38 +28,29 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
+  initState() {
+    super.initState();
+    print("InstaBug here");
+//    Instabug.start('dfdea6cecd71ae7d94d60d24dc881ff3', [InvocationEvent.shake]);
+  }
+
+  @override
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarWhiteForeground(darkMode);
-    return MultiProvider(providers: [
-      StreamProvider<User>(
-        initialData: User.initial(),
-        create: (BuildContext context) =>
-            locator<AuthenticationService>().userController.stream,
-      ),
-      ListenableProvider<SettingsModel>(create: (context) => SettingsModel())
-    ], child: MyMaterialApp());
+        return BaseView<ThemeModel>(
+        onModelReady: (model) => model.setUser(),
+        builder: (context, model, child) {
+          return MaterialApp(
+              initialRoute: model.getUser == null ? '/profile' : '/',
+              home: MainScreen(),
+              theme: AppTheme.lightTheme,
+              darkTheme: AppTheme.darkTheme,
+              onGenerateRoute: RouteGenerator.generateSettingsRoute,
+              themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light);
+        });
   }
 }
 
-class MyMaterialApp extends StatefulWidget {
-  @override
-  _MyMaterialAppState createState() => _MyMaterialAppState();
-}
-
-class _MyMaterialAppState extends State<MyMaterialApp> {
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<SettingsModel>(builder: (context, model, child) {
-      return MaterialApp(
-          initialRoute: '/profile',
-          home: MainScreen(),
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
-          onGenerateRoute: RouteGenerator.generateSettingsRoute,
-          themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light);
-    });
-  }
-}
 
 class MainScreen extends StatefulWidget {
   @override
@@ -76,7 +70,6 @@ class _MainScreenState extends State<MainScreen> {
         child: IndexedStack(index: _currentIndex, children: <Widget>[
           AllBillsPage(),
           AllIssuesPage(),
-          ProfilePage(),
           SettingsPage()
         ]),
       ),
@@ -87,25 +80,17 @@ class _MainScreenState extends State<MainScreen> {
         type: BottomNavigationBarType.shifting,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.assignment),
-            title: Text('Bills'),
-            backgroundColor: Theme.of(context).backgroundColor
-          ),
+              icon: Icon(Icons.assignment),
+              title: Text('Bills'),
+              backgroundColor: Theme.of(context).backgroundColor),
           BottomNavigationBarItem(
-            icon: Icon(Icons.assignment_late),
-            title: Text('Issues'),
-            backgroundColor: Theme.of(context).backgroundColor
-          ),
+              icon: Icon(Icons.assignment_late),
+              title: Text('Issues'),
+              backgroundColor: Theme.of(context).backgroundColor),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            title: Text('Profile'),
-            backgroundColor: Theme.of(context).backgroundColor
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            title: Text('Settings'),
-            backgroundColor: Theme.of(context).backgroundColor
-          ),
+              icon: Icon(Icons.settings),
+              title: Text('Settings'),
+              backgroundColor: Theme.of(context).backgroundColor),
         ],
         currentIndex: _currentIndex,
         onTap: (int index) {

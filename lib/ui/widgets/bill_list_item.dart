@@ -22,12 +22,8 @@ class BillListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(appSizes.cardCornerRadius),
-        ),
         margin: EdgeInsets.all(appSizes.standardMargin),
         child: InkWell(
-          splashColor: appColors.cardInkWell,
           onTap: () {
             Navigator.push(
               context,
@@ -61,6 +57,7 @@ class BillListItem extends StatelessWidget {
                   child: Text(bill.shortTitle,
                       style: Theme.of(context).textTheme.headline6),
                 ),
+                Divider(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -68,13 +65,13 @@ class BillListItem extends StatelessWidget {
                       bill: bill,
                       size: 20,
                     ),
-                    PieWidget(
+                    //PieWidget(
                       // Delete Random when vote status is obtained
-                      yes: bill.yes,
-                      showValues: false,
-                      no: bill.no,
-                      radius: 50,
-                    )
+                    //  yes: 10,
+                    //  showValues: false,
+                    //  no: 10,
+                    //  radius: 50,
+                    //)
                   ],
                 ),
               ],

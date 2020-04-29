@@ -4,7 +4,7 @@ class Issue {
   String startDate;
   String endDate;
   String id;
-  String summary;
+  String question;
   String description;
   String sponsor;
   int yes;
@@ -16,22 +16,20 @@ class Issue {
       this.startDate,
       this.endDate,
       this.id,
-      this.summary,
+      this.question,
       this.description,
       this.sponsor,
       this.yes,
       this.no});
 
   Issue.fromJson(Map<String, dynamic> json){
-    chamber = json['Chamber'];
-    shortTitle = json['Short_Title'];
-    startDate = json['Start_Date'];
-    endDate = json['End_Date'];
-    id = json['id'];
-    summary = json['Summary'];
-    description = json['Description'];
-    sponsor = json['Sponsor'];
-    yes = json['Yes'];
-    no = json['No'];
+    chamber = json['data']['chamber'];
+    shortTitle = json['data']['short_title'];
+    startDate = json['data']['start_date'];
+    endDate = json['data']['end_date'];
+    id = json['_id'];
+    question = json['data']['question'];
+    description = json['data']['description'];
+    sponsor = json['data']['sponsor'];
   }
 }

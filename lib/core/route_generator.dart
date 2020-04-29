@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/ui/views/bills/bill.dart';
-import 'package:voting_app/ui/views/issues/issue.dart';
+import 'package:voting_app/ui/views/issues/issue_view.dart';
 import 'package:voting_app/main.dart';
 import 'package:voting_app/ui/views/login.dart';
 import 'package:voting_app/ui/views/bills/pdf_viewer.dart';

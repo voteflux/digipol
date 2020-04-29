@@ -60,33 +60,3 @@ class _CountUpWidgetState extends State<CountUpWidget> {
     ));
   }
 }
-
-// Button widget
-class MainButton extends StatelessWidget {
-  final String buttonText;
-  final Color buttonColor;
-  final Function pressedButtonAction;
-
-  MainButton(
-      {@required this.buttonText,
-      @required this.buttonColor,
-      @required this.pressedButtonAction});
-
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(minWidth: double.infinity),
-          child: FlatButton(
-              color: buttonColor,
-              padding: const EdgeInsets.all(20.0),
-              child: Text(
-                buttonText,
-                style: appTextStyles.yesnobutton,
-              ),
-              onPressed: pressedButtonAction),
-        ),
-      ),
-    );
-  }
-}
