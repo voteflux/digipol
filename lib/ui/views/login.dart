@@ -15,6 +15,10 @@ class ProfilePage extends StatefulWidget {
   _ProfilePageState createState() => _ProfilePageState();
 }
 
+final _formKey = GlobalKey<FormState>();
+final Map<String, dynamic> formData = {'name': null};
+String _name;
+
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
@@ -24,68 +28,50 @@ class _ProfilePageState extends State<ProfilePage> {
         body: Center(
           child: model.state == ViewState.Busy
               ? CircularProgressIndicator()
-              : LogIn(),
-        ),
-      ),
-    );
-  }
-}
-
-class LogIn extends StatefulWidget {
-  @override
-  _LogInWidgetState createState() => _LogInWidgetState();
-}
-
-class _LogInWidgetState extends State<LogIn> {
-
-  final _formKey = GlobalKey<FormState>();
-  final Map<String, dynamic> formData = {'name': null};
-  String _name;
-
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Container(
-        width: appSizes.mediumWidth,
-        padding: const EdgeInsets.all(20.0),
-        child: ListView(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(bottom: 20.0),
-              child: Text(
-                "Register to vote",
-                style: Theme.of(context).textTheme.headline4,
-              ),
-            ),
-            CustomFormField(
-              helpText: "Your name",
-              submitAction: (String value) {
-                _name = value;
-              },
-            ),
-            _buildSubmitButton()
-          ],
+              : Form(
+                  key: _formKey,
+                  child: Container(
+                    width: appSizes.mediumWidth,
+                    padding: const EdgeInsets.all(20.0),
+                    child: ListView(
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 20.0),
+                          child: Text(
+                            "Register to vote",
+                            style: Theme.of(context).textTheme.headline4,
+                          ),
+                        ),
+                        CustomFormField(
+                          helpText: "Your name",
+                          submitAction: (String value) {
+                            _name = value;
+                          },
+                        ),
+                        _buildSubmitButton(model)
+                      ],
+                    ),
+                  ),
+                ),
         ),
       ),
     );
   }
 
-  Widget _buildSubmitButton() {
+  Widget _buildSubmitButton(model) {
     return RaisedButton(
       onPressed: () {
-        _submitForm();
+        _submitForm(model);
       },
       child: Text('Register'),
     );
   }
 
-  void _submitForm() async {
+  void _submitForm(model) async {
     if (_formKey.currentState.validate()) {
-      
       _formKey.currentState.save();
-      var loginSuccess = await Provider.of<UserModel>(context, listen: false).create(_name);
-      if(true) {
+      var loginSuccess = await model.create(_name);
+      if (true) {
         Navigator.pushNamed(context, '/');
       }
 

@@ -1,8 +1,6 @@
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/services/auth_service.dart';
 import 'package:voting_app/locator.dart';
-import 'dart:math';
-import 'package:web3dart/web3dart.dart';
 
 import 'base_model.dart';
 
@@ -26,7 +24,6 @@ class UserModel extends BaseModel {
     var user = await _authenticationService.createUser(name);
 
     setState(ViewState.Idle);
-    print(user);
     return user;
   }
 
