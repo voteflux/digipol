@@ -2,9 +2,7 @@
 
 ## Installing the apps
 
-### iOS
-
-### Android
+You will receive an email with how to install the app depending on weather you use iOS or Android.
 
 ## Using the app
 
@@ -14,11 +12,9 @@ You can browse both the Bills and Issues tabs, navigate to the voting section an
 
 ## Bug reporting
 
-In order to report a bug, simply shake your divide and follow the prompts
+To discuss bugs and issues with the first alpha, head over to the [flux discord server](https://discord.gg/xFMUTZw) and join in the **#alpha_testers** channel. Post screenshots and write descriptions of your findings.
 
-## Conversations
-
-To have conversations about the app during alpha testing, head over to the [flux discord server](https://discord.gg/xFMUTZw) and join in the **#alpha_testers** channel.
+For a more detailed BUG report, go to the [Issues Page](https://github.com/voteflux/voting_app/issues) on the **voting_app** repo, check if your issue/bug type has been mentioned and add to it *OR* create a new issue. **NOTE:** Be sure to use the *alpha feedback* tag when creating a new issue. You may also add appropriate tags.
 
 ## Feature Requests
 
