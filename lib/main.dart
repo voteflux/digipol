@@ -13,6 +13,8 @@ import 'package:voting_app/ui/views/login.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:voting_app/locator.dart';
+//import 'package:instabug_flutter/Instabug.dart';
+
 
 void main() {
   setupLocator();
@@ -25,6 +27,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  @override
+  initState() {
+    super.initState();
+    print("InstaBug here");
+//    Instabug.start('dfdea6cecd71ae7d94d60d24dc881ff3', [InvocationEvent.shake]);
+  }
+
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarWhiteForeground(darkMode);

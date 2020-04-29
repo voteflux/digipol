@@ -35,10 +35,26 @@ class VoteWidget extends StatefulWidget {
 
 class _VoteWidgetState extends State<VoteWidget> {
   Future<BillVoteSuccess> _futureSuccess;
+  String _ethereumAddress;
 
   @override
   Widget build(BuildContext context) {
 
+    Future setUser() async {
+      var authservice = AuthenticationService();
+
+      var ethereumAddress = await authservice.getEthereumAddress();
+
+      setState(() {
+        _ethereumAddress = ethereumAddress;
+      });
+    }
+
+    @override
+    void initState() {
+      super.initState();
+      setUser();
+    }
     return BaseView<BillVoteModel>(
       builder: (context, model, child) => Center(
         child: Container(
@@ -117,7 +133,6 @@ class _VoteWidgetState extends State<VoteWidget> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: Theme.of(context).backgroundColor,
           title: Text('Confirm Vote',
               style: Theme.of(context).textTheme.headline6),
           content: SingleChildScrollView(
@@ -146,7 +161,7 @@ class _VoteWidgetState extends State<VoteWidget> {
                   _futureSuccess = model.postVote(
                     BillVote(
                         //TO DO: update to real data
-                        pubKey: model.getEthereumAddress().toString(),
+                        pubKey: _ethereumAddress,
                         ballotId: id,
                         ballotSpecHash: ballotSpecHash,
                         constituency: "Australia",

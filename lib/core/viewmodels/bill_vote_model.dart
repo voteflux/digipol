@@ -2,18 +2,20 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/bill_vote_success.dart';
-import 'package:voting_app/core/services/auth_service.dart';
-import 'package:voting_app/locator.dart';
 import 'base_model.dart';
+import '../services/wallet.dart';
 
 class BillVoteModel extends BaseModel {
   Future<BillVoteSuccess> postVote(BillVote vote) async {
     print(vote.pubKey);
+    var walletService = WalletService(null);
+    
 
     var body = json.encode(<String, dynamic>{
-      "pub_key": vote.pubKey,
+      "pub_key": await walletService.ethereumAddress(),
       "ballot_id": vote.ballotId,
-      "ballotspec_hash": vote.ballotSpecHash,
+      "ballotspec_hash":
+          vote.ballotSpecHash,
       "constituency": vote.constituency,
       "vote": vote.vote
     });
@@ -32,14 +34,5 @@ class BillVoteModel extends BaseModel {
     } else {
       throw Exception('Failed cast vote');
     }
-  }
-
-  Future<String> getEthereumAddress() async {
-  final AuthenticationService _authenticationService =
-      locator<AuthenticationService>();
-
-    final String ethereumAddress = await _authenticationService.getEthereumAddress();
-
-    return ethereumAddress;
   }
 }
