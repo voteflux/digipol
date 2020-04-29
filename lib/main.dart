@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
         onModelReady: (model) => model.setUser(),
         builder: (context, model, child) {
           return MaterialApp(
-              initialRoute: model.user != null ? '/profile' : '/',
+              initialRoute: model.getUser == null ? '/profile' : '/',
               home: MainScreen(),
               theme: AppTheme.lightTheme,
               darkTheme: AppTheme.darkTheme,

@@ -3,12 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/viewmodels/user_model.dart';
 import 'package:voting_app/ui/views/base_view.dart';
-import 'package:voting_app/core/models/user.dart';
 import 'package:voting_app/ui/widgets/custom_form_feild_widget.dart';
 import 'package:voting_app/ui/styles.dart';
-import 'package:voting_app/ui/views/login/signup.dart';
-import 'package:provider/provider.dart';
-import 'package:voting_app/core/enums/authstate.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -63,14 +59,16 @@ class _ProfilePageState extends State<ProfilePage> {
       onPressed: () {
         _submitForm(model);
       },
-      child: Text('Register'),
+      child: model.state == ViewState.Busy
+          ? CircularProgressIndicator()
+          : Text('Register'),
     );
   }
 
-  void _submitForm(model) async {
+  void _submitForm(model) {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
-      var loginSuccess = await model.create(_name);
+      model.create(_name);
       if (true) {
         Navigator.pushNamed(context, '/');
       }

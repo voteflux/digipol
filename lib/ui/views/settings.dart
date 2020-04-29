@@ -24,7 +24,6 @@ class _SettingsPageState extends State<SettingsPage> {
             width: appSizes.mediumWidth,
             child: ListView(
               children: <Widget>[
-                Text("Hi " + model.getUser),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -68,6 +67,20 @@ class _SettingsPageState extends State<SettingsPage> {
                         activeColor: Colors.blue,
                       ),
                     )
+                  ],
+                ),
+                Divider(thickness: 2.0,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                  RaisedButton(
+                    color: Colors.red,
+                        onPressed: () {
+                          model.clearUser();
+                          Navigator.pop(context, '/profile');
+                        },
+                        child: Text('Log out'),
+                      ),
                   ],
                 )
               ],

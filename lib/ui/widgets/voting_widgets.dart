@@ -35,26 +35,10 @@ class VoteWidget extends StatefulWidget {
 
 class _VoteWidgetState extends State<VoteWidget> {
   Future<BillVoteSuccess> _futureSuccess;
-  String _ethereumAddress;
 
   @override
   Widget build(BuildContext context) {
 
-    Future setUser() async {
-      var authservice = AuthenticationService();
-
-      var ethereumAddress = await authservice.getEthereumAddress();
-
-      setState(() {
-        _ethereumAddress = ethereumAddress;
-      });
-    }
-
-    @override
-    void initState() {
-      super.initState();
-      setUser();
-    }
     return BaseView<BillVoteModel>(
       builder: (context, model, child) => Center(
         child: Container(
@@ -161,7 +145,7 @@ class _VoteWidgetState extends State<VoteWidget> {
                   _futureSuccess = model.postVote(
                     BillVote(
                         //TO DO: update to real data
-                        pubKey: _ethereumAddress,
+                        pubKey: "",
                         ballotId: id,
                         ballotSpecHash: ballotSpecHash,
                         constituency: "Australia",
