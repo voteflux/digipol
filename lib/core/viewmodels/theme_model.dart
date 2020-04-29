@@ -17,7 +17,7 @@ class ThemeModel extends BaseModel {
     notifyListeners();
   }
 
-  Future setUser() async {
+  Future<String> setUser() async {
     var isUser = await _authenticationService.getUser();
     user = isUser;
     print(user);
