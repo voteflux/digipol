@@ -5,10 +5,13 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:flutter/services.dart' as services;
 import 'package:web3dart/web3dart.dart';
 import 'package:bip39/bip39.dart' as bip39;
 import 'package:bip32/bip32.dart' as bip32;
 import 'package:hex/hex.dart';
+import 'package:path_provider/path_provider.dart';
+
 
 const WALLET_FILE_NAME = "wallet.json";
 const TEMPORARY_PASSWORD = "4%8=)l_L210920A@g,";
@@ -32,10 +35,11 @@ class WalletService {
   /// If a list of strings is supplied as the parameter [words], they are used to generate the private key via BIP-39
   /// Otherwise, a random private key is generated from scratch.
   Future<Wallet> make({List<String> words}) async {
-    EthPrivateKey ethKey;
+
     var rand = Random.secure();
 
     //Use mnemonic words if supplied, otherwise create a random key
+    EthPrivateKey ethKey;
     if (words == null) {
       ethKey = EthPrivateKey.createRandom(rand);
     } else {
@@ -75,7 +79,7 @@ class WalletService {
   /// Read wallet from the wallet file.
   Future<Wallet> load() async {
     if (await walletExists()) {
-      String walletContent = walletFile.readAsStringSync();
+      String walletContent = (await walletFile()).readAsStringSync();
       return Wallet.fromJson(walletContent, TEMPORARY_PASSWORD);
     } else {
       throw WalletMissingException();
@@ -85,7 +89,7 @@ class WalletService {
   /// Write a wallet to the wallet file.
   Future<bool> save(Wallet wallet) async {
     try {
-      await walletFile.writeAsString(wallet.toJson());
+      await (await walletFile()).writeAsString(wallet.toJson());
       return true;
     } catch (e) {
       return false;
@@ -94,13 +98,13 @@ class WalletService {
 
   /// Returns true if the wallet file exists.
   Future<bool> walletExists() async {
-    return await walletFile.exists();
+    return (await walletFile()).exists();
   }
 
   /// Delete the wallet file.
   Future<bool> delete() async {
     try {
-      await walletFile.delete();
+      await (await walletFile()).delete();
       return true;
     } catch (e) {
       return false;
@@ -113,7 +117,11 @@ class WalletService {
   }
 
   /// The file handle for the file used to store the wallet object.
-  File get walletFile {
+  Future<File> walletFile() async {  
+    if (_walletDirectoryPath == null) {
+      Directory appDocDir =  await getApplicationDocumentsDirectory();
+      _walletDirectoryPath = appDocDir.path;
+    }
     return File('${_walletDirectoryPath}/$WALLET_FILE_NAME');
   }
 }

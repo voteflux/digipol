@@ -1,41 +1,38 @@
 import 'dart:async';
-import 'dart:io';
 
-import 'package:flutter/animation.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voting_app/core/models/user.dart';
 import 'package:voting_app/core/services/wallet.dart';
 
-import '../../locator.dart';
-import 'api.dart';
-
 class AuthenticationService {
-  Api _api = locator<Api>();
+  //Api _api = locator<Api>();
 
   StreamController<User> userController = StreamController<User>();
 
   Future<String> createUser(String name) async {
 
-    
     final prefs = await SharedPreferences.getInstance();
 
     //set name
     prefs.setString('name', name);
 
-    Directory appDocDir = await getApplicationDocumentsDirectory();
-    String appDocPath = appDocDir.path;
+    //If there is no wallet yet, create one.
+    var walletService = WalletService(null);
+    var exists = await walletService.walletExists();
+    if (!exists) {
+      walletService.make();
+    }
 
-    var walletService = WalletService(appDocPath);
-    walletService.make();
+    //Put the ethereum address in prefs for display in the UI
+    var ethAddress = await walletService.ethereumAddress();
+    prefs.setString('ethereumAddress', ethAddress.toString());
 
-    // TO DO: check not to override existing wallet
-    prefs.setString('ethereumAddress', walletService.ethereumAddress().toString());
+    //Debug
+    print("Ethereum address: ${ethAddress.toString()}");
+    print("Name: $name");
 
-    print(name);
     return name;
   }
-
 
 
   Future<String> getUser() async {
