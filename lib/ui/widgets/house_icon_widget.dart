@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:voting_app/core/models/bill.dart';
-import 'package:voting_app/core/viewmodels/settings_model.dart';
+import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/styles.dart';
 
 class HouseIconsWidget extends StatelessWidget {
@@ -111,7 +111,7 @@ class HouseIconsWidget extends StatelessWidget {
         children: <Widget>[
           Icon(
             Icons.account_balance,
-            color: hiChooser(bill, Provider.of<SettingsModel>(context, listen: false).isDarkMode),
+            color: hiChooser(bill, Provider.of<ThemeModel>(context, listen: false).isDarkMode),
             size: this.size,
           ),
           Icon(
@@ -121,7 +121,7 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.check_circle,
-            color: hpChooser(bill, Provider.of<SettingsModel>(context, listen: false).isDarkMode),
+            color: hpChooser(bill, Provider.of<ThemeModel>(context, listen: false).isDarkMode),
             size: this.size,
           ),
           Icon(
@@ -131,7 +131,7 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.account_balance,
-            color: siChooser(bill, Provider.of<SettingsModel>(context, listen: false).isDarkMode),
+            color: siChooser(bill, Provider.of<ThemeModel>(context, listen: false).isDarkMode),
             size: this.size,
           ),
           Icon(
@@ -141,7 +141,7 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.check_circle,
-            color: spChooser(bill, Provider.of<SettingsModel>(context, listen: false).isDarkMode),
+            color: spChooser(bill, Provider.of<ThemeModel>(context, listen: false).isDarkMode),
             size: this.size,
           ),
         ],

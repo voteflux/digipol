@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/user.dart';
-import 'package:voting_app/core/viewmodels/settings_model.dart';
+import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/appTheme.dart';
 import 'package:voting_app/ui/views/all_issues_view.dart';
+import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/views/settings.dart';
 import 'package:voting_app/core/services/auth_service.dart';
 import 'package:voting_app/core/route_generator.dart';
@@ -36,54 +37,20 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarWhiteForeground(darkMode);
-    return MultiProvider(providers: [
-      StreamProvider<User>(
-        initialData: User.initial(),
-        create: (BuildContext context) =>
-            locator<AuthenticationService>().userController.stream,
-      ),
-      ListenableProvider<SettingsModel>(create: (context) => SettingsModel())
-    ], child: MyMaterialApp());
+        return BaseView<ThemeModel>(
+        onModelReady: (model) => model.setUser(),
+        builder: (context, model, child) {
+          return MaterialApp(
+              initialRoute: model.loggedIn ? '/profile' : '/',
+              home: MainScreen(),
+              theme: AppTheme.lightTheme,
+              darkTheme: AppTheme.darkTheme,
+              onGenerateRoute: RouteGenerator.generateSettingsRoute,
+              themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light);
+        });
   }
 }
 
-class MyMaterialApp extends StatefulWidget {
-  @override
-  _MyMaterialAppState createState() => _MyMaterialAppState();
-}
-
-class _MyMaterialAppState extends State<MyMaterialApp> {
-  String user;
-
-  @override
-  Widget build(BuildContext context) {
-    Future setUser() async {
-      var authservice = AuthenticationService();
-
-      var isUser = await authservice.getUser();
-
-      setState(() {
-        user = isUser;
-      });
-    }
-
-    @override
-    void initState() {
-      super.initState();
-      setUser();
-    }
-
-    return Consumer<SettingsModel>(builder: (context, model, child) {
-      return MaterialApp(
-          initialRoute: user != null ? '/profile' : '/',
-          home: MainScreen(),
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
-          onGenerateRoute: RouteGenerator.generateSettingsRoute,
-          themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light);
-    });
-  }
-}
 
 class MainScreen extends StatefulWidget {
   @override
@@ -103,7 +70,6 @@ class _MainScreenState extends State<MainScreen> {
         child: IndexedStack(index: _currentIndex, children: <Widget>[
           AllBillsPage(),
           AllIssuesPage(),
-          ProfilePage(),
           SettingsPage()
         ]),
       ),
@@ -120,10 +86,6 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
               icon: Icon(Icons.assignment_late),
               title: Text('Issues'),
-              backgroundColor: Theme.of(context).backgroundColor),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              title: Text('Profile'),
               backgroundColor: Theme.of(context).backgroundColor),
           BottomNavigationBarItem(
               icon: Icon(Icons.settings),

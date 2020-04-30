@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/issue.dart';
 import 'package:voting_app/core/services/api.dart';

@@ -15,19 +15,10 @@ import 'package:voting_app/ui/views/base_view.dart';
 // separate into widgets
 
 class VoteWidget extends StatefulWidget {
-  // card with voting info and buttons
   final data;
-  final bool loggedIn = false;
+  final String vote;
 
-  /// Where voting stuff happens
-  ///
-  /// usage:
-  ///
-  /// `child: VoteWidget(data: data,),`
-  VoteWidget({
-    Key key,
-    @required this.data,
-  }) : super(key: key);
+  VoteWidget({Key key, @required this.data, this.vote}) : super(key: key);
 
   @override
   _VoteWidgetState createState() => _VoteWidgetState();
@@ -35,26 +26,9 @@ class VoteWidget extends StatefulWidget {
 
 class _VoteWidgetState extends State<VoteWidget> {
   Future<BillVoteSuccess> _futureSuccess;
-  String _ethereumAddress;
 
   @override
   Widget build(BuildContext context) {
-
-    Future setUser() async {
-      var authservice = AuthenticationService();
-
-      var ethereumAddress = await authservice.getEthereumAddress();
-
-      setState(() {
-        _ethereumAddress = ethereumAddress;
-      });
-    }
-
-    @override
-    void initState() {
-      super.initState();
-      setUser();
-    }
     return BaseView<BillVoteModel>(
       builder: (context, model, child) => Center(
         child: Container(
@@ -65,35 +39,41 @@ class _VoteWidgetState extends State<VoteWidget> {
             child: (_futureSuccess == null)
                 ? Column(children: <Widget>[
                     Container(
-                        padding: EdgeInsets.all(appSizes.standardPadding),
-                        child: Text(
-                          widget.data.shortTitle,
-                          style: Theme.of(context).textTheme.headline6,
-                        )),
-                    Container(
                       padding: EdgeInsets.all(appSizes.standardPadding),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          RaisedButton(
-                              onPressed: () {
-                                areYouSure("yes", model, widget.data.id,
-                                    widget.data.ballotSpecHash);
-                              },
-                              color: appColors.yes,
-                              child: Text("Vote Yes",
-                                  style: appTextStyles.yesnobutton)),
-                          RaisedButton(
-                              onPressed: () {
-                                areYouSure("no", model, widget.data.id,
-                                    widget.data.ballotSpecHash);
-                              },
-                              color: appColors.no,
-                              child: Text("Vote No",
-                                  style: appTextStyles.yesnobutton)),
-                        ],
+                      child: Text(
+                        widget.data.shortTitle,
+                        style: Theme.of(context).textTheme.headline6,
                       ),
                     ),
+                    widget.vote != null
+                        ? Container(
+                            padding: EdgeInsets.all(appSizes.standardPadding),
+                            child: Text("You voted " + widget.vote,
+                                style: Theme.of(context).textTheme.headline6)): Divider(),
+                        Container(
+                            padding: EdgeInsets.all(appSizes.standardPadding),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                RaisedButton(
+                                    onPressed: () {
+                                      areYouSure("yes", model, widget.data.id,
+                                          widget.data.ballotSpecHash);
+                                    },
+                                    color: appColors.yes,
+                                    child: Text("Vote Yes",
+                                        style: appTextStyles.yesnobutton)),
+                                RaisedButton(
+                                    onPressed: () {
+                                      areYouSure("no", model, widget.data.id,
+                                          widget.data.ballotSpecHash);
+                                    },
+                                    color: appColors.no,
+                                    child: Text("Vote No",
+                                        style: appTextStyles.yesnobutton)),
+                              ],
+                            ),
+                          ),
                   ])
                 : FutureBuilder<BillVoteSuccess>(
                     future: _futureSuccess,
@@ -161,7 +141,7 @@ class _VoteWidgetState extends State<VoteWidget> {
                   _futureSuccess = model.postVote(
                     BillVote(
                         //TO DO: update to real data
-                        pubKey: _ethereumAddress,
+                        pubKey: "",
                         ballotId: id,
                         ballotSpecHash: ballotSpecHash,
                         constituency: "Australia",

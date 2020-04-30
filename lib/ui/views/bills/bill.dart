@@ -132,7 +132,8 @@ class BillPage extends StatelessWidget {
                         ),
                       ),
                       VoteWidget(
-                        data: model.billChainData
+                        data: model.billChainData,
+                        vote: model.getVote,
                       ),
                     ],
                   ),
