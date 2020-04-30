@@ -20,9 +20,10 @@ class AuthenticationService {
     var walletService = WalletService(null);
     var exists = await walletService.walletExists();
     if (!exists) {
-      await walletService.make();
+      print("Does not exist");
+       await walletService.make();
     }
-
+    print("Loading address");
     //Put the ethereum address in prefs for display in the UI
     var ethAddress = await walletService.ethereumAddress();
     prefs.setString('ethereumAddress', ethAddress.toString());
@@ -36,13 +37,16 @@ class AuthenticationService {
 
 
   Future<String> getUser() async {
-
     final prefs = await SharedPreferences.getInstance();
     final user = prefs.getString('name') ?? null;
-    final ethereumAddress = prefs.getString('ethereumAddress') ?? null;
-
     print(user);
-    print(ethereumAddress);
+    return user;
+  }
+
+  Future<bool> hasUser() async {
+    final prefs = await SharedPreferences.getInstance();
+    final user = (prefs.getString('name') != null);
+    print(user);
     return user;
   }
 
