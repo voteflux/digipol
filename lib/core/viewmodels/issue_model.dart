@@ -1,3 +1,4 @@
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/bill_chain_data.dart';
@@ -15,6 +16,9 @@ class IssueModel extends BaseModel {
   BillChainData billChainData;
   BillVoteResult billVoteResult;
 
+  String _vote;
+  String get getVote => _vote;
+
   Future getIssue(String issueId) async {
     setState(ViewState.Busy);
     print(issueId);
@@ -22,10 +26,19 @@ class IssueModel extends BaseModel {
     issue = await _api.getIssue(issueId);
 
     //block chain call, currently calling shitchain
-    billChainData = await _api.getBlockChainData(issueId); 
+    billChainData = await _api.getBlockChainData(issueId);
 
-    billVoteResult  = await _api.getBillResults(issueId); 
+    billVoteResult = await _api.getBillResults(issueId);
+
+    hasVoted(issueId);
 
     setState(ViewState.Idle);
+  }
+
+  Future hasVoted(String ballotId) async {
+    final prefs = await SharedPreferences.getInstance();
+    final vote = prefs.getString(ballotId) ?? null;
+    _vote = vote;
+    return vote;
   }
 }

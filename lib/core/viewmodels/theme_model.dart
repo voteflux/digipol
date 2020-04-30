@@ -6,6 +6,8 @@ class ThemeModel extends BaseModel {
   bool isDarkMode = false;
   String user;
   String get getUser => user;
+  bool get loggedIn => user == null ? false : true;
+  
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
 
@@ -15,9 +17,12 @@ class ThemeModel extends BaseModel {
     notifyListeners();
   }
 
-  Future setUser() async {
+  Future<String> setUser() async {
     var isUser = await _authenticationService.getUser();
     user = isUser;
     print(user);
+    return user;
   }
+
+
 }

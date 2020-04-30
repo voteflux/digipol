@@ -39,11 +39,17 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
                         CustomFormField(
-                          helpText: "Your name",
-                          submitAction: (String value) {
-                            _name = value;
-                          },
-                        ),
+                            helpText: "Your name",
+                            submitAction: (String value) {
+                              _name = value;
+                            },
+                            validation: (String value) {
+                              if (!RegExp(
+                                      r"([a-zA-Z]{3,30}\s*)+")
+                                  .hasMatch(value)) {
+                                return 'Please enter your name';
+                              }
+                            }),
                         _buildSubmitButton(model)
                       ],
                     ),

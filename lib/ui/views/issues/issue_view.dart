@@ -87,6 +87,7 @@ class IssuePage extends StatelessWidget {
                             ),
                             VoteWidget(
                               data: model.billChainData,
+                              vote: model.getVote,
                             ),
                           ],
                         ),

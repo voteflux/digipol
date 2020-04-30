@@ -48,27 +48,6 @@ class _SettingsPageState extends State<SettingsPage> {
                     )
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      "Notifications",
-                      style: appTextStyles.standardBold,
-                    ),
-                    Container(
-                      width: 70,
-                      child: Switch(
-                        materialTapTargetSize: MaterialTapTargetSize.padded,
-                        value: false,
-                        onChanged: (value) {
-                          print("Notifications... ");
-                        },
-                        activeTrackColor: Colors.lightBlue,
-                        activeColor: Colors.blue,
-                      ),
-                    )
-                  ],
-                ),
                 Divider(thickness: 2.0,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
