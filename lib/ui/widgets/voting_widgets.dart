@@ -79,6 +79,7 @@ class _VoteWidgetState extends State<VoteWidget> {
                     future: _futureSuccess,
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
+                        print(snapshot.hasData);
                         return Container(
                             padding: EdgeInsets.all(appSizes.standardPadding),
                             child: Text(
