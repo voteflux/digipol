@@ -2,7 +2,7 @@
 
 ## Installing the apps
 
-You will receive an email with how to install the app depending on weather you use iOS or Android.
+You will receive an email with how to install the app depending on your OS (iOS or Android).
 
 ## Using the app
 
