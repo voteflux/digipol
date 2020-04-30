@@ -20,7 +20,7 @@ class AuthenticationService {
     var walletService = WalletService(null);
     var exists = await walletService.walletExists();
     if (!exists) {
-      walletService.make();
+      await walletService.make();
     }
 
     //Put the ethereum address in prefs for display in the UI
