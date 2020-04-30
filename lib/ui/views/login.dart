@@ -18,6 +18,7 @@ String _name;
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+
     return BaseView<UserModel>(
       onModelReady: (model) => model.login(),
       builder: (context, model, child) => Scaffold(
@@ -61,13 +62,14 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget _buildSubmitButton(model) {
+
     return RaisedButton(
       onPressed: () {
         _submitForm(model);
       },
       child: model.state == ViewState.Busy
           ? CircularProgressIndicator()
-          : Text('Register'),
+          : Text('Login'),
     );
   }
 
