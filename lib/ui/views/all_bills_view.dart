@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill.dart';
-import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/core/viewmodels/all_bills_model.dart';
-import 'package:voting_app/locator.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/widgets/bill_list_item.dart';
@@ -14,59 +12,9 @@ class AllBillsPage extends StatefulWidget {
   _AllBillsPageState createState() => _AllBillsPageState();
 }
 
-
-// Where all the bills are shown (using ListView)
 TextEditingController _textController = TextEditingController();
 
 class _AllBillsPageState extends State<AllBillsPage> {
-  Api _api = locator<Api>();
-  List<Bill> _filterBills;
-  List<Bill> _billList;
-  ScrollController controller;
-  var listItemAmount = 20;
-
-  Future getBills() async {
-    _billList = await _api.getBills();
-
-    setState(() {
-      _filterBills = _billList;
-    });
-  }
-  
-  // TODO Move search logic to core
-
-  void _filterList(value) {
-    setState(() {
-      _filterBills = _billList
-          .where((text) =>
-              text.shortTitle.toLowerCase().contains(value.toLowerCase()))
-          .toList();
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getBills();
-    controller = ScrollController()..addListener(_scrollListener);
-  }
-
-    @override
-  void dispose() {
-    _textController.dispose();
-    super.dispose();
-  }
-
-  // TODO: When scroll gets to 100 from bottom, add to listItem
-  void _scrollListener() {
-    print(controller.position.extentAfter);
-    print('printeing');
-    if (controller.position.extentAfter < 100) {
-      setState(() {
-        listItemAmount = listItemAmount + 5;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +30,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
               enableInteractiveSelection: false,
               controller: _textController,
               onChanged: (value) {
-                _filterList(value);
+                model.searchBills(value);
               },
               decoration: InputDecoration(
                 icon: Icon(Icons.search),
@@ -101,7 +49,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                     //CountUpWidget(
                     //    number: model.bills.length, text: "TOTAL BILLS"),
                     //BillsMessageWidget(),
-                    billsList(_filterBills)
+                    billsList(model.billList)
                   ],
                 ),
               ),

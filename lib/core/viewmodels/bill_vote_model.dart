@@ -1,17 +1,24 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/bill_vote_success.dart';
 import 'base_model.dart';
+import '../services/wallet.dart';
 
 class BillVoteModel extends BaseModel {
   Future<BillVoteSuccess> postVote(BillVote vote) async {
+    final prefs = await SharedPreferences.getInstance();
+    final ethereumAddress = prefs.getString('ethereumAddress') ?? null;
+
+    prefs.setString(vote.ballotId, vote.vote);
+
+    print(ethereumAddress);
 
     var body = json.encode(<String, dynamic>{
-      "pub_key": vote.pubKey,
+      "pub_key": ethereumAddress,
       "ballot_id": vote.ballotId,
-      "ballotspec_hash":
-          vote.ballotSpecHash,
+      "ballotspec_hash": vote.ballotSpecHash,
       "constituency": vote.constituency,
       "vote": vote.vote
     });

@@ -2,6 +2,10 @@ PODS:
   - Flutter (1.0.0)
   - flutter_statusbarcolor (0.0.1):
     - Flutter
+  - Instabug (9.1)
+  - instabug_flutter (0.0.1):
+    - Flutter
+    - Instabug (= 9.1)
   - path_provider (0.0.1):
     - Flutter
   - path_provider_macos (0.0.1):
@@ -12,15 +16,22 @@ PODS:
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_statusbarcolor (from `.symlinks/plugins/flutter_statusbarcolor/ios`)
+  - instabug_flutter (from `.symlinks/plugins/instabug_flutter/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - path_provider_macos (from `.symlinks/plugins/path_provider_macos/ios`)
   - pdf_viewer_plugin (from `.symlinks/plugins/pdf_viewer_plugin/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Instabug
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
   flutter_statusbarcolor:
     :path: ".symlinks/plugins/flutter_statusbarcolor/ios"
+  instabug_flutter:
+    :path: ".symlinks/plugins/instabug_flutter/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
   path_provider_macos:
@@ -31,10 +42,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_statusbarcolor: 8afb1071ed8c58be929f1e32b36c629771fd2259
+  Instabug: d2510b312611d954a47ddae7a7e950d38111342b
+  instabug_flutter: 866b03bf6633cbb183f73d651426c379f98c289d
   path_provider: fb74bd0465e96b594bb3b5088ee4a4e7bb1f2a9d
   path_provider_macos: f760a3c5b04357c380e2fddb6f9db6f3015897e0
   pdf_viewer_plugin: 96ce5d974dd18dd3a5f17a3f50641d178e355434
 
-PODFILE CHECKSUM: c34e2287a9ccaa606aeceab922830efb9a6ff69a
+PODFILE CHECKSUM: f45d293502bdcca725aca7bc62af43ad173e1292
 
 COCOAPODS: 1.8.1

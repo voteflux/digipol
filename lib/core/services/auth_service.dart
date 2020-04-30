@@ -1,23 +1,61 @@
 import 'dart:async';
 
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voting_app/core/models/user.dart';
-
-import '../../locator.dart';
-import 'api.dart';
+import 'package:voting_app/core/services/wallet.dart';
 
 class AuthenticationService {
-  Api _api = locator<Api>();
+  //Api _api = locator<Api>();
 
   StreamController<User> userController = StreamController<User>();
 
-  Future<bool> login(String name) async {
-    var fetchedUser = await _api.getUser();
+  Future<String> createUser(String name) async {
 
-    var hasUser = fetchedUser != null;
-    if(hasUser) {
-      userController.add(fetchedUser);
+    final prefs = await SharedPreferences.getInstance();
+
+    //set name
+    prefs.setString('name', name);
+
+    //If there is no wallet yet, create one.
+    var walletService = WalletService(null);
+    var exists = await walletService.walletExists();
+    if (!exists) {
+      print("Does not exist");
+       await walletService.make();
     }
-    print(fetchedUser);
-    return hasUser;
+    print("Loading address");
+    //Put the ethereum address in prefs for display in the UI
+    var ethAddress = await walletService.ethereumAddress();
+    prefs.setString('ethereumAddress', ethAddress.toString());
+
+    //Debug
+    print("Ethereum address: ${ethAddress.toString()}");
+    print("Name: $name");
+
+    return name;
+  }
+
+
+  Future<String> getUser() async {
+    final prefs = await SharedPreferences.getInstance();
+    final user = prefs.getString('name') ?? null;
+    print(user);
+    return user;
+  }
+
+  Future<bool> hasUser() async {
+    final prefs = await SharedPreferences.getInstance();
+    final user = (prefs.getString('name') != null);
+    print(user);
+    return user;
+  }
+
+  Future<String> getEthereumAddress() async {
+
+    final prefs = await SharedPreferences.getInstance();
+    final ethereumAddress = prefs.getString('ethereumAddress') ?? null;
+
+    print(ethereumAddress);
+    return ethereumAddress;
   }
 }
