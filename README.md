@@ -107,17 +107,19 @@ Install dependencies:
 sudo apt install curl
 ```
 
-Get flutter:
+Get flutter (copy in all lines):
+
+**WARNING:** you must use a version of flutter >= 1.16.2, the easiest way to do this is use the `beta` channel; **builds will fail if you're using `stable` channel.**
 
 ```
-git clone https://github.com/flutter/flutter.git -b master
-echo '#Add Flutter to PATH' >> $HOME/.bashrc
-echo 'export PATH="$PATH:'$(pwd)'/flutter/bin"' >> $HOME/.bashrc
-source $HOME/.bashrc
-echo "Check the flutter is in path"
-echo $PATH
-flutter precache
-echo "Check your dependencies:"
+git clone https://github.com/flutter/flutter.git -b beta && \
+echo '#Add Flutter to PATH' >> $HOME/.bashrc && \
+echo 'export PATH="$PATH:'$(pwd)'/flutter/bin"' >> $HOME/.bashrc && \
+export PATH="$PATH:'$(pwd)'/flutter/bin && \
+echo "Check the flutter is in path" && \
+echo $PATH && \
+flutter precache && \
+echo "Check your dependencies:" && \
 flutter doctor
 ```
 
@@ -128,10 +130,10 @@ Run `flutter doctor` again to check dependencies.
 #### For web dev:
 
 ```
-flutter channel beta
-flutter upgrade
 flutter config --enable-web
 ```
+
+(If you're not already on the beta channel run `flutter channel beta && flutter upgrade`)
 
 Make sure you have Chrome installed
 
