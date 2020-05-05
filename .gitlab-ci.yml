@@ -49,13 +49,11 @@ flutter_build_ios:
     #   - master
     - branches@voteflux/voting_app
   script:
-    - flutter build ios
-    - cd ios
-    - xcodebuild clean archive -workspace Runner.xcworkspace -scheme Runner -archivePath RunnerArchive
-    - xcodebuild -exportArchive -archivePath RunnerArchive.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath ./build
+    - sudo -u codesign do-flux-codesign
   artifacts:
     paths:
       - ios/build/Runner.ipa
   tags:
     - flutter_build_ios=true
+    - flutter_codesign_ios=true
     - os=macos

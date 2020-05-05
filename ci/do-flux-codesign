@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Note: this requires a _manual_ update on macos build runners
+
+export PATH="$HOME/flutter/bin:$PATH"
+
+if ! (pwd | grep -E "^/Users/runner/builds/[a-zA-Z]{7,10}/[0-9]{1,3}/voteflux/voting_app$"); then
+  echo "Error: not in correct directory." >&2
+  exit 99
+fi
+
+flutter upgrade
+flutter build ios
+cd ios
+xcodebuild clean archive -workspace Runner.xcworkspace -scheme Runner -archivePath RunnerArchive
+xcodebuild -exportArchive -archivePath RunnerArchive.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath ./build

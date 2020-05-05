@@ -4,6 +4,8 @@ source $(dirname "$0")/00-lib.source.sh
 
 mark_status pending "Starting iOS test"
 
+flutter channel beta
+flutter upgrade
 flutter test 2> >(tee tmp.stderr.txt) | tee tmp.stdout.txt
 
 TEST_RES="${PIPESTATUS[0]}"
