@@ -3,16 +3,16 @@ stages:
   - build
   - deploy
   
-flutter-test:
+flutter-test-macos:
   stage: test
   script:
-    - whoami
-    - uname -a
-    - ls -al
-    - pwd
-    - env
-    - flutter test
+    - ./ci/01-macos-test.sh
   tags:
     - os=macos
     - flutter_build_ios=true
   
+flutter-test-linux:
+  stage: test
+  image: cirrusci/flutter:beta
+  script:
+    - ./ci/01-linux-test.sh
