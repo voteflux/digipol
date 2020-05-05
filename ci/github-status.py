@@ -9,9 +9,9 @@ import os
 
 import requests
 
-#logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 log = logging.getLogger('main')
-#log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 github_base = "https://api.github.com"
 github_status_url = github_base + "/repos/{repo_name}/statuses/{sha}?access_token={token}"
@@ -38,7 +38,7 @@ def update_status(repo_name, sha, state, desc, context, target_url=None):
 
     headers = {"Content-Type": "application/json"}
 
-    log.debug("Setting status on %s/%s to %s (context: %s)", repo_name, sha, state, context)
+    log.info("Setting status on %s/%s to %s (context: %s), description: %s", repo_name, sha, state, context, desc)
 
     requests.post(url,
                   data=json.dumps(params),
