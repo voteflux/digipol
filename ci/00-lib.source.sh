@@ -4,6 +4,10 @@
 #     alias github-status="$(dirname $0)/github-status.py"
 # fi
 
+if ! (python3 -c 'import requests'); then
+  pip3 install --user requests
+fi
+
 mark_status(){
     _status="${1:-failure}"
     _msg="${2:-No message provided :(}"
