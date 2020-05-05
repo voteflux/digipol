@@ -1,0 +1,13 @@
+stages:
+  - test
+  - build
+  - deploy
+  
+flutter-test:
+  stage: test
+  script:
+    - flutter test
+  tags:
+    - os=macos
+    - flutter_build_ios=true
+  
