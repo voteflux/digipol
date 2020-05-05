@@ -6,6 +6,11 @@ stages:
 flutter-test:
   stage: test
   script:
+    - whoami
+    - uname -a
+    - ls -al
+    - pwd
+    - env
     - flutter test
   tags:
     - os=macos
