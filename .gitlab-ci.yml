@@ -20,3 +20,6 @@ flutter-test-linux:
   image: cirrusci/flutter:beta
   script:
     - ./ci/01-linux-test.sh
+  tags:
+    - os=linux
+    - flutter_build_android=true
