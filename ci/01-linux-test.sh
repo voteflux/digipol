@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-if [[ "$GITLAB_CI" == "true" ]] && [[ "$CI_BUILD_ID" != "" ]]; then
-    alias github-status="$(dirname $0)/github-status.py"
-fi
-
 source $(dirname "$0")/00-lib.source.sh
 
 mark_status pending "Starting Android test"

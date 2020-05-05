@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if [[ "$GITLAB_CI" == "true" ]] && [[ "$CI_BUILD_ID" != "" ]]; then
+    alias github-status="$(dirname $0)/github-status.py"
+fi
+
 mark_status(){
     _status="${1:-failure}"
     _msg="${2:-No message provided :(}"

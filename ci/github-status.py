@@ -38,7 +38,7 @@ def update_status(repo_name, sha, state, desc, context, target_url=None):
 
     headers = {"Content-Type": "application/json"}
 
-    log.debug("Setting status on %s/%s to %s", repo_name, sha, state)
+    log.debug("Setting status on %s/%s to %s (context: %s)", repo_name, sha, state, context)
 
     requests.post(url,
                   data=json.dumps(params),
