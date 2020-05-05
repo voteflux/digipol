@@ -51,7 +51,7 @@ def main():
     parser.add_argument('--repo', required=True, help="user/repo")
     parser.add_argument('--sha', required=True)
     parser.add_argument('--desc', required=True, help="Description to send to GitHub")
-    parser.add_argument('--context', default=os.environ.get("GITHUB_STATUS_CONTEXT", None), required=True, help="Context to differentiate status messages")
+    parser.add_argument('--context', default=os.environ.get("GITHUB_STATUS_CONTEXT", None), help="Context to differentiate status messages")
 
     def status_type(status):
         if status in ('pending', 'success', 'error', 'failure'):
