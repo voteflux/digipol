@@ -11,7 +11,7 @@ TEST_RES="${PIPESTATUS[0]}"
 if [[ "$TEST_RES" == "0" ]]; then
     mark_status success "Android test success"
 else
-    mark_status failure "Android test failed with status: $TEST_RES"
+    mark_status failure "'flutter test' for Android failed with status: $TEST_RES"
 fi
 
 exit "$TEST_RES"
