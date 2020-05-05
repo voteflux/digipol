@@ -23,3 +23,38 @@ flutter-test-linux:
   tags:
     - os=linux
     - flutter_build_android=true
+
+flutter_build_android:
+  stage: build
+  before_script:
+    - flutter packages get
+    - flutter clean
+  script:
+     - flutter build apk
+  artifacts:
+    paths:
+      - build/app/outputs/apk/release/app-release.apk
+  tags:
+    - os=linux
+    - flutter_build_android=true
+
+flutter_build_ios:
+  stage: build
+  before_script:
+    - flutter packages get
+    - flutter clean
+  only:
+    # refs:
+    #   - master
+    - branches@voteflux/voting_app
+  script:
+    - flutter build ios
+    - cd ios
+    - xcodebuild clean archive -workspace Runner.xcworkspace -scheme Runner -archivePath RunnerArchive
+    - xcodebuild -exportArchive -archivePath RunnerArchive.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath ./build
+  artifacts:
+    paths:
+      - ios/build/Runner.ipa
+  tags:
+    - flutter_build_ios=true
+    - os=macos
