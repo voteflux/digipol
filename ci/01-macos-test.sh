@@ -21,3 +21,5 @@ if [[ "$TEST_RES" == "0" ]]; then
 else
     mark_status failure "Failed"
 fi
+
+exit "$TEST_RES"
