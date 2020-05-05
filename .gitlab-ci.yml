@@ -26,6 +26,7 @@ flutter-test-linux:
 
 flutter_build_android:
   stage: build
+  image: xertrov/flutter:beta
   before_script:
     - flutter packages get
     - flutter clean
