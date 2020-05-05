@@ -19,7 +19,7 @@ TEST_RES="${PIPESTATUS[0]}"
 if [[ "$TEST_RES" == "0" ]]; then
     mark_status success "Macos test success"
 else
-    mark_status failure "Failed"
+    mark_status failure "Failed with status; $TEST_RES"
 fi
 
 exit "$TEST_RES"
