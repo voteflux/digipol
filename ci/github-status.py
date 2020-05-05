@@ -14,7 +14,7 @@ log = logging.getLogger('main')
 log.setLevel(logging.INFO)
 
 github_base = "https://api.github.com"
-github_status_url = github_base + "/repos/{repo_name}/statuses/{sha}?access_token={token}"
+github_status_url = github_base + "/repos/{repo_name}/statuses/{sha}"
 
 token = os.environ.get("GITHUB_STATUS_ACCESS_TOKEN", 'PUT_DEFAULT_TOKEN_HERE')
 
@@ -27,8 +27,7 @@ def update_status(repo_name, sha, state, desc, context, target_url=None):
     if repo_name not in allowed_repos:
       raise Exception(f"Updating statuses on repo named '{repo_name}' is forbidden")
 
-    url = github_status_url.format(repo_name=repo_name,
-                                   sha=sha, token=token)
+    url = github_status_url.format(repo_name=repo_name, sha=sha)
     params = dict(state=state,
                   description=desc,
                   context=context)
@@ -36,7 +35,10 @@ def update_status(repo_name, sha, state, desc, context, target_url=None):
     if target_url:
         params["target_url"] = target_url
 
-    headers = {"Content-Type": "application/json"}
+    headers = {
+      "Content-Type": "application/json",
+      "Authorization": f"token {token}"
+    }
 
     log.info("Setting status on %s/%s to %s (context: %s), description: %s", repo_name, sha, state, context, desc)
 
