@@ -5,7 +5,7 @@
 # fi
 
 if ! (python3 -c 'import requests'); then
-  pip3 install --user requests
+  python3 -m pip install --user requests
 fi
 
 mark_status(){

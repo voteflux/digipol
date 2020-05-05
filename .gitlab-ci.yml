@@ -17,7 +17,7 @@ flutter-test-linux:
   stage: test
   variables:
     GITHUB_STATUS_CONTEXT: "ci/test/android"
-  image: cirrusci/flutter:beta
+  image: xertrov/flutter:beta
   script:
     - ./ci/01-linux-test.sh
   tags:
