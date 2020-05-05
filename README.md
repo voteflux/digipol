@@ -169,6 +169,16 @@ And Run `flutter run -d chrome` in the project dir.
 
 ----------
 
+## CICD
+
+* GitHub --(webhook)--> GitLab CE (cicd project)
+  - mirror clone github.com/voteflux/voting_app
+  - push to gitlab repo
+* GitLab CE (main project) -- cicd triggers normally
+  - runs .gitlab-ci.yaml pipelines
+  - reports status back to github
+* Avoid multiline scripts in gitlab-ci.yml; use named scripts under `./ci/` instead.
+
 ## Architecture Overview
 
 ![High level overview of the voting app system](docs/images/voting-app-system.png)
