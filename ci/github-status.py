@@ -20,10 +20,9 @@ token = os.environ.get("GITHUB_STATUS_ACCESS_TOKEN", 'PUT_DEFAULT_TOKEN_HERE')
 
 allowed_repos = ["voteflux/voting_app"]
 
-def update_status(repo_name, sha, state, desc,
-                  target_url=None):
+def update_status(repo_name, sha, state, desc, context, target_url=None):
 
-    log.info(f"Args: {[repo_name, sha, state, desc]}")
+    log.info(f"Args: {[repo_name, sha, state, desc, context]}")
 
     if repo_name not in allowed_repos:
       raise Exception(f"Updating statuses on repo named '{repo_name}' is forbidden")
@@ -31,14 +30,15 @@ def update_status(repo_name, sha, state, desc,
     url = github_status_url.format(repo_name=repo_name,
                                    sha=sha, token=token)
     params = dict(state=state,
-                  description=desc)
+                  description=desc,
+                  context=context)
 
     if target_url:
         params["target_url"] = target_url
 
     headers = {"Content-Type": "application/json"}
 
-    log.debug("Setting status on %s %s to %s", repo_name, sha, state)
+    log.debug("Setting status on %s/%s to %s", repo_name, sha, state)
 
     requests.post(url,
                   data=json.dumps(params),
@@ -51,6 +51,7 @@ def main():
     parser.add_argument('--repo', required=True, help="user/repo")
     parser.add_argument('--sha', required=True)
     parser.add_argument('--desc', required=True, help="Description to send to GitHub")
+    parser.add_argument('--context', default=os.environ.get("GITHUB_STATUS_CONTEXT", None), required=True, help="Context to differentiate status messages")
 
     def status_type(status):
         if status in ('pending', 'success', 'error', 'failure'):
@@ -64,7 +65,7 @@ def main():
 
     args = parser.parse_args()
 
-    update_status(args.repo, args.sha, args.status, args.desc, target_url=args.url)
+    update_status(args.repo, args.sha, args.status, args.desc, args.context, target_url=args.url)
 
 if __name__ == '__main__':
   try:

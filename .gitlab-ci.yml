@@ -5,6 +5,8 @@ stages:
   
 flutter-test-macos:
   stage: test
+  variables:
+    GITHUB_STATUS_CONTEXT: "ci/test/ios"
   script:
     - ./ci/01-macos-test.sh
   tags:
@@ -13,6 +15,8 @@ flutter-test-macos:
   
 flutter-test-linux:
   stage: test
+  variables:
+    GITHUB_STATUS_CONTEXT: "ci/test/android"
   image: cirrusci/flutter:beta
   script:
     - ./ci/01-linux-test.sh
