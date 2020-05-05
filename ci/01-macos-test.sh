@@ -4,7 +4,7 @@ mark_status(){
     _status="${1:-failure}"
     _msg="${2:-No message provided :(}"
     if [[ "$GITLAB_CI" == "true" ]] && [[ "$CI_BUILD_ID" != "" ]]; then
-        github-status --repo voteflux/voting_app --sha $CI_COMMIT_SHA --status "$_status" --desc "$_msg"
+        github-status --repo voteflux/voting_app --sha "$CI_COMMIT_SHA" --status "$_status" --desc "$_msg"
     else
         echo "[DEBUG] setting github status for voteflux/voting_app (sha: ${CI_COMMIT_SHA}) to $_status: $_msg" 1>&2
     fi
