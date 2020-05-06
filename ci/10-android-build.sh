@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-_CIDIR="$(dirname \"$0\")"
+_CIDIR=$(dirname "$0")
 
-source "$_CIDIR/00-lib.source.sh"
+source $_CIDIR/00-lib.source.sh
 
 mark_status "pending" "Android build starting"
 

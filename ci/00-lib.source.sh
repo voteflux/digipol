@@ -8,7 +8,7 @@ if ! (python3 -c 'import requests'); then
   python3 -m pip install --user requests
 fi
 
-echo "ci directory: $(dirname \"$0\")"
+echo "ci directory: $(dirname $0)"
 echo "$0"
 
 mark_status(){
