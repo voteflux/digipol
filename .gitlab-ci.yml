@@ -46,7 +46,7 @@ flutter_build_android:
     - flutter_build_android=true
   cache:
     paths:
-      - /opt/android-sdk-linux/*
+      - /opt/android-sdk-linux
 
 flutter_build_ios:
   stage: build
@@ -72,4 +72,4 @@ cleanup_macos:
   script:
     - rm -rf build/
     - flutter clean
-  when: failure
+  when: on_failure
