@@ -55,17 +55,19 @@ flutter_build_android:
     paths:
       - android-sdk-linux/
 
-flutter_build_ios:
+flutter_build_ios_master:
   stage: build
   variables:
     GITHUB_STATUS_CONTEXT: "ci/build/ios"
+    IOS_BUILD_EXTRA: ""
+    IOS_EXPORT_EXTRA: "-allowProvisioningUpdates"
   before_script:
     - sudo /usr/sbin/chown -R runner /Users/runner/builds
     - flutter packages get
     - flutter clean
   only:
-    # refs:
-    #   - master
+    refs:
+      - master
     - branches@voteflux/voting_app
   script:
     - ./ci/10-ios-build.sh
@@ -75,6 +77,30 @@ flutter_build_ios:
   tags:
     - flutter_build_ios=true
     - flutter_codesign_ios=true
+    - os=macos
+
+flutter_build_ios_other:
+  stage: build
+  variables:
+    GITHUB_STATUS_CONTEXT: "ci/build/ios"
+    IOS_BUILD_EXTRA: "--no-codesign"
+    IOS_EXPORT_EXTRA: ""
+  before_script:
+    - flutter packages get
+    - flutter clean
+  only:
+    - branches@voteflux/voting_app
+  except:
+    refs:
+      - master
+  script:
+    - ./ci/10-ios-build.sh
+  artifacts:
+    paths:
+      - ios/build/Runner.ipa
+  tags:
+    - flutter_build_ios=true
+    - flutter_codesign_ios=false
     - os=macos
 
 cleanup_macos:
