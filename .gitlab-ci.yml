@@ -23,6 +23,11 @@ flutter-test-linux:
   tags:
     - os=linux
     - flutter_build_android=true
+  artifacts:
+    reports:
+      cobertura: coverage/coverage.xml
+    untracked: false
+    expire_in: 9001 days
 
 flutter_build_android:
   stage: build

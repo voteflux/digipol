@@ -179,6 +179,22 @@ And Run `flutter run -d chrome` in the project dir.
   - reports status back to github
 * Avoid multiline scripts in gitlab-ci.yml; use named scripts under `./ci/` instead.
 
+### macos codesigning
+
+> **Note: substantial criticism and improvements very welcome**
+
+The codesigning setup is roughly:
+
+* a gitlab runner instance running under user `runner`
+* a `codesign` user with xcode set up and things
+* very restricted `sudo -u codesign` access for runner
+
+Problems:
+
+* unlocking the keychain seems to be problematic
+* needed to add -allowProvisioningUpdates to last line of do-flux-codesign
+* provisioning profiles are not intuitive, well documented, etc
+
 ## Architecture Overview
 
 ![High level overview of the voting app system](docs/images/voting-app-system.png)
