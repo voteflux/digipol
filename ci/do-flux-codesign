@@ -19,9 +19,6 @@ sudo -u runner chmod -R g=u `pwd` 2>/dev/null || true
 chmod -R g=u `pwd` 3>/dev/null || true
 umask 002
 
-# workaround for error changing file modification time
-chown $UID .packages
-
 if [[ "$GITLAB_CI" == "true" ]]; then
   # rm -f ./.packages || true
   flutter upgrade
