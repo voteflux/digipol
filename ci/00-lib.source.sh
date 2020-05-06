@@ -9,6 +9,7 @@ if ! (python3 -c 'import requests'); then
 fi
 
 echo "ci directory: $(dirname \"$0\")"
+echo "$0"
 
 mark_status(){
     _status="${1:-failure}"

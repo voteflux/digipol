@@ -40,12 +40,11 @@ flutter_build_android:
   before_script:
     - mkdir -p android-sdk-linux
     - sudo ln -s `pwd`/android-sdk-linux/ /opt/android-sdk-linux
-    - source ci/00-lib.source.sh && mark_status "pending" "Beginning Android build"
     - flutter packages get
     - flutter clean
   script:
-    - source ci/00-lib.source.sh && (flutter build apk --debug && mark_status "success" "Android build success") ||  mark_status "failure" "Android build failure"
-    - cp -a /opt/android-sdk
+    # - source ci/00-lib.source.sh && (flutter build apk --debug && mark_status "success" "Android build success") ||  mark_status "failure" "Android build failure"
+    - ./ci/10-android-build.sh
   artifacts:
     paths:
       - build/app/outputs/apk/release/app-release.apk
@@ -62,7 +61,7 @@ flutter_build_ios:
   variables:
     GITHUB_STATUS_CONTEXT: "ci/build/ios"
   before_script:
-    - source ci/00-lib.source.sh && mark_status "pending" "Beginning iOS build"
+    # - source ci/00-lib.source.sh && mark_status "pending" "Beginning iOS build"
     - sudo /usr/sbin/chown -R runner /Users/runner/builds
     - flutter packages get
     - flutter clean
@@ -71,7 +70,8 @@ flutter_build_ios:
     #   - master
     - branches@voteflux/voting_app
   script:
-    - source ci/00-lib.source.sh && (sudo -u codesign do-flux-codesign && mark_status "success" "iOS build success") ||  mark_status "failure" "iOS build failure"
+    # - source ci/00-lib.source.sh && (sudo -u codesign do-flux-codesign && mark_status "success" "iOS build success") ||  mark_status "failure" "iOS build failure"
+    - ./ci/10-ios-build.sh
   artifacts:
     paths:
       - ios/build/Runner.ipa
