@@ -67,5 +67,6 @@ flutter_build_ios:
 cleanup_macos:
   stage: cleanup
   script:
-    - rm -rf build/ && flutter clean
+    - rm -rf build/
+    - flutter clean
   when: failure
