@@ -8,6 +8,8 @@ flutter-test-macos:
   stage: test
   variables:
     GITHUB_STATUS_CONTEXT: "ci/test/ios"
+  before_script:
+    - sudo /usr/sbin/chown -R runner /Users/runner/builds
   script:
     - ./ci/01-macos-test.sh
   tags:
@@ -51,6 +53,7 @@ flutter_build_android:
 flutter_build_ios:
   stage: build
   before_script:
+    - sudo /usr/sbin/chown -R runner /Users/runner/builds
     - flutter packages get
     - flutter clean
   only:
