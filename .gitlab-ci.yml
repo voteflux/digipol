@@ -67,8 +67,7 @@ flutter_build_ios_master:
     - flutter clean
   only:
     refs:
-      - master
-    - branches@voteflux/voting_app
+      - master@voteflux/voting_app
   script:
     - ./ci/10-ios-build.sh
   artifacts:
