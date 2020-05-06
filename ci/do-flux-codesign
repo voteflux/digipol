@@ -17,7 +17,7 @@ fi
 
 sudo -u runner chmod -R g=u `pwd` 2>/dev/null || true
 chmod -R g=u `pwd` 3>/dev/null || true
-umask 002
+umask 0002
 
 if [[ "$GITLAB_CI" == "true" ]]; then
   # rm -f ./.packages || true

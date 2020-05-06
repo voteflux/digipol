@@ -70,6 +70,7 @@ flutter_build_ios:
 cleanup_macos:
   stage: cleanup
   script:
+    - sudo /usr/sbin/chown -R runner /Users/runner/builds
     - rm -rf build/
     - flutter clean
   when: on_failure
