@@ -23,11 +23,15 @@ if [[ "$GITLAB_CI" == "true" ]]; then
   # rm -f ./.packages || true
   flutter upgrade
   flutter clean || true
+  flutter pub cache repair
   # flutter pub get
 fi
 
+# cocoapods complains if this isn't set
+export LANG=en_US.UTF-8
+
 set -x
-flutter build ios
+flutter build ios --verbose
 cd ios
 xcodebuild clean archive -workspace Runner.xcworkspace -scheme Runner -archivePath RunnerArchive
 xcodebuild -exportArchive -archivePath RunnerArchive.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath ./build -allowProvisioningUpdates
