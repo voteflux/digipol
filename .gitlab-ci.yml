@@ -37,13 +37,16 @@ flutter_build_android:
     - flutter packages get
     - flutter clean
   script:
-     - flutter build apk
+     - flutter build apk --debug
   artifacts:
     paths:
       - build/app/outputs/apk/release/app-release.apk
   tags:
     - os=linux
     - flutter_build_android=true
+  cache:
+    paths:
+      - /opt/android-sdk-linux/*
 
 flutter_build_ios:
   stage: build
