@@ -177,7 +177,11 @@ And Run `flutter run -d chrome` in the project dir.
 * GitLab CE (main project) -- cicd triggers normally
   - runs .gitlab-ci.yaml pipelines
   - reports status back to github
+  - multiple runners based on tags to deliniate signing / permissions / branch-filters / etc.
 * Avoid multiline scripts in gitlab-ci.yml; use named scripts under `./ci/` instead.
+* coverage is gathered in gitlab but I'm not sure where to find the reports :/, anyway getting covg feedback in PRs would be really nice
+* currently this runs for every push which is not ideal; would be nice to just to PRs
+  * the problem with that is the mirroring situation with gitlab and detecting when PRs are being run vs normal pushes -- gitlab webhook URLs might be able to help us here (combined with event filters on the github side for outgoing webhooks)
 
 ### macos codesigning
 
