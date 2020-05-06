@@ -29,7 +29,6 @@ if [[ "$GITLAB_CI" == "true" ]]; then
   # flutter pub get
 fi
 
-set -x
 flutter build ios
 cd ios
 xcodebuild clean archive -workspace Runner.xcworkspace -scheme Runner -archivePath RunnerArchive

@@ -8,6 +8,8 @@ if ! (python3 -c 'import requests'); then
   python3 -m pip install --user requests
 fi
 
+echo "ci directory: $(dirname \"$0\")"
+
 mark_status(){
     _status="${1:-failure}"
     _msg="${2:-No message provided :(}"
