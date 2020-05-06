@@ -3,12 +3,13 @@
 set -e
 
 _cleanup(){
+  sudo chown -R runner ~runner/builds
   exit -1
 }
 
 trap "_cleanup" INT
 
-if ! (pwd | grep -E "^/Users/runner/builds/[a-zA-Z]{7,10}/[0-9]{1,3}/voteflux/voting_app$"); then
+if ! (pwd | grep -E "^/Users/[a-z]{4,20}/builds/[a-zA-Z0-9-]{7,10}/[0-9]{1,3}/voteflux/voting_app$"); then
   echo "Error: not in correct directory." >&2
   exit 99
 fi
@@ -28,14 +29,8 @@ if [[ "$GITLAB_CI" == "true" ]]; then
   # flutter pub get
 fi
 
-# cocoapods complains if this isn't set
-export LANG=en_US.UTF-8
-
-touch .packages
-sudo chmod -R g+w ./
-
 set -x
-flutter build ios --verbose
+flutter build ios
 cd ios
 xcodebuild clean archive -workspace Runner.xcworkspace -scheme Runner -archivePath RunnerArchive
 xcodebuild -exportArchive -archivePath RunnerArchive.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath ./build -allowProvisioningUpdates

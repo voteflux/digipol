@@ -47,8 +47,9 @@ flutter_build_android:
     - os=linux
     - flutter_build_android=true
   cache:
+    key: android-sdk-linux-cache
     paths:
-      - /opt/android-sdk-linux/*
+      - /opt/android-sdk-linux/
 
 flutter_build_ios:
   stage: build
