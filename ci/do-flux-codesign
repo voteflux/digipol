@@ -16,10 +16,8 @@ if ! (pwd | grep -E "^/Users/runner/builds/[a-zA-Z]{7,10}/[0-9]{1,3}/voteflux/vo
 fi
 
 sudo -u runner chmod -R g=u `pwd` 2>/dev/null || true
-chmod -R g=u `pwd` 2>/dev/null || true
+chmod -R g=u `pwd` 3>/dev/null || true
 umask 002
-
-set -x
 
 if [[ "$GITLAB_CI" == "true" ]]; then
   # rm -f ./.packages || true
@@ -27,6 +25,8 @@ if [[ "$GITLAB_CI" == "true" ]]; then
   flutter clean || true
   # flutter pub get
 fi
+
+set -x
 flutter build ios
 cd ios
 xcodebuild clean archive -workspace Runner.xcworkspace -scheme Runner -archivePath RunnerArchive

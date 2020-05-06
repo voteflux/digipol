@@ -2,6 +2,7 @@ stages:
   - test
   - build
   - deploy
+  - cleanup
   
 flutter-test-macos:
   stage: test
@@ -62,3 +63,9 @@ flutter_build_ios:
     - flutter_build_ios=true
     - flutter_codesign_ios=true
     - os=macos
+
+cleanup_macos:
+  stage: cleanup
+  script:
+    - rm -rf build/ && flutter clean
+  when: failure
