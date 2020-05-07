@@ -1,18 +1,19 @@
 import 'package:hive/hive.dart';
+part 'hiveBill.g.dart';
 
 @HiveType(typeId: 0)
-class HiveBill {
+class Hivebill {
   @HiveField(0)
   String id;
   @HiveField(1)
   String chamber;
 
 
-  HiveBill(
+  Hivebill(
       {this.id,
       this.chamber});
 
-  HiveBill.fromJson(Map<String, dynamic> json){
+  Hivebill.fromJson(Map<String, dynamic> json){
     id = json['_id'];
     chamber = json['data']['chamber'];
   }

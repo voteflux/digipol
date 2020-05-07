@@ -7,6 +7,7 @@ import 'package:voting_app/core/models/bill_chain_data.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/bill_vote_result.dart';
 import 'package:voting_app/core/models/bill_vote_success.dart';
+import 'package:voting_app/core/models/hiveBill.dart';
 import 'package:voting_app/core/models/issue.dart';
 import 'package:voting_app/core/models/user.dart';
 
@@ -20,7 +21,7 @@ class Api {
     var bills = List<Bill>();
     
     const String billBox = "bill_box";
-    Box billBoxList = Hive.box(billBox);
+    Box<Hivebill> billBoxList = Hive.box<Hivebill>(billBox);
     
     var response = await client.get(endpoint + '/dev/bill');
     //var response = await rootBundle.loadString('assets/data/sample_bills.json');
@@ -33,10 +34,10 @@ class Api {
       bills.add(Bill.fromJson(bill));
     }
     
-
     for (var bill in parsed) {
-      billBoxList.add(bill);
+      billBoxList.add(Hivebill.fromJson(bill));
     }
+   
     print(billBoxList.length);
     return bills;
   }

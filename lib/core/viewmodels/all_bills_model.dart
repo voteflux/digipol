@@ -1,5 +1,7 @@
+import 'package:hive/hive.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill.dart';
+import 'package:voting_app/core/models/hiveBill.dart';
 import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/locator.dart';
 import 'package:voting_app/core/services/auth_service.dart';
@@ -14,6 +16,8 @@ class BillsModel extends BaseModel {
   List<Bill> bills;
   List<Bill> filteredbills;
   List<Bill> get billList => filteredbills;
+
+  Box<Hivebill> billBoxList = Hive.box<Hivebill>('bill_box');
 
   Future getBills() async {
     setState(ViewState.Busy);

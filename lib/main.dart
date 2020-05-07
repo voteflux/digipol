@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app/core/models/hiveBill.dart';
 import 'package:voting_app/core/models/user.dart';
 import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/appTheme.dart';
@@ -22,7 +23,8 @@ const String billBox = "bill_box";
 
 void main() async{
   await Hive.initFlutter();
-  await Hive.openBox(billBox);
+  Hive.registerAdapter<Hivebill>(HivebillAdapter());
+  await Hive.openBox<Hivebill>(billBox); 
   setupLocator();
   runApp(MyApp());
 }
@@ -108,3 +110,4 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
+
