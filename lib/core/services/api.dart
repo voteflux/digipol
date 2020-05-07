@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:hive/hive.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:http/http.dart' as http;
 import 'package:voting_app/core/models/bill_chain_data.dart';
@@ -17,7 +18,10 @@ class Api {
   // get bills
   Future<List<Bill>> getBills() async {
     var bills = List<Bill>();
-
+    
+    const String billBox = "bill_box";
+    Box billBoxList = Hive.box(billBox);
+    
     var response = await client.get(endpoint + '/dev/bill');
     //var response = await rootBundle.loadString('assets/data/sample_bills.json');
 
@@ -28,6 +32,12 @@ class Api {
     for (var bill in parsed) {
       bills.add(Bill.fromJson(bill));
     }
+    
+
+    for (var bill in parsed) {
+      billBoxList.add(bill);
+    }
+    print(billBoxList.length);
     return bills;
   }
 

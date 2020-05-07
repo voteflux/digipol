@@ -13,10 +13,16 @@ import 'package:voting_app/ui/views/login.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:voting_app/locator.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive/hive.dart';
 //import 'package:instabug_flutter/Instabug.dart';
 
+const String billBox = "bill_box";
 
-void main() {
+
+void main() async{
+  await Hive.initFlutter();
+  await Hive.openBox(billBox);
   setupLocator();
   runApp(MyApp());
 }
