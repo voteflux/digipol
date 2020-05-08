@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/bill.dart';
-import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/core/viewmodels/bill_model.dart';
 import 'package:voting_app/locator.dart';
@@ -15,7 +14,7 @@ import 'package:voting_app/ui/widgets/voting_status_widget.dart';
 class BillListItem extends StatefulWidget {
   @override
   _BillListItemState createState() => _BillListItemState();
-  final BlockChainData bill;
+  final Bill bill;
   final Map issuesMap;
   final Map billColors = {"House": appColors.house, "Senate": appColors.senate};
   final Map billIntro = {"House": "Intro House", "Senate": "Intro Senate"};
@@ -48,13 +47,13 @@ class _BillListItemState extends State<BillListItem> {
       child: Card(
         margin: EdgeInsets.all(appSizes.standardMargin),
         child: InkWell(
-          //onTap: () {
-           // Navigator.push(
-             // context,
-            //  MaterialPageRoute(
-            //      builder: (context) => BillPage(bill: widget.bill)),
-            //);
-          //},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => BillPage(bill: widget.bill)),
+            );
+          },
           child: Container(
             padding: EdgeInsets.all(appSizes.standardPadding),
             width: appSizes.mediumWidth,
@@ -66,11 +65,11 @@ class _BillListItemState extends State<BillListItem> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      //VotingStatusWidget(
-                      //    bill: widget.bill,
-                      //    // Delete Random when vote status is obtained
-                      //    voted: _vote != null ? true : false,
-                      //    size: 20),
+                      VotingStatusWidget(
+                          bill: widget.bill,
+                          // Delete Random when vote status is obtained
+                          voted: _vote != null ? true : false,
+                          size: 20),
                       Text(widget.bill.chamber,
                           // TextStyle specific to this widget
                           style: Theme.of(context).textTheme.bodyText1),
@@ -86,10 +85,10 @@ class _BillListItemState extends State<BillListItem> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                  //  HouseIconsWidget(
-                  //    bill: widget.bill,
-                  //    size: 20,
-                  //  ),
+                    HouseIconsWidget(
+                      bill: widget.bill,
+                      size: 20,
+                    ),
                     //PieWidget(
                     // Delete Random when vote status is obtained
                     //  yes: 10,

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill.dart';
+import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/viewmodels/all_bills_model.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/styles.dart';
@@ -49,7 +50,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                     //CountUpWidget(
                     //    number: model.bills.length, text: "TOTAL BILLS"),
                     //BillsMessageWidget(),
-                    billsList(model.billList)
+                    billsBlockList(model.billsTest)
                   ],
                 ),
               ),
@@ -57,8 +58,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
     );
   }
 }
-
-Widget billsList(List<Bill> bills) => ListView.builder(
+Widget billsBlockList(List<BlockChainData> bills) => ListView.builder(
     itemCount: bills.length,
     shrinkWrap: true,
     physics: ClampingScrollPhysics(),

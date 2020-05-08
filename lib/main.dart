@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/core/models/hiveBill.dart';
+import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/models/user.dart';
 import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/appTheme.dart';
@@ -18,13 +18,11 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hive/hive.dart';
 //import 'package:instabug_flutter/Instabug.dart';
 
-const String billBox = "bill_box";
-
 
 void main() async{
   await Hive.initFlutter();
-  Hive.registerAdapter<Hivebill>(HivebillAdapter());
-  await Hive.openBox<Hivebill>(billBox); 
+  Hive.registerAdapter<BlockChainData>(BlockChainDataAdapter());
+  await Hive.openBox<BlockChainData>("block_chain_data"); 
   setupLocator();
   runApp(MyApp());
 }

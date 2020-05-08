@@ -7,7 +7,7 @@ import 'package:voting_app/core/models/bill_chain_data.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/bill_vote_result.dart';
 import 'package:voting_app/core/models/bill_vote_success.dart';
-import 'package:voting_app/core/models/hiveBill.dart';
+import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/models/issue.dart';
 import 'package:voting_app/core/models/user.dart';
 
@@ -20,8 +20,8 @@ class Api {
   Future<List<Bill>> getBills() async {
     var bills = List<Bill>();
     
-    const String billBox = "bill_box";
-    Box<Hivebill> billBoxList = Hive.box<Hivebill>(billBox);
+    Box<BlockChainData> blockChainData = Hive.box<BlockChainData>("block_chain_data");
+    
     
     var response = await client.get(endpoint + '/dev/bill');
     //var response = await rootBundle.loadString('assets/data/sample_bills.json');
@@ -29,16 +29,15 @@ class Api {
     // parse into List
     var parsed = json.decode(response.body) as List<dynamic>;
 
+    blockChainData.clear();
     // loop and convert each item to bill
     for (var bill in parsed) {
       bills.add(Bill.fromJson(bill));
-    }
-    
-    for (var bill in parsed) {
-      billBoxList.add(Hivebill.fromJson(bill));
+      blockChainData.add(BlockChainData.fromJson(bill));
     }
    
-    print(billBoxList.length);
+    print(blockChainData.values.length);
+    print(bills.length);
     return bills;
   }
 
@@ -84,7 +83,6 @@ class Api {
   Future<List<Issue>> getIssues() async {
     var issues = List<Issue>();
 
-    //var response = await rootBundle.loadString('assets/data/sample_issues.json');
     var response = await client.get(endpoint + '/dev/issue');
 
     var parsed = json.decode(response.body) as List<dynamic>;
@@ -100,7 +98,6 @@ class Api {
 
   Future<Issue> getIssue(String id) async {
 
-    //var response = await rootBundle.loadString('assets/data/sample_issues.json');
     var response = await client.get(endpoint + '/dev/issue/' + id);
 
     var parsed = json.decode(response.body) as Map<String, dynamic>;
