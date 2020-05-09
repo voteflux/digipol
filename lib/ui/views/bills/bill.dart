@@ -17,11 +17,11 @@ class BillPage extends StatelessWidget {
 
 
   // information about the bill
-  final Bill bill;
+  final String billId;
 
   BillPage({
     Key key,
-    @required this.bill,
+    @required this.billId
   }) : super(key: key);
 
   @override
@@ -32,7 +32,7 @@ class BillPage extends StatelessWidget {
       dynamicLargeWidth = appSizes.largeWidth;
     }
     return BaseView<BillModel>(
-      onModelReady: (model) => model.getBill(bill.id),
+      onModelReady: (model) => model.getBill(billId),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           iconTheme: IconThemeData(color: appColors.text),

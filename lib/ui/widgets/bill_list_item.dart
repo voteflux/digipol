@@ -15,6 +15,7 @@ import 'package:voting_app/ui/widgets/voting_status_widget.dart';
 class BillListItem extends StatefulWidget {
   @override
   _BillListItemState createState() => _BillListItemState();
+  
   final BlockChainData bill;
   final Map issuesMap;
   final Map billColors = {"House": appColors.house, "Senate": appColors.senate};
@@ -48,13 +49,13 @@ class _BillListItemState extends State<BillListItem> {
       child: Card(
         margin: EdgeInsets.all(appSizes.standardMargin),
         child: InkWell(
-          //onTap: () {
-           // Navigator.push(
-             // context,
-            //  MaterialPageRoute(
-            //      builder: (context) => BillPage(bill: widget.bill)),
-            //);
-          //},
+          onTap: () {
+            Navigator.push(
+             context,
+              MaterialPageRoute(
+                  builder: (context) => BillPage(billId: widget.bill.id)),
+            );
+          },
           child: Container(
             padding: EdgeInsets.all(appSizes.standardPadding),
             width: appSizes.mediumWidth,

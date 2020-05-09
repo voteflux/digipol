@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/models/user.dart';
 import 'package:voting_app/core/viewmodels/theme_model.dart';
@@ -22,7 +23,9 @@ import 'package:hive/hive.dart';
 void main() async{
   await Hive.initFlutter();
   Hive.registerAdapter<BlockChainData>(BlockChainDataAdapter());
+  Hive.registerAdapter<Bill>(BillAdapter());
   await Hive.openBox<BlockChainData>("block_chain_data"); 
+  await Hive.openBox<Bill>("bills"); 
   setupLocator();
   runApp(MyApp());
 }

@@ -26,7 +26,7 @@ class BillsModel extends BaseModel {
     Map<dynamic, dynamic> raw = blockChainData.toMap();
     List list = raw.values.toList();
     billsTest = list;
-
+    print(billsTest.length);
     await _authenticationService.createUser("");
     bills = await _api.getBills();
     filteredbills = bills;

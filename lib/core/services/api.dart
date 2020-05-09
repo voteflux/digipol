@@ -16,27 +16,43 @@ class Api {
   var client = new http.Client();
   var endpoint = 'https://1j56c60pb0.execute-api.ap-southeast-2.amazonaws.com';
 
+
   // get bills
   Future<List<Bill>> getBills() async {
+    Box<BlockChainData> blockChainData = Hive.box<BlockChainData>("block_chain_data");
+    Box<Bill> billsBox = Hive.box<Bill>("bills");
+    
     var bills = List<Bill>();
     
-    Box<BlockChainData> blockChainData = Hive.box<BlockChainData>("block_chain_data");
-    
-    
     var response = await client.get(endpoint + '/dev/bill');
+    //var blockChainResponse = await client.get(endpoint + '/dev/shitchain');
     //var response = await rootBundle.loadString('assets/data/sample_bills.json');
 
     // parse into List
     var parsed = json.decode(response.body) as List<dynamic>;
+    //var parsedBlockChainResponse = json.decode(blockChainResponse.body) as List<dynamic>;
 
     blockChainData.clear();
+    billsBox.clear();
+
+
+    //for (var bill in parsedBlockChainResponse) {
+      // add blockchain data to hive
+      // to do: move to on startup
+     // blockChainData.add(BlockChainData.fromJson(bill));
+    ///}
+
     // loop and convert each item to bill
     for (var bill in parsed) {
       bills.add(Bill.fromJson(bill));
+      // add complete bills data to bills box
+      // to do: move to start up
       blockChainData.add(BlockChainData.fromJson(bill));
+      billsBox.add(Bill.fromJson(bill));
     }
    
     print(blockChainData.values.length);
+    print(billsBox.values.length);
     print(bills.length);
     return bills;
   }
