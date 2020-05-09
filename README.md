@@ -1,8 +1,6 @@
 # DigiPol
 
-## Parliament of the People
-
-_NOTE: App is in pre-Alpha - We welcome criticism, if you think you can improve the structure, please fork and do a pull request_
+## *Connecting Real People with their Parliament*
 
 **Attention:** Alpha testers, please read [this guide](docs/ALPHATESTING.md).
 
