@@ -20,33 +20,42 @@ class Api {
   Future syncData() async {
     Box<BlockChainData> blockChainData = Hive.box<BlockChainData>("block_chain_data");
     Box<Bill> billsBox = Hive.box<Bill>("bills");
+    Box<Issue> issuesBox = Hive.box<Issue>("issues");
 
     // clear box on startup and reSync
     blockChainData.clear();
     billsBox.clear();
+    issuesBox.clear();
     
-    var response = await client.get(endpoint + '/dev/bill');
+    var responseBills = await client.get(endpoint + '/dev/bill');
+    var responseIssues = await client.get(endpoint + '/dev/issue');
     var blockChainResponse = await client.get(endpoint + '/dev/shitchain');
 
    
-    var parsed = json.decode(response.body) as List<dynamic>;
+    var parsed = json.decode(responseBills.body) as List<dynamic>;
+    var parsedIssues = json.decode(responseIssues.body) as List<dynamic>;
     var parsedBlockChainResponse = json.decode(blockChainResponse.body) as List<dynamic>;
     
     // parse blockchain into List
     for (var bill in parsedBlockChainResponse) {
       blockChainData.add(BlockChainData.fromJson(bill));
     }
-    // parse api data into List
+    // parse api bill data into List and add to box
     for (var bill in parsed) {
       billsBox.add(Bill.fromJson(bill));
     }
-   
+    // parse api issue data into list and add to box
+    for (var issue in parsedIssues) {
+      issuesBox.add(Issue.fromJson(issue));
+    }
+
     print(blockChainData.values.length);
+    print(issuesBox.values.length);
     print(billsBox.values.length);
-    return "bills";
+    return print("syncd");
   }
 
-  // get bill
+  // depracated
   Future<Bill> getBill(String id) async {
     var response = await client.get(endpoint + '/dev/bill/' + id);
     //var response = await rootBundle.loadString('assets/data/sample_bill.json');

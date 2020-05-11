@@ -3,43 +3,43 @@ part 'bill.g.dart';
 
 @HiveType(typeId: 2)
 class Bill {
-    @HiveField(0)
+  @HiveField(0)
   String id;
-    @HiveField(1)
+  @HiveField(1)
   String chamber;
-    @HiveField(2)
+  @HiveField(2)
   String shortTitle;
-    @HiveField(3)
+  @HiveField(3)
   String question;
-    @HiveField(4)
+  @HiveField(4)
   String introHouse;
-    @HiveField(5)
+  @HiveField(5)
   String passedHouse;
-    @HiveField(6)
+  @HiveField(6)
   String introSenate;
-    @HiveField(7)
+  @HiveField(7)
   String passedSenate;
-    @HiveField(8)
+  @HiveField(8)
   String assentDate;
-    @HiveField(9)
+  @HiveField(9)
   String actNo;
-    @HiveField(10)
+  @HiveField(10)
   String url;
-    @HiveField(11)
+  @HiveField(11)
   String summary;
-    @HiveField(12)
+  @HiveField(12)
   String sponsor;
-    @HiveField(13)
+  @HiveField(13)
   String textLinkDoc;
-    @HiveField(14)
+  @HiveField(14)
   String textLinkPdf;
-    @HiveField(15)
+  @HiveField(15)
   String emLinkPdf;
-    @HiveField(16)
+  @HiveField(16)
   String emLinkHtml;
-    @HiveField(17)
+  @HiveField(17)
   int yes;
-    @HiveField(18)
+  @HiveField(18)
   int no;
 
   Bill(
@@ -63,7 +63,7 @@ class Bill {
       this.yes,
       this.no});
 
-  Bill.fromJson(Map<String, dynamic> json){
+  Bill.fromJson(Map<String, dynamic> json) {
     id = json['_id'];
     chamber = json['data']['chamber'];
     shortTitle = json['data']['short_title'];

@@ -1,13 +1,27 @@
+import 'package:hive/hive.dart';
+part 'issue.g.dart';
+
+@HiveType(typeId: 3)
 class Issue {
+  @HiveField(0)
   String chamber;
+  @HiveField(1)
   String shortTitle;
+  @HiveField(2)
   String startDate;
+  @HiveField(3)
   String endDate;
+  @HiveField(4)
   String id;
+  @HiveField(5)
   String question;
+  @HiveField(6)
   String description;
+  @HiveField(7)
   String sponsor;
+  @HiveField(8)
   int yes;
+  @HiveField(9)
   int no;
 
   Issue(

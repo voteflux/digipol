@@ -1,19 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/models/issue.dart';
 import 'dart:math';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/issues/issue_view.dart';
 import 'package:voting_app/ui/widgets/pie_chart.dart';
 
-class IssueListItem extends StatelessWidget {
-  final Issue issue;
+class IssueListItem extends StatefulWidget {
+  @override
+  _IssueListItemState createState() => _IssueListItemState();
+
+  final BlockChainData blockChainData;
   final Map billColorsDark = {
     "House": appColors.house,
     "Senate": appColors.senate
   };
   final Random random = new Random();
 
-  IssueListItem({this.issue});
+  IssueListItem({this.blockChainData});
+}
+
+class _IssueListItemState extends State<IssueListItem> {
+  Issue completeIssueData;
+  Box<Issue> issuesBox = Hive.box<Issue>("issues");
+
+  Future getVote() async {
+    // Get all issue data from Box
+    List<Issue> list = issuesBox.values
+        .where((issue) => issue.id == widget.blockChainData.id)
+        .toList();
+    completeIssueData = list[0];
+  }
+
+  @protected
+  @mustCallSuper
+  void initState() {
+    getVote();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +48,7 @@ class IssueListItem extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => IssuePage(issue: issue)),
+              MaterialPageRoute(builder: (context) => IssuePage(issue: completeIssueData)),
             );
           },
           child: Container(
@@ -44,9 +68,9 @@ class IssueListItem extends StatelessWidget {
                   ),
                 ),
                 Divider(),
-                Text(issue.shortTitle,
+                Text(completeIssueData.shortTitle,
                     style: Theme.of(context).textTheme.headline6),
-                Text(issue.question,
+                Text(completeIssueData.question,
                     style: Theme.of(context).textTheme.bodyText2),
                 Divider(),
                 Container(
