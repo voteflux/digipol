@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/services/api.dart';
@@ -16,22 +17,27 @@ class BillListItem extends StatefulWidget {
   @override
   _BillListItemState createState() => _BillListItemState();
   
-  final BlockChainData bill;
+  final BlockChainData blockChainData;
   final Map issuesMap;
   final Map billColors = {"House": appColors.house, "Senate": appColors.senate};
   final Map billIntro = {"House": "Intro House", "Senate": "Intro Senate"};
-  // Delete Random when vote status is obtained
-  final Random random = new Random();
 
-  BillListItem({this.bill, this.issuesMap});
+  BillListItem({this.blockChainData, this.issuesMap});
 }
 
 class _BillListItemState extends State<BillListItem> {
   BillModel billModel = locator<BillModel>();
   String _vote;
+  Bill completeBillData;
+  Box<Bill> billsBox = Hive.box<Bill>("bills");
 
   Future getVote() async {
-    var vote = await billModel.hasVoted(widget.bill.id);
+    
+    // Get all bill data from Box
+    List<Bill> list = billsBox.values.where((bill) => bill.id == widget.blockChainData.id).toList();
+    completeBillData = list[0];
+
+    var vote = await billModel.hasVoted(widget.blockChainData.id);
     setState(() {
       _vote = vote;
     });
@@ -53,7 +59,7 @@ class _BillListItemState extends State<BillListItem> {
             Navigator.push(
              context,
               MaterialPageRoute(
-                  builder: (context) => BillPage(billId: widget.bill.id)),
+                  builder: (context) => BillPage(bill: completeBillData, blockChainData: widget.blockChainData,)),
             );
           },
           child: Container(
@@ -67,32 +73,29 @@ class _BillListItemState extends State<BillListItem> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      //VotingStatusWidget(
-                      //    bill: widget.bill,
-                      //    // Delete Random when vote status is obtained
-                      //    voted: _vote != null ? true : false,
-                      //    size: 20),
-                      Text(widget.bill.chamber,
-                          // TextStyle specific to this widget
+                      VotingStatusWidget(
+                          bill: completeBillData,
+                          voted: _vote != null ? true : false,
+                          size: 20),
+                      Text(widget.blockChainData.chamber,
                           style: Theme.of(context).textTheme.bodyText1),
                     ],
                   ),
                 ),
                 Divider(),
                 Container(
-                  child: Text(widget.bill.shortTitle,
+                  child: Text(widget.blockChainData.shortTitle,
                       style: Theme.of(context).textTheme.headline6),
                 ),
                 Divider(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                  //  HouseIconsWidget(
-                  //    bill: widget.bill,
-                  //    size: 20,
-                  //  ),
+                    HouseIconsWidget(
+                      bill: completeBillData,
+                      size: 20,
+                    ),
                     //PieWidget(
-                    // Delete Random when vote status is obtained
                     //  yes: 10,
                     //  showValues: false,
                     //  no: 10,

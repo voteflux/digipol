@@ -50,7 +50,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                     //CountUpWidget(
                     //    number: model.bills.length, text: "TOTAL BILLS"),
                     //BillsMessageWidget(),
-                    billsBlockList(model.billsTest)
+                    billsList(model.billList)
                   ],
                 ),
               ),
@@ -58,11 +58,11 @@ class _AllBillsPageState extends State<AllBillsPage> {
     );
   }
 }
-Widget billsBlockList(List<BlockChainData> bills) => ListView.builder(
+Widget billsList(List<BlockChainData> bills) => ListView.builder(
     itemCount: bills.length,
     shrinkWrap: true,
     physics: ClampingScrollPhysics(),
-    itemBuilder: (context, index) => BillListItem(bill: bills[index]));
+    itemBuilder: (context, index) => BillListItem(blockChainData: bills[index]));
 
 class BillsMessageWidget extends StatelessWidget {
   /// Card for showing a message at the top of the bills list

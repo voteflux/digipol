@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/models/user.dart';
+import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/appTheme.dart';
 import 'package:voting_app/ui/views/all_issues_view.dart';
@@ -18,7 +19,7 @@ import 'package:voting_app/locator.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hive/hive.dart';
 //import 'package:instabug_flutter/Instabug.dart';
-
+Api _api = locator<Api>();
 
 void main() async{
   await Hive.initFlutter();
@@ -26,7 +27,9 @@ void main() async{
   Hive.registerAdapter<Bill>(BillAdapter());
   await Hive.openBox<BlockChainData>("block_chain_data"); 
   await Hive.openBox<Bill>("bills"); 
+  
   setupLocator();
+  await _api.syncData();
   runApp(MyApp());
 }
 
@@ -72,7 +75,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       //current page
       body: SafeArea(
         top: false,
