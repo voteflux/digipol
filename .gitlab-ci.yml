@@ -1,0 +1,111 @@
+stages:
+  - test
+  - build
+  - deploy
+  - cleanup
+  
+flutter-test-macos:
+  stage: test
+  variables:
+    GITHUB_STATUS_CONTEXT: "ci/test/ios"
+  before_script:
+    - sudo /usr/sbin/chown -R runner /Users/runner/builds
+  script:
+    - ./ci/01-macos-test.sh
+  tags:
+    - os=macos
+    - flutter_build_ios=true
+  
+flutter-test-linux:
+  stage: test
+  variables:
+    GITHUB_STATUS_CONTEXT: "ci/test/android"
+  image: xertrov/flutter:beta
+  script:
+    - ./ci/01-linux-test.sh
+  tags:
+    - os=linux
+    - flutter_build_android=true
+  artifacts:
+    reports:
+      cobertura: coverage/coverage.xml
+    untracked: false
+    expire_in: 9001 days
+
+flutter_build_android:
+  stage: build
+  variables:
+    GITHUB_STATUS_CONTEXT: "ci/build/android"
+  image: xertrov/flutter:beta
+  before_script:
+    - mkdir -p android-sdk-linux
+    - sudo ln -s `pwd`/android-sdk-linux/ /opt/android-sdk-linux
+    - flutter packages get
+    - flutter clean
+  script:
+    - ./ci/10-android-build.sh
+  artifacts:
+    paths:
+      - build/app/outputs/apk/debug/app-debug.apk
+  tags:
+    - os=linux
+    - flutter_build_android=true
+  cache:
+    key: android-sdk-linux-cache
+    paths:
+      - android-sdk-linux/
+
+flutter_build_ios_master:
+  stage: build
+  variables:
+    GITHUB_STATUS_CONTEXT: "ci/build/ios"
+    IOS_BUILD_EXTRA: ""
+    IOS_EXPORT_EXTRA: "-allowProvisioningUpdates"
+  before_script:
+    - sudo /usr/sbin/chown -R runner /Users/runner/builds
+    - flutter packages get
+    - flutter clean
+  only:
+    refs:
+      - master@voteflux/voting_app
+  script:
+    - ./ci/10-ios-build.sh
+  artifacts:
+    paths:
+      - ios/build/Runner.ipa
+  tags:
+    - flutter_build_ios=true
+    - flutter_codesign_ios=true
+    - os=macos
+
+flutter_build_ios_other:
+  stage: build
+  variables:
+    GITHUB_STATUS_CONTEXT: "ci/build/ios"
+    IOS_BUILD_EXTRA: "--no-codesign"
+    IOS_EXPORT_EXTRA: ""
+  before_script:
+    - flutter packages get
+    - flutter clean
+  only:
+    - branches@voteflux/voting_app
+  except:
+    refs:
+      - master
+  script:
+    - ./ci/10-ios-build.sh
+  artifacts:
+    paths:
+      - ios/build/Runner.ipa
+  tags:
+    - flutter_build_ios=true
+    - flutter_codesign_ios=false
+    - os=macos
+
+cleanup_macos:
+  stage: cleanup
+  script:
+    - sudo /usr/sbin/chown -R runner /Users/runner/builds
+    - rm -rf build/
+    - flutter clean
+  when: on_failure

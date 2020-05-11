@@ -30,6 +30,9 @@
 .pub/
 /build/
 
+# Test related
+/coverage/
+
 # Web related
 lib/generated_plugin_registrant.dart
 
@@ -39,4 +42,9 @@ app.*.symbols
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
+# file containing sensitive info regarding app code signing
 android/key.properties
+
+# any file starting or ending with 'tmp'
+tmp*
+*tmp
