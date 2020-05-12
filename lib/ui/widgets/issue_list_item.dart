@@ -48,7 +48,7 @@ class _IssueListItemState extends State<IssueListItem> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => IssuePage(issue: completeIssueData)),
+              MaterialPageRoute(builder: (context) => IssuePage(issue: completeIssueData, blockChainData: widget.blockChainData,)),
             );
           },
           child: Container(

@@ -6,7 +6,7 @@ import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/core/viewmodels/bill_model.dart';
 import 'package:voting_app/locator.dart';
-import 'package:voting_app/ui/views/bills/bill.dart';
+import 'package:voting_app/ui/views/bills/bill_view.dart';
 import 'dart:math';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/widgets/house_icon_widget.dart';
@@ -78,7 +78,7 @@ class _BillListItemState extends State<BillListItem> {
                           voted: _vote != null ? true : false,
                           size: 20),
                       Text(widget.blockChainData.chamber,
-                          style: Theme.of(context).textTheme.bodyText1),
+                          style: Theme.of(context).textTheme.bodyText2),
                     ],
                   ),
                 ),

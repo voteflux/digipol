@@ -77,11 +77,7 @@ class _ProfilePageState extends State<ProfilePage> {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       model.create(_name);
-      if (true) {
-        Navigator.pushNamed(context, '/');
-      }
-
-      print(_name);
+      Navigator.pushNamed(context, '/');
     }
   }
 }

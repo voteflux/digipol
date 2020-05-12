@@ -2,20 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/models/issue.dart';
-import 'package:voting_app/core/models/user.dart';
 import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/appTheme.dart';
 import 'package:voting_app/ui/views/all_issues_view.dart';
 import 'package:voting_app/ui/views/base_view.dart';
-import 'package:voting_app/ui/views/settings.dart';
-import 'package:voting_app/core/services/auth_service.dart';
+import 'package:voting_app/ui/views/settings_view.dart';
 import 'package:voting_app/core/route_generator.dart';
 import 'package:voting_app/ui/views/all_bills_view.dart';
 import 'package:voting_app/ui/styles.dart';
-import 'package:voting_app/ui/views/login.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
-import 'package:provider/provider.dart';
 import 'package:voting_app/locator.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hive/hive.dart';
@@ -56,11 +52,12 @@ class _MyAppState extends State<MyApp> {
         onModelReady: (model) => model.setUser(),
         builder: (context, model, child) {
           return MaterialApp(
-              initialRoute: '/',
+              onGenerateRoute: RouteGenerator.generateSettingsRoute,
+              initialRoute: model.loggedIn ? '/' : '/profile' ,
               home: MainScreen(),
               theme: AppTheme.lightTheme,
               darkTheme: AppTheme.darkTheme,
-              onGenerateRoute: RouteGenerator.generateSettingsRoute,
+
               themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light);
         });
   }

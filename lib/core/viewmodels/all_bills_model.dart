@@ -1,6 +1,5 @@
 import 'package:hive/hive.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
-import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/locator.dart';
@@ -22,17 +21,14 @@ class BillsModel extends BaseModel {
   Future getBills() async {
     setState(ViewState.Busy);
 
-    await _authenticationService.createUser("");
-    
     // get only bills from blockchain data
     List list =
         blockChainData.values.where((bill) => bill.id.startsWith('r')).toList();
 
     blockChainList = list;
     filteredbills = list;
-    print(blockChainList.length);
 
-    print('all_bills');
+    print('Bills on BlockChain: ' + blockChainList.length.toString());
     setState(ViewState.Idle);
   }
 

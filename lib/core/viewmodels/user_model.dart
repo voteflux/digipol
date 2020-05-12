@@ -15,7 +15,6 @@ class UserModel extends BaseModel {
     var name = await _authenticationService.getUser();
 
     setState(ViewState.Idle);
-    print(name);
     return name;
   }
 

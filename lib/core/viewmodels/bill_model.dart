@@ -22,13 +22,6 @@ class BillModel extends BaseModel {
 
   Future getBill(String billID) async {
     setState(ViewState.Busy);
-
-    //List<Bill> list = billsBox.values.where((bill) => bill.id == billID).toList();
-    //bill = list[0];
-    // get bill data
-    //bill = await _api.getBill(billID);
-    //block chain call, currently calling shitchain
-    //billChainData = await _api.getBlockChainData(billID);
     billVoteResult = await _api.getBillResults(billID);
     hasVoted(billID);
 

@@ -39,7 +39,6 @@ class AuthenticationService {
   Future<String> getUser() async {
     final prefs = await SharedPreferences.getInstance();
     final user = prefs.getString('name') ?? null;
-    print(user);
     return user;
   }
 

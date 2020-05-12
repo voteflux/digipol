@@ -1,6 +1,3 @@
-import 'package:hive/hive.dart';
-import 'package:voting_app/core/models/bill.dart';
-import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/core/services/auth_service.dart';
 import 'package:voting_app/core/viewmodels/base_model.dart';
@@ -11,9 +8,7 @@ class ThemeModel extends BaseModel {
   bool isDarkMode = false;
   String user;
   String get getUser => user;
-  bool get loggedIn => user == null ? false : true;
-  Box<BlockChainData> blockChainData = Hive.box<BlockChainData>("block_chain_data");
-  Box<Bill> billsBox = Hive.box<Bill>("bills");
+  bool get loggedIn => user == '' ? false : true;
   
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
@@ -27,7 +22,7 @@ class ThemeModel extends BaseModel {
   Future<String> setUser() async {
     var isUser = await _authenticationService.getUser();
     user = isUser;
-    print('user');
+    print(user);
     return user;
   }
 }
