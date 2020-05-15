@@ -22,7 +22,7 @@ class BillListItem extends StatefulWidget {
   final Map billColors = {"House": appColors.house, "Senate": appColors.senate};
   final Map billIntro = {"House": "Intro House", "Senate": "Intro Senate"};
 
-  BillListItem({this.blockChainData, this.issuesMap});
+  BillListItem({Key key, this.blockChainData, this.issuesMap}) : super(key: key);
 }
 
 class _BillListItemState extends State<BillListItem> {

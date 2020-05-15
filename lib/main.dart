@@ -7,6 +7,8 @@ import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/appTheme.dart';
 import 'package:voting_app/ui/views/all_issues_view.dart';
 import 'package:voting_app/ui/views/base_view.dart';
+import 'package:voting_app/ui/views/login_view.dart';
+import 'package:voting_app/ui/views/onboarding_view.dart';
 import 'package:voting_app/ui/views/settings_view.dart';
 import 'package:voting_app/core/route_generator.dart';
 import 'package:voting_app/ui/views/all_bills_view.dart';
@@ -53,11 +55,10 @@ class _MyAppState extends State<MyApp> {
         builder: (context, model, child) {
           return MaterialApp(
               onGenerateRoute: RouteGenerator.generateSettingsRoute,
-              initialRoute: model.loggedIn ? '/' : '/profile' ,
-              home: MainScreen(),
+              //initialRoute: model.loggedIn ? '/' : '/profile' ,
+              home: MainScreen(loggedIn: model.loggedIn),
               theme: AppTheme.lightTheme,
               darkTheme: AppTheme.darkTheme,
-
               themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light);
         });
   }
@@ -67,6 +68,10 @@ class _MyAppState extends State<MyApp> {
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
+  final bool loggedIn;
+
+  MainScreen({Key key, @required this.loggedIn}) : super(key: key);
+
 }
 
 class _MainScreenState extends State<MainScreen> {
@@ -75,7 +80,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return widget.loggedIn ? ProfilePage() : Scaffold(
       //current page
       body: SafeArea(
         top: false,

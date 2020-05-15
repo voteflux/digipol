@@ -8,7 +8,7 @@ class ThemeModel extends BaseModel {
   bool isDarkMode = false;
   String user;
   String get getUser => user;
-  bool get loggedIn => user == '' ? false : true;
+  bool get loggedIn => false;
   
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();

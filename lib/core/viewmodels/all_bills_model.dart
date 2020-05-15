@@ -23,7 +23,7 @@ class BillsModel extends BaseModel {
 
     // get only bills from blockchain data
     List list =
-        blockChainData.values.where((bill) => bill.id.startsWith('r')).toList();
+        blockChainData.values.where((bill) => bill.id.startsWith(RegExp(r'[s+r]'))).toList();
 
     blockChainList = list;
     filteredbills = list;
