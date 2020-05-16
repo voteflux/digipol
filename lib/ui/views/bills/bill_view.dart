@@ -13,7 +13,6 @@ import 'package:voting_app/ui/widgets/voting_widgets.dart';
 import 'package:voting_app/ui/views/bills/pdf_viewer.dart';
 
 class BillPage extends StatelessWidget {
-
   //NOTE: Not currently fetching from API, using parsed data from view above
 
   // to do: parse blockchain data down to voting widget
@@ -21,10 +20,8 @@ class BillPage extends StatelessWidget {
   final Bill bill;
   final BlockChainData blockChainData;
 
-  BillPage({
-    Key key,
-    @required this.bill, this.blockChainData
-  }) : super(key: key);
+  BillPage({Key key, @required this.bill, this.blockChainData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +50,18 @@ class BillPage extends StatelessWidget {
                         showValues: true,
                         no: model.billVoteResult.no,
                         radius: dynamicMediumHeight,
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(bottom: 3.0, top: 3.0, left: 20.0),
+                        child: Text("Yes: " + bill.yes.toString(),
+                            style: Theme.of(context).textTheme.bodyText1),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(bottom: 3.0, top: 3.0, left: 20.0),
+                        child: Text("No: " + bill.no.toString(),
+                            style: Theme.of(context).textTheme.bodyText1),
                       ),
                       Padding(
                         padding: EdgeInsets.only(

@@ -42,13 +42,6 @@ class AuthenticationService {
     return user;
   }
 
-  Future<bool> hasUser() async {
-    final prefs = await SharedPreferences.getInstance();
-    final user = (prefs.getString('name') != null);
-    print(user);
-    return user;
-  }
-
   Future<String> getEthereumAddress() async {
 
     final prefs = await SharedPreferences.getInstance();

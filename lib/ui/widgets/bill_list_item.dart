@@ -16,13 +16,14 @@ import 'package:voting_app/ui/widgets/voting_status_widget.dart';
 class BillListItem extends StatefulWidget {
   @override
   _BillListItemState createState() => _BillListItemState();
-  
+
   final BlockChainData blockChainData;
   final Map issuesMap;
   final Map billColors = {"House": appColors.house, "Senate": appColors.senate};
   final Map billIntro = {"House": "Intro House", "Senate": "Intro Senate"};
 
-  BillListItem({Key key, this.blockChainData, this.issuesMap}) : super(key: key);
+  BillListItem({Key key, this.blockChainData, this.issuesMap})
+      : super(key: key);
 }
 
 class _BillListItemState extends State<BillListItem> {
@@ -32,9 +33,10 @@ class _BillListItemState extends State<BillListItem> {
   Box<Bill> billsBox = Hive.box<Bill>("bills");
 
   Future getVote() async {
-    
     // Get all bill data from Box
-    List<Bill> list = billsBox.values.where((bill) => bill.id == widget.blockChainData.id).toList();
+    List<Bill> list = billsBox.values
+        .where((bill) => bill.id == widget.blockChainData.id)
+        .toList();
     completeBillData = list[0];
 
     var vote = await billModel.hasVoted(widget.blockChainData.id);
@@ -56,10 +58,18 @@ class _BillListItemState extends State<BillListItem> {
         margin: EdgeInsets.all(appSizes.standardMargin),
         child: InkWell(
           onTap: () {
+            FocusScopeNode currentFocus = FocusScope.of(context);
+            if (!currentFocus.hasPrimaryFocus) {
+              currentFocus.unfocus();
+            }
             Navigator.push(
-             context,
+              context,
               MaterialPageRoute(
-                  builder: (context) => BillPage(bill: completeBillData, blockChainData: widget.blockChainData,)),
+                builder: (context) => BillPage(
+                  bill: completeBillData,
+                  blockChainData: widget.blockChainData,
+                ),
+              ),
             );
           },
           child: Container(
@@ -95,12 +105,12 @@ class _BillListItemState extends State<BillListItem> {
                       bill: completeBillData,
                       size: 20,
                     ),
-                    //PieWidget(
-                    //  yes: 10,
-                    //  showValues: false,
-                    //  no: 10,
-                    //  radius: 50,
-                    //)
+                    PieWidget(
+                      yes: completeBillData.yes,
+                      showValues: false,
+                      no: completeBillData.no,
+                      radius: 50,
+                    )
                   ],
                 ),
               ],

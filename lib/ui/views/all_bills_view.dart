@@ -19,46 +19,47 @@ class _AllBillsPageState extends State<AllBillsPage> {
   @override
   Widget build(BuildContext context) {
     return BaseView<BillsModel>(
-      onModelReady: (model) => model.getBills(),
-      builder: (context, model, child) => Scaffold(
-        body: model.state == ViewState.Busy
-            ? Center(child: CircularProgressIndicator())
-            : CustomScrollView(
-                slivers: <Widget>[
-                  SliverSafeArea(
-                    top: false,
-                    minimum: EdgeInsets.only(top: 20),
-                    sliver: SliverAppBar(
-                      floating: true,
-                      pinned: false,
-                      stretch: true,
-                      snap: true,
-                      title: TextField(
-                        controller: _textController,
-                        onChanged: (value) {
-                          model.searchBills(value);
-                        },
-                        decoration: InputDecoration(
-                            icon: Icon(Icons.search),
-                            hintText: "Search Bills",
-                            border: InputBorder.none),
+        onModelReady: (model) => model.getBills(),
+        builder: (context, model, child) => SafeArea(
+              child: Scaffold(
+                body: model.state == ViewState.Busy
+                    ? Center(child: CircularProgressIndicator())
+                    : CustomScrollView(
+                        slivers: <Widget>[
+                          SliverSafeArea(
+                            top: false,
+                            sliver: SliverAppBar(
+                              automaticallyImplyLeading: false, 
+                              floating: true,
+                              pinned: false,
+                              stretch: true,
+                              snap: true,
+                              title: TextField(
+                                controller: _textController,
+                                onChanged: (value) {
+                                  model.searchBills(value);
+                                },
+                                decoration: InputDecoration(
+                                    icon: Icon(Icons.search),
+                                    hintText: "Search Bills",
+                                    border: InputBorder.none),
+                              ),
+                            ),
+                          ),
+                          SliverList(
+                            key: ObjectKey(model.filteredbills),
+                            delegate: SliverChildBuilderDelegate(
+                              (BuildContext context, int index) {
+                                return BillListItem(
+                                    blockChainData: model.filteredbills[index]);
+                              },
+                              childCount: model.filteredbills.length,
+                            ),
+                          )
+                        ],
                       ),
-                    ),
-                  ),
-                  SliverList(
-                    key: new ObjectKey(model.filteredbills),
-                    delegate: SliverChildBuilderDelegate(
-                      (BuildContext context, int index) {
-                        return BillListItem(
-                            blockChainData: model.filteredbills[index]);
-                      },
-                      childCount: model.filteredbills.length,
-                    ),
-                  )
-                ],
               ),
-      ),
-    );
+            ));
   }
 }
 

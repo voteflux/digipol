@@ -3,6 +3,7 @@ import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/models/issue.dart';
 import 'package:voting_app/core/services/api.dart';
+import 'package:voting_app/core/services/auth_service.dart';
 import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/appTheme.dart';
 import 'package:voting_app/ui/views/all_issues_view.dart';
@@ -17,18 +18,19 @@ import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:voting_app/locator.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hive/hive.dart';
+
 //import 'package:instabug_flutter/Instabug.dart';
 Api _api = locator<Api>();
 
-void main() async{
+void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter<BlockChainData>(BlockChainDataAdapter());
   Hive.registerAdapter<Bill>(BillAdapter());
   Hive.registerAdapter<Issue>(IssueAdapter());
-  await Hive.openBox<BlockChainData>("block_chain_data"); 
-  await Hive.openBox<Bill>("bills"); 
-  await Hive.openBox<Issue>("issues"); 
-  
+  await Hive.openBox<BlockChainData>("block_chain_data");
+  await Hive.openBox<Bill>("bills");
+  await Hive.openBox<Issue>("issues");
+
   setupLocator();
   await _api.syncData();
   runApp(MyApp());
@@ -40,23 +42,35 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  String user;
+  final AuthenticationService _authenticationService =
+      locator<AuthenticationService>();
+
+  Future<String> setUser() async {
+    var isUser = await _authenticationService.getUser();
+    user = isUser;
+    print(user);
+    return user;
+  }
+
   @override
   initState() {
     super.initState();
     print("InstaBug here");
+    setUser();
 //    Instabug.start('dfdea6cecd71ae7d94d60d24dc881ff3', [InvocationEvent.shake]);
   }
 
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarWhiteForeground(darkMode);
-        return BaseView<ThemeModel>(
-        onModelReady: (model) => model.setUser(),
+    return BaseView<ThemeModel>(
+        //onModelReady: (model) => model.setUser(),
         builder: (context, model, child) {
           return MaterialApp(
               onGenerateRoute: RouteGenerator.generateSettingsRoute,
-              //initialRoute: model.loggedIn ? '/' : '/profile' ,
-              home: MainScreen(loggedIn: model.loggedIn),
+              initialRoute: user == null ? '/profile' : '/' ,
+              home: MainScreen(),
               theme: AppTheme.lightTheme,
               darkTheme: AppTheme.darkTheme,
               themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light);
@@ -64,14 +78,9 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
-  final bool loggedIn;
-
-  MainScreen({Key key, @required this.loggedIn}) : super(key: key);
-
 }
 
 class _MainScreenState extends State<MainScreen> {
@@ -80,8 +89,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.loggedIn ? ProfilePage() : Scaffold(
-      //current page
+    return Scaffold(
       body: SafeArea(
         top: false,
         child: IndexedStack(index: _currentIndex, children: <Widget>[
@@ -90,7 +98,6 @@ class _MainScreenState extends State<MainScreen> {
           SettingsPage()
         ]),
       ),
-      // the nav bar at the bottom --> [bills - issues - Settings]
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Theme.of(context).colorScheme.primary,
         unselectedItemColor: Theme.of(context).colorScheme.primaryVariant,
@@ -119,4 +126,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
