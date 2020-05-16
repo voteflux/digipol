@@ -113,7 +113,7 @@ Get flutter (copy in all lines):
 git clone https://github.com/flutter/flutter.git -b beta && \
 echo '#Add Flutter to PATH' >> $HOME/.bashrc && \
 echo 'export PATH="$PATH:'$(pwd)'/flutter/bin"' >> $HOME/.bashrc && \
-export PATH="$PATH:'$(pwd)'/flutter/bin && \
+export PATH="$PATH:'$(pwd)'/flutter/bin" && \
 echo "Check the flutter is in path" && \
 echo $PATH && \
 flutter precache && \
