@@ -21,6 +21,8 @@ import 'package:hive/hive.dart';
 
 //import 'package:instabug_flutter/Instabug.dart';
 Api _api = locator<Api>();
+AuthenticationService _authenticationService = locator<AuthenticationService>();
+String user;
 
 void main() async {
   await Hive.initFlutter();
@@ -33,6 +35,7 @@ void main() async {
 
   setupLocator();
   await _api.syncData();
+  user = await _authenticationService.getUser();
   runApp(MyApp());
 }
 
@@ -42,39 +45,20 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String user;
-  final AuthenticationService _authenticationService =
-      locator<AuthenticationService>();
-
-  Future<String> setUser() async {
-    var isUser = await _authenticationService.getUser();
-    user = isUser;
-    print(user);
-    return user;
-  }
-
-  @override
-  initState() {
-    super.initState();
-    print("InstaBug here");
-    setUser();
-//    Instabug.start('dfdea6cecd71ae7d94d60d24dc881ff3', [InvocationEvent.shake]);
-  }
-
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarWhiteForeground(darkMode);
     return BaseView<ThemeModel>(
         //onModelReady: (model) => model.setUser(),
         builder: (context, model, child) {
-          return MaterialApp(
-              onGenerateRoute: RouteGenerator.generateSettingsRoute,
-              initialRoute: user == null ? '/profile' : '/' ,
-              home: MainScreen(),
-              theme: AppTheme.lightTheme,
-              darkTheme: AppTheme.darkTheme,
-              themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light);
-        });
+      return MaterialApp(
+          onGenerateRoute: RouteGenerator.generateSettingsRoute,
+          initialRoute: user == null ? '/profile' : '/',
+          home: MainScreen(),
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light);
+    });
   }
 }
 

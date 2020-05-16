@@ -39,4 +39,5 @@ class BillsModel extends BaseModel {
         .toList();
     notifyListeners();
   }
+
 }
