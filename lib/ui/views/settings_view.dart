@@ -106,7 +106,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       style: Theme.of(context).textTheme.headline5,
                     ),
                     Text(
-                      "v0.1",
+                      "v0.1.2",
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     Divider(
@@ -127,7 +127,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
                                 launch(
-                                    'https://github.com/voteflux/voting_app/issues');
+                                    'https://github.com/voteflux/voting_app/issues/new/choose');
                               },
                           ),
                         ],
