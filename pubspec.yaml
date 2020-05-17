@@ -1,5 +1,5 @@
 name: voting_app
-description: A new Flutter application.
+description: Flux DigiPol pre-alpha app
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -11,17 +11,20 @@ description: A new Flutter application.
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+
+version: 0.1.0
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
+  flutter: ^1.16.2
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_statusbarcolor: ^0.2.3
+  # statusbarcolor has an issue with a badly typed int; not sure if it was breaking the build or just a warning
+  flutter_statusbarcolor: 0.2.1
   bip39: ^1.0.3
-#  instabug_flutter:
+  # instabug_flutter:
   cupertino_icons: ^0.1.3
   pdf_viewer_plugin: ^1.0.0+2
   pdf: ^1.3.10

@@ -1,8 +1,6 @@
 # DigiPol
 
-## Parliament of the People
-
-_NOTE: App is in pre-Alpha - We welcome criticism, if you think you can improve the structure, please fork and do a pull request_
+## *Connecting Real People with their Parliament*
 
 **Attention:** Alpha testers, please read [this guide](docs/ALPHATESTING.md).
 
@@ -107,17 +105,19 @@ Install dependencies:
 sudo apt install curl
 ```
 
-Get flutter:
+Get flutter (copy in all lines):
+
+**WARNING:** you must use a version of flutter >= 1.16.2, the easiest way to do this is use the `beta` channel; **builds will fail if you're using `stable` channel.**
 
 ```
-git clone https://github.com/flutter/flutter.git -b master
-echo '#Add Flutter to PATH' >> $HOME/.bashrc
-echo 'export PATH="$PATH:'$(pwd)'/flutter/bin"' >> $HOME/.bashrc
-source $HOME/.bashrc
-echo "Check the flutter is in path"
-echo $PATH
-flutter precache
-echo "Check your dependencies:"
+git clone https://github.com/flutter/flutter.git -b beta && \
+echo '#Add Flutter to PATH' >> $HOME/.bashrc && \
+echo 'export PATH="$PATH:'$(pwd)'/flutter/bin"' >> $HOME/.bashrc && \
+export PATH="$PATH:$(pwd)/flutter/bin" && \
+echo "Check the flutter is in path" && \
+echo $PATH && \
+flutter precache && \
+echo "Check your dependencies:" && \
 flutter doctor
 ```
 
@@ -128,10 +128,10 @@ Run `flutter doctor` again to check dependencies.
 #### For web dev:
 
 ```
-flutter channel beta
-flutter upgrade
 flutter config --enable-web
 ```
+
+(If you're not already on the beta channel run `flutter channel beta && flutter upgrade`)
 
 Make sure you have Chrome installed
 
@@ -166,6 +166,36 @@ And Run `flutter run -d chrome` in the project dir.
 - results map
 
 ----------
+
+## CICD
+
+* GitHub --(webhook)--> GitLab CE (cicd project)
+  - mirror clone github.com/voteflux/voting_app
+  - push to gitlab repo
+* GitLab CE (main project) -- cicd triggers normally
+  - runs .gitlab-ci.yaml pipelines
+  - reports status back to github
+  - multiple runners based on tags to deliniate signing / permissions / branch-filters / etc.
+* Avoid multiline scripts in gitlab-ci.yml; use named scripts under `./ci/` instead.
+* coverage is gathered in gitlab but I'm not sure where to find the reports :/, anyway getting covg feedback in PRs would be really nice
+* currently this runs for every push which is not ideal; would be nice to just to PRs
+  * the problem with that is the mirroring situation with gitlab and detecting when PRs are being run vs normal pushes -- gitlab webhook URLs might be able to help us here (combined with event filters on the github side for outgoing webhooks)
+
+### macos codesigning
+
+> **Note: substantial criticism and improvements very welcome**
+
+The codesigning setup is roughly:
+
+* a gitlab runner instance running under user `runner`
+* a `codesign` user with xcode set up and things
+* very restricted `sudo -u codesign` access for runner
+
+Problems:
+
+* unlocking the keychain seems to be problematic
+* needed to add -allowProvisioningUpdates to last line of do-flux-codesign
+* provisioning profiles are not intuitive, well documented, etc
 
 ## Architecture Overview
 

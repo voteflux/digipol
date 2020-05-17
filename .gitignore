@@ -30,6 +30,9 @@
 .pub/
 /build/
 
+# Test related
+/coverage/
+
 # Web related
 lib/generated_plugin_registrant.dart
 
@@ -41,3 +44,10 @@ app.*.symbols
 
 #pubspeck lock
 pubspec.lock
+
+# file containing sensitive info regarding app code signing
+android/key.properties
+
+# any file starting or ending with 'tmp'
+tmp*
+*tmp

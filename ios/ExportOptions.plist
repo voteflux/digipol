@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>provisioningProfiles</key>
+    <dict>
+        <key>party.flux.digipol</key>
+        <string>party.flux.digipol</string>
+        <!-- <string>Apple Distribution: The Flux Foundation Limited (25DYQ99XVS)</string> -->
+    </dict>
+    <!-- adhoc or enterprise -- note: this is not compatible with testflight -->
+    <key>method</key>
+    <string>ad-hoc</string>
+    <key>teamID</key>
+    <string>25DYQ99XVS</string>
+</dict>
+</plist>
