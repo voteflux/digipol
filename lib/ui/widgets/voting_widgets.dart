@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/bill_vote_success.dart';
-import 'package:voting_app/core/services/auth_service.dart';
 import 'package:voting_app/core/viewmodels/bill_vote_model.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
@@ -42,13 +39,13 @@ class _VoteWidgetState extends State<VoteWidget> {
                       padding: EdgeInsets.all(appSizes.standardPadding),
                       child: Text(
                         widget.data.shortTitle,
-                        style: Theme.of(context).textTheme.headline6,
+                        style: Theme.of(context).textTheme.headline5,
                       ),
                     ),
                     widget.vote != null
                         ? Container(
                             padding: EdgeInsets.all(appSizes.standardPadding),
-                            child: Text("You voted " + widget.vote,
+                            child: Text("You voted " + widget.vote.toUpperCase() + ". You can change your vote below.",
                                 style: Theme.of(context).textTheme.headline6)): Divider(),
                         Container(
                             padding: EdgeInsets.all(appSizes.standardPadding),
@@ -114,6 +111,7 @@ class _VoteWidgetState extends State<VoteWidget> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
+          backgroundColor: Theme.of(context).backgroundColor,
           title: Text('Confirm Vote',
               style: Theme.of(context).textTheme.headline6),
           content: SingleChildScrollView(

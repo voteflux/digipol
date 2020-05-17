@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill.dart';
+import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/viewmodels/bill_model.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
@@ -12,17 +13,15 @@ import 'package:voting_app/ui/widgets/voting_widgets.dart';
 import 'package:voting_app/ui/views/bills/pdf_viewer.dart';
 
 class BillPage extends StatelessWidget {
-
   //NOTE: Not currently fetching from API, using parsed data from view above
 
-
+  // to do: parse blockchain data down to voting widget
   // information about the bill
   final Bill bill;
+  final BlockChainData blockChainData;
 
-  BillPage({
-    Key key,
-    @required this.bill,
-  }) : super(key: key);
+  BillPage({Key key, @required this.bill, this.blockChainData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +52,21 @@ class BillPage extends StatelessWidget {
                         radius: dynamicMediumHeight,
                       ),
                       Padding(
+                        padding:
+                            EdgeInsets.only(bottom: 3.0, top: 3.0, left: 20.0),
+                        child: Text("Yes: " + bill.yes.toString(),
+                            style: Theme.of(context).textTheme.bodyText1),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(bottom: 3.0, top: 3.0, left: 20.0),
+                        child: Text("No: " + bill.no.toString(),
+                            style: Theme.of(context).textTheme.bodyText1),
+                      ),
+                      Padding(
                         padding: EdgeInsets.only(
                             bottom: 20.0, top: 10.0, left: 20.0),
-                        child: HouseIconsWidget(bill: model.bill, size: 25),
+                        child: HouseIconsWidget(bill: bill, size: 25),
                       ),
                       Container(
                         width: dynamicLargeWidth,
@@ -69,14 +80,14 @@ class BillPage extends StatelessWidget {
                           children: <Widget>[
                             Align(
                               child: VotingStatusWidget(
-                                  bill: model.bill, voted: false, size: 20),
+                                  bill: bill, voted: false, size: 20),
                               alignment: Alignment.centerLeft,
                             ),
                             Align(
                               child: Padding(
                                 padding:
                                     EdgeInsets.only(bottom: 20.0, top: 10.0),
-                                child: Text(model.bill.shortTitle,
+                                child: Text(bill.shortTitle,
                                     style:
                                         Theme.of(context).textTheme.headline5),
                               ),
@@ -85,7 +96,7 @@ class BillPage extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.only(bottom: 20.0),
                               child: Text(
-                                model.bill.summary,
+                                bill.summary,
                                 style: Theme.of(context).textTheme.bodyText2,
                               ),
                             ),
@@ -98,7 +109,7 @@ class BillPage extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          PdfPage(pdfUrl: model.bill.textLinkPdf)),
+                                          PdfPage(pdfUrl: bill.textLinkPdf)),
                                 );
                               },
                             ),
@@ -117,7 +128,7 @@ class BillPage extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          PdfPage(pdfUrl: model.bill.emLinkPdf)),
+                                          PdfPage(pdfUrl: bill.emLinkPdf)),
                                 );
                               },
                             ),
@@ -132,7 +143,7 @@ class BillPage extends StatelessWidget {
                         ),
                       ),
                       VoteWidget(
-                        data: model.billChainData,
+                        data: blockChainData,
                         vote: model.getVote,
                       ),
                     ],

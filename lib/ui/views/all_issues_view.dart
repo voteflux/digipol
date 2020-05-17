@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
+import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/models/issue.dart';
 import 'package:voting_app/core/viewmodels/all_issues_model.dart';
 import 'package:voting_app/ui/views/base_view.dart';
@@ -58,8 +59,8 @@ class _AllIssuesPageState extends State<AllIssuesPage> {
 }
 
 
-Widget issues(List<Issue> issues) => ListView.builder(
+Widget issues(List<BlockChainData> issues) => ListView.builder(
     itemCount: issues.length,
     shrinkWrap: true,
     physics: ClampingScrollPhysics(),
-    itemBuilder: (context, index) => IssueListItem(issue: issues[index]));
+    itemBuilder: (context, index) => IssueListItem(blockChainData: issues[index]));

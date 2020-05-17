@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/ui/views/bills/bill.dart';
-import 'package:voting_app/ui/views/issues/issue_view.dart';
 import 'package:voting_app/main.dart';
-import 'package:voting_app/ui/views/login.dart';
+import 'package:voting_app/ui/views/login_view.dart';
 import 'package:voting_app/ui/views/bills/pdf_viewer.dart';
+import 'package:voting_app/ui/views/onboarding_view.dart';
 
 // there are three separate routing's. One for each for each;
 // bills, issues and Settings
@@ -52,10 +51,13 @@ class RouteGenerator {
 
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => MyApp());
+        return MaterialPageRoute(builder: (_) => MainScreen());
 
       case '/profile':
         return MaterialPageRoute(builder: (_) => ProfilePage());
+      
+      case '/onboarding':
+        return MaterialPageRoute(builder: (_) => OnBoardingView());        
 
       default:
         return _errorRoute();

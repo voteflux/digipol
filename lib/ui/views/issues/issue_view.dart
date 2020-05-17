@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
+import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/models/issue.dart';
 import 'package:voting_app/core/viewmodels/issue_model.dart';
 import 'package:voting_app/ui/styles.dart';
@@ -11,10 +12,11 @@ class IssuePage extends StatelessWidget {
   /// information about the issue
 
   final Issue issue;
+  final BlockChainData blockChainData;
 
   IssuePage({
     Key key,
-    @required this.issue,
+    @required this.issue, this.blockChainData
   }) : super(key: key);
 
   @override
@@ -86,7 +88,7 @@ class IssuePage extends StatelessWidget {
                               style: Theme.of(context).textTheme.bodyText2,
                             ),
                             VoteWidget(
-                              data: model.billChainData,
+                              data: blockChainData,
                               vote: model.getVote,
                             ),
                           ],

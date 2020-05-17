@@ -1,23 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:voting_app/core/models/user.dart';
+import 'package:voting_app/core/models/bill.dart';
+import 'package:voting_app/core/models/block_chain_data.dart';
+import 'package:voting_app/core/models/issue.dart';
+import 'package:voting_app/core/services/api.dart';
+import 'package:voting_app/core/services/auth_service.dart';
 import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/appTheme.dart';
 import 'package:voting_app/ui/views/all_issues_view.dart';
 import 'package:voting_app/ui/views/base_view.dart';
-import 'package:voting_app/ui/views/settings.dart';
-import 'package:voting_app/core/services/auth_service.dart';
+import 'package:voting_app/ui/views/login_view.dart';
+import 'package:voting_app/ui/views/onboarding_view.dart';
+import 'package:voting_app/ui/views/settings_view.dart';
 import 'package:voting_app/core/route_generator.dart';
 import 'package:voting_app/ui/views/all_bills_view.dart';
 import 'package:voting_app/ui/styles.dart';
-import 'package:voting_app/ui/views/login.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
-import 'package:provider/provider.dart';
 import 'package:voting_app/locator.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive/hive.dart';
+
 //import 'package:instabug_flutter/Instabug.dart';
+Api _api = locator<Api>();
+AuthenticationService _authenticationService = locator<AuthenticationService>();
+String user;
 
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter<BlockChainData>(BlockChainDataAdapter());
+  Hive.registerAdapter<Bill>(BillAdapter());
+  Hive.registerAdapter<Issue>(IssueAdapter());
+  await Hive.openBox<BlockChainData>("block_chain_data");
+  await Hive.openBox<Bill>("bills");
+  await Hive.openBox<Issue>("issues");
 
-void main() {
   setupLocator();
+  await _api.syncData();
+  user = await _authenticationService.getUser();
   runApp(MyApp());
 }
 
@@ -28,29 +46,21 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-  initState() {
-    super.initState();
-    print("InstaBug here");
-//    Instabug.start('dfdea6cecd71ae7d94d60d24dc881ff3', [InvocationEvent.shake]);
-  }
-
-  @override
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarWhiteForeground(darkMode);
-        return BaseView<ThemeModel>(
-        onModelReady: (model) => model.setUser(),
+    return BaseView<ThemeModel>(
+        //onModelReady: (model) => model.setUser(),
         builder: (context, model, child) {
-          return MaterialApp(
-              initialRoute: '/',
-              home: MainScreen(),
-              theme: AppTheme.lightTheme,
-              darkTheme: AppTheme.darkTheme,
-              onGenerateRoute: RouteGenerator.generateSettingsRoute,
-              themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light);
-        });
+      return MaterialApp(
+          onGenerateRoute: RouteGenerator.generateSettingsRoute,
+          initialRoute: user == null ? '/profile' : '/',
+          home: MainScreen(),
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light);
+    });
   }
 }
-
 
 class MainScreen extends StatefulWidget {
   @override
@@ -63,8 +73,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      //current page
+    return Scaffold(
       body: SafeArea(
         top: false,
         child: IndexedStack(index: _currentIndex, children: <Widget>[
@@ -73,7 +82,6 @@ class _MainScreenState extends State<MainScreen> {
           SettingsPage()
         ]),
       ),
-      // the nav bar at the bottom --> [bills - issues - Settings]
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Theme.of(context).colorScheme.primary,
         unselectedItemColor: Theme.of(context).colorScheme.primaryVariant,

@@ -1,3 +1,4 @@
+import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill.dart';
@@ -14,21 +15,14 @@ class BillModel extends BaseModel {
   Bill bill;
   BillChainData billChainData;
   BillVoteResult billVoteResult;
+  Box<Bill> billsBox = Hive.box<Bill>("bills");
 
   String _vote;
   String get getVote => _vote;
 
   Future getBill(String billID) async {
     setState(ViewState.Busy);
-    
-    // get bill data
-    bill = await _api.getBill(billID);
-
-    //block chain call, currently calling shitchain
-    billChainData = await _api.getBlockChainData(billID); 
-
-    billVoteResult  = await _api.getBillResults(billID);
-
+    billVoteResult = await _api.getBillResults(billID);
     hasVoted(billID);
 
     setState(ViewState.Idle);
