@@ -1,13 +1,17 @@
 import 'dart:convert';
+import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/bill_vote_success.dart';
+import 'package:voting_app/core/models/user.dart';
 
 class VotingService {
   Future<BillVoteSuccess> postVote(BillVote vote) async {
     final prefs = await SharedPreferences.getInstance();
-    final ethereumAddress = prefs.getString('ethereumAddress') ?? null;
+
+    Box<User> userBox = Hive.box<User>("user_box");
+    final ethereumAddress = userBox.getAt(0).ethereumAddress.toString() ?? null;
 
     prefs.setString(vote.ballotId, vote.vote);
 

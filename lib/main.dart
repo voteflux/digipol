@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/models/issue.dart';
+import 'package:voting_app/core/models/user.dart';
 import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/core/services/auth_service.dart';
 import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/appTheme.dart';
 import 'package:voting_app/ui/views/all_issues_view.dart';
 import 'package:voting_app/ui/views/base_view.dart';
-import 'package:voting_app/ui/views/login_view.dart';
-import 'package:voting_app/ui/views/onboarding_view.dart';
 import 'package:voting_app/ui/views/settings_view.dart';
 import 'package:voting_app/core/route_generator.dart';
 import 'package:voting_app/ui/views/all_bills_view.dart';
@@ -29,9 +28,11 @@ void main() async {
   Hive.registerAdapter<BlockChainData>(BlockChainDataAdapter());
   Hive.registerAdapter<Bill>(BillAdapter());
   Hive.registerAdapter<Issue>(IssueAdapter());
+  Hive.registerAdapter<User>(UserAdapter());
   await Hive.openBox<BlockChainData>("block_chain_data");
   await Hive.openBox<Bill>("bills");
   await Hive.openBox<Issue>("issues");
+  await Hive.openBox<User>("user_box");
 
   setupLocator();
   await _api.syncData();

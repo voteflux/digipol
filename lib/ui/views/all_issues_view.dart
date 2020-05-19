@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
-import 'package:voting_app/core/models/issue.dart';
 import 'package:voting_app/core/viewmodels/all_issues_model.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/styles.dart';

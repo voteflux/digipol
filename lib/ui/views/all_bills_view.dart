@@ -29,7 +29,26 @@ class _AllBillsPageState extends State<AllBillsPage> {
                           SliverSafeArea(
                             top: false,
                             sliver: SliverAppBar(
-                              automaticallyImplyLeading: false, 
+                              automaticallyImplyLeading: false,
+                              actions: <Widget>[
+                                IconButton(
+                                  icon: Icon(Icons.filter_list),
+                                  tooltip: 'Open filters',
+                                  onPressed: () {
+                                    FocusScopeNode currentFocus =
+                                        FocusScope.of(context);
+                                    if (!currentFocus.hasPrimaryFocus) {
+                                      currentFocus.unfocus();
+                                    }
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => FiltersWidget(),
+                                      ),
+                                    );
+                                  },
+                                )
+                              ],
                               floating: true,
                               pinned: false,
                               stretch: true,
@@ -60,6 +79,37 @@ class _AllBillsPageState extends State<AllBillsPage> {
                       ),
               ),
             ));
+  }
+}
+
+class FiltersWidget extends StatefulWidget {
+  @override
+  _FiltersWidgetState createState() => _FiltersWidgetState();
+}
+
+class _FiltersWidgetState extends State<FiltersWidget> {
+  bool _lights = false;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: ListView(
+          children: <Widget>[
+            Text("Search Preferences"),
+            SwitchListTile(
+              title: Text('Exclude voted bills'),
+              value: _lights,
+              onChanged: (bool value) {
+                setState(() {
+                  _lights = value;
+                });
+              },
+              secondary: Icon(Icons.videogame_asset),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
 
