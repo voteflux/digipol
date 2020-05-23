@@ -48,6 +48,7 @@ class _BillListItemState extends State<BillListItem> {
   @protected
   @mustCallSuper
   void initState() {
+    super.initState();
     getVote();
   }
 

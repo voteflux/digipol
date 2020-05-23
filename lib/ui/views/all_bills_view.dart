@@ -16,50 +16,70 @@ class AllBillsPage extends StatefulWidget {
 TextEditingController _textController = TextEditingController();
 
 class _AllBillsPageState extends State<AllBillsPage> {
+  bool _lights = false;
   @override
   Widget build(BuildContext context) {
     return BaseView<BillsModel>(
-        onModelReady: (model) => model.getBills(),
-        builder: (context, model, child) => SafeArea(
-              child: Scaffold(
-                body: model.state == ViewState.Busy
-                    ? Center(child: CircularProgressIndicator())
-                    : CustomScrollView(
-                        slivers: <Widget>[
-                          SliverSafeArea(
-                            top: false,
-                            sliver: SliverAppBar(
-                              automaticallyImplyLeading: false, 
-                              floating: true,
-                              pinned: false,
-                              stretch: true,
-                              snap: true,
-                              title: TextField(
-                                controller: _textController,
-                                onChanged: (value) {
-                                  model.searchBills(value);
-                                },
-                                decoration: InputDecoration(
-                                    icon: Icon(Icons.search),
-                                    hintText: "Search Bills",
-                                    border: InputBorder.none),
-                              ),
-                            ),
-                          ),
-                          SliverList(
-                            key: ObjectKey(model.filteredbills),
-                            delegate: SliverChildBuilderDelegate(
-                              (BuildContext context, int index) {
-                                return BillListItem(
-                                    blockChainData: model.filteredbills[index]);
-                              },
-                              childCount: model.filteredbills.length,
-                            ),
-                          )
-                        ],
+      onModelReady: (model) => model.getBills(),
+      builder: (context, model, child) => SafeArea(
+        child: Scaffold(
+          body: model.state == ViewState.Busy
+              ? Center(child: CircularProgressIndicator())
+              : CustomScrollView(
+                  slivers: <Widget>[
+                    SliverSafeArea(
+                      top: false,
+                      sliver: SliverAppBar(
+                        automaticallyImplyLeading: false,
+                        floating: true,
+                        pinned: false,
+                        stretch: true,
+                        snap: true,
+                        title: TextField(
+                          controller: _textController,
+                          onChanged: (value) {
+                            model.searchBills(value);
+                          },
+                          decoration: InputDecoration(
+                              icon: Icon(Icons.search),
+                              hintText: "Search Bills",
+                              border: InputBorder.none),
+                        ),
                       ),
-              ),
-            ));
+                    ),
+                    SliverList(
+                      key: ObjectKey(model.filteredbills),
+                      delegate: SliverChildBuilderDelegate(
+                        (BuildContext context, int index) {
+                          return BillListItem(
+                              blockChainData: model.filteredbills[index]);
+                        },
+                        childCount: model.filteredbills.length,
+                      ),
+                    )
+                  ],
+                ),
+          endDrawer: Drawer(
+              child: Container(
+            color: Theme.of(context).backgroundColor,
+            child: ListView(
+              children: <Widget>[
+                SwitchListTile(
+                  title: Text('Only voted'),
+                  value: model.getOnlyVotedBillsPref,
+                  onChanged: (bool value) {
+                    setState(() {
+                      model.onlyVotedSearchSave(value);
+                    });
+                  },
+                  secondary: Icon(Icons.videogame_asset),
+                )
+              ],
+            ),
+          )),
+        ),
+      ),
+    );
   }
 }
 

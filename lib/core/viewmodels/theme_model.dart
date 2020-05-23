@@ -1,28 +1,23 @@
-import 'package:voting_app/core/services/api.dart';
-import 'package:voting_app/core/services/auth_service.dart';
+import 'package:hive/hive.dart';
 import 'package:voting_app/core/viewmodels/base_model.dart';
-import 'package:voting_app/locator.dart';
 
 class ThemeModel extends BaseModel {
-  Api _api = locator<Api>();
+  Box userPreferencesBox = Hive.box("user_preferences");
   bool isDarkMode = false;
-  String user;
-  String get getUser => user;
-  bool get loggedIn => user == null ? false : true;
   
-  final AuthenticationService _authenticationService =
-      locator<AuthenticationService>();
-
-  void updateTheme(bool isDarkMode) {
-    this.isDarkMode = isDarkMode;
-    print(isDarkMode);
+  // change theme via switch and save in hive
+  void updateTheme(bool value) {
+    userPreferencesBox.put('darkMode', value);
+    this.isDarkMode = value;
+    print(value);
     notifyListeners();
   }
 
-  Future<String> setUser() async {
-    var isUser = await _authenticationService.getUser();
-    print(user);
-    print(loggedIn);
-    return user;
+  // set theme on load
+  void setTheme(){
+    Box userPreferencesBox = Hive.box("user_preferences");
+    bool darkMode = userPreferencesBox.get('darkMode', defaultValue: false);
+    this.isDarkMode = darkMode;
+    notifyListeners();
   }
 }

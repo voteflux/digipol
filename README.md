@@ -52,13 +52,18 @@ The idea behind the directory architecture is to abstract the logic away from th
 - Providers will NOT be passed in through app level global provider, unless it's required by more than 1 view in the app architecture (Users information).
 - Models will ONLY request data from Services and reduce state from that DATA. Nothing else.
 
+***Hivedb, Api interaction & local storage**
+- The app uses [Hivedb](https://github.com/hivedb/hive) to store the API, blockchain data and user preferences locally. This allows for faster app performance & cheaper API hosting costs. If you are planning on contributing to the core, you must read the Hive docs to understand how it works.
+- On startup the app calls the API and blockchain endpoints and stores the data in Hive models with custom adaptors ([read here](https://docs.hivedb.dev/#/custom-objects/generate_adapter)).
+- All static data in the UI is called from Hive and not from API directly.
+- Total votes is still called directly on the models currently
 --------------------------------------------------------------------------------
 
 ## Core
 
 All app logic is contained in this directory.
 
-- **models** - Contains all the plain data models
+- **models** - Contains all the data models
 - **services** - Contains the dedicated files that will handle actual app logic
 - **viewmodels** - Contains the Provider models for each of the Widget views
 - **enums** - Storing any reusable enums
