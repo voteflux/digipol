@@ -8,14 +8,15 @@ import 'package:voting_app/core/models/user.dart';
 
 class VotingService {
   Future<BillVoteSuccess> postVote(BillVote vote) async {
-    final prefs = await SharedPreferences.getInstance();
+    
 
     Box<User> userBox = Hive.box<User>("user_box");
+    Box<BillVote> billVoteBox = Hive.box<BillVote>("bill_vote_box");
     final ethereumAddress = userBox.getAt(0).ethereumAddress.toString() ?? null;
 
+    // to delete
+    final prefs = await SharedPreferences.getInstance();
     prefs.setString(vote.ballotId, vote.vote);
-
-    print(ethereumAddress);
 
     var body = json.encode(<String, dynamic>{
       "pub_key": ethereumAddress,
@@ -35,6 +36,8 @@ class VotingService {
     );
 
     if (response.statusCode == 200) {
+      billVoteBox.add(BillVote(ballotId: vote.ballotId, vote: vote.vote));
+      print(billVoteBox.getAt(0).ballotId.toString());
       return BillVoteSuccess.fromJson(json.decode(response.body));
     } else {
       throw Exception('Failed cast vote');
