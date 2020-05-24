@@ -14,7 +14,10 @@ class BillsModel extends BaseModel {
   Box userPreferencesBox = Hive.box("user_preferences");
 
   bool onlyVotedBills = false;
-  bool get getOnlyVotedBillsPref => onlyVotedBills;
+  bool get getOnlyVotedBills => onlyVotedBills;
+
+  bool removeVotedBills = false;
+  bool get getRemoveVotedBills => removeVotedBills;
 
   Future getBills() async {
     setState(ViewState.Busy);
@@ -29,6 +32,10 @@ class BillsModel extends BaseModel {
     bool onlyVotedPref =
         userPreferencesBox.get('onlyVotedBills', defaultValue: false);
     onlyVoted(onlyVotedPref);
+
+    bool removeVotedPref =
+        userPreferencesBox.get('removeVotedBills', defaultValue: false);
+    removeVoted(removeVotedPref);
 
     print('Bills on BlockChain: ' + blockChainList.length.toString());
     setState(ViewState.Idle);
@@ -62,6 +69,37 @@ class BillsModel extends BaseModel {
       List list = billVoteBox.values.map((el) => el.ballotId).toList();
       filteredbills =
           blockChainList.where((bill) => list.contains(bill.id)).toList();
+    } else {
+      filteredbills = blockChainList;
+    }
+    notifyListeners();
+  }
+
+  //
+  // remove voted switch methods
+  //
+  // filters list
+
+  void removeVotedSearchSave(bool value) {
+    userPreferencesBox.put('removeVotedBills', value);
+    removeVoted(value);
+    print(userPreferencesBox.get('removeVotedBills'));
+  }
+
+  void removeVoted(bool value) {
+    this.removeVotedBills = value;
+    if (value) {
+      List list = billVoteBox.values.map((el) => el.ballotId).toList();
+      List<BlockChainData> filtered = [];
+
+      blockChainList.forEach((element) {
+        if (list.contains(element.id)) {
+          print('inn' + element.id.toString());
+        } else {
+          filtered.add(element);
+        }
+      });
+      filteredbills = filtered;
     } else {
       filteredbills = blockChainList;
     }

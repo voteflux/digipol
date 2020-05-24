@@ -66,13 +66,23 @@ class _AllBillsPageState extends State<AllBillsPage> {
               children: <Widget>[
                 SwitchListTile(
                   title: Text('Only voted'),
-                  value: model.getOnlyVotedBillsPref,
+                  value: model.getOnlyVotedBills,
                   onChanged: (bool value) {
                     setState(() {
                       model.onlyVotedSearchSave(value);
                     });
                   },
-                  secondary: Icon(Icons.videogame_asset),
+                  secondary: Icon(Icons.done_outline, color: Theme.of(context).iconTheme.color),
+                ),
+                SwitchListTile(
+                  title: Text('Remove voted'),
+                  value: model.getRemoveVotedBills,
+                  onChanged: (bool value) {
+                    setState(() {
+                      model.removeVotedSearchSave(value);
+                    });
+                  },
+                  secondary: Icon(Icons.layers_clear, color: Theme.of(context).iconTheme.color),
                 )
               ],
             ),

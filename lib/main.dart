@@ -13,8 +13,6 @@ import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/views/settings_view.dart';
 import 'package:voting_app/core/route_generator.dart';
 import 'package:voting_app/ui/views/all_bills_view.dart';
-import 'package:voting_app/ui/styles.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:voting_app/locator.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hive/hive.dart';
@@ -34,7 +32,7 @@ void main() async {
   await Hive.openBox<BlockChainData>("block_chain_data");
   await Hive.openBox<Bill>("bills");
   await Hive.openBox<Issue>("issues");
-  await Hive.openBox<User>("user_box");
+  await Hive.openBox("user_box");
   await Hive.openBox<BillVote>("bill_vote_box");
   await Hive.openBox("user_preferences");
 

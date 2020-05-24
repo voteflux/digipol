@@ -7,7 +7,7 @@ class AuthenticationService {
   
 
   Future<String> createUser(String name) async {
-    Box<User> userBox = Hive.box<User>("user_box");
+    Box userBox = Hive.box("user_box");
 
     // clear box
     userBox.clear();
@@ -23,7 +23,7 @@ class AuthenticationService {
     //Put the ethereum address in prefs for display in the UI
     var ethAddress = await walletService.ethereumAddress();
 
-    userBox.add(User(firstName: name, ethereumAddress: ethAddress.toString()));
+    userBox.putAll({'firstName': name, 'ethereumAddress': ethAddress.toString()});
 
     //Debug
     print("Ethereum address: ${ethAddress.toString()}");
@@ -33,8 +33,8 @@ class AuthenticationService {
   }
 
   Future<String> getUser() async {
-    Box<User> userBox = Hive.box<User>("user_box");
-    final user = userBox.getAt(0).firstName.toString() ?? null;
+    Box userBox = Hive.box("user_box");
+    final user = userBox.get('firstName') ?? null;
     return user;
   }
 }

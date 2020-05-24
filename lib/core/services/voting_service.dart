@@ -10,9 +10,9 @@ class VotingService {
   Future<BillVoteSuccess> postVote(BillVote vote) async {
     
 
-    Box<User> userBox = Hive.box<User>("user_box");
+    Box userBox = Hive.box("user_box");
     Box<BillVote> billVoteBox = Hive.box<BillVote>("bill_vote_box");
-    final ethereumAddress = userBox.getAt(0).ethereumAddress.toString() ?? null;
+    final ethereumAddress = userBox.get('ethereumAddress') ?? null;
 
     // to delete
     final prefs = await SharedPreferences.getInstance();
