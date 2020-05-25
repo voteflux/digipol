@@ -19,6 +19,9 @@ class BillsModel extends BaseModel {
   bool removeVotedBills = false;
   bool get getRemoveVotedBills => removeVotedBills;
 
+  bool filterByDate = false;
+  bool get getfilterByDate => filterByDate;
+
   Future getBills() async {
     setState(ViewState.Busy);
     List list = blockChainData.values
@@ -66,6 +69,7 @@ class BillsModel extends BaseModel {
   void onlyVoted(bool value) {
     this.onlyVotedBills = value;
     if (value) {
+      this.removeVotedBills = !value;
       List list = billVoteBox.values.map((el) => el.ballotId).toList();
       filteredbills =
           blockChainList.where((bill) => list.contains(bill.id)).toList();
@@ -89,17 +93,35 @@ class BillsModel extends BaseModel {
   void removeVoted(bool value) {
     this.removeVotedBills = value;
     if (value) {
+      this.onlyVotedBills = !value;
+
       List list = billVoteBox.values.map((el) => el.ballotId).toList();
       List<BlockChainData> filtered = [];
 
       blockChainList.forEach((element) {
         if (list.contains(element.id)) {
-          print('inn' + element.id.toString());
+          print('voted: ' + element.id.toString());
         } else {
           filtered.add(element);
         }
       });
       filteredbills = filtered;
+    } else {
+      filteredbills = blockChainList;
+    }
+    notifyListeners();
+  }
+
+  void filterByDateSave(bool value) {
+    userPreferencesBox.put('filterByDate', value);
+    filterByDateTime(value);
+    print(userPreferencesBox.get('filterByDate'));
+  }
+
+  void filterByDateTime(bool value) {
+    this.filterByDate = value;
+    if (value) {
+      filteredbills.sort((a, b) => b.startDate.compareTo(a.startDate));
     } else {
       filteredbills = blockChainList;
     }

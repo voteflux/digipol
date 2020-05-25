@@ -23,13 +23,14 @@ class BlockChainDataAdapter extends TypeAdapter<BlockChainData> {
       ballotSpecHash: fields[5] as String,
       chamber: fields[3] as String,
       sponsor: fields[4] as String,
+      startDate: fields[6] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, BlockChainData obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -41,6 +42,8 @@ class BlockChainDataAdapter extends TypeAdapter<BlockChainData> {
       ..writeByte(4)
       ..write(obj.sponsor)
       ..writeByte(5)
-      ..write(obj.ballotSpecHash);
+      ..write(obj.ballotSpecHash)
+      ..writeByte(6)
+      ..write(obj.startDate);
   }
 }

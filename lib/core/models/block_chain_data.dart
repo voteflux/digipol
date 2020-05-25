@@ -15,15 +15,17 @@ class BlockChainData {
   String sponsor;
   @HiveField(5)
   String ballotSpecHash;
+  @HiveField(6)
+  String startDate;
 
-  BlockChainData({
-    this.id,
-    this.question,
-    this.shortTitle,
-    this.ballotSpecHash,
-    this.chamber,
-    this.sponsor
-  });
+  BlockChainData(
+      {this.id,
+      this.question,
+      this.shortTitle,
+      this.ballotSpecHash,
+      this.chamber,
+      this.sponsor,
+      this.startDate});
 
   BlockChainData.fromJson(Map<String, dynamic> json) {
     id = json['_id'];
@@ -31,6 +33,7 @@ class BlockChainData {
     shortTitle = json['data']['short_title'];
     chamber = json['data']['chamber'];
     sponsor = json['data']['sponsor'];
+    startDate = json['data']['start_date'];
     ballotSpecHash = json['ballotspec_hash'];
   }
 }

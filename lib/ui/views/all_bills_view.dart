@@ -72,7 +72,8 @@ class _AllBillsPageState extends State<AllBillsPage> {
                       model.onlyVotedSearchSave(value);
                     });
                   },
-                  secondary: Icon(Icons.done_outline, color: Theme.of(context).iconTheme.color),
+                  secondary: Icon(Icons.done_outline,
+                      color: Theme.of(context).iconTheme.color),
                 ),
                 SwitchListTile(
                   title: Text('Remove voted'),
@@ -82,7 +83,8 @@ class _AllBillsPageState extends State<AllBillsPage> {
                       model.removeVotedSearchSave(value);
                     });
                   },
-                  secondary: Icon(Icons.layers_clear, color: Theme.of(context).iconTheme.color),
+                  secondary: Icon(Icons.layers_clear,
+                      color: Theme.of(context).iconTheme.color),
                 )
               ],
             ),

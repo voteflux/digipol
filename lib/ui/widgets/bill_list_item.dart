@@ -90,6 +90,8 @@ class _BillListItemState extends State<BillListItem> {
                           size: 20),
                       Text(widget.blockChainData.chamber,
                           style: Theme.of(context).textTheme.bodyText2),
+                      Text(widget.blockChainData.startDate,
+                          style: Theme.of(context).textTheme.bodyText2),
                     ],
                   ),
                 ),
