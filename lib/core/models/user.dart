@@ -1,15 +1,17 @@
+import 'package:hive/hive.dart';
+part 'user.g.dart';
+
+@HiveType(typeId: 4)
 class User {
+  @HiveField(0)
   String firstName;
-  String id;
+  @HiveField(1)
+  String ethereumAddress;
 
-  User.initial()
-      : id = '',
-        firstName = '';
-
-  User({this.firstName,this.id});
+  User({this.firstName,this.ethereumAddress});
 
   User.fromJson(Map<String, dynamic> json){
     firstName = json['first_name'];
-    id = json['id'];
+    ethereumAddress = json['id'];
   }
 }

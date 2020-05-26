@@ -48,6 +48,7 @@ class _BillListItemState extends State<BillListItem> {
   @protected
   @mustCallSuper
   void initState() {
+    super.initState();
     getVote();
   }
 
@@ -88,6 +89,8 @@ class _BillListItemState extends State<BillListItem> {
                           voted: _vote != null ? true : false,
                           size: 20),
                       Text(widget.blockChainData.chamber,
+                          style: Theme.of(context).textTheme.bodyText2),
+                      Text(widget.blockChainData.startDate,
                           style: Theme.of(context).textTheme.bodyText2),
                     ],
                   ),

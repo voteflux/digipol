@@ -106,7 +106,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       style: Theme.of(context).textTheme.headline5,
                     ),
                     Text(
-                      "v0.1.2",
+                      "v0.1.3",
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     Divider(
@@ -117,8 +117,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         children: [
                           TextSpan(
                             text: 'Please submit issues into the ',
-                            style:
-                                Theme.of(context).textTheme.bodyText1,
+                            style: Theme.of(context).textTheme.bodyText1,
                           ),
                           TextSpan(
                             text: 'Github issues page.',
@@ -138,8 +137,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         children: [
                           TextSpan(
                             text: 'Join us on ',
-                            style:
-                                Theme.of(context).textTheme.bodyText1,
+                            style: Theme.of(context).textTheme.bodyText1,
                           ),
                           TextSpan(
                             text: 'Discord',

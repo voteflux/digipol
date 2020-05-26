@@ -17,11 +17,15 @@ class AppTheme {
     brightness: Brightness.light,
     buttonTheme: ButtonThemeData(
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(6.0))),
+          borderRadius: BorderRadius.all(
+            Radius.circular(6.0),
+          ),
+        ),
         padding: EdgeInsets.symmetric(vertical: 15),
         textTheme: ButtonTextTheme.primary),
-    inputDecorationTheme:
-        InputDecorationTheme(hintStyle: TextStyle(color: lightAppColors.text)),
+    inputDecorationTheme: InputDecorationTheme(
+      hintStyle: TextStyle(color: lightAppColors.text),
+    ),
     backgroundColor: Color(0xffFFFFFF),
     colorScheme: ColorScheme.light(
         primary: Color(0xff5468f7),
@@ -30,9 +34,12 @@ class AppTheme {
         secondary: Colors.red,
         surface: Color(0xffFFFFFF)),
     cardTheme: CardTheme(
-        color: Color(0xFFFFFFFF), elevation: 3.0, margin: EdgeInsets.all(20.0)),
+      color: Color(0xFFFFFFFF),
+      elevation: 3.0,
+      margin: EdgeInsets.all(20.0),
+    ),
     iconTheme: IconThemeData(
-      color: Colors.white54,
+      color: Colors.black,
     ),
     textTheme: TextTheme(
       button: TextStyle(
@@ -101,7 +108,7 @@ class AppTheme {
     cardTheme: CardTheme(
         color: Color(0xFF272a2f), elevation: 3.0, margin: EdgeInsets.all(20.0)),
     iconTheme: IconThemeData(
-      color: Colors.white54,
+      color: Colors.white,
     ),
     textTheme: TextTheme(
       button: TextStyle(
