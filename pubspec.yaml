@@ -34,18 +34,20 @@ dependencies:
   provider: ^4.0.4
   web3dart: ^1.2.3
   get_it: ^4.0.1
-  test: any
   bip32: ^1.0.5
   shared_preferences: "^0.5.7"
   hive: ^1.4.1+1
   hive_flutter: ^0.3.0+2  
-  url_launcher: ^5.4.5  
+  url_launcher:
   dots_indicator: ^1.0.0
 
 dev_dependencies:
+  flutter_test:
+    sdk: flutter
   flutter_launcher_icons: "^0.7.5"
   build_runner: ^1.9.0  
-  hive_generator: ^0.7.0+2
+#  hive_generator: ^0.7.0+2
+  test: any
 
 flutter_icons:
   android: "launcher_icon"
