@@ -16,7 +16,7 @@ version: 0.1.2
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
-  flutter: ^1.16.2
+  flutter: ^1.17.3
 
 dependencies:
   flutter:
@@ -37,7 +37,7 @@ dependencies:
   bip32: ^1.0.5
   shared_preferences: "^0.5.7"
   hive: ^1.4.1+1
-  hive_flutter: ^0.3.0+2  
+  hive_flutter: ^0.3.0+2
   url_launcher:
   dots_indicator: ^1.0.0
 
