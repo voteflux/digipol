@@ -110,12 +110,10 @@ Install dependencies:
 sudo apt install curl
 ```
 
-Get flutter (copy in all lines):
-
-**WARNING:** you must use a version of flutter >= 1.16.2, the easiest way to do this is use the `beta` channel; **builds will fail if you're using `stable` channel.**
+Get flutter (copy in all lines, run from home the location you want to install flutter):
 
 ```
-git clone https://github.com/flutter/flutter.git -b beta && \
+git clone https://github.com/flutter/flutter.git -b stable && \
 echo '#Add Flutter to PATH' >> $HOME/.bashrc && \
 echo 'export PATH="$PATH:'$(pwd)'/flutter/bin"' >> $HOME/.bashrc && \
 export PATH="$PATH:$(pwd)/flutter/bin" && \
