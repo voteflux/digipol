@@ -5,7 +5,6 @@
 import 'dart:io';
 import 'dart:math';
 
-
 //import 'package:flutter/services.dart' as services;
 import 'package:http/http.dart';
 import 'package:web3dart/web3dart.dart';
@@ -36,7 +35,6 @@ class WalletService {
   /// If a list of strings is supplied as the parameter [words], they are used to generate the private key via BIP-39
   /// Otherwise, a random private key is generated from scratch.
   Future<Wallet> make({List<String> words, String hex}) async {
-
     var rand = Random.secure();
 
     //Use mnemonic words if supplied, otherwise create a random key
@@ -48,7 +46,7 @@ class WalletService {
     } else {
       ethKey = EthPrivateKey.createRandom(rand);
     }
-      
+
     //Make a wallet from the key
     var wallet = Wallet.createNew(ethKey, TEMPORARY_PASSWORD, rand);
 
@@ -101,18 +99,19 @@ class WalletService {
     }
   }
 
-  Future<Web3Client> makeEthClient() async{
-    const HTTPS_ETH_NODE_URL = "https://kovan.infura.io/v3/663bcd65903948a6b53cd96866fc1a4a";
+  Future<Web3Client> makeEthClient() async {
+    const HTTPS_ETH_NODE_URL = "http://54.153.142.251:8545";
+    //"https://kovan.infura.io/v3/663bcd65903948a6b53cd96866fc1a4a";
     var ethClient = new Web3Client(HTTPS_ETH_NODE_URL, new Client());
     return ethClient;
   }
 
   Future<EtherAmount> balance() async {
     //try {
-      var ethClient = await makeEthClient();
-      var address = await ethereumAddress();
-      print("Getting balance of " +address.toString());
-      return await ethClient.getBalance(address);
+    var ethClient = await makeEthClient();
+    var address = await ethereumAddress();
+    print("Getting balance of " + address.toString());
+    return await ethClient.getBalance(address);
     //} catch (e) {
     //  return EtherAmount.zero();
     //}
@@ -139,9 +138,9 @@ class WalletService {
   }
 
   /// The file handle for the file used to store the wallet object.
-  Future<File> walletFile() async {  
+  Future<File> walletFile() async {
     if (_walletDirectoryPath == null) {
-      Directory appDocDir =  await getApplicationDocumentsDirectory();
+      Directory appDocDir = await getApplicationDocumentsDirectory();
       _walletDirectoryPath = appDocDir.path;
     }
     return File('${_walletDirectoryPath}/$WALLET_FILE_NAME');

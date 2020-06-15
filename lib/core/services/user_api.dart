@@ -11,7 +11,7 @@ const METHOD_SIGNUP = "signup";
 // The service responsible for networking requests
 class UserApi {
   var client = new http.Client();
-  var endpoint = 'https://api.blockchain.suzuka.flux.party/api';
+  var endpoint = 'https://api.blockchain.suzuka.flux.party/members/api';
 
   Future<dynamic> signup(String ethereumAddress) async {
     var body = Map<String, dynamic>();
