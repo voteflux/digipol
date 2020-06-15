@@ -2,8 +2,11 @@ import 'package:test/test.dart';
 import 'package:voting_app/core/services/wallet.dart';
 import 'package:web3dart/web3dart.dart';
 
+const WORD_LIST = ["leader", "shadow", "labor", "imitate", "vivid", "left", "critic", "giant", "repair", "they", "delay", "matter"];
+const WORD_LIST_ADDRESS = "0x8a4AD0054E4bE3c752b8CDC6F9674f094d11cD81";
 void main() {
 
+  
   WalletService service;
 
   setUp(() async{
@@ -57,13 +60,18 @@ void main() {
     });
 
     test('making wallet with known mnemonic should generate correct key', () async {
-      const wordList = ["leader", "shadow", "labor", "imitate", "vivid", "left", "critic", "giant", "repair", "they", "delay", "matter"];
-      const knownDerivedAddress = "0x8a4AD0054E4bE3c752b8CDC6F9674f094d11cD81";
 
-      var wallet = await service.make(words: wordList);
+      var wallet = await service.make(words: WORD_LIST);
       var derivedAddress = (await wallet.privateKey.extractAddress()).toString();
 
-      expect(derivedAddress, equalsIgnoringCase(knownDerivedAddress));
+      expect(derivedAddress, equalsIgnoringCase(WORD_LIST_ADDRESS));
+    });
+
+    test('get balance', () async {
+      await service.make(words: WORD_LIST);
+      var bal = await service.balance();
+
+      expect(bal.getInWei.toInt(), greaterThan(0));
     });
   });
 }
