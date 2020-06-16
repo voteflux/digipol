@@ -145,4 +145,29 @@ class WalletService {
     }
     return File('${_walletDirectoryPath}/$WALLET_FILE_NAME');
   }
+
+  Future<String> sendTransaction(DeployedContract contract,
+      ContractFunction contractFunction, List<dynamic> params) async {
+    var ethClient = await makeEthClient();
+    var wallet = await load();
+
+    return await ethClient.sendTransaction(
+        wallet.privateKey,
+        Transaction.callContract(
+          contract: contract,
+          function: contractFunction,
+          parameters: params,
+        ),
+        fetchChainIdFromNetworkId: true);
+  }
+
+  Future<dynamic> call(DeployedContract contract,
+      ContractFunction contractFunction, List<dynamic> params) async {
+    var ethClient = await makeEthClient();
+    return await ethClient.call(
+      contract: contract,
+      function: contractFunction,
+      params: params,
+    );
+  }
 }

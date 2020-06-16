@@ -40,6 +40,7 @@ dependencies:
   hive_flutter: ^0.3.0+2
   url_launcher: ^5.4.10
   dots_indicator: ^1.0.0
+  convert: ^2.1.1
 
 dev_dependencies:
   flutter_test:

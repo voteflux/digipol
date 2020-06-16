@@ -25,10 +25,11 @@ class UserApi {
     body[METHOD] = METHOD_SIGNUP;
     body[PARAMS] = Map<String, dynamic>();
     body[PARAMS][ETHEREUM_ADDRESS] = ethereumAddress;
+    body[PARAMS]['unsafeChecksum'] = true;
     var bodyText = jsonEncode(body);
-    print(bodyText);
+    //print(bodyText);
 
-    http.Response response = await client.put(endpoint,
+    http.Response response = await client.post(endpoint,
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
