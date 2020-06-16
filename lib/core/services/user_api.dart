@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-const PUBLIC_KEY = "pubkey";
+const ETHEREUM_ADDRESS = "ethereumAddress";
 const PARAMS = "params";
 const METHOD = "method";
 const BASE_URL = "";
@@ -24,7 +24,7 @@ class UserApi {
     }*/
     body[METHOD] = METHOD_SIGNUP;
     body[PARAMS] = Map<String, dynamic>();
-    body[PARAMS][PUBLIC_KEY] = ethereumAddress;
+    body[PARAMS][ETHEREUM_ADDRESS] = ethereumAddress;
     var bodyText = jsonEncode(body);
     print(bodyText);
 
