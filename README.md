@@ -152,7 +152,7 @@ flutter devices
 
 ````
 
-And Run `flutter run -d chrome` in the project dir
+To run the web build: `flutter run -d chrome`
 
 --->
 
