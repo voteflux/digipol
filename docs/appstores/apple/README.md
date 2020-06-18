@@ -1,12 +1,12 @@
-# setting up codesigning on macos for ios builds
+# setting up code-signing on macOS for iOS builds
 
 The current set up is to (when possible) use delegated Apple IDs for damage control (hopefully we never need it, tho).
 
-## prereqs
+## prerequisites
 
 * XCode
 * `brew install cocoapods`
-* You'll need someone with admin or manager permissions for the app to grant you codesigning capability. This is _not_ something that is distributed willy-nilly.
+* You'll need someone with admin or manager permissions for the app to grant you code-signing capability. This is _not_ something that is distributed willy-nilly.
 
 Useful flutter docs: <https://flutter.dev/docs/deployment/ios>
 
@@ -36,7 +36,7 @@ Useful flutter docs: <https://flutter.dev/docs/deployment/ios>
   - select "iOS App Development"
   - (need to generate CSR now, come back in a bit)
 
-* Dev (xcode)
+* Dev (XCode)
   - Start up XCode
   - Go to Preferences > Accounts
   - Add "apple id" and sign in if you have not already done so
@@ -44,9 +44,9 @@ Useful flutter docs: <https://flutter.dev/docs/deployment/ios>
   - "+" > apple development
   - done with preferences
   - open `ios/Runner.xcodeproj`
-  - select "project navigator" view-thing (top left corner, looks like a folder icon, in a bar wiht 9ish icons total including a magnifying glass, warning triangle, tag-label, speech-bubble)
-  - double click "Runner" (at root of heirarchy in left hand sidebar)
-  - under "Runner.xcodeproj" that opens, select "signing & capabilities" tab (you should see "Runner" under "Targets" on the left hand sidebar of the project navigator become selected (the flutter docs on ios deployment have screenshots btw)
+  - select "project navigator" view-thing (top left corner, looks like a folder icon, in a bar with 9 or so icons total including a magnifying glass, warning triangle, tag-label, speech-bubble)
+  - double click "Runner" (at root of hierarchy in left hand sidebar)
+  - under "Runner.xcodeproj" that opens, select "signing & capabilities" tab (you should see "Runner" under "Targets" on the left hand sidebar of the project navigator become selected (the flutter docs on iOS deployment have screenshots btw)
   - make sure "automatically manage signing" is checked for tabs: "all", "debug", and "release", also that bundle identifier is correct
   
 
@@ -57,7 +57,7 @@ Useful flutter docs: <https://flutter.dev/docs/deployment/ios>
 * devs usually can't sign release apps (methods: ad-hoc, enterprise)
 * devs can sign the development method tho (see ios/ciExportOptions/debug.plist for example)
 
-### if you need a CSR - probs not though with the automanagement features
+### if you need a CSR - probably not though with the auto-management features
 
   - Open "Keychain Access" (located in /Applications/Utilities) 
   - Menubar > Keychain Access > Certificate Assistant > Request a Certificate from a Certificate Authority
