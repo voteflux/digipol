@@ -1,0 +1,66 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+TestFlight
+voting_app
+repo
+macOS
+iOS
+XCode
+willy-nilly
+dev
+btw
+devs
+ad-hoc
+keychain
+menubar
+APIs
+extensibility
+pseudonymity
+customize
+DigiPol
+frontend
+backend
+serverless
+MongoDB
+Ethereum
+blockchain
+sortable
+controversiality
+FluxParty
+ - docs/ALPHATESTING.md
+_OR_
+alpha_testers
+app_feature_requests
+ - docs/appstores/apple/README.md
+ToS
+Runner.xcodeproj
+ios
+ciExportOptions
+debug.plist
+ofc
+ - docs/CONTRIBUTING.md
+Pieter
+Hintjens
+GPLv3
+ - README.md
+voting-app-api
+ausbills
+Filledstacks
+ChangeNotifier
+hivedb
+viewmodels
+enums
+Insta
+discord.io
+flushbar
+codesign
+runnercodesignsudo
+ci
+ - docs/CODE_OF_CONDUCT.md
+socio-economic
+behavior
+sexualized
+behaviors
