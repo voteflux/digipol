@@ -58,6 +58,7 @@ discord.io
 flushbar
 codesign
 runnercodesignsudo
+ci
  - docs/CODE_OF_CONDUCT.md
 socio-economic
 behavior

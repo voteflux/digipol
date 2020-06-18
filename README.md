@@ -128,7 +128,8 @@ Download and install [Android Studio](https://developer.android.com/studio) and 
 
 Run `flutter doctor` again to check dependencies.
 
-<!---
+<!--
+
 #### For web dev:
 
 ```
@@ -154,7 +155,7 @@ flutter devices
 
 To run the web build: `flutter run -d chrome`
 
---->
+-->
 
 --------------------------------------------------------------------------------
 
