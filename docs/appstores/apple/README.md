@@ -8,6 +8,10 @@ The current set up is to (when possible) use delegated Apple IDs for damage cont
 * `brew install cocoapods`
 * You'll need someone with admin or manager permissions for the app to grant you codesigning capability. This is _not_ something that is distributed willy-nilly.
 
+Useful flutter docs: <https://flutter.dev/docs/deployment/ios>
+
+
+
 ## steps
 
 * Dev
@@ -42,14 +46,19 @@ The current set up is to (when possible) use delegated Apple IDs for damage cont
   - open `ios/Runner.xcodeproj`
   - select "project navigator" view-thing (top left corner, looks like a folder icon, in a bar wiht 9ish icons total including a magnifying glass, warning triangle, tag-label, speech-bubble)
   - double click "Runner" (at root of heirarchy in left hand sidebar)
-  - under "Runner.xcodeproj" that opens, select "signing & capabilities" tab
+  - under "Runner.xcodeproj" that opens, select "signing & capabilities" tab (you should see "Runner" under "Targets" on the left hand sidebar of the project navigator become selected (the flutter docs on ios deployment have screenshots btw)
   - make sure "automatically manage signing" is checked for tabs: "all", "debug", and "release", also that bundle identifier is correct
-  - 
+  
 
+## Loose notes
 
+### cert restrictions
+
+* devs usually can't sign release apps (methods: ad-hoc, enterprise)
+* devs can sign the development method tho (see ios/ciExportOptions/debug.plist for example)
+
+### if you need a CSR - probs not though with the automanagement features
 
   - Open "Keychain Access" (located in /Applications/Utilities) 
   - Menubar > Keychain Access > Certificate Assistant > Request a Certificate from a Certificate Authority
   - fill in your email, your name, and `appadmin[at]voteflux.org` for the email (replacing `[at]` with `@` ofc)
-
-  
