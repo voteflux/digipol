@@ -40,6 +40,10 @@ class BillsModel extends BaseModel {
         userPreferencesBox.get('removeVotedBills', defaultValue: false);
     removeVoted(removeVotedPref);
 
+    bool dateRangeVotingPref =
+        userPreferencesBox.get('filterByDate', defaultValue: false);
+    removeVoted(dateRangeVotingPref);
+
     print('Bills on BlockChain: ' + blockChainList.length.toString());
     setState(ViewState.Idle);
   }
