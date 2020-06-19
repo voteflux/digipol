@@ -123,7 +123,7 @@ class BillsModel extends BaseModel {
     if (value) {
       filteredbills.sort((a, b) => b.startDate.compareTo(a.startDate));
     } else {
-      filteredbills = blockChainList;
+      filteredbills.sort((a, b) => a.shortTitle.compareTo(b.shortTitle));
     }
     notifyListeners();
   }

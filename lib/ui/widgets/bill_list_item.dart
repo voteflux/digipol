@@ -67,7 +67,6 @@ class _BillListItemState extends State<BillListItem> {
               context,
               MaterialPageRoute(
                 builder: (context) => BillPage(
-                  bill: completeBillData,
                   blockChainData: widget.blockChainData,
                 ),
               ),
