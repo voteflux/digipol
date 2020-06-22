@@ -19,7 +19,9 @@ const VOTE_NO = 'no';
 class VotingService {
   WalletService walletService;
 
-  VotingService({this.walletService});
+  VotingService(walletService) {
+    this.walletService = walletService;
+  }
 
   Future<DeployedContract> _getVotingContract() async {
     var abi = await _getAbi();
@@ -29,13 +31,10 @@ class VotingService {
 
   Future<String> _getAbi() async {
     var abi = await rootBundle.loadString('assets/contracts/voting.json');
-    var abiFile = File(abi);
-    return (abiFile.readAsStringSync());
+    return abi;
+    //var abiFile = File(abi);
+    //return (abiFile.readAsStringSync());
   }
-
-  /*WalletService _getWalletService() {
-    return WalletService('.');
-  }*/
 
   Future<String> submitVoteTransaction(String specHashStr, String value) async {
     var contract = await _getVotingContract();
