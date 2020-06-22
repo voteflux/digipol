@@ -11,13 +11,16 @@ import 'package:voting_app/core/viewmodels/user_model.dart';
 import 'core/services/api.dart';
 import 'core/services/voting_service.dart';
 import 'core/viewmodels/all_bills_model.dart';
+import 'core/services/wallet.dart';
+
+// import 'path_provider';
 
 GetIt locator = GetIt.instance;
 
 void setupLocator() {
   locator.registerLazySingleton(() => Api());
   locator.registerLazySingleton(() => AuthenticationService());
-  locator.registerLazySingleton(() => VotingService());
+  locator.registerLazySingleton(() => VotingService(WalletService(null)));
   locator.registerFactory(() => BillsModel());
   locator.registerFactory(() => IssuesModel());
   locator.registerFactory(() => UserModel());

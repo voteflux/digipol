@@ -19,23 +19,28 @@ const VOTE_NO = 'no';
 class VotingService {
   WalletService walletService;
 
-  VotingService({this.walletService});
+  VotingService(walletService){
+    print(walletService);
+    this.walletService = walletService;
+  }
 
   Future<DeployedContract> _getVotingContract() async {
     var abi = await _getAbi();
-    return DeployedContract(ContractAbi.fromJson(abi, 'Voting'),
-        EthereumAddress.fromHex(CONTRACT_ADDRESS));
+    return DeployedContract(
+        ContractAbi.fromJson(abi, 'Voting'),
+        EthereumAddress.fromHex(CONTRACT_ADDRESS)
+    );
   }
 
   Future<String> _getAbi() async {
     var abi = await rootBundle.loadString('assets/contracts/voting.json');
-    var abiFile = File(abi);
-    return (abiFile.readAsStringSync());
+    // var abiFile = File(abi);
+    return abi;
   }
 
-  /*WalletService _getWalletService() {
+  WalletService _getWalletService() {
     return WalletService('.');
-  }*/
+  }
 
   Future<String> submitVoteTransaction(String specHashStr, String value) async {
     var contract = await _getVotingContract();
@@ -43,8 +48,14 @@ class VotingService {
     Uint8List specHash = Uint8List.fromList(list);
     print(list.length);
     print(specHash.lengthInBytes);
+    print(walletService);
+    print(this.walletService);
+    print(walletService.call);
+    print(this.walletService.call);
 
-    var proposalIdResult = await walletService.call(
+    //walletService 
+
+    var proposalIdResult = await this.walletService.call(
       contract,
       contract.function('getProposalId'),
       [specHash],
@@ -61,7 +72,7 @@ class VotingService {
     if (value.toLowerCase() == VOTE_YES) {
       voteFn = contract.function('voteYes');
     } else if (value.toLowerCase() == VOTE_NO) {
-      voteFn = contract.function('noteNo');
+      voteFn = contract.function('voteNo');
     } else {
       throw Exception("Invalid vote value");
     }
