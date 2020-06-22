@@ -5,13 +5,13 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:flutter/services.dart' as services;
+//import 'package:flutter/services.dart' as services;
+import 'package:http/http.dart';
 import 'package:web3dart/web3dart.dart';
 import 'package:bip39/bip39.dart' as bip39;
 import 'package:bip32/bip32.dart' as bip32;
 import 'package:hex/hex.dart';
 import 'package:path_provider/path_provider.dart';
-
 
 const WALLET_FILE_NAME = "wallet.json";
 const TEMPORARY_PASSWORD = "4%8=)l_L210920A@g,";
@@ -34,16 +34,17 @@ class WalletService {
   /// Create a new wallet and save it to the wallet file.
   /// If a list of strings is supplied as the parameter [words], they are used to generate the private key via BIP-39
   /// Otherwise, a random private key is generated from scratch.
-  Future<Wallet> make({List<String> words}) async {
-
+  Future<Wallet> make({List<String> words, String hex}) async {
     var rand = Random.secure();
 
     //Use mnemonic words if supplied, otherwise create a random key
     EthPrivateKey ethKey;
-    if (words == null) {
-      ethKey = EthPrivateKey.createRandom(rand);
-    } else {
+    if (words != null) {
       ethKey = _makePrivKeyFromWords(words);
+    } else if (hex != null) {
+      ethKey = EthPrivateKey.fromHex(hex);
+    } else {
+      ethKey = EthPrivateKey.createRandom(rand);
     }
 
     //Make a wallet from the key
@@ -54,6 +55,8 @@ class WalletService {
     return wallet;
   }
 
+  //This can be used to allow the user to record their key.
+  //Pass the result from this method into make()
   static List<String> makeRandomWords() {
     String words = bip39.generateMnemonic();
     return words.split(" ");
@@ -96,6 +99,24 @@ class WalletService {
     }
   }
 
+  Future<Web3Client> makeEthClient() async {
+    const HTTPS_ETH_NODE_URL = "http://54.153.142.251:8545";
+    //"https://kovan.infura.io/v3/663bcd65903948a6b53cd96866fc1a4a";
+    var ethClient = new Web3Client(HTTPS_ETH_NODE_URL, new Client());
+    return ethClient;
+  }
+
+  Future<EtherAmount> balance() async {
+    //try {
+    var ethClient = await makeEthClient();
+    var address = await ethereumAddress();
+    print("Getting balance of " + address.toString());
+    return await ethClient.getBalance(address);
+    //} catch (e) {
+    //  return EtherAmount.zero();
+    //}
+  }
+
   /// Returns true if the wallet file exists.
   Future<bool> walletExists() async {
     return (await walletFile()).exists();
@@ -117,11 +138,36 @@ class WalletService {
   }
 
   /// The file handle for the file used to store the wallet object.
-  Future<File> walletFile() async {  
+  Future<File> walletFile() async {
     if (_walletDirectoryPath == null) {
-      Directory appDocDir =  await getApplicationDocumentsDirectory();
+      Directory appDocDir = await getApplicationDocumentsDirectory();
       _walletDirectoryPath = appDocDir.path;
     }
     return File('${_walletDirectoryPath}/$WALLET_FILE_NAME');
+  }
+
+  Future<String> sendTransaction(DeployedContract contract,
+      ContractFunction contractFunction, List<dynamic> params) async {
+    var ethClient = await makeEthClient();
+    var wallet = await load();
+
+    return await ethClient.sendTransaction(
+        wallet.privateKey,
+        Transaction.callContract(
+          contract: contract,
+          function: contractFunction,
+          parameters: params,
+        ),
+        fetchChainIdFromNetworkId: true);
+  }
+
+  Future<dynamic> call(DeployedContract contract,
+      ContractFunction contractFunction, List<dynamic> params) async {
+    var ethClient = await makeEthClient();
+    return await ethClient.call(
+      contract: contract,
+      function: contractFunction,
+      params: params,
+    );
   }
 }
