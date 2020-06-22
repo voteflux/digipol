@@ -4,7 +4,7 @@ The following are some simple Rules to follow to ensure that we are on the same 
 
 ## 1\. Licensing and Ownership
 
-This project uses a [GPLv3 LICENSE](https://github.com/voteflux/voting_app/blob/master/LICENSE) that includes some of the Apache 2.0 warranty dislaimer to protect our contributers; see [this discussion](https://github.com/voteflux/voting_app/issues/7). All contributions to the project source code ("patches") SHALL use the same license as the project. All patches are owned by their authors. Each Contributor SHALL be responsible for identifying themselves in the project Contributor list.
+This project uses a [GPLv3 LICENSE](https://github.com/voteflux/voting_app/blob/master/LICENSE) that includes some of the Apache 2.0 warranty disclaimer to protect our contributors; see [this discussion](https://github.com/voteflux/voting_app/issues/7). All contributions to the project source code ("patches") SHALL use the same license as the project. All patches are owned by their authors. Each Contributor SHALL be responsible for identifying themselves in the project Contributor list.
 
 ## 2\. Patch Requirements
 

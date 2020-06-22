@@ -31,7 +31,7 @@ The app frontend is built with [Flutter](https://flutter.dev/) using the Dart Pr
 
 ## Back end
 
-- The app backend is built using multiple serverless lambdas to interact with mongodb and other external services. **(NOTE: This repo will only cover the UI Architecture, for information on the backend head over to [Voting-app-api](https://github.com/KipCrossing/voting-app-api)**
+- The app backend is built using multiple serverless lambdas to interact with MongoDB and other external services. **(NOTE: This repo will only cover the UI Architecture, for information on the backend head over to [voting-app-api](https://github.com/KipCrossing/voting-app-api)**
 - Databases and API are managed on AWS using lambda functions Data for Bills are mirrored from the federal and state parliament websites using the [ausbills](https://github.com/KipCrossing/Aus-Bills) python package
 - The app will utilise the Ethereum blockchain to validate votes.
 - Issues are manually entered into the database for now
@@ -52,7 +52,7 @@ The idea behind the directory architecture is to abstract the logic away from th
 - Providers will NOT be passed in through app level global provider, unless it's required by more than 1 view in the app architecture (Users information).
 - Models will ONLY request data from Services and reduce state from that DATA. Nothing else.
 
-***Hivedb, Api interaction & local storage**
+***hivedb, API interaction & local storage**
 - The app uses [Hivedb](https://github.com/hivedb/hive) to store the API, blockchain data and user preferences locally. This allows for faster app performance & cheaper API hosting costs. If you are planning on contributing to the core, you must read the Hive docs to understand how it works.
 - On startup the app calls the API and blockchain endpoints and stores the data in Hive models with custom adaptors ([read here](https://docs.hivedb.dev/#/custom-objects/generate_adapter)).
 - All static data in the UI is called from Hive and not from API directly.
@@ -73,7 +73,7 @@ All app logic is contained in this directory.
 Any UI element or styling feature is contained here. Avoid using app logic in this folder or any descendant.
 
 - **views** - Contains any full screen that is used in the app
-- **widgets** - Contains any resuable widgets.
+- **widgets** - Contains any reusable widgets.
 
 ### Views
 
@@ -82,7 +82,7 @@ Any UI element or styling feature is contained here. Avoid using app logic in th
 - **Bill page with voting option** - Full description/links and voting buttons
 - **Login Page** - email - password
 - **Results Page** - List of horizontal bar graphs - 1 for each electorate
-- **Verification/Settings Page** - AEC details, electorate details, representatives and voting patterns, join Flux button, link Settingss (google/fb/ig)
+- **Verification/Settings Page** - AEC details, electorate details, representatives and voting patterns, join Flux button, link settings (google/FB/Insta)
 
 --------------------------------------------------------------------------------
 
@@ -128,6 +128,8 @@ Download and install [Android Studio](https://developer.android.com/studio) and 
 
 Run `flutter doctor` again to check dependencies.
 
+<!--
+
 #### For web dev:
 
 ```
@@ -140,18 +142,20 @@ Make sure you have Chrome installed
 
 **BUG NOTICE**: You may need to edit a file in the flushbar Dart Package if you get this error:
 
-```shell script ../../../.pub-cache/hosted/pub.dartlang.org/flushbar-1.9.1/lib/flushbar_route.dart:281:18: Error: Too many positional arguments: 0 allowed,
+```shell 
+script ../../../.pub-cache/hosted/pub.dartlang.org/flushbar-1.9.1/lib/flushbar_route.dart:281:18: Error: Too many positional arguments: 0 allowed,
 
 ```
 
-See [This Issue](https://github.com/AndreHaueisen/flushbar/issues/113) to make the fix. This is because we are using the master branch of flutter soe we can do web dev.
 ```
 
 flutter devices
 
 ````
 
-And Run `flutter run -d chrome` in the project dir.
+To run the web build: `flutter run -d chrome`
+
+-->
 
 --------------------------------------------------------------------------------
 
@@ -285,3 +289,4 @@ BallotArchive -->|BallotSpec| AuditJob
 UserNode -.-|sync| PrivChain
 UserNode -->|raw votes| UserAuditor
 ````
+
