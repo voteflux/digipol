@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'dart:core';
 
 import 'package:convert/convert.dart' as convert;
+import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
@@ -27,7 +28,8 @@ class VotingService {
   }
 
   Future<String> _getAbi() async {
-    var abiFile = File(ABI_PATH);
+    var abi = await rootBundle.loadString('assets/contracts/voting.json');
+    var abiFile = File(abi);
     return (abiFile.readAsStringSync());
   }
 
