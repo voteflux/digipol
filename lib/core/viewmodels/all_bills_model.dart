@@ -40,6 +40,10 @@ class BillsModel extends BaseModel {
         userPreferencesBox.get('removeVotedBills', defaultValue: false);
     removeVoted(removeVotedPref);
 
+    bool dateRangeVotingPref =
+        userPreferencesBox.get('filterByDate', defaultValue: true);
+    filterByDateTime(dateRangeVotingPref);
+
     print('Bills on BlockChain: ' + blockChainList.length.toString());
     setState(ViewState.Idle);
   }
@@ -123,7 +127,7 @@ class BillsModel extends BaseModel {
     if (value) {
       filteredbills.sort((a, b) => b.startDate.compareTo(a.startDate));
     } else {
-      filteredbills = blockChainList;
+      filteredbills.sort((a, b) => a.shortTitle.compareTo(b.shortTitle));
     }
     notifyListeners();
   }

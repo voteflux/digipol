@@ -29,6 +29,8 @@
 .pub-cache/
 .pub/
 /build/
+ios/RunnerArchive.xcarchive/*
+ios/build/*
 
 # Test related
 /coverage/

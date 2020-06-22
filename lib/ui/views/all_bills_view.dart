@@ -64,6 +64,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
             color: Theme.of(context).backgroundColor,
             child: ListView(
               children: <Widget>[
+                // only voted switch
                 SwitchListTile(
                   title: Text('Only voted'),
                   value: model.getOnlyVotedBills,
@@ -75,6 +76,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                   secondary: Icon(Icons.done_outline,
                       color: Theme.of(context).iconTheme.color),
                 ),
+                // remove voted switch
                 SwitchListTile(
                   title: Text('Remove voted'),
                   value: model.getRemoveVotedBills,
@@ -84,6 +86,18 @@ class _AllBillsPageState extends State<AllBillsPage> {
                     });
                   },
                   secondary: Icon(Icons.layers_clear,
+                      color: Theme.of(context).iconTheme.color),
+                ),
+                // filter by date switch
+                SwitchListTile(
+                  title: Text('Filter by date'),
+                  value: model.getfilterByDate,
+                  onChanged: (bool value) {
+                    setState(() {
+                      model.filterByDateSave(value);
+                    });
+                  },
+                  secondary: Icon(Icons.date_range,
                       color: Theme.of(context).iconTheme.color),
                 )
               ],
