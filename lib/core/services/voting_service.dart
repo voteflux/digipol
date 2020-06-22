@@ -10,7 +10,7 @@ import 'package:voting_app/core/models/bill_vote_success.dart';
 import 'package:web3dart/web3dart.dart';
 import 'package:voting_app/core/services/wallet.dart';
 
-const ABI_PATH = './assets/contracts/voting.abi';
+const ABI_PATH = 'assets/contracts/voting.abi';
 const CONTRACT_ADDRESS = '0x7B8068D32AA298158E838Fcd9a324B9810AE8333';
 const VOTE_YES = 'yes';
 const VOTE_NO = 'no';
