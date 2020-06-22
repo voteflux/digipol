@@ -60,7 +60,7 @@ class VotingService {
     if (value.toLowerCase() == VOTE_YES) {
       voteFn = contract.function('voteYes');
     } else if (value.toLowerCase() == VOTE_NO) {
-      voteFn = contract.function('noteNo');
+      voteFn = contract.function('voteNo');
     } else {
       throw Exception("Invalid vote value");
     }
