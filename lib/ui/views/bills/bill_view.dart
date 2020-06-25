@@ -74,24 +74,13 @@ class _BillPageState extends State<BillPage> {
                       PieWidget(
                         yes: model.billVoteResult.yes,
                         showValues: true,
+                        sectionSpace: 10,
                         no: model.billVoteResult.no,
-                        radius: dynamicMediumHeight,
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsets.only(bottom: 3.0, top: 3.0, left: 20.0),
-                        child: Text("Yes: " + completeBillData.yes.toString(),
-                            style: Theme.of(context).textTheme.bodyText1),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsets.only(bottom: 3.0, top: 3.0, left: 20.0),
-                        child: Text("No: " + completeBillData.no.toString(),
-                            style: Theme.of(context).textTheme.bodyText1),
+                        radius: 100,
                       ),
                       Padding(
                         padding: EdgeInsets.only(
-                            bottom: 20.0, top: 10.0, left: 20.0),
+                            bottom: 20.0, top: 20.0, left: 20.0),
                         child:
                             HouseIconsWidget(bill: completeBillData, size: 25),
                       ),
