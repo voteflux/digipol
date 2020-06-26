@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/ui/styles.dart';
-import 'package:pie_chart/pie_chart.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class PieWidget extends StatelessWidget {
   final int yes;
   final int no;
+  final double sectionSpace;
   final double radius;
   final bool showValues;
 
@@ -13,36 +14,59 @@ class PieWidget extends StatelessWidget {
   /// usage:
   ///
   /// `child: PieWidget(yes: 1000, no: 551, radius: 50,),`
-  PieWidget({
-    Key key,
-    @required this.yes,
-    @required this.no,
-    @required this.radius,
-    @required this.showValues
-  }) : super(key: key);
+  PieWidget(
+      {Key key,
+      @required this.yes,
+      @required this.no,
+      @required this.sectionSpace,
+      @required this.radius,
+      @required this.showValues})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double yesOut = (this.yes / (this.yes + this.no)) * 100;
-    double noOut = 100 - yesOut;
-
-    Map<String, double> dataMap = new Map();
-    dataMap.putIfAbsent("No", () => noOut);
-    dataMap.putIfAbsent("Yes", () => yesOut);
+    double yesOut = this.yes.toDouble();
+    double noOut = this.no.toDouble();
 
     return PieChart(
-      dataMap: dataMap,
-      animationDuration: Duration(milliseconds: 800),
-      chartLegendSpacing: 10.0,
-      chartRadius: this.radius,
-      showChartValues: false,
-      showChartValueLabel: false,
-      legendStyle:
-          TextStyle(fontSize: this.radius / 20 + 10, color: appColors.text),
-      chartValueStyle: TextStyle(
-          fontSize: this.radius / 20 + 10,
-          fontWeight: FontWeight.bold,
-          color: Colors.black),
+      PieChartData(
+          startDegreeOffset: 180,
+          borderData: FlBorderData(
+            show: false,
+          ),
+          sectionsSpace: this.sectionSpace,
+          sections: showingSections(yesOut, noOut, showValues)),
     );
+  }
+
+  List<PieChartSectionData> showingSections(yes, no, showValues) {
+    return List.generate(2, (i) {
+      switch (i) {
+        case 0:
+          return PieChartSectionData(
+            color: const Color(0xff0066CC),
+            value: yes,
+            title: showValues ? 'Yes: ' + yes.toInt().toString() : '',
+            radius: radius,
+            titleStyle: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xffffffff)),
+          );
+        case 1:
+          return PieChartSectionData(
+            color: const Color(0xffFFB1AC),
+            value: no,
+            title: showValues ? 'No: ' + no.toInt().toString() : '',
+            radius: radius,
+            titleStyle: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xffffffff)),
+          );
+        default:
+          return null;
+      }
+    });
   }
 }

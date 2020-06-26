@@ -68,8 +68,8 @@ class AppColors {
       voteClosed = Colors.red;
       voted = Colors.blue;
       cardInkWell = Colors.blue.withAlpha(30);
-      yes = Colors.lightBlueAccent;
-      no = Colors.redAccent;
+      yes = Color(0xff0066CC);
+      no = Color(0xffFFB1AC);
       selected = Colors.blue;
       unSelected = Color(0xff818181);
       button = Colors.blue;
@@ -90,8 +90,8 @@ class AppColors {
       voteClosed = Colors.red;
       voted = Colors.blue;
       cardInkWell = Colors.blue.withAlpha(30);
-      yes = Colors.blue;
-      no = Colors.redAccent;
+      yes = Color(0xff0066CC);
+      no = Color(0xffFFB1AC);
       selected = Color(0xff818181);
       unSelected = Color(0xffB9B9B9);
       button = Colors.blue;
