@@ -21,9 +21,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   @override
   Widget build(BuildContext context) {
-    double marginFromSafeArea = 24;
-    var heightOfScreen =
-        MediaQuery.of(context).size.height - marginFromSafeArea;
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -33,16 +30,16 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 child: Container(
                   child: PageView(
                     children: <Widget>[
-                      _buildWalkThrough(context, 'undraw_welcome_3gvl.svg',
+                      _buildWalkThrough(context, 'undraw_Hello_qnas.svg',
                           "Welcome to DigiPol! Where digital direct democracy starts."),
                       _buildWalkThrough(context, 'undraw_process_e90d.svg',
                           "DigiPol collates all the current bills in the Australian goverment for you."),
                       _buildWalkThrough(context, 'undraw_voting_nvu7.svg',
-                          "So you can stay informed and vote directly on what matters most."),
+                          "So you can stay informed & make your opinion known when it matters most."),
                       _buildWalkThrough(context, 'undraw_new_ideas_jdea.svg',
-                          "You can even vote on current issues created by the community or submit your own."),
+                          "You can even vote on current issues created by the community or submit your own (in development)."),
                       _buildWalkThrough(context, 'undraw_ethereum_fb7n.svg',
-                          "We don't store any of your information, and all votes are verified by the ethereum blockchain."),
+                          "None of your personal information is stored, and all votes are verified by the ethereum blockchain."),
                       ProfilePage()
                     ],
                     onPageChanged: (value) {
