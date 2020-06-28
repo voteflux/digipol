@@ -15,7 +15,7 @@ description: Flux DigiPol pre-alpha app
 version: 0.1.2
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
   flutter: ^1.17.3
 
 dependencies:

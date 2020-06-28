@@ -11,12 +11,37 @@ class OnBoardingView extends StatefulWidget {
 class _OnBoardingViewState extends State<OnBoardingView> {
   double currentIndexPage;
   int pageLength;
+  List<Map> pages = [
+    {
+      'image': 'undraw_Hello_qnas.svg',
+      'text': 'Welcome to DigiPol! Where digital direct democracy starts.'
+    },
+    {
+      'image': 'undraw_process_e90d.svg',
+      'text':
+          'DigiPol collates all the current bills in the Australian goverment for you.'
+    },
+    {
+      'image': 'undraw_voting_nvu7.svg',
+      'text':
+          'So you can stay informed & make your opinion known when it matters most.'
+    },
+    {
+      'image': 'undraw_new_ideas_jdea.svg',
+      'text': 'You can even vote on current issues created by the community.'
+    },
+    {
+      'image': 'undraw_ethereum_fb7n.svg',
+      'text':
+          'None of your personal information is stored, and all votes are verified by the ethereum blockchain.'
+    }
+  ];
 
   @override
   void initState() {
     super.initState();
     currentIndexPage = 0;
-    pageLength = 6;
+    pageLength = pages.length + 1;
   }
 
   @override
@@ -30,16 +55,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 child: Container(
                   child: PageView(
                     children: <Widget>[
-                      _buildWalkThrough(context, 'undraw_Hello_qnas.svg',
-                          "Welcome to DigiPol! Where digital direct democracy starts."),
-                      _buildWalkThrough(context, 'undraw_process_e90d.svg',
-                          "DigiPol collates all the current bills in the Australian goverment for you."),
-                      _buildWalkThrough(context, 'undraw_voting_nvu7.svg',
-                          "So you can stay informed & make your opinion known when it matters most."),
-                      _buildWalkThrough(context, 'undraw_new_ideas_jdea.svg',
-                          "You can even vote on current issues created by the community or submit your own (in development)."),
-                      _buildWalkThrough(context, 'undraw_ethereum_fb7n.svg',
-                          "None of your personal information is stored, and all votes are verified by the ethereum blockchain."),
+                      for (var page in pages)
+                        _buildWalkThrough(context, page['image'], page['text']),
                       ProfilePage()
                     ],
                     onPageChanged: (value) {
