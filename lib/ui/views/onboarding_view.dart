@@ -14,26 +14,33 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   List<Map> pages = [
     {
       'image': 'undraw_Hello_qnas.svg',
-      'text': 'Welcome to DigiPol! Where digital direct democracy starts.'
+      'heading': 'Hi!',
+      'text':
+          'Welcome to DigiPol! Where digital direct democracy starts. (draft)'
     },
     {
       'image': 'undraw_process_e90d.svg',
+      'heading': 'What is DigiPol?',
       'text':
-          'DigiPol collates all the current bills in the Australian goverment for you.'
+          'DigiPol collates all the current bills in the Australian goverment for you. So you can read about them and express your support or opposition by voting directly on a Bill. (draft)'
     },
     {
       'image': 'undraw_voting_nvu7.svg',
+      'heading': 'How does it do it?',
       'text':
-          'So you can stay informed & make your opinion known when it matters most.'
+          'So you can stay informed & make your opinion known when it matters most. (draft)'
     },
     {
       'image': 'undraw_new_ideas_jdea.svg',
-      'text': 'You can even vote on current issues created by the community.'
+      'heading': 'Issues',
+      'text':
+          'You can even vote on current issues created by the community. (draft)'
     },
     {
       'image': 'undraw_ethereum_fb7n.svg',
+      'heading': 'Zero',
       'text':
-          'None of your personal information is stored, and all votes are verified by the ethereum blockchain.'
+          'None of your personal information is stored, and all votes are verified by the ethereum blockchain. (draft)'
     }
   ];
 
@@ -56,7 +63,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   child: PageView(
                     children: <Widget>[
                       for (var page in pages)
-                        _buildWalkThrough(context, page['image'], page['text']),
+                        _buildWalkThrough(context, page['image'],
+                            page['heading'], page['text']),
                       ProfilePage()
                     ],
                     onPageChanged: (value) {
@@ -83,7 +91,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   }
 }
 
-Widget _buildWalkThrough(context, graphic, text) {
+Widget _buildWalkThrough(context, graphic, heading, text) {
   return Container(
     child: Stack(
       children: <Widget>[
@@ -102,10 +110,19 @@ Widget _buildWalkThrough(context, graphic, text) {
                 children: <Widget>[
                   Padding(
                     padding:
+                        EdgeInsets.only(left: 40.0, right: 40.0, bottom: 20.0),
+                    child: Text(
+                      heading,
+                      style: Theme.of(context).textTheme.headline4,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Padding(
+                    padding:
                         EdgeInsets.only(left: 40.0, right: 40.0, bottom: 60.0),
                     child: Text(
                       text,
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.bodyText1,
                       textAlign: TextAlign.center,
                     ),
                   )
