@@ -12,7 +12,8 @@ import 'package:web3dart/web3dart.dart';
 import 'package:voting_app/core/services/wallet.dart';
 
 const ABI_PATH = 'assets/contracts/voting.abi';
-const CONTRACT_ADDRESS = '0x7B8068D32AA298158E838Fcd9a324B9810AE8333';
+const CONTRACT_ADDRESS =
+    '0xca733a39b72DA72078DBc1c642e6C3836C5b424E'; //'0x7B8068D32AA298158E838Fcd9a324B9810AE8333';
 const VOTE_YES = 'yes';
 const VOTE_NO = 'no';
 
@@ -40,21 +41,6 @@ class VotingService {
     var contract = await _getVotingContract();
     var list = convert.hex.decode(specHashStr);
     Uint8List specHash = Uint8List.fromList(list);
-    print(list.length);
-    print(specHash.lengthInBytes);
-
-    var proposalIdResult = await walletService.call(
-      contract,
-      contract.function('getProposalId'),
-      [specHash],
-    );
-    BigInt proposalId;
-    if (proposalIdResult.length == 1) {
-      proposalId = proposalIdResult[0];
-    } else {
-      throw Exception("No proposal ID found");
-    }
-    print("ProposalID " + proposalId.toString());
 
     ContractFunction voteFn;
     if (value.toLowerCase() == VOTE_YES) {
@@ -65,7 +51,7 @@ class VotingService {
       throw Exception("Invalid vote value");
     }
 
-    return walletService.sendTransaction(contract, voteFn, [proposalId]);
+    return walletService.sendTransaction(contract, voteFn, [specHash]);
   }
 
   Future<BillVoteSuccess> postVote(BillVote vote) async {
