@@ -107,11 +107,16 @@ class _BillListItemState extends State<BillListItem> {
                       bill: completeBillData,
                       size: 20,
                     ),
-                    PieWidget(
-                      yes: completeBillData.yes,
-                      showValues: false,
-                      no: completeBillData.no,
-                      radius: 50,
+                    SizedBox(
+                      width: 50.0,
+                      height: 50.0,
+                      child: PieWidget(
+                        yes: completeBillData.yes,
+                        showValues: false,
+                        sectionSpace: 0,
+                        no: completeBillData.no,
+                        radius: 35,
+                      ),
                     )
                   ],
                 ),

@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
         builder: (context, model, child) {
           return MaterialApp(
               onGenerateRoute: RouteGenerator.generateSettingsRoute,
-              initialRoute: user == null ? '/profile' : '/',
+              initialRoute: user == null ? '/onboarding' : '/',
               home: MainScreen(),
               theme: AppTheme.lightTheme,
               darkTheme: AppTheme.darkTheme,
