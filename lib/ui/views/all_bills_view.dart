@@ -50,7 +50,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                       delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
                           return BillListItem(
-                              blockChainData: model.filteredbills[index]);
+                              billData: model.filteredbills[index]);
                         },
                         childCount: model.filteredbills.length,
                       ),
@@ -87,15 +87,27 @@ class _AllBillsPageState extends State<AllBillsPage> {
                       color: Theme.of(context).iconTheme.color),
                 ),
                 // filter by date switch
+                // SwitchListTile(
+                //   title: Text('Sort by date'),
+                //   value: model.getfilterByDate,
+                //   onChanged: (bool value) {
+                //     setState(() {
+                //       model.filterByDateSave(value);
+                //     });
+                //   },
+                //   secondary: Icon(Icons.date_range,
+                //       color: Theme.of(context).iconTheme.color),
+                // ),
+                // filter by date switch
                 SwitchListTile(
-                  title: Text('Filter by date'),
-                  value: model.getfilterByDate,
+                  title: Text('Remove closed bills'),
+                  value: model.getRemoveClosedBills,
                   onChanged: (bool value) {
                     setState(() {
-                      model.filterByDateSave(value);
+                      model.removeClosedBillsFunction(value);
                     });
                   },
-                  secondary: Icon(Icons.date_range,
+                  secondary: Icon(Icons.close,
                       color: Theme.of(context).iconTheme.color),
                 )
               ],

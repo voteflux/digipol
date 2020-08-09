@@ -1,3 +1,4 @@
+import 'dart:core';
 import 'package:hive/hive.dart';
 part 'block_chain_data.g.dart';
 

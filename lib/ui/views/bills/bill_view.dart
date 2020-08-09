@@ -18,25 +18,28 @@ class BillPage extends StatefulWidget {
   @override
   _BillPageState createState() => _BillPageState();
 
-  final BlockChainData blockChainData;
+  final Bill bill;
 
-  BillPage({Key key, this.blockChainData}) : super(key: key);
+  BillPage({Key key, this.bill}) : super(key: key);
 }
 
 class _BillPageState extends State<BillPage> {
   BillModel billModel = locator<BillModel>();
   String _vote;
-  Bill completeBillData;
+  BlockChainData completeBlockChainData;
   Box<Bill> billsBox = Hive.box<Bill>("bills");
+  Box<BlockChainData> blockChainData =
+      Hive.box<BlockChainData>("block_chain_data");
 
   Future getVote() async {
     // Get all bill data from Box
-    List<Bill> list = billsBox.values
-        .where((bill) => bill.id == widget.blockChainData.id)
-        .toList();
-    completeBillData = list[0];
 
-    var vote = await billModel.hasVoted(widget.blockChainData.id);
+    List<BlockChainData> list = blockChainData.values
+        .where((bill) => bill.id == widget.bill.id)
+        .toList();
+    completeBlockChainData = list[0];
+
+    var vote = await billModel.hasVoted(widget.bill.id);
     setState(() {
       _vote = vote;
     });
@@ -57,7 +60,7 @@ class _BillPageState extends State<BillPage> {
       dynamicLargeWidth = appSizes.largeWidth;
     }
     return BaseView<BillModel>(
-      onModelReady: (model) => model.getBill(completeBillData.id),
+      onModelReady: (model) => model.getBill(widget.bill.id),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           iconTheme: IconThemeData(color: appColors.text),
@@ -81,8 +84,7 @@ class _BillPageState extends State<BillPage> {
                       Padding(
                         padding: EdgeInsets.only(
                             bottom: 20.0, top: 20.0, left: 20.0),
-                        child:
-                            HouseIconsWidget(bill: completeBillData, size: 25),
+                        child: HouseIconsWidget(bill: widget.bill, size: 25),
                       ),
                       Container(
                         width: dynamicLargeWidth,
@@ -96,16 +98,14 @@ class _BillPageState extends State<BillPage> {
                           children: <Widget>[
                             Align(
                               child: VotingStatusWidget(
-                                  bill: completeBillData,
-                                  voted: false,
-                                  size: 20),
+                                  bill: widget.bill, voted: false, size: 20),
                               alignment: Alignment.centerLeft,
                             ),
                             Align(
                               child: Padding(
                                 padding:
                                     EdgeInsets.only(bottom: 20.0, top: 10.0),
-                                child: Text(completeBillData.shortTitle,
+                                child: Text(widget.bill.shortTitle,
                                     style:
                                         Theme.of(context).textTheme.headline5),
                               ),
@@ -114,7 +114,7 @@ class _BillPageState extends State<BillPage> {
                             Padding(
                               padding: EdgeInsets.only(bottom: 20.0),
                               child: Text(
-                                completeBillData.summary,
+                                widget.bill.summary,
                                 style: Theme.of(context).textTheme.bodyText2,
                               ),
                             ),
@@ -127,8 +127,7 @@ class _BillPageState extends State<BillPage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => PdfPage(
-                                          pdfUrl:
-                                              completeBillData.textLinkPdf)),
+                                          pdfUrl: widget.bill.textLinkPdf)),
                                 );
                               },
                             ),
@@ -147,7 +146,7 @@ class _BillPageState extends State<BillPage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => PdfPage(
-                                          pdfUrl: completeBillData.emLinkPdf)),
+                                          pdfUrl: widget.bill.emLinkPdf)),
                                 );
                               },
                             ),
@@ -162,7 +161,7 @@ class _BillPageState extends State<BillPage> {
                         ),
                       ),
                       VoteWidget(
-                        data: widget.blockChainData,
+                        data: completeBlockChainData,
                         vote: model.getVote,
                       ),
                     ],

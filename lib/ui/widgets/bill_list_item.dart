@@ -1,13 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:voting_app/core/models/bill.dart';
-import 'package:voting_app/core/models/block_chain_data.dart';
-import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/core/viewmodels/bill_model.dart';
 import 'package:voting_app/locator.dart';
 import 'package:voting_app/ui/views/bills/bill_view.dart';
-import 'dart:math';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/widgets/house_icon_widget.dart';
 import 'package:voting_app/ui/widgets/pie_chart.dart';
@@ -17,29 +13,20 @@ class BillListItem extends StatefulWidget {
   @override
   _BillListItemState createState() => _BillListItemState();
 
-  final BlockChainData blockChainData;
+  final Bill billData;
   final Map issuesMap;
   final Map billColors = {"House": appColors.house, "Senate": appColors.senate};
   final Map billIntro = {"House": "Intro House", "Senate": "Intro Senate"};
 
-  BillListItem({Key key, this.blockChainData, this.issuesMap})
-      : super(key: key);
+  BillListItem({Key key, this.billData, this.issuesMap}) : super(key: key);
 }
 
 class _BillListItemState extends State<BillListItem> {
   BillModel billModel = locator<BillModel>();
   String _vote;
-  Bill completeBillData;
-  Box<Bill> billsBox = Hive.box<Bill>("bills");
 
   Future getVote() async {
-    // Get all bill data from Box
-    List<Bill> list = billsBox.values
-        .where((bill) => bill.id == widget.blockChainData.id)
-        .toList();
-    completeBillData = list[0];
-
-    var vote = await billModel.hasVoted(widget.blockChainData.id);
+    var vote = await billModel.hasVoted(widget.billData.id);
     setState(() {
       _vote = vote;
     });
@@ -56,7 +43,7 @@ class _BillListItemState extends State<BillListItem> {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        margin: EdgeInsets.all(appSizes.standardMargin),
+        margin: EdgeInsets.all(10.0),
         child: InkWell(
           onTap: () {
             FocusScopeNode currentFocus = FocusScope.of(context);
@@ -67,13 +54,13 @@ class _BillListItemState extends State<BillListItem> {
               context,
               MaterialPageRoute(
                 builder: (context) => BillPage(
-                  blockChainData: widget.blockChainData,
+                  bill: widget.billData,
                 ),
               ),
             );
           },
           child: Container(
-            padding: EdgeInsets.all(appSizes.standardPadding),
+            padding: EdgeInsets.all(27.0),
             width: appSizes.mediumWidth,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -84,42 +71,60 @@ class _BillListItemState extends State<BillListItem> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       VotingStatusWidget(
-                          bill: completeBillData,
+                          bill: widget.billData,
                           voted: _vote != null ? true : false,
                           size: 20),
-                      Text(widget.blockChainData.chamber,
-                          style: Theme.of(context).textTheme.bodyText2),
-                      Text(widget.blockChainData.startDate,
-                          style: Theme.of(context).textTheme.bodyText2),
+                      Text(widget.billData.chamber,
+                          style: Theme.of(context).textTheme.caption),
+                      Text(widget.billData.startDate,
+                          style: Theme.of(context).textTheme.caption),
                     ],
                   ),
                 ),
-                Divider(),
-                Container(
-                  child: Text(widget.blockChainData.shortTitle,
+                Padding(
+                  padding: EdgeInsets.only(bottom: 10, top: 10),
+                  child: Text(widget.billData.shortTitle,
                       style: Theme.of(context).textTheme.headline6),
                 ),
-                Divider(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     HouseIconsWidget(
-                      bill: completeBillData,
+                      bill: widget.billData,
                       size: 20,
                     ),
                     SizedBox(
                       width: 50.0,
                       height: 50.0,
                       child: PieWidget(
-                        yes: completeBillData.yes,
+                        yes: widget.billData.yes,
                         showValues: false,
                         sectionSpace: 0,
-                        no: completeBillData.no,
+                        no: widget.billData.no,
                         radius: 35,
                       ),
                     )
                   ],
                 ),
+                widget.billData.portfolio != ''
+                    ? Container(
+                        margin: EdgeInsets.symmetric(vertical: 5.0),
+                        height: 30.0,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: <Widget>[
+                            Chip(
+                                label: Text(widget.billData.portfolio != null
+                                    ? widget.billData.portfolio
+                                    : ''),
+                                labelStyle: Theme.of(context).textTheme.caption)
+                          ],
+                        ),
+                      )
+                    : Padding(
+                        padding: EdgeInsets.only(bottom: 0, top: 0),
+                      ),
               ],
             ),
           ),

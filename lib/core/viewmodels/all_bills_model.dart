@@ -1,15 +1,18 @@
 import 'package:hive/hive.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
+import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
 import 'base_model.dart';
 
 class BillsModel extends BaseModel {
-  List<BlockChainData> blockChainList;
-  List<BlockChainData> filteredbills;
-  List<BlockChainData> get billList => filteredbills;
+  List<Bill> blockChainList;
+  List<Bill> filteredbills;
+  List<Bill> get billList => filteredbills;
   Box<BlockChainData> blockChainData =
       Hive.box<BlockChainData>("block_chain_data");
+  Box<Bill> billsBox = Hive.box<Bill>("bills");
+
   Box<BillVote> billVoteBox = Hive.box<BillVote>("bill_vote_box");
   Box userPreferencesBox = Hive.box("user_preferences");
 
@@ -22,11 +25,18 @@ class BillsModel extends BaseModel {
   bool filterByDate = false;
   bool get getfilterByDate => filterByDate;
 
+  bool removeClosedBills = false;
+  bool get getRemoveClosedBills => removeClosedBills;
+
   Future getBills() async {
     setState(ViewState.Busy);
-    List list = blockChainData.values
-        .where((bill) => bill.id.startsWith(RegExp(r'[s+r]')))
-        .toList();
+
+    List billOnChain = blockChainData.values.map((el) => el.id).toList();
+
+    List list =
+        billsBox.values.where((bill) => billOnChain.contains(bill.id)).toList();
+
+    list.sort((a, b) => b.startDate.compareTo(a.startDate));
 
     blockChainList = list;
     filteredbills = list;
@@ -40,9 +50,13 @@ class BillsModel extends BaseModel {
         userPreferencesBox.get('removeVotedBills', defaultValue: false);
     removeVoted(removeVotedPref);
 
-    bool dateRangeVotingPref =
-        userPreferencesBox.get('filterByDate', defaultValue: true);
-    filterByDateTime(dateRangeVotingPref);
+    // bool dateRangeVotingPref =
+    //     userPreferencesBox.get('filterByDate', defaultValue: true);
+    // filterByDateTime(dateRangeVotingPref);
+
+    bool removeCloseBillsPref =
+        userPreferencesBox.get('removeClosedBills', defaultValue: true);
+    removeClosedBillsFunction(removeCloseBillsPref);
 
     print('Bills on BlockChain: ' + blockChainList.length.toString());
     setState(ViewState.Idle);
@@ -100,7 +114,7 @@ class BillsModel extends BaseModel {
       this.onlyVotedBills = !value;
 
       List list = billVoteBox.values.map((el) => el.ballotId).toList();
-      List<BlockChainData> filtered = [];
+      List<Bill> filtered = [];
 
       blockChainList.forEach((element) {
         if (list.contains(element.id)) {
@@ -116,18 +130,37 @@ class BillsModel extends BaseModel {
     notifyListeners();
   }
 
-  void filterByDateSave(bool value) {
-    userPreferencesBox.put('filterByDate', value);
-    filterByDateTime(value);
-    print(userPreferencesBox.get('filterByDate'));
+  // // filter by date
+  // void filterByDateSave(bool value) {
+  //   userPreferencesBox.put('filterByDate', value);
+  //   filterByDateTime(value);
+  //   print(userPreferencesBox.get('filterByDate'));
+  // }
+
+  // void filterByDateTime(bool value) {
+  //   this.filterByDate = value;
+  //   if (value) {
+  //     filteredbills.sort((a, b) => b.startDate.compareTo(a.startDate));
+  //   } else {
+  //     filteredbills.sort((a, b) => a.shortTitle.compareTo(b.shortTitle));
+  //   }
+  //   notifyListeners();
+  // }
+
+  // remove closed bills
+
+  void removeClosedBillsFunctionSave(bool value) {
+    userPreferencesBox.put('removeClosedBills', value);
+    removeClosedBillsFunction(value);
+    print(userPreferencesBox.get('removeClosedBills'));
   }
 
-  void filterByDateTime(bool value) {
-    this.filterByDate = value;
+  void removeClosedBillsFunction(bool value) {
+    this.removeClosedBills = value;
     if (value) {
-      filteredbills.sort((a, b) => b.startDate.compareTo(a.startDate));
+      filteredbills = filteredbills.where((i) => i.assentDate == '').toList();
     } else {
-      filteredbills.sort((a, b) => a.shortTitle.compareTo(b.shortTitle));
+      filteredbills = blockChainList;
     }
     notifyListeners();
   }
