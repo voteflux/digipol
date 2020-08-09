@@ -8,13 +8,13 @@ part of 'block_chain_data.dart';
 
 class BlockChainDataAdapter extends TypeAdapter<BlockChainData> {
   @override
-  final typeId = 1;
+  final int typeId = 1;
 
   @override
   BlockChainData read(BinaryReader reader) {
-    var numOfFields = reader.readByte();
-    var fields = <int, dynamic>{
-      for (var i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return BlockChainData(
       id: fields[0] as String,
@@ -46,4 +46,14 @@ class BlockChainDataAdapter extends TypeAdapter<BlockChainData> {
       ..writeByte(6)
       ..write(obj.startDate);
   }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BlockChainDataAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }

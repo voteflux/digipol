@@ -41,6 +41,10 @@ class Bill {
   int yes;
   @HiveField(18)
   int no;
+  @HiveField(19)
+  String portfolio;
+  @HiveField(20)
+  String startDate;
 
   Bill(
       {this.id,
@@ -61,7 +65,9 @@ class Bill {
       this.emLinkPdf,
       this.emLinkHtml,
       this.yes,
-      this.no});
+      this.no,
+      this.portfolio,
+      this.startDate});
 
   Bill.fromJson(Map<String, dynamic> json) {
     id = json['_id'];
@@ -83,5 +89,7 @@ class Bill {
     emLinkHtml = json['data']['em_link_html'];
     yes = json['data']['yes'];
     no = json['data']['no'];
+    portfolio = json['data']['portfolio'];
+    startDate = json['data']['start_date'];
   }
 }

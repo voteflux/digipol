@@ -8,13 +8,13 @@ part of 'bill_vote.dart';
 
 class BillVoteAdapter extends TypeAdapter<BillVote> {
   @override
-  final typeId = 5;
+  final int typeId = 5;
 
   @override
   BillVote read(BinaryReader reader) {
-    var numOfFields = reader.readByte();
-    var fields = <int, dynamic>{
-      for (var i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return BillVote(
       id: fields[0] as String,
@@ -43,4 +43,14 @@ class BillVoteAdapter extends TypeAdapter<BillVote> {
       ..writeByte(5)
       ..write(obj.vote);
   }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BillVoteAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }

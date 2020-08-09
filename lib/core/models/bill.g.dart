@@ -8,13 +8,13 @@ part of 'bill.dart';
 
 class BillAdapter extends TypeAdapter<Bill> {
   @override
-  final typeId = 2;
+  final int typeId = 2;
 
   @override
   Bill read(BinaryReader reader) {
-    var numOfFields = reader.readByte();
-    var fields = <int, dynamic>{
-      for (var i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Bill(
       id: fields[0] as String,
@@ -36,13 +36,15 @@ class BillAdapter extends TypeAdapter<Bill> {
       emLinkHtml: fields[16] as String,
       yes: fields[17] as int,
       no: fields[18] as int,
+      portfolio: fields[19] as String,
+      startDate: fields[20] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Bill obj) {
     writer
-      ..writeByte(19)
+      ..writeByte(21)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -80,6 +82,20 @@ class BillAdapter extends TypeAdapter<Bill> {
       ..writeByte(17)
       ..write(obj.yes)
       ..writeByte(18)
-      ..write(obj.no);
+      ..write(obj.no)
+      ..writeByte(19)
+      ..write(obj.portfolio)
+      ..writeByte(20)
+      ..write(obj.startDate);
   }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BillAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }
