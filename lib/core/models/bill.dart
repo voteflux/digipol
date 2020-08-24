@@ -45,6 +45,8 @@ class Bill {
   String portfolio;
   @HiveField(20)
   String startDate;
+  @HiveField(21)
+  List topics;
 
   Bill(
       {this.id,
@@ -67,7 +69,8 @@ class Bill {
       this.yes,
       this.no,
       this.portfolio,
-      this.startDate});
+      this.startDate,
+      this.topics});
 
   Bill.fromJson(Map<String, dynamic> json) {
     id = json['_id'];
@@ -91,5 +94,6 @@ class Bill {
     no = json['data']['no'];
     portfolio = json['data']['portfolio'];
     startDate = json['data']['start_date'];
+    topics = json['data']['topics'];
   }
 }
