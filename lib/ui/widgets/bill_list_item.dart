@@ -39,6 +39,21 @@ class _BillListItemState extends State<BillListItem> {
     getVote();
   }
 
+  _buildTopicList(billTopics) {
+    List<Widget> topics = List();
+    billTopics.forEach((item) {
+      topics.add(
+        Padding(
+          padding: EdgeInsets.only(right: 10),
+          child: Chip(
+              label: Text(item),
+              labelStyle: Theme.of(context).textTheme.caption),
+        ),
+      );
+    });
+    return topics;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -107,19 +122,13 @@ class _BillListItemState extends State<BillListItem> {
                     )
                   ],
                 ),
-                widget.billData.portfolio != ''
+                widget.billData.topics != null
                     ? Container(
                         margin: EdgeInsets.symmetric(vertical: 5.0),
                         height: 30.0,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
-                          children: <Widget>[
-                            Chip(
-                                label: Text(widget.billData.portfolio != null
-                                    ? widget.billData.portfolio
-                                    : ''),
-                                labelStyle: Theme.of(context).textTheme.caption)
-                          ],
+                          children: _buildTopicList(widget.billData.topics),
                         ),
                       )
                     : Padding(
