@@ -62,6 +62,7 @@ ci
 chromelib
 goalConfigurer.ts.
 goalCreator.tslib
+goalConfigurer.tsflutter
  - docs/CODE_OF_CONDUCT.md
 socio-economic
 behavior
