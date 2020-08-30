@@ -59,6 +59,8 @@ flushbar
 codesign
 runnercodesignsudo
 ci
+chromelib
+goalConfigurer.ts.
  - docs/CODE_OF_CONDUCT.md
 socio-economic
 behavior
