@@ -41,7 +41,7 @@ dependencies:
   dots_indicator: ^1.0.0
   convert: ^2.1.1
   fl_chart: ^0.10.0
-  flutter_svg: ^0.17.4
+  flutter_svg: ^0.18.1
 
 dependency_overrides:
   analyzer: "0.39.14"
