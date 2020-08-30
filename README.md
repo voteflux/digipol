@@ -176,27 +176,26 @@ To run the web build: `flutter run -d chrome`
 
 ## CICD
 
-* GitHub --(webhook)--> GitLab CE (cicd project)
-  - mirror clone github.com/voteflux/voting_app
-  - push to gitlab repo
-* GitLab CE (main project) -- cicd triggers normally
-  - runs .gitlab-ci.yaml pipelines
-  - reports status back to github
-  - multiple runners based on tags to deliniate signing / permissions / branch-filters / etc.
-* Avoid multiline scripts in gitlab-ci.yml; use named scripts under `./ci/` instead.
-* coverage is gathered in gitlab but I'm not sure where to find the reports :/, anyway getting covg feedback in PRs would be really nice
-* currently this runs for every push which is not ideal; would be nice to just to PRs
-  * the problem with that is the mirroring situation with gitlab and detecting when PRs are being run vs normal pushes -- gitlab webhook URLs might be able to help us here (combined with event filters on the github side for outgoing webhooks)
+Currently we're using Atomist to trigger CICD jobs which are run on some of Max's machines.
+
+The CICD runner is here: @XertroV/sdm-everything
+
+The particular code that is run on each runner is specified in index.ts (controlled via environment vars): https://github.com/XertroV/sdm-everything/blob/master/index.ts
+
+The exact commands that are run for each flutter job are specified in `lib/goals/goalCreator.ts` - https://github.com/XertroV/sdm-everything/blob/master/lib/goals/goalCreator.ts
+
+> **Note:** Additional config can be found in `lib/goals/goalConfigurer.ts` including some (partially working) caching stuff, and hooks to github statuses, etc.
 
 ### macos codesigning
 
 > **Note: substantial criticism and improvements very welcome**
 
-The codesigning setup is roughly:
+The codesigning setup (specified in [goalCreator.ts](https://github.com/XertroV/sdm-everything/blob/master/lib/goals/goalCreator.ts)) is roughly:
 
-* a gitlab runner instance running under user `runner`
-* a `codesign` user with xcode set up and things
-* very restricted `sudo -u codesign` access for runner
+* build via xcode on CLI
+* sign via xcode on CLI (this part is somewhat troublesome)
+
+There are some sorta-functional scripts Max has developed but they're not all working. You can find them in `./ci`, i.e. here: https://github.com/voteflux/voting_app/tree/master/ci
 
 Problems:
 
