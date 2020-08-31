@@ -188,6 +188,8 @@ The exact commands that are run for each flutter job are specified in `lib/goals
 
 > **WARNING:** The status of tests doesn't seem to be reported atm - not sure why. For the moment, make sure you run `flutter test` manually and whenever you're doing anything like code-signing or before submitting a PR, etc.
 
+To get access to the atomist workspace contact Max or Kip - that'll let you click the "details" links on checks to see the log status and goals (checks) that passed or failed.
+
 ### macos codesigning
 
 > **Note: substantial criticism and improvements very welcome**
