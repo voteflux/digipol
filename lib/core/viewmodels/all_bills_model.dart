@@ -68,7 +68,8 @@ class BillsModel extends BaseModel {
   void searchBills(String value) {
     filteredbills = blockChainList
         .where((text) =>
-            text.shortTitle.toLowerCase().contains(value.toLowerCase()))
+            text.shortTitle.toLowerCase().contains(value.toLowerCase()) ||
+            text.summary.toLowerCase().contains(value.toLowerCase()))
         .toList();
     notifyListeners();
   }
