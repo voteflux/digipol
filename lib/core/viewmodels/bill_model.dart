@@ -1,5 +1,4 @@
 import 'package:hive/hive.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/bill_chain_data.dart';
@@ -8,6 +7,7 @@ import 'package:voting_app/core/models/bill_vote_result.dart';
 import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/locator.dart';
 
+import '../consts.dart';
 import 'base_model.dart';
 
 class BillModel extends BaseModel {
@@ -16,8 +16,8 @@ class BillModel extends BaseModel {
   Bill bill;
   BillChainData billChainData;
   BillVoteResult billVoteResult;
-  Box<Bill> billsBox = Hive.box<Bill>("bills");
-  Box<BillVote> billVoteBox = Hive.box<BillVote>("bill_vote_box");
+  Box<Bill> billsBox = Hive.box<Bill>(HIVE_BILLS);
+  Box<BillVote> billVoteBox = Hive.box<BillVote>(HIVE_BILL_VOTE_BOX);
   String _vote;
   String get getVote => _vote;
 
@@ -33,13 +33,13 @@ class BillModel extends BaseModel {
         billVoteBox.values.where((bill) => bill.ballotId == ballotId).toList();
 
     var hasVoted;
-    if(voteList.length > 0 ){
+    if (voteList.length > 0) {
       hasVoted = voteList[0].vote;
     } else {
       hasVoted = null;
     }
     _vote = hasVoted;
-    
+
     return hasVoted;
   }
 }

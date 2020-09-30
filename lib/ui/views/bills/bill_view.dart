@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:voting_app/core/consts.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
@@ -8,11 +9,11 @@ import 'package:voting_app/core/viewmodels/bill_model.dart';
 import 'package:voting_app/locator.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
+import 'package:voting_app/ui/views/bills/pdf_viewer.dart';
 import 'package:voting_app/ui/widgets/house_icon_widget.dart';
 import 'package:voting_app/ui/widgets/pie_chart.dart';
 import 'package:voting_app/ui/widgets/voting_status_widget.dart';
 import 'package:voting_app/ui/widgets/voting_widgets.dart';
-import 'package:voting_app/ui/views/bills/pdf_viewer.dart';
 
 class BillPage extends StatefulWidget {
   @override
@@ -27,9 +28,9 @@ class _BillPageState extends State<BillPage> {
   BillModel billModel = locator<BillModel>();
   String _vote;
   BlockChainData completeBlockChainData;
-  Box<Bill> billsBox = Hive.box<Bill>("bills");
+  Box<Bill> billsBox = Hive.box<Bill>(HIVE_BILLS);
   Box<BlockChainData> blockChainData =
-      Hive.box<BlockChainData>("block_chain_data");
+      Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
 
   Future getVote() async {
     // Get all bill data from Box

@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:voting_app/core/consts.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/models/issue.dart';
 import 'package:voting_app/core/models/user.dart';
+import 'package:voting_app/core/route_generator.dart';
 import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/core/services/auth_service.dart';
 import 'package:voting_app/core/viewmodels/theme_model.dart';
+import 'package:voting_app/locator.dart';
 import 'package:voting_app/ui/appTheme.dart';
+import 'package:voting_app/ui/views/all_bills_view.dart';
 import 'package:voting_app/ui/views/all_issues_view.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/views/settings_view.dart';
-import 'package:voting_app/core/route_generator.dart';
-import 'package:voting_app/ui/views/all_bills_view.dart';
-import 'package:voting_app/locator.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:hive/hive.dart';
 
 //import 'package:instabug_flutter/Instabug.dart';
 Api _api = locator<Api>();
@@ -29,12 +30,12 @@ void main() async {
   Hive.registerAdapter<Issue>(IssueAdapter());
   Hive.registerAdapter<User>(UserAdapter());
   Hive.registerAdapter<BillVote>(BillVoteAdapter());
-  await Hive.openBox<BlockChainData>("block_chain_data");
-  await Hive.openBox<Bill>("bills");
-  await Hive.openBox<Issue>("issues");
-  await Hive.openBox("user_box");
-  await Hive.openBox<BillVote>("bill_vote_box");
-  await Hive.openBox("user_preferences");
+  await Hive.openBox<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
+  await Hive.openBox<Bill>(HIVE_BILLS);
+  await Hive.openBox<Issue>(HIVE_ISSUES);
+  await Hive.openBox(HIVE_USER_BOX);
+  await Hive.openBox<BillVote>(HIVE_BILL_VOTE_BOX);
+  await Hive.openBox(HIVE_USER_PREFS);
 
   setupLocator();
   // sync data on load
