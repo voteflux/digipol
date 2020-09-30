@@ -28,7 +28,7 @@ void main() {
       var balance = await walletService.balance();
       expect(balance.getInWei.toInt(), greaterThan(0));
 
-      var votingService = VotingService(walletService: walletService);
+      var votingService = VotingService(walletService);
 
       var txHash = await votingService.submitVoteTransaction(
         "39e0c51afbada3237f2ea33748973a4e812b40347955b207df79df2629e4d4e6",
