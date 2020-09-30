@@ -1,10 +1,13 @@
 import 'package:hive/hive.dart';
+import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/viewmodels/base_model.dart';
 
+import '../consts.dart';
+
 class ThemeModel extends BaseModel {
-  Box userPreferencesBox = Hive.box("user_preferences");
+  Box userPreferencesBox = Hive.box<BillVote>(HIVE_USER_PREFS);
   bool isDarkMode = false;
-  
+
   // change theme via switch and save in hive
   void updateTheme(bool value) {
     userPreferencesBox.put('darkMode', value);
@@ -14,8 +17,8 @@ class ThemeModel extends BaseModel {
   }
 
   // set theme on load
-  void setTheme(){
-    Box userPreferencesBox = Hive.box("user_preferences");
+  void setTheme() {
+    Box userPreferencesBox = Hive.box<BillVote>(HIVE_USER_PREFS);
     bool darkMode = userPreferencesBox.get('darkMode', defaultValue: false);
     this.isDarkMode = darkMode;
     notifyListeners();

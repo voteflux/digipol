@@ -3,6 +3,8 @@ import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
+
+import '../consts.dart';
 import 'base_model.dart';
 
 class BillsModel extends BaseModel {
@@ -10,11 +12,11 @@ class BillsModel extends BaseModel {
   List<Bill> filteredbills;
   List<Bill> get billList => filteredbills;
   Box<BlockChainData> blockChainData =
-      Hive.box<BlockChainData>("block_chain_data");
-  Box<Bill> billsBox = Hive.box<Bill>("bills");
+      Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
+  Box<Bill> billsBox = Hive.box<Bill>(HIVE_BILLS);
 
-  Box<BillVote> billVoteBox = Hive.box<BillVote>("bill_vote_box");
-  Box userPreferencesBox = Hive.box("user_preferences");
+  Box<BillVote> billVoteBox = Hive.box<BillVote>(HIVE_BILL_VOTE_BOX);
+  Box userPreferencesBox = Hive.box<BillVote>(HIVE_USER_PREFS);
 
   bool onlyVotedBills = false;
   bool get getOnlyVotedBills => onlyVotedBills;

@@ -1,11 +1,14 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:hive/hive.dart';
-import 'package:voting_app/core/models/bill.dart';
 import 'package:http/http.dart' as http;
+import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/bill_vote_result.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/models/issue.dart';
+
+import '../consts.dart';
 
 // The service responsible for networking requests
 class Api {
@@ -13,8 +16,8 @@ class Api {
   var endpoint = 'https://1j56c60pb0.execute-api.ap-southeast-2.amazonaws.com';
 
   Box<BlockChainData> blockChainData =
-      Hive.box<BlockChainData>("block_chain_data");
-  Box<Bill> billsBox = Hive.box<Bill>("bills");
+      Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
+  Box<Bill> billsBox = Hive.box<Bill>(HIVE_BILLS);
   Box<Issue> issuesBox = Hive.box<Issue>("issues");
 
   // get bills

@@ -1,6 +1,5 @@
-import 'dart:io';
-import 'dart:typed_data';
 import 'dart:core';
+import 'dart:typed_data';
 
 import 'package:convert/convert.dart' as convert;
 import 'package:flutter/services.dart';
@@ -8,8 +7,10 @@ import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/bill_vote_success.dart';
-import 'package:web3dart/web3dart.dart';
 import 'package:voting_app/core/services/wallet.dart';
+import 'package:web3dart/web3dart.dart';
+
+import '../consts.dart';
 
 const ABI_PATH = 'assets/contracts/voting.abi';
 const CONTRACT_ADDRESS =
@@ -56,7 +57,7 @@ class VotingService {
 
   Future<BillVoteSuccess> postVote(BillVote vote) async {
     //Box userBox = Hive.box("user_box");
-    Box<BillVote> billVoteBox = Hive.box<BillVote>("bill_vote_box");
+    Box<BillVote> billVoteBox = Hive.box<BillVote>(HIVE_BILL_VOTE_BOX);
 
     // to delete
     final prefs = await SharedPreferences.getInstance();
