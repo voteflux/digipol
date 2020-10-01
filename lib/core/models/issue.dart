@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+
 part 'issue.g.dart';
 
 @HiveType(typeId: 3)
@@ -20,30 +21,32 @@ class Issue {
   @HiveField(7)
   String sponsor;
   @HiveField(8)
-  int yes;
+  int? yes;
   @HiveField(9)
-  int no;
+  int? no;
 
   Issue(
-      {this.chamber,
-      this.shortTitle,
-      this.startDate,
-      this.endDate,
-      this.id,
-      this.question,
-      this.description,
-      this.sponsor,
+      {required this.chamber,
+      required this.shortTitle,
+      required this.startDate,
+      required this.endDate,
+      required this.id,
+      required this.question,
+      required this.description,
+      required this.sponsor,
       this.yes,
       this.no});
 
-  Issue.fromJson(Map<String, dynamic> json){
-    chamber = json['data']['chamber'];
-    shortTitle = json['data']['short_title'];
-    startDate = json['data']['start_date'];
-    endDate = json['data']['end_date'];
-    id = json['_id'];
-    question = json['data']['question'];
-    description = json['data']['description'];
-    sponsor = json['data']['sponsor'];
+  factory Issue.fromJson(Map<String, dynamic> json) {
+    return Issue(
+      chamber: json['data']['chamber'] as String,
+      shortTitle: json['data']['short_title'] as String,
+      startDate: json['data']['start_date'] as String,
+      endDate: json['data']['end_date'] as String,
+      id: json['_id'] as String,
+      question: json['data']['question'] as String,
+      description: json['data']['description'] as String,
+      sponsor: json['data']['sponsor'] as String,
+    );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/ui/styles.dart';
@@ -25,7 +26,7 @@ class VotingStatusWidget extends StatelessWidget {
   /// To get the status message format
   ///
   /// Returns a list: [colour, message, icon]
-  statusMessage() {
+  Tuple3<Color, String, IconData> statusMessage() {
     String s = "Closed";
     Color c = appColors.voteClosed;
     var i = Icons.adjust;
@@ -49,25 +50,26 @@ class VotingStatusWidget extends StatelessWidget {
       }
     }
     // [colour, message, icon]
-    return [c, s, i];
+    return Tuple3(c, s, i);
   }
 
   @override
   Widget build(BuildContext context) {
+    var statsMsg = statusMessage();
     return Container(
       child: Column(
         children: <Widget>[
           Icon(
-            statusMessage()[2], // icon
-            color: statusMessage()[0], //color
+            statsMsg.value3, // icon
+            color: statsMsg.value1, //color
             size: this.size, // size
           ),
           Text(
-            statusMessage()[1], // message
+            statsMsg.value2, // message
             style: TextStyle(
                 fontSize: this.size * 4 / 10,
                 fontWeight: FontWeight.bold,
-                color: statusMessage()[0]),
+                color: statsMsg.value1),
           ),
         ],
       ),

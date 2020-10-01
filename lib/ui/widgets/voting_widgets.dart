@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app/core/models/bill_chain_data.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/bill_vote_success.dart';
 import 'package:voting_app/core/viewmodels/bill_vote_model.dart';
@@ -12,7 +13,7 @@ import 'package:voting_app/ui/views/base_view.dart';
 // separate into widgets
 
 class VoteWidget extends StatefulWidget {
-  final data;
+  final BillChainData data;
   final String vote;
 
   VoteWidget({Key key, @required this.data, this.vote}) : super(key: key);
@@ -108,7 +109,8 @@ class _VoteWidgetState extends State<VoteWidget> {
     );
   }
 
-  areYouSure(String vote, model, String id, String ballotSpecHash) {
+  Future<void> areYouSure(
+      String vote, BillVoteModel model, String id, String ballotSpecHash) {
     /// Dialog to confirm the vote
     return showDialog<void>(
       context: context,

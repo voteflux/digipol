@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+
 part 'bill.g.dart';
 
 @HiveType(typeId: 2)
@@ -46,54 +47,55 @@ class Bill {
   @HiveField(20)
   String startDate;
   @HiveField(21)
-  List topics;
+  List<String> topics;
 
   Bill(
-      {this.id,
-      this.chamber,
-      this.shortTitle,
-      this.question,
-      this.introHouse,
-      this.passedHouse,
-      this.introSenate,
-      this.passedSenate,
-      this.assentDate,
-      this.actNo,
-      this.url,
-      this.summary,
-      this.sponsor,
-      this.textLinkDoc,
-      this.textLinkPdf,
-      this.emLinkPdf,
-      this.emLinkHtml,
-      this.yes,
-      this.no,
-      this.portfolio,
-      this.startDate,
-      this.topics});
+      {required this.id,
+      required this.chamber,
+      required this.shortTitle,
+      required this.question,
+      required this.introHouse,
+      required this.passedHouse,
+      required this.introSenate,
+      required this.passedSenate,
+      required this.assentDate,
+      required this.actNo,
+      required this.url,
+      required this.summary,
+      required this.sponsor,
+      required this.textLinkDoc,
+      required this.textLinkPdf,
+      required this.emLinkPdf,
+      required this.emLinkHtml,
+      required this.yes,
+      required this.no,
+      required this.portfolio,
+      required this.startDate,
+      required this.topics});
 
-  Bill.fromJson(Map<String, dynamic> json) {
-    id = json['_id'];
-    chamber = json['data']['chamber'];
-    shortTitle = json['data']['short_title'];
-    question = json['data']['question'];
-    introHouse = json['data']['intro_house'];
-    passedHouse = json['data']['passed_house'];
-    introSenate = json['data']['intro_senate'];
-    passedSenate = json['data']['passed_senate'];
-    assentDate = json['data']['assent_date'];
-    actNo = json['data']['act_no'];
-    url = json['data']['url'];
-    summary = json['data']['summary'];
-    sponsor = json['sponsor'];
-    textLinkDoc = json['data']['text_link_doc'];
-    textLinkPdf = json['data']['text_link_pdf'];
-    emLinkPdf = json['data']['em_link_pdf'];
-    emLinkHtml = json['data']['em_link_html'];
-    yes = json['data']['yes'];
-    no = json['data']['no'];
-    portfolio = json['data']['portfolio'];
-    startDate = json['data']['start_date'];
-    topics = json['data']['topics'];
+  factory Bill.fromJson(Map<String, dynamic> json) {
+    return new Bill(
+        id: json['_id'] as String,
+        chamber: json['data']['chamber'] as String,
+        shortTitle: json['data']['short_title'] as String,
+        question: json['data']['question'] as String,
+        introHouse: json['data']['intro_house'] as String,
+        passedHouse: json['data']['passed_house'] as String,
+        introSenate: json['data']['intro_senate'] as String,
+        passedSenate: json['data']['passed_senate'] as String,
+        assentDate: json['data']['assent_date'] as String,
+        actNo: json['data']['act_no'] as String,
+        url: json['data']['url'] as String,
+        summary: json['data']['summary'] as String,
+        sponsor: json['sponsor'] as String,
+        textLinkDoc: json['data']['text_link_doc'] as String,
+        textLinkPdf: json['data']['text_link_pdf'] as String,
+        emLinkPdf: json['data']['em_link_pdf'] as String,
+        emLinkHtml: json['data']['em_link_html'] as String,
+        yes: json['data']['yes'] as int,
+        no: json['data']['no'] as int,
+        portfolio: json['data']['portfolio'] as String,
+        startDate: json['data']['start_date'] as String,
+        topics: json['data']['topics'] as List<String>);
   }
 }

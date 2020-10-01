@@ -33,9 +33,10 @@ void main() async {
   await Hive.openBox<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
   await Hive.openBox<Bill>(HIVE_BILLS);
   await Hive.openBox<Issue>(HIVE_ISSUES);
-  await Hive.openBox(HIVE_USER_BOX);
+  await Hive.openBox<Box>(HIVE_USER_BOX);
   await Hive.openBox<BillVote>(HIVE_BILL_VOTE_BOX);
-  await Hive.openBox(HIVE_USER_PREFS);
+  await Hive.openBox<bool>(HIVE_USER_PREFS_BOOLS);
+  await Hive.openBox<String>(HIVE_USER_PREFS_STR);
 
   setupLocator();
   // sync data on load

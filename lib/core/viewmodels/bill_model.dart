@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill.dart';
@@ -21,6 +22,8 @@ class BillModel extends BaseModel {
   String _vote;
   String get getVote => _vote;
 
+  BillModel(this.bill, this.billChainData, this.billVoteResult, this._vote);
+
   Future getBill(String billID) async {
     setState(ViewState.Busy);
     billVoteResult = await _api.getBillResults(billID);
@@ -28,17 +31,21 @@ class BillModel extends BaseModel {
     setState(ViewState.Idle);
   }
 
-  Future hasVoted(String ballotId) async {
+  Future<Option<String>> hasVoted(String ballotId) async {
     List<BillVote> voteList =
         billVoteBox.values.where((bill) => bill.ballotId == ballotId).toList();
 
-    var hasVoted;
+    Option<String> hasVoted;
     if (voteList.length > 0) {
-      hasVoted = voteList[0].vote;
+      // Note: I moved this from down there, but we still shouldn't have it in this function. -MK
+      _vote = voteList[0].vote;
+      hasVoted = Some(_vote);
     } else {
-      hasVoted = null;
+      hasVoted = None();
     }
-    _vote = hasVoted;
+    // why are we setting this here? It's not like this method calls anything (which it shouldn't anyway).
+    // If we need to save _vote we should do it when voteList is populated. -MK
+    //_vote = hasVoted;
 
     return hasVoted;
   }

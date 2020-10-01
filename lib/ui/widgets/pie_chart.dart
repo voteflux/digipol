@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:voting_app/ui/styles.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/material.dart';
 
 class PieWidget extends StatelessWidget {
   final int yes;
@@ -39,7 +38,8 @@ class PieWidget extends StatelessWidget {
     );
   }
 
-  List<PieChartSectionData> showingSections(yes, no, showValues) {
+  List<PieChartSectionData> showingSections(
+      double yes, double no, bool showValues) {
     return List.generate(2, (i) {
       switch (i) {
         case 0:

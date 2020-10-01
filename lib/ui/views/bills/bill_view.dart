@@ -16,34 +16,48 @@ import 'package:voting_app/ui/widgets/voting_status_widget.dart';
 import 'package:voting_app/ui/widgets/voting_widgets.dart';
 
 class BillPage extends StatefulWidget {
+  /* Not sure how we'd instantiate this. -MK
+  */
   @override
   _BillPageState createState() => _BillPageState();
+  /*
+   */
 
   final Bill bill;
 
-  BillPage({Key key, this.bill}) : super(key: key);
+  BillPage({required Key key, required this.bill}) : super(key: key);
 }
 
 class _BillPageState extends State<BillPage> {
   BillModel billModel = locator<BillModel>();
-  String _vote;
-  BlockChainData completeBlockChainData;
+  String? _vote;
   Box<Bill> billsBox = Hive.box<Bill>(HIVE_BILLS);
   Box<BlockChainData> blockChainData =
       Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
+  late BlockChainData completeBlockChainData;
+
+  _BillPageState() {
+    this.completeBlockChainData = this
+        .blockChainData
+        .values
+        .where((bill) => bill.id == widget.bill.id)
+        .toList()
+        .first;
+  }
 
   Future getVote() async {
+    /* do this in constructor  -MK
     // Get all bill data from Box
-
     List<BlockChainData> list = blockChainData.values
         .where((bill) => bill.id == widget.bill.id)
         .toList();
     completeBlockChainData = list[0];
+     */
 
     var vote = await billModel.hasVoted(widget.bill.id);
-    setState(() {
-      _vote = vote;
-    });
+    vote.map((v) => setState(() {
+          _vote = v;
+        }));
   }
 
   @protected
@@ -126,7 +140,7 @@ class _BillPageState extends State<BillPage> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
+                                  MaterialPageRoute<PdfPage>(
                                       builder: (context) => PdfPage(
                                           pdfUrl: widget.bill.textLinkPdf)),
                                 );
@@ -145,7 +159,7 @@ class _BillPageState extends State<BillPage> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
+                                  MaterialPageRoute<PdfPage>(
                                       builder: (context) => PdfPage(
                                           pdfUrl: widget.bill.emLinkPdf)),
                                 );
@@ -162,7 +176,7 @@ class _BillPageState extends State<BillPage> {
                         ),
                       ),
                       VoteWidget(
-                        data: completeBlockChainData,
+                        data: completeBlockChainData.toBillChainData(),
                         vote: model.getVote,
                       ),
                     ],
