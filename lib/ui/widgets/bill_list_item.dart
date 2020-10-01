@@ -24,7 +24,7 @@ class BillListItem extends StatefulWidget {
     "Senate": "Intro Senate"
   };
 
-  BillListItem({Key /*?*/ key, /*required*/ this.billData, this.issuesMap})
+  BillListItem({Key /*?*/ key, @required this.billData, this.issuesMap})
       : super(key: key);
 }
 
@@ -47,7 +47,7 @@ class _BillListItemState extends State<BillListItem> {
   }
 
   List<Widget> _buildTopicList(List<String> billTopics, BuildContext context) {
-    List<Widget> topics = List.empty();
+    List<Widget> topics = new List();
     billTopics.forEach((item) {
       topics.add(
         Padding(

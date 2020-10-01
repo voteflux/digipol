@@ -15,9 +15,7 @@ class IssuePage extends StatelessWidget {
   final BlockChainData blockChainData;
 
   IssuePage(
-      {Key /*?*/ key,
-      /*required*/ this.issue,
-      /*required*/ this.blockChainData})
+      {Key /*?*/ key, @required this.issue, @required this.blockChainData})
       : super(key: key);
 
   @override

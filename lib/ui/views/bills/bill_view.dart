@@ -25,7 +25,7 @@ class BillPage extends StatefulWidget {
 
   final Bill bill;
 
-  BillPage({Key /*?*/ key, /*required*/ this.bill}) : super(key: key);
+  BillPage({Key /*?*/ key, @required this.bill}) : super(key: key);
 }
 
 class _BillPageState extends State<BillPage> {
@@ -37,28 +37,34 @@ class _BillPageState extends State<BillPage> {
   //late BlockChainData completeBlockChainData;
   BlockChainData completeBlockChainData;
 
-  _BillPageState() {
-    this.completeBlockChainData = this
-        .blockChainData
-        .values
-        .where((bill) => bill.id == widget.bill.id)
-        .toList()
-        .first;
-  }
+  _BillPageState() {}
 
   Future getVote() async {
     /* do this in constructor  -MK
+       (later) can't do this in the constructor, this.widget not defined. -MK
     // Get all bill data from Box
     List<BlockChainData> list = blockChainData.values
         .where((bill) => bill.id == widget.bill.id)
         .toList();
     completeBlockChainData = list[0];
      */
+    print("this.completeBlockChainData: ${this.completeBlockChainData}");
+    print("this.blockChainData: ${this.blockChainData}");
+    print("start _BillPageState");
+    this.completeBlockChainData = this
+        .blockChainData
+        .values
+        .where((bill) => bill.id == this.widget.bill.id)
+        .toList()
+        .first;
+    print("end _BillPageState");
 
+    print("start getVote");
     var vote = await billModel.hasVoted(widget.bill.id);
     vote.map((v) => setState(() {
           _vote = v;
         }));
+    print("end getVote");
   }
 
   @protected

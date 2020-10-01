@@ -1,5 +1,6 @@
 import 'dart:core';
 
+import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 import 'package:voting_app/core/models/bill_chain_data.dart';
 
@@ -23,13 +24,13 @@ class BlockChainData {
   String startDate;
 
   BlockChainData(
-      {/*required*/ this.id,
-      /*required*/ this.question,
-      /*required*/ this.shortTitle,
-      /*required*/ this.ballotSpecHash,
-      /*required*/ this.chamber,
-      /*required*/ this.sponsor,
-      /*required*/ this.startDate});
+      {@required this.id,
+      @required this.question,
+      @required this.shortTitle,
+      @required this.ballotSpecHash,
+      @required this.chamber,
+      @required this.sponsor,
+      @required this.startDate});
 
   BillChainData toBillChainData() {
     return BillChainData(

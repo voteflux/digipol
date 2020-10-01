@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:convert/convert.dart' as convert;
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,7 +26,7 @@ class VotingService {
   String contractAddress;
 
   VotingService(
-      {/*required*/ this.walletService,
+      {@required this.walletService,
       this.contractAddress = DEFAULT_VOTING_CONTRACT_ADDR}) {}
 
   Future<DeployedContract> _getVotingContract() async {
@@ -76,6 +77,7 @@ class VotingService {
         .map(this.sendTxAndGetHash));
     var atx2 = afterTx.bind((e) => e).map((var t3) async {
       await billVoteBox.add(BillVote(
+          id: billVoteBox.length.toString(),
           ballotId: vote.ballotId,
           vote: t3.value2,
           ballotSpecHash: t3.value1,
@@ -88,7 +90,7 @@ class VotingService {
         (r) => BillVoteSuccess(ballotspecHash: r.value1));
   }
 
-  Future<Either<String, AfterTx>> sendTxAndGetHash<T>(var t2) async {
+  Future<Either<String, AfterTx>> sendTxAndGetHash<T>(TxInputs t2) async {
     String txHash = await submitVoteTransaction(t2.value1, t2.value2);
     if (txHash == "") {
       return Left("txHash was empty when submitting vote transaction!");

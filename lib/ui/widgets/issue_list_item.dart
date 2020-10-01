@@ -18,7 +18,7 @@ class IssueListItem extends StatefulWidget {
   };
   final Random random = new Random();
 
-  IssueListItem({/*required*/ this.blockChainData});
+  IssueListItem({@required this.blockChainData});
 }
 
 class _IssueListItemState extends State<IssueListItem> {

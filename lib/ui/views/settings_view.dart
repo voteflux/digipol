@@ -22,14 +22,22 @@ class _SettingsPageState extends State<SettingsPage> {
   String pubKey = "";
 
   @override
-  Widget build(BuildContext context) {
-    Future getPubKey() async {
-      var walletService = WalletService(None());
-      var ethAddress = await walletService.ethereumAddress();
-      pubKey = ethAddress.toString();
-      setState(() {});
-    }
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      getPubKey();
+    });
+  }
 
+  Future getPubKey() async {
+    var walletService = WalletService(None());
+    var ethAddress = await walletService.ethereumAddress();
+    pubKey = ethAddress.toString();
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return BaseView<SettingsModel>(
       onModelReady: (model) => model.setUser(),
       builder: (context, model, child) => Scaffold(

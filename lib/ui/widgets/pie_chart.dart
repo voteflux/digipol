@@ -15,11 +15,11 @@ class PieWidget extends StatelessWidget {
   /// `child: PieWidget(yes: 1000, no: 551, radius: 50,),`
   PieWidget(
       {Key /*?*/ key,
-      /*required*/ this.yes,
-      /*required*/ this.no,
-      /*required*/ this.sectionSpace,
-      /*required*/ this.radius,
-      /*required*/ this.showValues})
+      @required this.yes,
+      @required this.no,
+      @required this.sectionSpace,
+      @required this.radius,
+      @required this.showValues})
       : super(key: key);
 
   @override

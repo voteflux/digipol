@@ -40,10 +40,10 @@ class Api {
   //
   Future getBlockChainData() async {
     var response = await client.get(endpoint + '/dev/shitchain');
-    var parsed = json.decode(response.body) as List<Map<String, dynamic>>;
+    var parsed = json.decode(response.body) as List<dynamic>;
 
     for (var bill in parsed) {
-      blockChainData.add(BlockChainData.fromJson(bill));
+      blockChainData.add(BlockChainData.fromJson(bill as Map<String, dynamic>));
     }
 
     return print(
@@ -55,10 +55,10 @@ class Api {
   //
   Future getBills() async {
     var response = await client.get(endpoint + '/dev/bill');
-    var parsed = json.decode(response.body) as List<Map<String, dynamic>>;
+    var parsed = json.decode(response.body) as List<dynamic>;
 
     for (var bill in parsed) {
-      billsBox.add(Bill.fromJson(bill));
+      billsBox.add(Bill.fromJson(bill as Map<String, dynamic>));
     }
 
     return print(billsBox.values.length.toString() + " bills put in Box");
@@ -69,10 +69,10 @@ class Api {
   //
   Future getIssues() async {
     var response = await client.get(endpoint + '/dev/issue');
-    var parsed = json.decode(response.body) as List<Map<String, dynamic>>;
+    var parsed = json.decode(response.body) as List<dynamic>;
 
     for (var issue in parsed) {
-      issuesBox.add(Issue.fromJson(issue));
+      issuesBox.add(Issue.fromJson(issue as Map<String, dynamic>));
     }
 
     return print(issuesBox.values.length.toString() + " issues put in Box");

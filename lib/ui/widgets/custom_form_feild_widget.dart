@@ -8,8 +8,8 @@ class CustomFormField extends StatelessWidget {
   final String initialTextValue;
 
   CustomFormField(
-      {/*required*/ this.helpText,
-      /*required*/ this.submitAction,
+      {@required this.helpText,
+      @required this.submitAction,
       this.validation,
       this.initialTextValue = ""});
 

@@ -18,9 +18,9 @@ class VotingStatusWidget extends StatelessWidget {
 
   VotingStatusWidget({
     Key /*?*/ key,
-    /*required*/ this.bill,
-    /*required*/ this.voted,
-    /*required*/ this.size,
+    @required this.bill,
+    @required this.voted,
+    @required this.size,
   }) : super(key: key);
 
   /// To get the status message format
