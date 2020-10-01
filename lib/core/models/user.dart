@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 
 part 'user.g.dart';
@@ -9,7 +10,7 @@ class User {
   @HiveField(1)
   String ethereumAddress;
 
-  User({/*required*/ this.firstName, /*required*/ this.ethereumAddress});
+  User({@required this.firstName, @required this.ethereumAddress});
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(

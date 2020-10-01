@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 class BillChainData {
   String id;
   String question;
@@ -5,10 +7,10 @@ class BillChainData {
   String ballotSpecHash;
 
   BillChainData({
-    /*required*/ this.id,
-    /*required*/ this.question,
-    /*required*/ this.shortTitle,
-    /*required*/ this.ballotSpecHash,
+    @required this.id,
+    @required this.question,
+    @required this.shortTitle,
+    @required this.ballotSpecHash,
   });
 
   factory BillChainData.fromJson(Map<String, dynamic> json) {

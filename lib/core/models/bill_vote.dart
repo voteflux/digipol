@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 import 'package:web3dart/web3dart.dart';
 
@@ -5,8 +6,8 @@ part 'bill_vote.g.dart';
 
 @HiveType(typeId: 5)
 class BillVote {
-  // @HiveField(0)
-  // /*late*/ String id;
+  @HiveField(0)
+  /*late*/ String id;
   @HiveField(1)
   EthereumAddress ethAddrHex;
   @HiveField(2)
@@ -19,17 +20,16 @@ class BillVote {
   String vote;
 
   BillVote(
-      {
-      // this.id = ,
-      /*required*/ this.ethAddrHex,
-      /*required*/ this.ballotId,
-      /*required*/ this.ballotSpecHash,
-      /*required*/ this.constituency,
-      /*required*/ this.vote});
+      {@required this.id,
+      @required this.ethAddrHex,
+      @required this.ballotId,
+      @required this.ballotSpecHash,
+      @required this.constituency,
+      @required this.vote});
 
   factory BillVote.fromJson(Map<String, dynamic> json) {
     return BillVote(
-      // id: json['_id'] as String,
+      id: json['_id'] as String,
       ethAddrHex: EthereumAddress.fromHex(json['ethAddrHex'] as String,
           enforceEip55: true),
       ballotId: json['ballotId'] as String,

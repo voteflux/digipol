@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 
 part 'issue.g.dart';
@@ -26,14 +27,14 @@ class Issue {
   int /*?*/ no;
 
   Issue(
-      {/*required*/ this.chamber,
-      /*required*/ this.shortTitle,
-      /*required*/ this.startDate,
-      /*required*/ this.endDate,
-      /*required*/ this.id,
-      /*required*/ this.question,
-      /*required*/ this.description,
-      /*required*/ this.sponsor,
+      {@required this.chamber,
+      @required this.shortTitle,
+      @required this.startDate,
+      @required this.endDate,
+      @required this.id,
+      @required this.question,
+      @required this.description,
+      @required this.sponsor,
       this.yes,
       this.no});
 

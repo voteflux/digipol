@@ -19,8 +19,7 @@ class VoteWidget extends StatefulWidget {
   final BillChainData data;
   final String /*?*/ vote;
 
-  VoteWidget({Key /*?*/ key, /*required*/ this.data, this.vote})
-      : super(key: key);
+  VoteWidget({Key /*?*/ key, @required this.data, this.vote}) : super(key: key);
 
   @override
   _VoteWidgetState createState() => _VoteWidgetState();

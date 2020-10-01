@@ -83,7 +83,7 @@ class BillsModel extends BaseModel {
   void onlyVotedSearchSave(bool value) {
     userPrefsBool.put('onlyVotedBills', value);
     onlyVoted(value);
-    print(userPrefsBool.get('onlyVotedBills'));
+    print("onlyVotedBills: ${userPrefsBool.get('onlyVotedBills')}");
   }
 
   // filters list
@@ -108,7 +108,7 @@ class BillsModel extends BaseModel {
   void removeVotedSearchSave(bool value) {
     userPrefsBool.put('removeVotedBills', value);
     removeVoted(value);
-    print(userPrefsBool.get('removeVotedBills'));
+    print("removeVotedBills: ${userPrefsBool.get('removeVotedBills')}");
   }
 
   void removeVoted(bool value) {
@@ -155,7 +155,7 @@ class BillsModel extends BaseModel {
   void removeClosedBillsFunctionSave(bool value) {
     userPrefsBool.put('removeClosedBills', value);
     removeClosedBillsFunction(value);
-    print(userPrefsBool.get('removeClosedBills'));
+    print("removeVotedBills: ${userPrefsBool.get('removeVotedBills')}");
   }
 
   void removeClosedBillsFunction(bool value) {

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 
 part 'bill.g.dart';
@@ -50,53 +51,58 @@ class Bill {
   List<String> topics;
 
   Bill(
-      {
-      /*required*/ this.id,
-      /*required*/ this.chamber,
-      /*required*/ this.shortTitle,
-      /*required*/ this.question,
-      /*required*/ this.introHouse,
-      /*required*/ this.passedHouse,
-      /*required*/ this.introSenate,
-      /*required*/ this.passedSenate,
-      /*required*/ this.assentDate,
-      /*required*/ this.actNo,
-      /*required*/ this.url,
-      /*required*/ this.summary,
-      /*required*/ this.sponsor,
-      /*required*/ this.textLinkDoc,
-      /*required*/ this.textLinkPdf,
-      /*required*/ this.emLinkPdf,
-      /*required*/ this.emLinkHtml,
-      /*required*/ this.yes,
-      /*required*/ this.no,
-      /*required*/ this.portfolio,
-      /*required*/ this.startDate,
-      /*required*/ this.topics});
+      {@required this.id,
+      @required this.chamber,
+      @required this.shortTitle,
+      @required this.question,
+      @required this.introHouse,
+      @required this.passedHouse,
+      @required this.introSenate,
+      @required this.passedSenate,
+      @required this.assentDate,
+      @required this.actNo,
+      @required this.url,
+      @required this.summary,
+      @required this.sponsor,
+      @required this.textLinkDoc,
+      @required this.textLinkPdf,
+      @required this.emLinkPdf,
+      @required this.emLinkHtml,
+      @required this.yes,
+      @required this.no,
+      @required this.portfolio,
+      @required this.startDate,
+      @required this.topics});
 
   factory Bill.fromJson(Map<String, dynamic> json) {
+    var data = json['data'] as Map<String, dynamic>;
+    print(data['topics']);
+    var topics = ((data['topics'] as List<dynamic>) ?? <dynamic>[])
+        .map((dynamic s) => s as String)
+        .toList();
     return new Bill(
-        id: json['_id'] as String,
-        chamber: json['data']['chamber'] as String,
-        shortTitle: json['data']['short_title'] as String,
-        question: json['data']['question'] as String,
-        introHouse: json['data']['intro_house'] as String,
-        passedHouse: json['data']['passed_house'] as String,
-        introSenate: json['data']['intro_senate'] as String,
-        passedSenate: json['data']['passed_senate'] as String,
-        assentDate: json['data']['assent_date'] as String,
-        actNo: json['data']['act_no'] as String,
-        url: json['data']['url'] as String,
-        summary: json['data']['summary'] as String,
-        sponsor: json['sponsor'] as String,
-        textLinkDoc: json['data']['text_link_doc'] as String,
-        textLinkPdf: json['data']['text_link_pdf'] as String,
-        emLinkPdf: json['data']['em_link_pdf'] as String,
-        emLinkHtml: json['data']['em_link_html'] as String,
-        yes: json['data']['yes'] as int,
-        no: json['data']['no'] as int,
-        portfolio: json['data']['portfolio'] as String,
-        startDate: json['data']['start_date'] as String,
-        topics: json['data']['topics'] as List<String>);
+      id: json['_id'] as String,
+      chamber: data['chamber'] as String,
+      shortTitle: data['short_title'] as String,
+      question: data['question'] as String,
+      introHouse: data['intro_house'] as String,
+      passedHouse: data['passed_house'] as String,
+      introSenate: data['intro_senate'] as String,
+      passedSenate: data['passed_senate'] as String,
+      assentDate: data['assent_date'] as String,
+      actNo: data['act_no'] as String,
+      url: data['url'] as String,
+      summary: data['summary'] as String,
+      sponsor: json['sponsor'] as String,
+      textLinkDoc: data['text_link_doc'] as String,
+      textLinkPdf: data['text_link_pdf'] as String,
+      emLinkPdf: data['em_link_pdf'] as String,
+      emLinkHtml: data['em_link_html'] as String,
+      portfolio: data['portfolio'] as String,
+      startDate: data['start_date'] as String,
+      topics: List<String>.from(topics),
+      yes: data['yes'] as int,
+      no: data['no'] as int,
+    );
   }
 }

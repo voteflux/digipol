@@ -18,8 +18,8 @@ class CountUpWidget extends StatefulWidget {
 
   CountUpWidget({
     Key /*?*/ key,
-    /*required*/ this.number,
-    /*required*/ this.text,
+    @required this.number,
+    @required this.text,
   }) : super(key: key);
 }
 

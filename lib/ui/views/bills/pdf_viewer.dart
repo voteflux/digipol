@@ -15,7 +15,7 @@ class PdfPage extends StatelessWidget {
 
   PdfPage({
     Key /*?*/ key,
-    /*required*/ this.pdfUrl,
+    @required this.pdfUrl,
   }) : super(key: key);
 
   @override
@@ -52,7 +52,7 @@ class PdfWidget extends StatefulWidget {
 
   PdfWidget({
     Key /*?*/ key,
-    /*required*/ this.pdfUrl,
+    @required this.pdfUrl,
   }) : super(key: key);
 }
 
