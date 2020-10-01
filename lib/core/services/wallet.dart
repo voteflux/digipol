@@ -3,15 +3,14 @@
 /// The wallet is loaded on demand, and not kept in memory. This is to make illegal access to the keys more difficult.
 import 'dart:io';
 import 'dart:math';
-import 'dart:typed_data';
 
 import 'package:bip32/bip32.dart' as bip32;
 import 'package:bip39/bip39.dart' as bip39;
-import 'package:dartz/dartz.dart';
 import 'package:hex/hex.dart';
+//import 'package:flutter/services.dart' as services;
 import 'package:http/http.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:web3dart/web3dart.dart';
+import 'package:web3dart/web3dartb3dart.dart';
 
 const WALLET_FILE_NAME = "wallet.json";
 const TEMPORARY_PASSWORD = "4%8=)l_L210920A@g,";

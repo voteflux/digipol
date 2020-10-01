@@ -22,8 +22,7 @@ class BillModel extends BaseModel {
   /*late*/ String _vote;
   String get getVote => _vote;
 
-  BillModel();
-  // BillModel(this.bill, this.billChainData, this.billVoteResult, this._vote);
+  BillModel(this.bill, this.billChainData, this.billVoteResult, this._vote);
 
   Future getBill(String billID) async {
     setState(ViewState.Busy);

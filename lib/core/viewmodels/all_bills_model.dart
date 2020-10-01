@@ -29,7 +29,7 @@ class BillsModel extends BaseModel {
   bool removeClosedBills = false;
   bool get getRemoveClosedBills => removeClosedBills;
 
-  BillsModel();
+  BillsModel(this.blockChainList, this.filteredbills);
 
   Future getBills() async {
     setState(ViewState.Busy);
