@@ -13,7 +13,8 @@ class ProfilePage extends StatefulWidget {
 
 final _formKey = GlobalKey<FormState>();
 final Map<String, String> formData = {"name": ""};
-String _name;
+// TODO: this should not be a global variable! -MK
+String _name = "";
 
 class _ProfilePageState extends State<ProfilePage> {
   @override

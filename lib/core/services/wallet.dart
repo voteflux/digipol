@@ -1,7 +1,6 @@
 /// Wallet service
 ///
 /// The wallet is loaded on demand, and not kept in memory. This is to make illegal access to the keys more difficult.
-
 import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
@@ -35,7 +34,7 @@ class WalletService {
   /// Create a new wallet and save it to the wallet file.
   /// If a list of strings is supplied as the parameter [words], they are used to generate the private key via BIP-39
   /// Otherwise, a random private key is generated from scratch.
-  Future<Wallet> make({List<String>? words, String? hex}) async {
+  Future<Wallet> make({List<String> /*?*/ words, String /*?*/ hex}) async {
     var rand = Random.secure();
 
     //Use mnemonic words if supplied, otherwise create a random key

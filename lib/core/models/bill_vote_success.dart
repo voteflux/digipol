@@ -1,10 +1,10 @@
 class BillVoteSuccess {
-  String? ballotspecHash;
+  String ballotspecHash;
 
-  BillVoteSuccess({required this.ballotspecHash});
+  BillVoteSuccess({/*required*/ this.ballotspecHash});
 
   factory BillVoteSuccess.fromJson(Map<String, dynamic> json) {
-    var val = json['data']['ballotspec_hash'] as String?;
-    return BillVoteSuccess(ballotspecHash: val == null ? null : val);
+    var val = json['data']['ballotspec_hash'] as String;
+    return BillVoteSuccess(ballotspecHash: val);
   }
 }

@@ -41,7 +41,7 @@ class AuthenticationService {
 
   Future<String> getUser() async {
     Box userBox = Hive.box<Box>(HIVE_USER_BOX);
-    final String? user = (userBox.get('firstName') ?? null) as String;
+    final String /*?*/ user = (userBox.get('firstName') ?? null) as String;
     return Future.value(user);
   }
 }

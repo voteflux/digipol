@@ -9,7 +9,7 @@ class User {
   @HiveField(1)
   String ethereumAddress;
 
-  User({required this.firstName, required this.ethereumAddress});
+  User({/*required*/ this.firstName, /*required*/ this.ethereumAddress});
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(

@@ -7,9 +7,9 @@ import 'base_model.dart';
 class UserModel extends BaseModel {
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
-  String user;
+  /*late*/ String user;
 
-  UserModel(this.user);
+  UserModel();
 
   Future<String> login() async {
     setState(ViewState.Busy);

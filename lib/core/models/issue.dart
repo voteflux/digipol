@@ -21,19 +21,19 @@ class Issue {
   @HiveField(7)
   String sponsor;
   @HiveField(8)
-  int? yes;
+  int /*?*/ yes;
   @HiveField(9)
-  int? no;
+  int /*?*/ no;
 
   Issue(
-      {required this.chamber,
-      required this.shortTitle,
-      required this.startDate,
-      required this.endDate,
-      required this.id,
-      required this.question,
-      required this.description,
-      required this.sponsor,
+      {/*required*/ this.chamber,
+      /*required*/ this.shortTitle,
+      /*required*/ this.startDate,
+      /*required*/ this.endDate,
+      /*required*/ this.id,
+      /*required*/ this.question,
+      /*required*/ this.description,
+      /*required*/ this.sponsor,
       this.yes,
       this.no});
 

@@ -14,15 +14,16 @@ import 'base_model.dart';
 class BillModel extends BaseModel {
   Api _api = locator<Api>();
 
-  Bill bill;
-  BillChainData billChainData;
-  BillVoteResult billVoteResult;
+  /*late*/ Bill bill;
+  /*late*/ BillChainData billChainData;
+  /*late*/ BillVoteResult billVoteResult;
   Box<Bill> billsBox = Hive.box<Bill>(HIVE_BILLS);
   Box<BillVote> billVoteBox = Hive.box<BillVote>(HIVE_BILL_VOTE_BOX);
-  String _vote;
+  /*late*/ String _vote;
   String get getVote => _vote;
 
-  BillModel(this.bill, this.billChainData, this.billVoteResult, this._vote);
+  BillModel();
+  // BillModel(this.bill, this.billChainData, this.billVoteResult, this._vote);
 
   Future getBill(String billID) async {
     setState(ViewState.Busy);

@@ -21,7 +21,7 @@ import 'package:voting_app/ui/views/settings_view.dart';
 //import 'package:instabug_flutter/Instabug.dart';
 Api _api = locator<Api>();
 AuthenticationService _authenticationService = locator<AuthenticationService>();
-String user;
+String /*?*/ user;
 
 void main() async {
   await Hive.initFlutter();

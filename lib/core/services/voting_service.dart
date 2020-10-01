@@ -25,7 +25,7 @@ class VotingService {
   String contractAddress;
 
   VotingService(
-      {required this.walletService,
+      {/*required*/ this.walletService,
       this.contractAddress = DEFAULT_VOTING_CONTRACT_ADDR}) {}
 
   Future<DeployedContract> _getVotingContract() async {
@@ -76,7 +76,6 @@ class VotingService {
         .map(this.sendTxAndGetHash));
     var atx2 = afterTx.bind((e) => e).map((var t3) async {
       await billVoteBox.add(BillVote(
-          id: vote.ballotId,
           ballotId: vote.ballotId,
           vote: t3.value2,
           ballotSpecHash: t3.value1,

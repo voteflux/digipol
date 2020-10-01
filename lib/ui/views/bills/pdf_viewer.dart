@@ -14,8 +14,8 @@ class PdfPage extends StatelessWidget {
   final String pdfUrl;
 
   PdfPage({
-    Key key,
-    @required this.pdfUrl,
+    Key /*?*/ key,
+    /*required*/ this.pdfUrl,
   }) : super(key: key);
 
   @override
@@ -51,13 +51,13 @@ class PdfWidget extends StatefulWidget {
   /// `body: PdfWidget(pdfUrl: pdfUrl))`
 
   PdfWidget({
-    Key key,
-    @required this.pdfUrl,
+    Key /*?*/ key,
+    /*required*/ this.pdfUrl,
   }) : super(key: key);
 }
 
 class _PdfWidgetState extends State<PdfWidget> {
-  String path;
+  String /*?*/ path;
 
   @override
   initState() {

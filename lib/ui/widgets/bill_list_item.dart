@@ -14,7 +14,7 @@ class BillListItem extends StatefulWidget {
   _BillListItemState createState() => _BillListItemState();
 
   final Bill billData;
-  final Map issuesMap;
+  final Map /*?*/ issuesMap;
   final Map<String, Color> billColors = {
     "House": appColors.house,
     "Senate": appColors.senate
@@ -24,17 +24,18 @@ class BillListItem extends StatefulWidget {
     "Senate": "Intro Senate"
   };
 
-  BillListItem({Key key, this.billData, this.issuesMap}) : super(key: key);
+  BillListItem({Key /*?*/ key, /*required*/ this.billData, this.issuesMap})
+      : super(key: key);
 }
 
 class _BillListItemState extends State<BillListItem> {
   BillModel billModel = locator<BillModel>();
-  String _vote;
+  /*late*/ String _vote;
 
   Future<void> getVote() async {
     var voteOpt = await billModel.hasVoted(widget.billData.id);
-    return voteOpt.map<void>((_vote) => setState(() {
-          _vote;
+    voteOpt.map<void>((vote) => setState(() {
+          this._vote = vote;
         }));
   }
 
@@ -46,7 +47,7 @@ class _BillListItemState extends State<BillListItem> {
   }
 
   List<Widget> _buildTopicList(List<String> billTopics, BuildContext context) {
-    List<Widget> topics = List();
+    List<Widget> topics = List.empty();
     billTopics.forEach((item) {
       topics.add(
         Padding(

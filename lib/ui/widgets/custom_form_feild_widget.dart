@@ -4,14 +4,14 @@ import 'package:voting_app/ui/styles.dart';
 class CustomFormField extends StatelessWidget {
   final String helpText;
   final void Function(String) submitAction;
-  final String? Function(String) validation;
+  final String /*?*/ Function(String) /*?*/ validation;
   final String initialTextValue;
 
   CustomFormField(
-      {@required this.helpText,
-      @required this.submitAction,
+      {/*required*/ this.helpText,
+      /*required*/ this.submitAction,
       this.validation,
-      this.initialTextValue});
+      this.initialTextValue = ""});
 
   Widget build(BuildContext context) {
     return Padding(

@@ -1,6 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:voting_app/ui/styles.dart';
-import 'dart:async';
 
 class CountUpWidget extends StatefulWidget {
   @override
@@ -16,9 +17,9 @@ class CountUpWidget extends StatefulWidget {
   /// `child: CountUpWidget(number: bunnyNum, text: "Bunnies bred"),`
 
   CountUpWidget({
-    Key key,
-    @required this.number,
-    @required this.text,
+    Key /*?*/ key,
+    /*required*/ this.number,
+    /*required*/ this.text,
   }) : super(key: key);
 }
 
