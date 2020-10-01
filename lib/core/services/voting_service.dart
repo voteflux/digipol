@@ -2,9 +2,11 @@ import 'dart:core';
 import 'dart:typed_data';
 
 import 'package:convert/convert.dart' as convert;
+import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:voting_app/core/funcs/null_stuff.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/bill_vote_success.dart';
 import 'package:voting_app/core/services/wallet.dart';
@@ -13,22 +15,23 @@ import 'package:web3dart/web3dart.dart';
 import '../consts.dart';
 
 const ABI_PATH = 'assets/contracts/voting.abi';
-const CONTRACT_ADDRESS =
+const DEFAULT_VOTING_CONTRACT_ADDR =
     '0xca733a39b72DA72078DBc1c642e6C3836C5b424E'; //'0x7B8068D32AA298158E838Fcd9a324B9810AE8333';
 const VOTE_YES = 'yes';
 const VOTE_NO = 'no';
 
 class VotingService {
   WalletService walletService;
+  String contractAddress;
 
-  VotingService(walletService) {
-    this.walletService = walletService;
-  }
+  VotingService(
+      {required this.walletService,
+      this.contractAddress = DEFAULT_VOTING_CONTRACT_ADDR}) {}
 
   Future<DeployedContract> _getVotingContract() async {
     var abi = await _getAbi();
     return DeployedContract(ContractAbi.fromJson(abi, 'Voting'),
-        EthereumAddress.fromHex(CONTRACT_ADDRESS));
+        EthereumAddress.fromHex(this.contractAddress));
   }
 
   Future<String> _getAbi() async {
@@ -52,25 +55,50 @@ class VotingService {
       throw Exception("Invalid vote value");
     }
 
-    return walletService.sendTransaction(contract, voteFn, [specHash]);
+    return walletService.sendTransaction(
+        contract, voteFn, [specHash] as List<dynamic>);
   }
 
   Future<BillVoteSuccess> postVote(BillVote vote) async {
-    //Box userBox = Hive.box("user_box");
     Box<BillVote> billVoteBox = Hive.box<BillVote>(HIVE_BILL_VOTE_BOX);
+
+    var ethAddr = await this.walletService.ethereumAddress();
 
     // to delete
     final prefs = await SharedPreferences.getInstance();
     prefs.setString(vote.ballotId, vote.vote);
 
-    var txHash = await submitVoteTransaction(vote.ballotSpecHash, vote.vote);
+    var _bsh = nullToE(
+        vote.ballotSpecHash, "BallotSpecHash is null (and shouldn't be).");
+    var _vv = nullToE(vote.vote, "Vote object is null (and shouldn't be)");
+    var afterTx = await Either.sequenceFuture(_bsh
+        .bind((String bsh) => _vv.map((vv) => Tuple2(bsh, vv) as TxInputs))
+        .map(this.sendTxAndGetHash));
+    var atx2 = afterTx.bind((e) => e).map((var t3) async {
+      await billVoteBox.add(BillVote(
+          id: vote.ballotId,
+          ballotId: vote.ballotId,
+          vote: t3.value2,
+          ballotSpecHash: t3.value1,
+          ethAddrHex: ethAddr,
+          constituency: vote.constituency));
+      return t3;
+    });
+    return (await Either.sequenceFuture(atx2)).fold(
+        (l) => throw Exception("Vote broadcast failed. Error: ${l}"),
+        (r) => BillVoteSuccess(ballotspecHash: r.value1));
+  }
 
-    if (txHash != "") {
-      print("Transaction hash " + txHash);
-      billVoteBox.add(BillVote(ballotId: vote.ballotId, vote: vote.vote));
-      return BillVoteSuccess(ballotspecHash: txHash);
-    } else {
-      throw Exception('Failed cast vote');
+  Future<Either<String, AfterTx>> sendTxAndGetHash<T>(var t2) async {
+    String txHash = await submitVoteTransaction(t2.value1, t2.value2);
+    if (txHash == "") {
+      return Left("txHash was empty when submitting vote transaction!");
     }
+    return Right(Tuple3(t2.value1, t2.value2, txHash) as AfterTx);
   }
 }
+
+mixin ToAlias {}
+
+class TxInputs = Tuple2<String, String> with ToAlias;
+class AfterTx = Tuple3<String, String, String> with ToAlias;

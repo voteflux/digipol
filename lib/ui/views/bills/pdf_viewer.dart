@@ -1,10 +1,11 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
-import 'package:pdf_viewer_plugin/pdf_viewer_plugin.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
+import 'package:pdf_viewer_plugin/pdf_viewer_plugin.dart';
 import 'package:voting_app/ui/styles.dart';
 
 /// This is the page that displays the PDFs
@@ -88,7 +89,7 @@ class _PdfWidgetState extends State<PdfWidget> {
     return responseJson;
   }
 
-  loadPdf() async {
+  void loadPdf() async {
     writeCounter(await fetchPost());
     path = (await _localFile).path;
 

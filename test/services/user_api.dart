@@ -20,7 +20,7 @@ void main() {
     test('sign up', () async {
       var wallet = await walletService.make();
       walletService.save(wallet);
-      var response = await userApi
+      dynamic response = await userApi
           .signup((await walletService.ethereumAddress()).toString());
       print(response);
       //sleep(Duration(seconds: 10));

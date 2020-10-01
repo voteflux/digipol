@@ -16,6 +16,8 @@ class IssueModel extends BaseModel {
   String _vote;
   String get getVote => _vote;
 
+  IssueModel(this.issue, this.billVoteResult, this._vote);
+
   Future getIssue(String issueId) async {
     setState(ViewState.Busy);
     print(issueId);
@@ -26,8 +28,8 @@ class IssueModel extends BaseModel {
 
   Future hasVoted(String ballotId) async {
     final prefs = await SharedPreferences.getInstance();
-    final vote = prefs.getString(ballotId) ?? null;
-    _vote = vote;
+    final vote = prefs.getString(ballotId);
+    this._vote = vote;
     return vote;
   }
 }

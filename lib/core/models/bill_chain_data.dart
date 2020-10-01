@@ -5,16 +5,18 @@ class BillChainData {
   String ballotSpecHash;
 
   BillChainData({
-    this.id,
-    this.question,
-    this.shortTitle,
-    this.ballotSpecHash,
+    required this.id,
+    required this.question,
+    required this.shortTitle,
+    required this.ballotSpecHash,
   });
 
-  BillChainData.fromJson(Map<String, dynamic> json) {
-    id = json['_id'];
-    question = json['data']['question'];
-    shortTitle = json['data']['short_title'];
-    ballotSpecHash = json['ballotspec_hash'];
+  factory BillChainData.fromJson(Map<String, dynamic> json) {
+    return BillChainData(
+      id: json['_id'] as String,
+      question: json['data']['question'] as String,
+      shortTitle: json['data']['short_title'] as String,
+      ballotSpecHash: json['ballotspec_hash'] as String,
+    );
   }
 }

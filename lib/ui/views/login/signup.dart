@@ -34,7 +34,7 @@ class SignUp extends StatefulWidget {
 
 class _SignUpWidgetState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
-  final Map<String, dynamic> formData = {
+  final Map<String, String?> formData = {
     'first_name': null,
     'other_given_names': null,
     'family_name': null,

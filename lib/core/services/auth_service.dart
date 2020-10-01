@@ -1,18 +1,21 @@
 import 'dart:async';
+
+import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
-import 'package:voting_app/core/models/user.dart';
-import 'package:voting_app/core/services/wallet.dart';
 import 'package:voting_app/core/services/user_api.dart';
+import 'package:voting_app/core/services/wallet.dart';
+
+import '../consts.dart';
 
 class AuthenticationService {
   Future<String> createUser(String name) async {
-    Box userBox = Hive.box("user_box");
+    var userBox = Hive.box<String>(HIVE_USER_PREFS_STR);
 
     // clear box
     userBox.clear();
 
     //If there is no wallet yet, create one.
-    var walletService = WalletService(null);
+    var walletService = WalletService(None());
     var exists = await walletService.walletExists();
     if (!exists) {
       print("Does not exist");
@@ -22,8 +25,8 @@ class AuthenticationService {
     //Put the ethereum address in prefs for display in the UI
     var ethAddress = await walletService.ethereumAddress();
 
-    userBox
-        .putAll({'firstName': name, 'ethereumAddress': ethAddress.toString()});
+    userBox.put("firstName", name);
+    userBox.put("ethereumAddress", ethAddress.toString());
 
     //Debug
     print("Ethereum address: ${ethAddress.toString()}");
@@ -37,8 +40,8 @@ class AuthenticationService {
   }
 
   Future<String> getUser() async {
-    Box userBox = Hive.box("user_box");
-    final user = userBox.get('firstName') ?? null;
-    return user;
+    Box userBox = Hive.box<Box>(HIVE_USER_BOX);
+    final String? user = (userBox.get('firstName') ?? null) as String;
+    return Future.value(user);
   }
 }

@@ -25,11 +25,12 @@ void main() {
       Hive.registerAdapter<User>(UserAdapter());
       Hive.registerAdapter<BillVote>(BillVoteAdapter());
       await Hive.openBox<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
-      await Hive.openBox<Bill>("bills");
-      await Hive.openBox<Issue>("issues");
-      await Hive.openBox("user_box");
-      await Hive.openBox<BillVote>("bill_vote_box");
-      await Hive.openBox("user_preferences");
+      await Hive.openBox<Bill>(HIVE_BILLS);
+      await Hive.openBox<Issue>(HIVE_ISSUES);
+      await Hive.openBox<Box>(HIVE_USER_BOX);
+      await Hive.openBox<BillVote>(HIVE_BILL_VOTE_BOX);
+      await Hive.openBox<BillVote>(HIVE_USER_PREFS_STR);
+      await Hive.openBox<BillVote>(HIVE_USER_PREFS_BOOLS);
     });
 
     test('test api data syncing', () async {

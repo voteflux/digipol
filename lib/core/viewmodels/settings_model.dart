@@ -5,17 +5,19 @@ import 'package:voting_app/core/viewmodels/base_model.dart';
 import 'package:voting_app/locator.dart';
 
 class SettingsModel extends BaseModel {
-
   String user;
   String get getUser => user;
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
+
+  SettingsModel(this.user);
 
   Future setUser() async {
     var isUser = await _authenticationService.getUser();
     user = isUser;
     print(user);
   }
+
   Future clearUser() async {
     setState(ViewState.Busy);
     final prefs = await SharedPreferences.getInstance();
