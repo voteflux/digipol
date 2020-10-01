@@ -9,46 +9,44 @@ class OnBoardingView extends StatefulWidget {
   _OnBoardingViewState createState() => _OnBoardingViewState();
 }
 
+class OnboardingSlide {
+  String image;
+  String heading;
+  String body;
+  String label;
+
+  OnboardingSlide(this.image, this.heading, this.body, this.label);
+}
+
 class _OnBoardingViewState extends State<OnBoardingView> {
-  double currentIndexPage;
-  int pageLength;
-  List<Map<String, String>> pages = [
-    {
-      'image': 'undraw_Hello_qnas.svg',
-      'heading': 'Hi!',
-      'text':
-          'Welcome to DigiPol! Where digital direct democracy starts. (draft)',
-      'label': 'Welcome!'
-    },
-    {
-      'image': 'undraw_process_e90d.svg',
-      'heading': 'What is DigiPol?',
-      'text':
-          'DigiPol collates all the current bills in the Australian government for you. So you can read about them and express your support or opposition by voting directly on a Bill. (draft)',
-      'label': 'The DigiPol Process'
-    },
-    {
-      'image': 'undraw_voting_nvu7.svg',
-      'heading': 'How does it do it?',
-      'text':
-          'So you can stay informed & make your opinion known when it matters most. (draft)',
-      'label': 'DigiPol keeps you informed'
-    },
-    {
-      'image': 'undraw_new_ideas_jdea.svg',
-      'heading': 'Issues',
-      'text':
-          'You can even vote on current issues created by the community. (draft)',
-      'label': "DigiPol let's you vote on issues."
-    },
-    {
-      'image': 'undraw_ethereum_fb7n.svg',
-      'heading': 'Zero',
-      'text':
-          'None of your personal information is stored, and all votes are verified by our blockchain. (draft)',
-      'label':
-          'Your personal info is safe and all votes are verified by a blockchain.'
-    }
+  double currentIndexPage = 0;
+  /*late*/ int pageLength;
+  List<OnboardingSlide> pages = [
+    OnboardingSlide(
+        'undraw_Hello_qnas.svg',
+        'Hi!',
+        'Welcome to DigiPol! Where digital direct democracy starts. (draft)',
+        'Welcome!'),
+    OnboardingSlide(
+        'undraw_process_e90d.svg',
+        'What is DigiPol?',
+        'DigiPol collates all the current bills in the Australian government for you. So you can read about them and express your support or opposition by voting directly on a Bill. (draft)',
+        'The DigiPol Process'),
+    OnboardingSlide(
+        'undraw_voting_nvu7.svg',
+        'How does it do it?',
+        'So you can stay informed & make your opinion known when it matters most. (draft)',
+        'DigiPol keeps you informed'),
+    OnboardingSlide(
+        'undraw_new_ideas_jdea.svg',
+        'Issues',
+        'You can even vote on current issues created by the community. (draft)',
+        "DigiPol let's you vote on issues."),
+    OnboardingSlide(
+        'undraw_ethereum_fb7n.svg',
+        'Zero',
+        'None of your personal information is stored, and all votes are verified by our blockchain. (draft)',
+        'Your personal info is safe and all votes are verified by a blockchain.'),
   ];
 
   @override
@@ -70,8 +68,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   child: PageView(
                     children: <Widget>[
                       for (var page in pages)
-                        _buildWalkThrough(context, page['image'],
-                            page['heading'], page['text'], page['label']),
+                        _buildWalkThrough(context, page.image, page.heading,
+                            page.body, page.label),
                       ProfilePage()
                     ],
                     onPageChanged: (value) {
@@ -110,7 +108,7 @@ Widget _buildWalkThrough(BuildContext context, String graphic, String heading,
                 child: Padding(
                   padding: EdgeInsets.only(left: 20.0, right: 20.0),
                   child: SvgPicture.asset('assets/graphics/' + graphic,
-                      semanticsLabel: label) as Widget,
+                      semanticsLabel: label),
                 ),
               ),
               ListBody(

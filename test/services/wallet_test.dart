@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:test/test.dart';
 import 'package:voting_app/core/services/wallet.dart';
 import 'package:web3dart/web3dart.dart';
@@ -18,10 +19,10 @@ const WORD_LIST = [
 ];
 const WORD_LIST_ADDRESS = "0x8a4AD0054E4bE3c752b8CDC6F9674f094d11cD81";
 void main() {
-  WalletService service;
+  /*late*/ WalletService service;
 
   setUp(() async {
-    service = WalletService(".");
+    service = WalletService(Some("."));
   });
 
   tearDown(() async {

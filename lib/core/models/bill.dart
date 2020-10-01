@@ -50,28 +50,29 @@ class Bill {
   List<String> topics;
 
   Bill(
-      {required this.id,
-      required this.chamber,
-      required this.shortTitle,
-      required this.question,
-      required this.introHouse,
-      required this.passedHouse,
-      required this.introSenate,
-      required this.passedSenate,
-      required this.assentDate,
-      required this.actNo,
-      required this.url,
-      required this.summary,
-      required this.sponsor,
-      required this.textLinkDoc,
-      required this.textLinkPdf,
-      required this.emLinkPdf,
-      required this.emLinkHtml,
-      required this.yes,
-      required this.no,
-      required this.portfolio,
-      required this.startDate,
-      required this.topics});
+      {
+      /*required*/ this.id,
+      /*required*/ this.chamber,
+      /*required*/ this.shortTitle,
+      /*required*/ this.question,
+      /*required*/ this.introHouse,
+      /*required*/ this.passedHouse,
+      /*required*/ this.introSenate,
+      /*required*/ this.passedSenate,
+      /*required*/ this.assentDate,
+      /*required*/ this.actNo,
+      /*required*/ this.url,
+      /*required*/ this.summary,
+      /*required*/ this.sponsor,
+      /*required*/ this.textLinkDoc,
+      /*required*/ this.textLinkPdf,
+      /*required*/ this.emLinkPdf,
+      /*required*/ this.emLinkHtml,
+      /*required*/ this.yes,
+      /*required*/ this.no,
+      /*required*/ this.portfolio,
+      /*required*/ this.startDate,
+      /*required*/ this.topics});
 
   factory Bill.fromJson(Map<String, dynamic> json) {
     return new Bill(

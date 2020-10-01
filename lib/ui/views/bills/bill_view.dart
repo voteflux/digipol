@@ -25,16 +25,17 @@ class BillPage extends StatefulWidget {
 
   final Bill bill;
 
-  BillPage({required Key key, required this.bill}) : super(key: key);
+  BillPage({Key /*?*/ key, /*required*/ this.bill}) : super(key: key);
 }
 
 class _BillPageState extends State<BillPage> {
   BillModel billModel = locator<BillModel>();
-  String? _vote;
+  String /*?*/ _vote;
   Box<Bill> billsBox = Hive.box<Bill>(HIVE_BILLS);
   Box<BlockChainData> blockChainData =
       Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
-  late BlockChainData completeBlockChainData;
+  //late BlockChainData completeBlockChainData;
+  BlockChainData completeBlockChainData;
 
   _BillPageState() {
     this.completeBlockChainData = this

@@ -8,8 +8,8 @@ import '../consts.dart';
 import 'base_model.dart';
 
 class BillsModel extends BaseModel {
-  List<Bill> blockChainList;
-  List<Bill> filteredbills;
+  /*late*/ List<Bill> blockChainList;
+  /*late*/ List<Bill> filteredbills;
   List<Bill> get billList => filteredbills;
   var blockChainData = Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
   var billsBox = Hive.box<Bill>(HIVE_BILLS);
@@ -29,7 +29,7 @@ class BillsModel extends BaseModel {
   bool removeClosedBills = false;
   bool get getRemoveClosedBills => removeClosedBills;
 
-  BillsModel(this.blockChainList, this.filteredbills);
+  BillsModel();
 
   Future getBills() async {
     setState(ViewState.Busy);

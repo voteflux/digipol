@@ -1,6 +1,7 @@
 analyzer:
-  strong-mode: true
-    #implicit-casts: false
-    #implicit-dynamic: false
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
   enable-experiment:
-    - non-nullable
+    #- non-nullable
+    - nonfunction-type-aliases

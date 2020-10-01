@@ -10,13 +10,13 @@ import 'base_model.dart';
 class IssuesModel extends BaseModel {
   Api _api = locator<Api>();
 
-  List<BlockChainData> filteredIssues;
+  /*late*/ List<BlockChainData> filteredIssues;
   List<BlockChainData> get issueList => filteredIssues;
-  List<BlockChainData> blockChainList;
+  /*late*/ List<BlockChainData> blockChainList;
   Box<BlockChainData> blockChainData =
       Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
 
-  IssuesModel(this.filteredIssues, this.blockChainList);
+  IssuesModel();
 
   Future getIssues() async {
     setState(ViewState.Busy);

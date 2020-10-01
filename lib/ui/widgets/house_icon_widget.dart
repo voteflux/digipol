@@ -24,7 +24,8 @@ class HouseIconsWidget extends StatelessWidget {
   /// usage:
   ///
   /// `child: HouseIconsWidget(issuesMap: issuesMap,size: 20,),`
-  HouseIconsWidget({Key key, @required this.size, @required this.bill})
+  HouseIconsWidget(
+      {Key /*?*/ key, /*required*/ this.size, /*required*/ this.bill})
       : super(key: key);
 
   // gets correct colour for Intro House

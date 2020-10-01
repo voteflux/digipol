@@ -1,14 +1,15 @@
+import 'package:dartz/dartz.dart';
 import 'package:test/test.dart';
 import 'package:voting_app/core/services/user_api.dart';
 import 'package:voting_app/core/services/voting_service.dart';
 import 'package:voting_app/core/services/wallet.dart';
 
 void main() {
-  WalletService walletService;
-  UserApi userApi;
+  /*late*/ WalletService walletService;
+  /*late*/ UserApi userApi;
 
   setUp(() async {
-    walletService = WalletService(".");
+    walletService = WalletService(Some("."));
     userApi = UserApi();
   });
 
@@ -27,7 +28,7 @@ void main() {
       var balance = await walletService.balance();
       expect(balance.getInWei.toInt(), greaterThan(0));
 
-      var votingService = VotingService(walletService);
+      var votingService = VotingService(walletService: walletService);
 
       var txHash = await votingService.submitVoteTransaction(
         "39e0c51afbada3237f2ea33748973a4e812b40347955b207df79df2629e4d4e6",

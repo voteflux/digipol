@@ -28,26 +28,26 @@ var appTextStyles = AppTextStyles();
 // Classes below
 
 class AppColors {
-  Color house;
-  Color senate;
-  Color greyedOut;
-  Color background;
-  Color backgroundSecondary;
-  Color mainTheme;
-  Color issues;
-  Color text;
-  Color shareIcon;
-  Color voteOpen;
-  Color voteClosed;
-  Color voted;
-  Color card;
-  Color cardInkWell;
-  Color yes;
-  Color no;
-  Color selected;
-  Color unSelected;
-  Color button;
-  Color buttonOutline;
+  /*late*/ Color house;
+  /*late*/ Color senate;
+  /*late*/ Color greyedOut;
+  /*late*/ Color background;
+  /*late*/ Color backgroundSecondary;
+  /*late*/ Color mainTheme;
+  /*late*/ Color issues;
+  /*late*/ Color text;
+  /*late*/ Color shareIcon;
+  /*late*/ Color voteOpen;
+  /*late*/ Color voteClosed;
+  /*late*/ Color voted;
+  /*late*/ Color card;
+  /*late*/ Color cardInkWell;
+  /*late*/ Color yes;
+  /*late*/ Color no;
+  /*late*/ Color selected;
+  /*late*/ Color unSelected;
+  /*late*/ Color button;
+  /*late*/ Color buttonOutline;
 
   AppColors(int styleNum) {
     /// The colors for the app
@@ -102,14 +102,14 @@ class AppColors {
 
 class AppSizes {
   /// The standard sizes for the app
-  double largeWidth;
-  double mediumWidth;
-  double smallWidth;
-  double cardCornerRadius;
-  double buttonRadius;
-  double cardElevation;
-  double standardMargin;
-  double standardPadding;
+  /*late*/ double largeWidth;
+  /*late*/ double mediumWidth;
+  /*late*/ double smallWidth;
+  /*late*/ double cardCornerRadius;
+  /*late*/ double buttonRadius;
+  /*late*/ double cardElevation;
+  /*late*/ double standardMargin;
+  /*late*/ double standardPadding;
 
   AppSizes() {
     largeWidth = 1200;
@@ -125,16 +125,16 @@ class AppSizes {
 
 class AppTextStyles {
   /// The standard text styles for the app
-  TextStyle heading;
-  TextStyle heading2;
-  TextStyle heading3;
-  TextStyle card;
-  TextStyle smallBold;
-  TextStyle small;
-  TextStyle standard;
-  TextStyle standardItalic;
-  TextStyle standardBold;
-  TextStyle yesnobutton;
+  /*late*/ TextStyle heading;
+  /*late*/ TextStyle heading2;
+  /*late*/ TextStyle heading3;
+  /*late*/ TextStyle card;
+  /*late*/ TextStyle smallBold;
+  /*late*/ TextStyle small;
+  /*late*/ TextStyle standard;
+  /*late*/ TextStyle standardItalic;
+  /*late*/ TextStyle standardBold;
+  /*late*/ TextStyle yesnobutton;
 
   AppTextStyles() {
     heading = TextStyle(

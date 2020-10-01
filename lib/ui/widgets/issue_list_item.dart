@@ -18,11 +18,11 @@ class IssueListItem extends StatefulWidget {
   };
   final Random random = new Random();
 
-  IssueListItem({this.blockChainData});
+  IssueListItem({/*required*/ this.blockChainData});
 }
 
 class _IssueListItemState extends State<IssueListItem> {
-  Issue completeIssueData;
+  /*late*/ Issue completeIssueData;
   Box<Issue> issuesBox = Hive.box<Issue>("issues");
 
   Future getVote() async {

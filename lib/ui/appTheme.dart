@@ -154,8 +154,8 @@ class AppTheme {
 
 // Unique theme colours
 class LightThemeColors {
-  Color text;
-  Color textSecondary;
+  /*late*/ Color text;
+  /*late*/ Color textSecondary;
 
   LightThemeColors() {
     text = Color(0xff000000);
@@ -164,8 +164,8 @@ class LightThemeColors {
 }
 
 class DarkThemeColors {
-  Color text;
-  Color textSecondary;
+  /*late*/ Color text;
+  /*late*/ Color textSecondary;
 
   DarkThemeColors() {
     text = Colors.white;

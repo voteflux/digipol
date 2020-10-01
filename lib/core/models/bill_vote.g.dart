@@ -17,8 +17,7 @@ class BillVoteAdapter extends TypeAdapter<BillVote> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return BillVote(
-      id: fields[0] as String,
-      pubKey: fields[1] as String,
+      ethAddrHex: fields[1] as EthereumAddress,
       ballotId: fields[2] as String,
       ballotSpecHash: fields[3] as String,
       constituency: fields[4] as String,
@@ -29,11 +28,9 @@ class BillVoteAdapter extends TypeAdapter<BillVote> {
   @override
   void write(BinaryWriter writer, BillVote obj) {
     writer
-      ..writeByte(6)
-      ..writeByte(0)
-      ..write(obj.id)
+      ..writeByte(5)
       ..writeByte(1)
-      ..write(obj.pubKey)
+      ..write(obj.ethAddrHex)
       ..writeByte(2)
       ..write(obj.ballotId)
       ..writeByte(3)

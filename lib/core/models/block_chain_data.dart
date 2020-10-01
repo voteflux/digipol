@@ -23,16 +23,20 @@ class BlockChainData {
   String startDate;
 
   BlockChainData(
-      {required this.id,
-      required this.question,
-      required this.shortTitle,
-      required this.ballotSpecHash,
-      required this.chamber,
-      required this.sponsor,
-      required this.startDate});
+      {/*required*/ this.id,
+      /*required*/ this.question,
+      /*required*/ this.shortTitle,
+      /*required*/ this.ballotSpecHash,
+      /*required*/ this.chamber,
+      /*required*/ this.sponsor,
+      /*required*/ this.startDate});
 
-  BillChainData toBillChainData(){
-    return BillChainData(id: this.id, ballotSpecHash: this.ballotSpecHash, question: this.question, shortTitle: this.shortTitle);
+  BillChainData toBillChainData() {
+    return BillChainData(
+        id: this.id,
+        ballotSpecHash: this.ballotSpecHash,
+        question: this.question,
+        shortTitle: this.shortTitle);
   }
 
   factory BlockChainData.fromJson(Map<String, dynamic> json) {

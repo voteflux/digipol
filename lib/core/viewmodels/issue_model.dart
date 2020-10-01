@@ -10,13 +10,14 @@ import 'base_model.dart';
 class IssueModel extends BaseModel {
   Api _api = locator<Api>();
 
-  Issue issue;
-  BillVoteResult billVoteResult;
+  /*late*/ Issue issue;
+  /*late*/ BillVoteResult billVoteResult;
 
-  String _vote;
+  /*late*/ String _vote;
   String get getVote => _vote;
 
-  IssueModel(this.issue, this.billVoteResult, this._vote);
+  IssueModel();
+  // this.issue, this.billVoteResult, this._vote
 
   Future getIssue(String issueId) async {
     setState(ViewState.Busy);
