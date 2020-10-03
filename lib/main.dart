@@ -1,15 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Router;
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:voting_app/core/consts.dart';
+import 'package:stacked_services/stacked_services.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/models/issue.dart';
 import 'package:voting_app/core/models/user.dart';
-import 'package:voting_app/core/route_generator.dart';
-import 'package:voting_app/core/services/api.dart';
-import 'package:voting_app/core/services/auth_service.dart';
+import 'package:voting_app/core/router.gr.dart';
 import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/locator.dart';
 import 'package:voting_app/ui/appTheme.dart';
@@ -18,12 +16,11 @@ import 'package:voting_app/ui/views/all_issues_view.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/views/settings_view.dart';
 
-//import 'package:instabug_flutter/Instabug.dart';
-Api _api = locator<Api>();
-AuthenticationService _authenticationService = locator<AuthenticationService>();
-String /*?*/ user;
+import 'core/consts.dart';
 
-void main() async {
+//import 'package:instabug_flutter/Instabug.dart';
+
+void initHive() async {
   await Hive.initFlutter();
   Hive.registerAdapter<BlockChainData>(BlockChainDataAdapter());
   Hive.registerAdapter<Bill>(BillAdapter());
@@ -37,37 +34,56 @@ void main() async {
   await Hive.openBox<BillVote>(HIVE_BILL_VOTE_BOX);
   await Hive.openBox<bool>(HIVE_USER_PREFS_BOOLS);
   await Hive.openBox<String>(HIVE_USER_PREFS_STR);
+}
 
+void main() async {
+  await initHive();
   setupLocator();
-  // sync data on load
-  await _api.syncData();
-  user = await _authenticationService.getUser();
-
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //FlutterStatusbarcolor.setStatusBarWhiteForeground(darkMode);
     return BaseView<ThemeModel>(
-        onModelReady: (model) => model.setTheme(),
-        builder: (context, model, child) {
-          return MaterialApp(
-              onGenerateRoute: RouteGenerator.generateSettingsRoute,
-              initialRoute: user == null ? '/onboarding' : '/',
-              home: MainScreen(),
-              theme: AppTheme.lightTheme,
-              darkTheme: AppTheme.darkTheme,
-              themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light);
-        });
+        builder: (context, model, child) => MaterialApp(
+              onGenerateRoute: Router().onGenerateRoute,
+              initialRoute: Routes.startupView,
+              title: "DigiPol (TITLE)",
+              navigatorKey: locator<NavigationService>().navigatorKey,
+              // home: StartupView(), // MainScreen()
+              // theme: AppTheme.lightTheme,
+              // darkTheme: AppTheme.darkTheme,
+              // themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light),
+              builder: (context, extendedNav) =>
+                  Theme(data: AppTheme.darkTheme, child: extendedNav),
+            ));
   }
 }
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     //FlutterStatusbarcolor.setStatusBarWhiteForeground(darkMode);
+//     return BaseView<ThemeModel>(
+//         onModelReady: (model) => model.setTheme(),
+//         builder: (context, model, child) {
+//           return MaterialApp(
+//               builder: ExtendedNavigator.builder<Router>(
+//             router: Router(),
+//             initialRoute: Routes.startupView,
+//
+//             // home: StartupView(), // MainScreen()
+//             // theme: AppTheme.lightTheme,
+//             // darkTheme: AppTheme.darkTheme,
+//             // themeMode: model.isDarkMode ? ThemeMode.dark : ThemeMode.light),
+//             builder: (context, extendedNav) => Theme(
+//               data: AppTheme.darkTheme,
+//               child: extendedNav,
+//             ),
+//           ));
+//         });
+//   }
+// }
 
 class MainScreen extends StatefulWidget {
   @override

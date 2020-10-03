@@ -76,7 +76,6 @@ class Bill {
 
   factory Bill.fromJson(Map<String, dynamic> json) {
     var data = json['data'] as Map<String, dynamic>;
-    print(data['topics']);
     var topics = ((data['topics'] as List<dynamic>) ?? <dynamic>[])
         .map((dynamic s) => s as String)
         .toList();

@@ -1,6 +1,8 @@
 import 'dart:async';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+import 'package:injectable/injectable.dart';
 
 const ETHEREUM_ADDRESS = "ethereumAddress";
 const PARAMS = "params";
@@ -9,6 +11,7 @@ const BASE_URL = "";
 const METHOD_SIGNUP = "signup";
 
 // The service responsible for networking requests
+@lazySingleton
 class UserApi {
   var client = new http.Client();
   var endpoint = 'https://api.blockchain.suzuka.flux.party/members/api';

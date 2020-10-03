@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+import 'package:injectable/injectable.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
@@ -7,15 +8,17 @@ import 'package:voting_app/core/models/block_chain_data.dart';
 import '../consts.dart';
 import 'base_model.dart';
 
+@injectable
 class BillsModel extends BaseModel {
   /*late*/ List<Bill> blockChainList;
   /*late*/ List<Bill> filteredbills;
   List<Bill> get billList => filteredbills;
-  var blockChainData = Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
-  var billsBox = Hive.box<Bill>(HIVE_BILLS);
+  final Box<BlockChainData> blockChainData =
+      Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
+  final Box<Bill> billsBox = Hive.box<Bill>(HIVE_BILLS);
 
-  var billVoteBox = Hive.box<BillVote>(HIVE_BILL_VOTE_BOX);
-  var userPrefsBool = Hive.box<bool>(HIVE_USER_PREFS_BOOLS);
+  final Box<BillVote> billVoteBox = Hive.box<BillVote>(HIVE_BILL_VOTE_BOX);
+  final Box<bool> userPrefsBool = Hive.box<bool>(HIVE_USER_PREFS_BOOLS);
 
   bool onlyVotedBills = false;
   bool get getOnlyVotedBills => onlyVotedBills;
@@ -30,6 +33,11 @@ class BillsModel extends BaseModel {
   bool get getRemoveClosedBills => removeClosedBills;
 
   BillsModel();
+
+  @factoryMethod
+  static BillsModel mkBillsModel() {
+    return BillsModel();
+  }
 
   Future getBills() async {
     setState(ViewState.Busy);
