@@ -44,7 +44,16 @@ dependencies:
   flutter_svg: ^0.18.0
   dartz: ^0.9.1
   adt_annotation: ^0.2.0
-  #auto_route:
+  lottie: ^0.6.0
+  flutter_hooks: ^0.14.1
+  stacked: ^1.7.6
+  # navigation
+  auto_route: ^0.6.7
+  stacked_services: ^0.5.4
+  # logging
+  logger: ^0.9.4
+  logger_flutter: any
+  injectable: any
 
 # Why is this here? -MK
 #dependency_overrides:
@@ -59,7 +68,8 @@ dev_dependencies:
   hive_generator: ^0.7.2+1
   adt: ^0.4.0
   test: any
-  # auto_route_generator:
+  auto_route_generator: ^0.6.7
+  injectable_generator: any
 
 flutter_icons:
   android: true
@@ -80,19 +90,20 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/data/bills_out.json
-    - assets/graphics/undraw_check_boxes_m3d0.svg
-    - assets/graphics/undraw_ethereum_fb7n.svg
-    - assets/graphics/undraw_my_app_grf2.svg
-    - assets/graphics/undraw_voting_nvu7.svg
-    - assets/graphics/undraw_new_ideas_jdea.svg
-    - assets/graphics/undraw_process_e90d.svg
-    - assets/graphics/undraw_Hello_qnas.svg
-    - assets/data/sample_bills.json
-    - assets/data/sample_issues.json
-    - assets/data/sample_user.json
-    - assets/data/sample_bill.json
-    - assets/contracts/voting.json
+    #- assets/graphics/undraw_check_boxes_m3d0.svg
+    #- assets/graphics/undraw_ethereum_fb7n.svg
+    #- assets/graphics/undraw_my_app_grf2.svg
+    #- assets/graphics/undraw_voting_nvu7.svg
+    #- assets/graphics/undraw_new_ideas_jdea.svg
+    #- assets/graphics/undraw_process_e90d.svg
+    - assets/graphics/
+    #- assets/data/bills_out.json
+    #- assets/data/sample_bills.json
+    #- assets/data/sample_issues.json
+    #- assets/data/sample_user.json
+    - assets/data/
+    - assets/contracts/
+    - assets/lottie/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

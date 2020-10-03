@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+import 'package:injectable/injectable.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/services/api.dart';
@@ -7,8 +8,9 @@ import 'package:voting_app/locator.dart';
 import '../consts.dart';
 import 'base_model.dart';
 
+@injectable
 class IssuesModel extends BaseModel {
-  Api _api = locator<Api>();
+  final Api _api = locator<Api>();
 
   /*late*/ List<BlockChainData> filteredIssues;
   List<BlockChainData> get issueList => filteredIssues;

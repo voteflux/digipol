@@ -9,6 +9,7 @@ import 'package:bip39/bip39.dart' as bip39;
 import 'package:hex/hex.dart';
 //import 'package:flutter/services.dart' as services;
 import 'package:http/http.dart';
+import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:web3dart/web3dartb3dart.dart';
 
@@ -23,12 +24,16 @@ class WalletMissingException implements Exception {
   }
 }
 
+@lazySingleton
 class WalletService {
-  Option<String> _walletDirectoryPath;
+  Option<String> _walletDirectoryPath = None();
+  void set walletDirectoryPath(Option<String> wdp) {
+    _walletDirectoryPath = wdp;
+  }
 
   /// Instantiate the service.
   /// @param _walletDirectoryPath The path of the directory to be used for storing the wallet file.
-  WalletService(this._walletDirectoryPath);
+  WalletService();
 
   /// Create a new wallet and save it to the wallet file.
   /// If a list of strings is supplied as the parameter [words], they are used to generate the private key via BIP-39
@@ -85,7 +90,8 @@ class WalletService {
       String walletContent = (await walletFile()).readAsStringSync();
       return Wallet.fromJson(walletContent, TEMPORARY_PASSWORD);
     } else {
-      throw WalletMissingException();
+      return this.make();
+      // throw WalletMissingException();
     }
   }
 

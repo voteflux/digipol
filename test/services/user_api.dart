@@ -9,7 +9,8 @@ void main() {
   /*late*/ UserApi userApi;
 
   setUp(() async {
-    walletService = WalletService(Some("."));
+    walletService = WalletService();
+    walletService.walletDirectoryPath = Some(".");
     userApi = UserApi();
   });
 

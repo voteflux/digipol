@@ -22,7 +22,8 @@ void main() {
   /*late*/ WalletService service;
 
   setUp(() async {
-    service = WalletService(Some("."));
+    service = WalletService();
+    service.walletDirectoryPath = Some(".");
   });
 
   tearDown(() async {
