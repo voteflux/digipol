@@ -31,6 +31,7 @@
 /build/
 ios/RunnerArchive.xcarchive/*
 ios/build/*
+.gradle
 
 # Test related
 /coverage/
