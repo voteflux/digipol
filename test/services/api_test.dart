@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:test/test.dart';
 import 'package:voting_app/core/services/api.dart';
@@ -5,6 +6,13 @@ import 'package:voting_app/locator.dart';
 import 'package:voting_app/main.dart';
 
 Api _api = locator<Api>();
+
+// mock filesystem stuff in tests
+const MethodChannel channel = MethodChannel('plugins.flutter.io/path_provider');
+// need to assign it or something apparently.
+var meh = channel.setMockMethodCallHandler((MethodCall methodCall) async {
+  return ".";
+});
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
