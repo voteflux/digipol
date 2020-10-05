@@ -22,6 +22,8 @@ const SAMPLE_WALLET_BACKUP = [
 const SAMPLE_WALLET_ADDR = "0x8a4AD0054E4bE3c752b8CDC6F9674f094d11cD81";
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   // mock filesystem stuff in tests
   const MethodChannel channel =
       MethodChannel('plugins.flutter.io/path_provider');
@@ -30,7 +32,6 @@ void main() {
     return ".";
   });
 
-  WidgetsFlutterBinding.ensureInitialized();
   /*late*/ WalletService service;
 
   setUp(() async {

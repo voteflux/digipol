@@ -15,6 +15,8 @@ var meh = channel.setMockMethodCallHandler((MethodCall methodCall) async {
 });
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   // mock filesystem stuff in tests
   const MethodChannel channel =
       MethodChannel('plugins.flutter.io/path_provider');
