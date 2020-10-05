@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:voting_app/core/services/user_api.dart';
 import 'package:voting_app/core/services/voting_service.dart';
 import 'package:voting_app/core/services/wallet.dart';
@@ -38,8 +38,9 @@ void main() {
       walletService.save(wallet);
       dynamic response = await userApi
           .signup((await walletService.ethereumAddress()).toString());
-      print(response);
-      sleep(Duration(seconds: 4));
+      print('userApi.signup response: ${response}');
+      print('pausing for 5s to give txs time to confirm or something');
+      sleep(Duration(seconds: 5));
       var balance = await walletService.balance();
       // expect(balance.getInWei.toInt(), greaterThan(0));
       print("Got balance ${balance}");
