@@ -21,14 +21,15 @@ const SAMPLE_WALLET_BACKUP = [
 ];
 const SAMPLE_WALLET_ADDR = "0x8a4AD0054E4bE3c752b8CDC6F9674f094d11cD81";
 
-// mock filesystem stuff in tests
-const MethodChannel channel = MethodChannel('plugins.flutter.io/path_provider');
-// need to assign it or something apparently.
-var meh = channel.setMockMethodCallHandler((MethodCall methodCall) async {
-  return ".";
-});
-
 void main() {
+  // mock filesystem stuff in tests
+  const MethodChannel channel =
+      MethodChannel('plugins.flutter.io/path_provider');
+  // need to assign it or something apparently.
+  var meh = channel.setMockMethodCallHandler((MethodCall methodCall) async {
+    return ".";
+  });
+
   WidgetsFlutterBinding.ensureInitialized();
   /*late*/ WalletService service;
 
