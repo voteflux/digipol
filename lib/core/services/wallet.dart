@@ -153,11 +153,14 @@ class WalletService {
     // regarding getApplicationDocumentsDirectory
     // > Path to a directory where the application may place data that is user-generated, or that cannot otherwise be recreated by your application.
     // > On iOS, this uses the NSDocumentDirectory API. Consider using getApplicationSupportDirectory instead if the data is not user-generated.
-    //var appDocsDir = await getApplicationDocumentsDirectory();
+    var appDocsDir = await getApplicationDocumentsDirectory();
+
+    // comment: we should switch to getApplicationSupportDirectory when possible, I think, but it wasn't the issue with the macos/ios tests.
 
     // regarding getApplicationSupportDirectory
     // > Use this for files you don’t want exposed to the user. Your app should not use this directory for user data files.
-    var appDocsDir = await getApplicationSupportDirectory();
+    //var appDocsDir = await getApplicationSupportDirectory();
+    // note: might be better to use getLibraryDirectory on iOS
 
     String wp = _walletDirectoryPath.getOrElse(() => appDocsDir.path);
     return File('${wp}/$WALLET_FILE_NAME');

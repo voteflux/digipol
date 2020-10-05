@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:test/test.dart';
 import 'package:voting_app/core/services/wallet.dart';
 import 'package:web3dart/web3dart.dart';
@@ -19,6 +20,14 @@ const SAMPLE_WALLET_BACKUP = [
   "matter"
 ];
 const SAMPLE_WALLET_ADDR = "0x8a4AD0054E4bE3c752b8CDC6F9674f094d11cD81";
+
+// mock filesystem stuff in tests
+const MethodChannel channel = MethodChannel('plugins.flutter.io/path_provider');
+// need to assign it or something apparently.
+var meh = channel.setMockMethodCallHandler((MethodCall methodCall) async {
+  return ".";
+});
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   /*late*/ WalletService service;
