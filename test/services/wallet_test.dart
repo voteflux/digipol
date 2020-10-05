@@ -48,12 +48,8 @@ void main() {
       await service.make();
       var ethAddress = await service.ethereumAddress();
 
-      expect(
-          ethAddress.toString(),
-          allOf([
-            startsWith("0x"),
-            hasLength(42),
-          ]));
+      expect(ethAddress.toString(),
+          allOf([startsWith("0x"), hasLength(42), service]));
     });
 
     test('loading empty wallet file should fail', () async {

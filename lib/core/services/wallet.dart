@@ -11,12 +11,15 @@ import 'package:dartz/dartz.dart';
 import 'package:hex/hex.dart';
 import 'package:http/http.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:web3dart/web3dart.dart';
 
 const WALLET_FILE_NAME = "wallet.json";
 const TEMPORARY_PASSWORD = "4%8=)l_L210920A@g,";
 const ETH_HD_DERIVATION_PATH = "m/44'/60'/0'/0/0";
+
+Logger log = Logger();
 
 class WalletMissingException implements Exception {
   @override
