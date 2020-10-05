@@ -7,10 +7,14 @@ import 'package:voting_app/main.dart';
 Api _api = locator<Api>();
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // if we use TestWidgetsFlutterBinding.ensureInitialized we need to provide a
+  // custom HTTP thing b/c no network requests will actually happen. That's
+  // a good thing to do in the long term, but not a priority for today.
+  //TestWidgetsFlutterBinding.ensureInitialized();
   await initHive();
   setupLocator();
   // sync data on load
-  WidgetsFlutterBinding.ensureInitialized();
 
   group('api', () {
     test('test api data syncing', () async {
