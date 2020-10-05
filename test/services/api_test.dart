@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:logger/logger.dart';
 import 'package:voting_app/core/services/api.dart';
-import 'package:voting_app/locator.dart';
 import 'package:voting_app/main.dart';
 
 import '../setup/test_helpers.dart';
@@ -30,7 +29,8 @@ void main() async {
   registerServices();
   // sync data on load
 
-  Api _api = locator<Api>();
+  // this isn't using ApiMock -- replace with that when appropriate or replace with whatever we replace Api with.
+  Api _api = Api();
 
   group('api', () {
     test('test api data syncing', () async {
