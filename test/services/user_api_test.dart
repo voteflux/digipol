@@ -8,9 +8,13 @@ import 'package:voting_app/core/services/user_api.dart';
 import 'package:voting_app/core/services/voting_service.dart';
 import 'package:voting_app/core/services/wallet.dart';
 
-Logger log = Logger();
+import '../setup/test_helpers.dart';
+
+final Logger log = Logger();
 
 void main() {
+  Logger.level = Level.warning;
+
   log.i("user_api_test main starting");
   TestWidgetsFlutterBinding.ensureInitialized();
   log.i("called TestWidgetsFlutterBinding.ensureInitialized");
@@ -26,12 +30,13 @@ void main() {
 
   /*late*/ WalletService walletService;
   /*late*/ UserApi userApi;
+  VotingService votingService;
 
   setUp(() async {
     log.i("user_api_test setUp starting");
     walletService = WalletService();
     walletService.walletDirectoryPath = Some(".");
-    userApi = UserApi();
+    userApi = UserApiMock();
     log.i("user_api_test setUp finished");
   });
 

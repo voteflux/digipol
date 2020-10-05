@@ -1,11 +1,14 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:logger/logger.dart';
 import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/locator.dart';
 import 'package:voting_app/main.dart';
 
-Api _api = locator<Api>();
+import '../setup/test_helpers.dart';
+
+final Logger log = Logger();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,8 +27,10 @@ void main() async {
   // a good thing to do in the long term, but not a priority for today.
   //TestWidgetsFlutterBinding.ensureInitialized();
   await initHive();
-  setupLocator();
+  registerServices();
   // sync data on load
+
+  Api _api = locator<Api>();
 
   group('api', () {
     test('test api data syncing', () async {

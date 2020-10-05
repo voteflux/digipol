@@ -17,7 +17,7 @@ class StartupView extends HookWidget {
   Widget build(BuildContext context) {
     final animationController = useAnimationController();
     return ViewModelBuilder<StartupViewModel>.reactive(
-      onModelReady: (model) => model.runStartupLogic(),
+      onModelReady: (model) => model.initialize(),
       builder: (context, model, child) => Scaffold(
         body: Center(
             child: Lottie.asset('assets/lottie/digipol-logo.json',
@@ -72,9 +72,10 @@ class StartupViewModel extends ChangeNotifier {
     }
   }
 
-  Future runStartupLogic() async {
+  Future<String> initialize() async {
     // sync data on load
     await _api.syncData();
-    var user = await _authenticationService.getUser();
+    String user = await _authenticationService.getUser();
+    return user;
   }
 }

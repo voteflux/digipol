@@ -2,8 +2,11 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:logger/logger.dart';
 import 'package:voting_app/core/services/wallet.dart';
 import 'package:web3dart/web3dart.dart';
+
+final Logger log = Logger();
 
 const SAMPLE_WALLET_BACKUP = [
   "leader",
@@ -22,6 +25,7 @@ const SAMPLE_WALLET_BACKUP = [
 const SAMPLE_WALLET_ADDR = "0x8a4AD0054E4bE3c752b8CDC6F9674f094d11cD81";
 
 void main() {
+  Logger.level = Level.warning;
   WidgetsFlutterBinding.ensureInitialized();
 
   // mock filesystem stuff in tests

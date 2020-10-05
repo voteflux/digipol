@@ -47,13 +47,13 @@ dependencies:
   lottie: ^0.6.0
   flutter_hooks: ^0.14.1
   stacked: ^1.7.6
+  injectable: any
   # navigation
   auto_route: ^0.6.7
   stacked_services: ^0.5.4
   # logging
   logger: ^0.9.4
   logger_flutter: any
-  injectable: any
 
 # Why is this here? -MK
 #dependency_overrides:
@@ -70,6 +70,7 @@ dev_dependencies:
   test: any
   auto_route_generator: ^0.6.7
   injectable_generator: any
+  mockito: ^4.1.2
 
 flutter_icons:
   android: true
