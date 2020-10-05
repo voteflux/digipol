@@ -61,8 +61,9 @@ class VotingService {
       throw Exception("Invalid vote value");
     }
 
-    return walletService.sendTransaction(
-        contract, voteFn, [specHash] as List<dynamic>);
+    List params = List<dynamic>(1);
+    params.add(specHash);
+    return walletService.sendTransaction(contract, voteFn, params);
   }
 
   Future<BillVoteSuccess> postVote(BillVote vote) async {

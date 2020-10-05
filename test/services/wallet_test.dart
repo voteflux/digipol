@@ -65,7 +65,10 @@ void main() {
     });
 
     test('loading empty wallet file should fail', () async {
-      expect(() => service.load(allowCreation: false), throwsException);
+      expect(
+          () async => await service.load(
+              allowCreation: false, allowPreexistingFile: false),
+          throwsException);
     });
 
     test('make wallet from random mnemomic', () async {
