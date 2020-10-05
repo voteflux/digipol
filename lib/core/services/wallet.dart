@@ -89,13 +89,14 @@ class WalletService {
   }
 
   /// Read wallet from the wallet file.
-  Future<Wallet> load() async {
+  Future<Wallet> load({bool allowCreation = false}) async {
     if (await walletExists()) {
       String walletContent = (await walletFile()).readAsStringSync();
       return Wallet.fromJson(walletContent, TEMPORARY_PASSWORD);
-    } else {
+    } else if (allowCreation) {
       return this.make();
-      // throw WalletMissingException();
+    } else {
+      throw WalletMissingException();
     }
   }
 
