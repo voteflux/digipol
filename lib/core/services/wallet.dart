@@ -150,10 +150,12 @@ class WalletService {
 
   /// The file handle for the file used to store the wallet object.
   Future<File> walletFile() async {
+    // note: only call getApplicationDocumentsDirectory if we do _not_ have a _walletDirectoryPath set.
+
     // regarding getApplicationDocumentsDirectory
     // > Path to a directory where the application may place data that is user-generated, or that cannot otherwise be recreated by your application.
     // > On iOS, this uses the NSDocumentDirectory API. Consider using getApplicationSupportDirectory instead if the data is not user-generated.
-    var appDocsDir = await getApplicationDocumentsDirectory();
+    //var appDocsDir = await getApplicationDocumentsDirectory();
 
     // comment: we should switch to getApplicationSupportDirectory when possible, I think, but it wasn't the issue with the macos/ios tests.
 
@@ -162,7 +164,11 @@ class WalletService {
     //var appDocsDir = await getApplicationSupportDirectory();
     // note: might be better to use getLibraryDirectory on iOS
 
-    String wp = _walletDirectoryPath.getOrElse(() => appDocsDir.path);
+    String wp = await _walletDirectoryPath
+        .map((a) => Future.value(a))
+        .getOrElse(() async {
+      return (await getApplicationDocumentsDirectory()).path;
+    });
     return File('${wp}/$WALLET_FILE_NAME');
   }
 

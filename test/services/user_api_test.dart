@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -37,7 +39,7 @@ void main() {
       dynamic response = await userApi
           .signup((await walletService.ethereumAddress()).toString());
       print(response);
-      //sleep(Duration(seconds: 10));
+      sleep(Duration(seconds: 4));
       var balance = await walletService.balance();
       expect(balance.getInWei.toInt(), greaterThan(0));
 
