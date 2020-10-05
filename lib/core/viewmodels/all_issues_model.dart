@@ -5,7 +5,6 @@ import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/locator.dart';
 
-import '../consts.dart';
 import 'base_model.dart';
 
 @injectable

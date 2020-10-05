@@ -45,16 +45,32 @@ class _AllBillsPageState extends State<AllBillsPage> {
                         ),
                       ),
                     ),
-                    SliverList(
-                      key: ObjectKey(model.filteredbills),
-                      delegate: SliverChildBuilderDelegate(
-                        (BuildContext context, int index) {
-                          return BillListItem(
-                              billData: model.filteredbills[index]);
-                        },
-                        childCount: model.filteredbills.length,
-                      ),
-                    )
+                    model.filteredbills.length > 0
+                        ? SliverList(
+                            key: ObjectKey(model.filteredbills),
+                            delegate: SliverChildBuilderDelegate(
+                              (BuildContext context, int index) {
+                                return BillListItem(
+                                    billData: model.filteredbills[index]);
+                              },
+                              childCount: model.filteredbills.length,
+                            ),
+                          )
+                        : SliverList(
+                            key: ObjectKey(model.filteredbills),
+                            delegate: SliverChildBuilderDelegate(
+                              (BuildContext context, int index) {
+                                return Padding(
+                                  padding: EdgeInsets.all(10),
+                                  child: Text('No bills found',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline6),
+                                );
+                              },
+                              childCount: 1,
+                            ),
+                          )
                   ],
                 ),
           endDrawer: Drawer(
