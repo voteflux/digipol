@@ -42,6 +42,7 @@ void main() {
       sleep(Duration(seconds: 4));
       var balance = await walletService.balance();
       // expect(balance.getInWei.toInt(), greaterThan(0));
+      print("Got balance ${balance}");
 
       var votingService = VotingService(walletService: walletService);
 
