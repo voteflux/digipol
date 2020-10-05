@@ -1,9 +1,10 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:test/test.dart';
 import 'package:voting_app/core/services/wallet.dart';
 import 'package:web3dart/web3dart.dart';
 
-const WORD_LIST = [
+const SAMPLE_WALLET_BACKUP = [
   "leader",
   "shadow",
   "labor",
@@ -17,8 +18,9 @@ const WORD_LIST = [
   "delay",
   "matter"
 ];
-const WORD_LIST_ADDRESS = "0x8a4AD0054E4bE3c752b8CDC6F9674f094d11cD81";
+const SAMPLE_WALLET_ADDR = "0x8a4AD0054E4bE3c752b8CDC6F9674f094d11cD81";
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   /*late*/ WalletService service;
 
   setUp(() async {
@@ -64,11 +66,11 @@ void main() {
 
     test('making wallet with known mnemonic should generate correct key',
         () async {
-      var wallet = await service.make(words: WORD_LIST);
+      var wallet = await service.make(words: SAMPLE_WALLET_BACKUP);
       var derivedAddress =
           (await wallet.privateKey.extractAddress()).toString();
 
-      expect(derivedAddress, equalsIgnoringCase(WORD_LIST_ADDRESS));
+      expect(derivedAddress, equalsIgnoringCase(SAMPLE_WALLET_ADDR));
     });
   });
 }

@@ -1,10 +1,12 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/widgets.dart';
 import 'package:test/test.dart';
 import 'package:voting_app/core/services/user_api.dart';
 import 'package:voting_app/core/services/voting_service.dart';
 import 'package:voting_app/core/services/wallet.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   /*late*/ WalletService walletService;
   /*late*/ UserApi userApi;
 
