@@ -33,7 +33,7 @@ void main() {
   });
 
   group('User service', () {
-    test('sign up', () async {
+    testWidgets('sign up', (WidgetTester tester) async {
       var wallet = await walletService.make();
       walletService.save(wallet);
       dynamic response = await userApi
