@@ -59,8 +59,11 @@ class WalletService {
     //Make a wallet from the key
     var wallet = Wallet.createNew(ethKey, TEMPORARY_PASSWORD, rand);
 
+    log.i(
+        "created wallet with address: ${await wallet.privateKey.extractAddress()}");
     //Save it to the wallet file and return it
     await save(wallet);
+    log.i("saved wallet to disk.");
     return wallet;
   }
 
@@ -90,13 +93,22 @@ class WalletService {
   }
 
   /// Read wallet from the wallet file.
-  Future<Wallet> load({bool allowCreation = false}) async {
-    if (await walletExists()) {
+  Future<Wallet> load(
+      {bool allowCreation = false, bool allowPreexistingFile = true}) async {
+    log.i("checking for walletExists");
+    var _walletExists = await walletExists();
+    log.i("got walletExists=${_walletExists}");
+
+    if (_walletExists && allowPreexistingFile) {
+      log.i("Loading wallet as walletExists returned true");
       String walletContent = (await walletFile()).readAsStringSync();
       return Wallet.fromJson(walletContent, TEMPORARY_PASSWORD);
     } else if (allowCreation) {
-      return this.make();
+      log.i("Returning wallet via .make() as allowCreation=${allowCreation}");
+      return await this.make();
     } else {
+      log.i(
+          "Wallet file missing but allowCreation=false -- throwing exception");
       throw WalletMissingException();
     }
   }
@@ -104,7 +116,8 @@ class WalletService {
   /// Write a wallet to the wallet file.
   Future<bool> save(Wallet wallet) async {
     try {
-      await (await walletFile()).writeAsString(wallet.toJson());
+      var file = await walletFile();
+      var file2 = (await walletFile()).writeAsStringSync(wallet.toJson());
       return true;
     } catch (e) {
       return false;
@@ -131,7 +144,7 @@ class WalletService {
 
   /// Returns true if the wallet file exists.
   Future<bool> walletExists() async {
-    return (await walletFile()).exists();
+    return (await walletFile()).existsSync();
   }
 
   /// Delete the wallet file.
@@ -167,10 +180,8 @@ class WalletService {
 
     String wp = await _walletDirectoryPath
         .map((a) => Future.value(a))
-        .getOrElse(() async {
-      return (await getApplicationDocumentsDirectory()).path;
-    });
-    return File('${wp}/$WALLET_FILE_NAME');
+        .getOrElse(() async => (await getApplicationDocumentsDirectory()).path);
+    return File('${wp}/${WALLET_FILE_NAME}');
   }
 
   Future<String> sendTransaction(DeployedContract contract,
