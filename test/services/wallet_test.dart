@@ -48,18 +48,13 @@ void main() {
       await service.make();
       var ethAddress = await service.ethereumAddress();
 
-      expect(ethAddress.toString(),
-          allOf([startsWith("0x"), hasLength(42), service]));
+      expect(ethAddress.toString(), allOf([startsWith("0x"), hasLength(42)]));
     });
 
     test('loading empty wallet file should fail', () async {
-      // note: disabling for the moment because the wallet shouldn't throw an
-      // exception when a file isn't present. should figure out a better service
-      // model. -MK
-      return;
       bool threwException = false;
       try {
-        await service.load();
+        await service.load(allowCreation: false);
       } catch (e) {
         threwException = true;
       }
