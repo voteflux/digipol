@@ -1,6 +1,7 @@
 /// Wallet service
 ///
 /// The wallet is loaded on demand, and not kept in memory. This is to make illegal access to the keys more difficult.
+/// -- Comment: I'm not sure keeping it out of memory makes it much harder to access the keys; we shouldn't implement something like this if the thread model also includes e.g. a phone with a rootkit. -MK
 import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
