@@ -18,7 +18,7 @@ class IssuesModel extends BaseModel {
   Box<BlockChainData> blockChainData =
       Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
 
-  IssuesModel(this.filteredIssues, this.blockChainList);
+  IssuesModel();
 
   Future getIssues() async {
     setState(ViewState.Busy);

@@ -16,7 +16,7 @@ import 'package:injectable/injectable.dart';
 // import 'core/services/voting_service.dart';
 // import 'core/services/wallet.dart';
 // import 'core/viewmodels/all_bills_model.dart';
-import 'locator.iconfig.dart';
+import 'locator.config.dart';
 
 final GetIt locator = GetIt.instance;
 

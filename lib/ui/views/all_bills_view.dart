@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
@@ -19,118 +21,118 @@ class _AllBillsPageState extends State<AllBillsPage> {
   Widget build(BuildContext context) {
     return BaseView<BillsModel>(
       onModelReady: (model) => model.getBills(),
-      builder: (context, model, child) => SafeArea(
-        child: Scaffold(
-          body: model.state == ViewState.Busy
-              ? Center(child: CircularProgressIndicator())
-              : CustomScrollView(
-                  slivers: <Widget>[
-                    SliverSafeArea(
-                      top: false,
-                      sliver: SliverAppBar(
-                        automaticallyImplyLeading: false,
-                        floating: true,
-                        pinned: false,
-                        stretch: true,
-                        snap: true,
-                        title: TextField(
-                          controller: _textController,
-                          onChanged: (value) {
-                            model.searchBills(value);
-                          },
-                          decoration: InputDecoration(
-                              icon: Icon(Icons.search),
-                              hintText: "Search Bills",
-                              border: InputBorder.none),
+      builder: (context, model, child) {
+        print(model.filteredBills);
+        return SafeArea(
+          child: Scaffold(
+            body: model.state == ViewState.Busy
+                ? Center(child: CircularProgressIndicator())
+                : CustomScrollView(
+                    slivers: <Widget>[
+                      SliverSafeArea(
+                        top: false,
+                        sliver: SliverAppBar(
+                          automaticallyImplyLeading: false,
+                          floating: true,
+                          pinned: false,
+                          stretch: true,
+                          snap: true,
+                          title: TextField(
+                            controller: _textController,
+                            onChanged: (value) {
+                              model.searchBills(value);
+                            },
+                            decoration: InputDecoration(
+                                icon: Icon(Icons.search),
+                                hintText: "Search Bills",
+                                border: InputBorder.none),
+                          ),
                         ),
                       ),
-                    ),
-                    model.filteredBills.length > 0
-                        ? SliverList(
-                            key: ObjectKey(model.filteredBills),
-                            delegate: SliverChildBuilderDelegate(
-                              (BuildContext context, int index) {
-                                return BillListItem(
-                                    billData: model.filteredBills[index]);
-                              },
-                              childCount: model.filteredBills.length,
-                            ),
-                          )
-                        : SliverList(
-                            key: ObjectKey(model.filteredBills),
-                            delegate: SliverChildBuilderDelegate(
-                              (BuildContext context, int index) {
-                                return Padding(
-                                  padding: EdgeInsets.all(10),
-                                  child: Text('No bills found',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline6),
-                                );
-                              },
-                              childCount: 1,
-                            ),
-                          )
-                  ],
-                ),
-          endDrawer: Drawer(
-              child: Container(
-            color: Theme.of(context).backgroundColor,
-            child: ListView(
-              children: <Widget>[
-                // only voted switch
-                SwitchListTile(
-                  title: Text('Only voted'),
-                  value: model.getOnlyVotedBills,
-                  onChanged: (bool value) {
-                    setState(() {
-                      model.onlyVotedSearchSave(value);
-                    });
-                  },
-                  secondary: Icon(Icons.done_outline,
-                      color: Theme.of(context).iconTheme.color),
-                ),
-                // remove voted switch
-                SwitchListTile(
-                  title: Text('Remove voted'),
-                  value: model.getRemoveVotedBills,
-                  onChanged: (bool value) {
-                    setState(() {
-                      model.removeVotedSearchSave(value);
-                    });
-                  },
-                  secondary: Icon(Icons.layers_clear,
-                      color: Theme.of(context).iconTheme.color),
-                ),
-                // filter by date switch
-                // SwitchListTile(
-                //   title: Text('Sort by date'),
-                //   value: model.getfilterByDate,
-                //   onChanged: (bool value) {
-                //     setState(() {
-                //       model.filterByDateSave(value);
-                //     });
-                //   },
-                //   secondary: Icon(Icons.date_range,
-                //       color: Theme.of(context).iconTheme.color),
-                // ),
-                // filter by date switch
-                SwitchListTile(
-                  title: Text('Remove closed bills'),
-                  value: model.getRemoveClosedBills,
-                  onChanged: (bool value) {
-                    setState(() {
-                      model.removeClosedBillsFunction(value);
-                    });
-                  },
-                  secondary: Icon(Icons.close,
-                      color: Theme.of(context).iconTheme.color),
-                )
-              ],
-            ),
-          )),
-        ),
-      ),
+                      SliverList(
+                        key: ObjectKey(model.filteredBills),
+                        delegate: SliverChildBuilderDelegate(
+                          (BuildContext _scbdContext, int index) {
+                            if (model.filteredBills.isNotEmpty) {
+                              var bill = model.filteredBills[index];
+                              print(
+                                  '${bill} | ${model.filteredBills.indexOf(bill)} | ${index}');
+                            }
+                            return model.filteredBills.length > 0
+                                ? BillListItem(
+                                    billData: model.filteredBills[index])
+                                : Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Text('No bills found',
+                                        style: Theme.of(_scbdContext)
+                                            .textTheme
+                                            .headline6),
+                                  );
+                          },
+                          childCount: max(1, model.filteredBills.length),
+                        ),
+                      )
+                    ],
+                  ),
+            endDrawer: Drawer(
+                child: Container(
+              color: Theme.of(context).backgroundColor,
+              child: ListView(
+                children: <Widget>[
+                  // only voted switch
+                  SwitchListTile(
+                    title: Text('Only voted'),
+                    value: model.getOnlyVotedBills,
+                    onChanged: (bool value) {
+                      setState(() {
+                        model.onlyVotedSearchSave(value);
+                      });
+                    },
+                    secondary: Icon(Icons.done_outline,
+                        color: Theme.of(context).iconTheme.color),
+                  ),
+                  // remove voted switch
+                  SwitchListTile(
+                    title: Text('Remove voted'),
+                    value: model.getRemoveVotedBills,
+                    onChanged: (bool value) {
+                      setState(() {
+                        model.removeVotedSearchSave(value);
+                      });
+                    },
+                    secondary: Icon(Icons.layers_clear,
+                        color: Theme.of(context).iconTheme.color),
+                  ),
+                  // filter by date switch
+                  // SwitchListTile(
+                  //   title: Text('Sort by date'),
+                  //   value: model.getfilterByDate,
+                  //   onChanged: (bool value) {
+                  //     setState(() {
+                  //       model.filterByDateSave(value);
+                  //     });
+                  //   },
+                  //   secondary: Icon(Icons.date_range,
+                  //       color: Theme.of(context).iconTheme.color),
+                  // ),
+                  // filter by date switch
+                  SwitchListTile(
+                    title: Text('Remove closed bills'),
+                    value: model.getRemoveClosedBills,
+                    onChanged: (bool value) {
+                      setState(() {
+                        model.removeClosedBillsFunction(value);
+                      });
+                    },
+                    secondary: Icon(Icons.close,
+                        color: Theme.of(context).iconTheme.color),
+                  )
+                ],
+              ),
+            )),
+          ),
+        );
+      },
     );
   }
 }

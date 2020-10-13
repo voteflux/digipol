@@ -25,7 +25,7 @@ class BillListItem extends StatefulWidget {
   };
 
   BillListItem({Key /*?*/ key, @required this.billData, this.issuesMap})
-      : super(key: key);
+      : super(key: key == null ? ObjectKey(billData) : key);
 }
 
 class _BillListItemState extends State<BillListItem> {
