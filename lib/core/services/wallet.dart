@@ -1,21 +1,25 @@
 /// Wallet service
 ///
 /// The wallet is loaded on demand, and not kept in memory. This is to make illegal access to the keys more difficult.
+/// -- Comment: I'm not sure keeping it out of memory makes it much harder to access the keys; we shouldn't implement something like this if the thread model also includes e.g. a phone with a rootkit. -MK
 import 'dart:io';
 import 'dart:math';
-import 'dart:typed_data';
 
 import 'package:bip32/bip32.dart' as bip32;
 import 'package:bip39/bip39.dart' as bip39;
-import 'package:dartz/dartz.dart';
 import 'package:hex/hex.dart';
+//import 'package:flutter/services.dart' as services;
 import 'package:http/http.dart';
+import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:web3dart/web3dart.dart';
+import 'package:web3dart/web3dartb3dart.dart';
 
 const WALLET_FILE_NAME = "wallet.json";
 const TEMPORARY_PASSWORD = "4%8=)l_L210920A@g,";
 const ETH_HD_DERIVATION_PATH = "m/44'/60'/0'/0/0";
+
+Logger log = Logger();
 
 class WalletMissingException implements Exception {
   @override
@@ -24,12 +28,16 @@ class WalletMissingException implements Exception {
   }
 }
 
+@lazySingleton
 class WalletService {
-  Option<String> _walletDirectoryPath;
+  Option<String> _walletDirectoryPath = None();
+  void set walletDirectoryPath(Option<String> wdp) {
+    _walletDirectoryPath = wdp;
+  }
 
   /// Instantiate the service.
   /// @param _walletDirectoryPath The path of the directory to be used for storing the wallet file.
-  WalletService(this._walletDirectoryPath);
+  WalletService();
 
   /// Create a new wallet and save it to the wallet file.
   /// If a list of strings is supplied as the parameter [words], they are used to generate the private key via BIP-39
@@ -50,8 +58,11 @@ class WalletService {
     //Make a wallet from the key
     var wallet = Wallet.createNew(ethKey, TEMPORARY_PASSWORD, rand);
 
+    log.i(
+        "created wallet with address: ${await wallet.privateKey.extractAddress()}");
     //Save it to the wallet file and return it
     await save(wallet);
+    log.i("saved wallet to disk.");
     return wallet;
   }
 
@@ -81,11 +92,22 @@ class WalletService {
   }
 
   /// Read wallet from the wallet file.
-  Future<Wallet> load() async {
-    if (await walletExists()) {
+  Future<Wallet> load(
+      {bool allowCreation = false, bool allowPreexistingFile = true}) async {
+    log.i("checking for walletExists");
+    var _walletExists = await walletExists();
+    log.i("got walletExists=${_walletExists}");
+
+    if (_walletExists && allowPreexistingFile) {
+      log.i("Loading wallet as walletExists returned true");
       String walletContent = (await walletFile()).readAsStringSync();
       return Wallet.fromJson(walletContent, TEMPORARY_PASSWORD);
+    } else if (allowCreation) {
+      log.i("Returning wallet via .make() as allowCreation=${allowCreation}");
+      return await this.make();
     } else {
+      log.i(
+          "Wallet file missing but allowCreation=false -- throwing exception");
       throw WalletMissingException();
     }
   }
@@ -93,7 +115,8 @@ class WalletService {
   /// Write a wallet to the wallet file.
   Future<bool> save(Wallet wallet) async {
     try {
-      await (await walletFile()).writeAsString(wallet.toJson());
+      var file = await walletFile();
+      var file2 = (await walletFile()).writeAsStringSync(wallet.toJson());
       return true;
     } catch (e) {
       return false;
@@ -120,7 +143,7 @@ class WalletService {
 
   /// Returns true if the wallet file exists.
   Future<bool> walletExists() async {
-    return (await walletFile()).exists();
+    return (await walletFile()).existsSync();
   }
 
   /// Delete the wallet file.
@@ -140,9 +163,24 @@ class WalletService {
 
   /// The file handle for the file used to store the wallet object.
   Future<File> walletFile() async {
-    var appDocsDir = await getApplicationDocumentsDirectory();
-    String wp = _walletDirectoryPath.getOrElse(() => appDocsDir.path);
-    return File('${wp}/$WALLET_FILE_NAME');
+    // note: only call getApplicationDocumentsDirectory if we do _not_ have a _walletDirectoryPath set.
+
+    // regarding getApplicationDocumentsDirectory
+    // > Path to a directory where the application may place data that is user-generated, or that cannot otherwise be recreated by your application.
+    // > On iOS, this uses the NSDocumentDirectory API. Consider using getApplicationSupportDirectory instead if the data is not user-generated.
+    //var appDocsDir = await getApplicationDocumentsDirectory();
+
+    // comment: we should switch to getApplicationSupportDirectory when possible, I think, but it wasn't the issue with the macos/ios tests.
+
+    // regarding getApplicationSupportDirectory
+    // > Use this for files you don’t want exposed to the user. Your app should not use this directory for user data files.
+    //var appDocsDir = await getApplicationSupportDirectory();
+    // note: might be better to use getLibraryDirectory on iOS
+
+    String wp = await _walletDirectoryPath
+        .map((a) => Future.value(a))
+        .getOrElse(() async => (await getApplicationDocumentsDirectory()).path);
+    return File('${wp}/${WALLET_FILE_NAME}');
   }
 
   Future<String> sendTransaction(DeployedContract contract,

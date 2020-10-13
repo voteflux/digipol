@@ -1,4 +1,5 @@
-import 'package:flutter/foundation.dart';
+import 'package:hive/hive.dart';
+on.dart';
 import 'package:hive/hive.dart';
 
 part 'user.g.dart';

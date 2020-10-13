@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:dartz/dartz.dart' hide State;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +11,8 @@ import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 
+import '../../locator.dart';
+
 class SettingsPage extends StatefulWidget {
   // where the app and user settings go
   @override
@@ -20,6 +21,7 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   String pubKey = "";
+  final WalletService walletService = locator<WalletService>();
 
   @override
   void initState() {
@@ -30,7 +32,6 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   Future getPubKey() async {
-    var walletService = WalletService(None());
     var ethAddress = await walletService.ethereumAddress();
     pubKey = ethAddress.toString();
     setState(() {});

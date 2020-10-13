@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
+import 'package:injectable/injectable.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/bill_vote_result.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
@@ -11,6 +12,7 @@ import 'package:voting_app/core/models/issue.dart';
 import '../consts.dart';
 
 // The service responsible for networking requests
+@lazySingleton
 class Api {
   var client = new http.Client();
   var endpoint = 'https://1j56c60pb0.execute-api.ap-southeast-2.amazonaws.com';
@@ -40,7 +42,7 @@ class Api {
   //
   Future getBlockChainData() async {
     var response = await client.get(endpoint + '/dev/shitchain');
-    var parsed = json.decode(response.body) as List<dynamic>;
+    var parsed = json.decode(response.body) as List<Map<String, dynamic>>;
 
     for (var bill in parsed) {
       blockChainData.add(BlockChainData.fromJson(bill as Map<String, dynamic>));
@@ -55,7 +57,7 @@ class Api {
   //
   Future getBills() async {
     var response = await client.get(endpoint + '/dev/bill');
-    var parsed = json.decode(response.body) as List<dynamic>;
+    var parsed = json.decode(response.body) as List<Map<String, dynamic>>;
 
     for (var bill in parsed) {
       billsBox.add(Bill.fromJson(bill as Map<String, dynamic>));
@@ -69,7 +71,7 @@ class Api {
   //
   Future getIssues() async {
     var response = await client.get(endpoint + '/dev/issue');
-    var parsed = json.decode(response.body) as List<dynamic>;
+    var parsed = json.decode(response.body) as List<Map<String, dynamic>>;
 
     for (var issue in parsed) {
       issuesBox.add(Issue.fromJson(issue as Map<String, dynamic>));

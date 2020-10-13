@@ -1,10 +1,12 @@
 import 'package:hive/hive.dart';
+import 'package:injectable/injectable.dart';
 import 'package:voting_app/core/viewmodels/base_model.dart';
 
 import '../consts.dart';
 
+@injectable
 class ThemeModel extends BaseModel {
-  var userPrefsBools = Hive.box<bool>(HIVE_USER_PREFS_BOOLS);
+  final Box<bool> userPrefsBools = Hive.box<bool>(HIVE_USER_PREFS_BOOLS);
   bool isDarkMode = false;
 
   // change theme via switch and save in hive

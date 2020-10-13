@@ -1,3 +1,4 @@
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill_vote_result.dart';
@@ -7,8 +8,9 @@ import 'package:voting_app/locator.dart';
 
 import 'base_model.dart';
 
+@injectable
 class IssueModel extends BaseModel {
-  Api _api = locator<Api>();
+  final Api _api = locator<Api>();
 
   /*late*/ Issue issue;
   /*late*/ BillVoteResult billVoteResult;

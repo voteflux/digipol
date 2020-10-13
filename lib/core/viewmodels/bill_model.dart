@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
+import 'package:injectable/injectable.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/bill_chain_data.dart';
@@ -11,8 +12,9 @@ import 'package:voting_app/locator.dart';
 import '../consts.dart';
 import 'base_model.dart';
 
+@injectable
 class BillModel extends BaseModel {
-  Api _api = locator<Api>();
+  final Api _api = locator<Api>();
 
   /*late*/ Bill bill;
   /*late*/ BillChainData billChainData;
@@ -22,8 +24,7 @@ class BillModel extends BaseModel {
   /*late*/ String _vote;
   String get getVote => _vote;
 
-  BillModel();
-  // BillModel(this.bill, this.billChainData, this.billVoteResult, this._vote);
+  BillModel(this.bill, this.billChainData, this.billVoteResult, this._vote);
 
   Future getBill(String billID) async {
     setState(ViewState.Busy);

@@ -1,9 +1,11 @@
 import 'package:dartz/dartz.dart';
-import 'package:test/test.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:voting_app/core/services/wallet.dart';
 import 'package:web3dart/web3dart.dart';
 
-const WORD_LIST = [
+const SAMPLE_WALLET_BACKUP = [
   "leader",
   "shadow",
   "labor",
@@ -17,12 +19,24 @@ const WORD_LIST = [
   "delay",
   "matter"
 ];
-const WORD_LIST_ADDRESS = "0x8a4AD0054E4bE3c752b8CDC6F9674f094d11cD81";
+const SAMPLE_WALLET_ADDR = "0x8a4AD0054E4bE3c752b8CDC6F9674f094d11cD81";
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // mock filesystem stuff in tests
+  const MethodChannel channel =
+      MethodChannel('plugins.flutter.io/path_provider');
+  // need to assign it or something apparently.
+  var meh = channel.setMockMethodCallHandler((MethodCall methodCall) async {
+    return ".";
+  });
+
   /*late*/ WalletService service;
 
   setUp(() async {
-    service = WalletService(Some("."));
+    service = WalletService();
+    service.walletDirectoryPath = Some(".");
   });
 
   tearDown(() async {
@@ -47,22 +61,14 @@ void main() {
       await service.make();
       var ethAddress = await service.ethereumAddress();
 
-      expect(
-          ethAddress.toString(),
-          allOf([
-            startsWith("0x"),
-            hasLength(42),
-          ]));
+      expect(ethAddress.toString(), allOf([startsWith("0x"), hasLength(42)]));
     });
 
     test('loading empty wallet file should fail', () async {
-      bool threwException = false;
-      try {
-        await service.load();
-      } catch (e) {
-        threwException = true;
-      }
-      expect(threwException, true);
+      expect(
+          () async => await service.load(
+              allowCreation: false, allowPreexistingFile: false),
+          throwsException);
     });
 
     test('make wallet from random mnemomic', () async {
@@ -74,11 +80,11 @@ void main() {
 
     test('making wallet with known mnemonic should generate correct key',
         () async {
-      var wallet = await service.make(words: WORD_LIST);
+      var wallet = await service.make(words: SAMPLE_WALLET_BACKUP);
       var derivedAddress =
           (await wallet.privateKey.extractAddress()).toString();
 
-      expect(derivedAddress, equalsIgnoringCase(WORD_LIST_ADDRESS));
+      expect(derivedAddress, equalsIgnoringCase(SAMPLE_WALLET_ADDR));
     });
   });
 }

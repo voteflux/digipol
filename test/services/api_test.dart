@@ -1,38 +1,33 @@
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:test/test.dart';
-import 'package:voting_app/core/consts.dart';
-import 'package:voting_app/core/models/bill.dart';
-import 'package:voting_app/core/models/bill_vote.dart';
-import 'package:voting_app/core/models/block_chain_data.dart';
-import 'package:voting_app/core/models/issue.dart';
-import 'package:voting_app/core/models/user.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/locator.dart';
+import 'package:voting_app/main.dart';
 
 Api _api = locator<Api>();
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // mock filesystem stuff in tests
+  const MethodChannel channel =
+      MethodChannel('plugins.flutter.io/path_provider');
+  // need to assign it or something apparently.
+  var meh = channel.setMockMethodCallHandler((MethodCall methodCall) async {
+    return ".";
+  });
+
+  WidgetsFlutterBinding.ensureInitialized();
+  // if we use TestWidgetsFlutterBinding.ensureInitialized we need to provide a
+  // custom HTTP thing b/c no network requests will actually happen. That's
+  // a good thing to do in the long term, but not a priority for today.
+  //TestWidgetsFlutterBinding.ensureInitialized();
+  await initHive();
   setupLocator();
   // sync data on load
 
   group('api', () {
-    test('Open Hive Boxes', () async {
-      await Hive.initFlutter();
-      Hive.registerAdapter<BlockChainData>(BlockChainDataAdapter());
-      Hive.registerAdapter<Bill>(BillAdapter());
-      Hive.registerAdapter<Issue>(IssueAdapter());
-      Hive.registerAdapter<User>(UserAdapter());
-      Hive.registerAdapter<BillVote>(BillVoteAdapter());
-      await Hive.openBox<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
-      await Hive.openBox<Bill>(HIVE_BILLS);
-      await Hive.openBox<Issue>(HIVE_ISSUES);
-      await Hive.openBox<Box>(HIVE_USER_BOX);
-      await Hive.openBox<BillVote>(HIVE_BILL_VOTE_BOX);
-      await Hive.openBox<BillVote>(HIVE_USER_PREFS_STR);
-      await Hive.openBox<BillVote>(HIVE_USER_PREFS_BOOLS);
-    });
-
     test('test api data syncing', () async {
       await _api.syncData();
     });

@@ -6,6 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voting_app/core/funcs/null_stuff.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
@@ -21,13 +22,17 @@ const DEFAULT_VOTING_CONTRACT_ADDR =
 const VOTE_YES = 'yes';
 const VOTE_NO = 'no';
 
+@lazySingleton
 class VotingService {
   WalletService walletService;
-  String contractAddress;
+  String _contractAddress = DEFAULT_VOTING_CONTRACT_ADDR;
 
-  VotingService(
-      {@required this.walletService,
-      this.contractAddress = DEFAULT_VOTING_CONTRACT_ADDR}) {}
+  String get contractAddress => _contractAddress;
+  void set contractAddress(String _c) {
+    contractAddress = _c;
+  }
+
+  VotingService({@required this.walletService}) {}
 
   Future<DeployedContract> _getVotingContract() async {
     var abi = await _getAbi();
@@ -56,8 +61,9 @@ class VotingService {
       throw Exception("Invalid vote value");
     }
 
-    return walletService.sendTransaction(
-        contract, voteFn, [specHash] as List<dynamic>);
+    List params = List<dynamic>(1);
+    params.add(specHash);
+    return walletService.sendTransaction(contract, voteFn, params);
   }
 
   Future<BillVoteSuccess> postVote(BillVote vote) async {
