@@ -11,8 +11,8 @@ import 'base_model.dart';
 @injectable
 class BillsModel extends BaseModel {
   /*late*/ List<Bill> blockChainList;
-  /*late*/ List<Bill> filteredbills;
-  List<Bill> get billList => filteredbills;
+  /*late*/ List<Bill> filteredBills;
+  List<Bill> get billList => filteredBills;
   final Box<BlockChainData> blockChainData =
       Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
   final Box<Bill> billsBox = Hive.box<Bill>(HIVE_BILLS);
@@ -32,7 +32,7 @@ class BillsModel extends BaseModel {
   bool removeClosedBills = false;
   bool get getRemoveClosedBills => removeClosedBills;
 
-  BillsModel(this.blockChainList, this.filteredbills);
+  BillsModel([this.blockChainList, this.filteredBills]);
 
   @factoryMethod
   static BillsModel mkBillsModel() {
@@ -50,7 +50,7 @@ class BillsModel extends BaseModel {
     bills.sort((a, b) => b.startDate.compareTo(a.startDate));
 
     blockChainList = bills;
-    filteredbills = bills;
+    filteredBills = bills;
 
     // set voting prefs
     bool onlyVotedPref =
@@ -77,7 +77,7 @@ class BillsModel extends BaseModel {
   // search bills
   //
   void searchBills(String value) {
-    filteredbills = blockChainList
+    filteredBills = blockChainList
         .where((text) =>
             text.shortTitle.toLowerCase().contains(value.toLowerCase()) ||
             text.summary.toLowerCase().contains(value.toLowerCase()))
@@ -101,10 +101,10 @@ class BillsModel extends BaseModel {
     if (value) {
       this.removeVotedBills = !value;
       List list = billVoteBox.values.map((el) => el.ballotId).toList();
-      filteredbills =
+      filteredBills =
           blockChainList.where((bill) => list.contains(bill.id)).toList();
     } else {
-      filteredbills = blockChainList;
+      filteredBills = blockChainList;
     }
     notifyListeners();
   }
@@ -135,9 +135,9 @@ class BillsModel extends BaseModel {
           filtered.add(element);
         }
       });
-      filteredbills = filtered;
+      filteredBills = filtered;
     } else {
-      filteredbills = blockChainList;
+      filteredBills = blockChainList;
     }
     notifyListeners();
   }
@@ -152,9 +152,9 @@ class BillsModel extends BaseModel {
   // void filterByDateTime(bool value) {
   //   this.filterByDate = value;
   //   if (value) {
-  //     filteredbills.sort((a, b) => b.startDate.compareTo(a.startDate));
+  //     filteredBills.sort((a, b) => b.startDate.compareTo(a.startDate));
   //   } else {
-  //     filteredbills.sort((a, b) => a.shortTitle.compareTo(b.shortTitle));
+  //     filteredBills.sort((a, b) => a.shortTitle.compareTo(b.shortTitle));
   //   }
   //   notifyListeners();
   // }
@@ -170,9 +170,9 @@ class BillsModel extends BaseModel {
   void removeClosedBillsFunction(bool value) {
     this.removeClosedBills = value;
     if (value) {
-      filteredbills = filteredbills.where((i) => i.assentDate == '').toList();
+      filteredBills = filteredBills.where((i) => i.assentDate == '').toList();
     } else {
-      filteredbills = blockChainList;
+      filteredBills = blockChainList;
     }
     notifyListeners();
   }

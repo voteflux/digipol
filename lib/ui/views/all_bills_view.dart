@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/viewmodels/all_bills_model.dart';
-import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/styles.dart';
+import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/widgets/bill_list_item.dart';
 
 class AllBillsPage extends StatefulWidget {
@@ -45,19 +45,19 @@ class _AllBillsPageState extends State<AllBillsPage> {
                         ),
                       ),
                     ),
-                    model.filteredbills.length > 0
+                    model.filteredBills.length > 0
                         ? SliverList(
-                            key: ObjectKey(model.filteredbills),
+                            key: ObjectKey(model.filteredBills),
                             delegate: SliverChildBuilderDelegate(
                               (BuildContext context, int index) {
                                 return BillListItem(
-                                    billData: model.filteredbills[index]);
+                                    billData: model.filteredBills[index]);
                               },
-                              childCount: model.filteredbills.length,
+                              childCount: model.filteredBills.length,
                             ),
                           )
                         : SliverList(
-                            key: ObjectKey(model.filteredbills),
+                            key: ObjectKey(model.filteredBills),
                             delegate: SliverChildBuilderDelegate(
                               (BuildContext context, int index) {
                                 return Padding(

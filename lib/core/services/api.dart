@@ -42,7 +42,8 @@ class Api {
   //
   Future getBlockChainData() async {
     var response = await client.get(endpoint + '/dev/shitchain');
-    var parsed = json.decode(response.body) as List<Map<String, dynamic>>;
+    var parsedPre = json.decode(response.body) as List<dynamic>;
+    var parsed = parsedPre as List<Map<String, dynamic>>;
 
     for (var bill in parsed) {
       blockChainData.add(BlockChainData.fromJson(bill as Map<String, dynamic>));
