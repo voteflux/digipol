@@ -1,9 +1,13 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+import 'package:voting_app/core/models/bill_chain_data.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/bill_vote_success.dart';
 import 'package:voting_app/core/viewmodels/bill_vote_model.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
+import 'package:web3dart/web3dart.dart';
 
 // The plan here is to have a card that has 3 states
 // 1 voting options - the default
@@ -12,21 +16,22 @@ import 'package:voting_app/ui/views/base_view.dart';
 // separate into widgets
 
 class VoteWidget extends StatefulWidget {
-  final data;
-  final String vote;
+  final BillChainData data;
+  final String /*?*/ vote;
 
-  VoteWidget({Key key, @required this.data, this.vote}) : super(key: key);
+  VoteWidget({Key /*?*/ key, @required this.data, this.vote}) : super(key: key);
 
   @override
   _VoteWidgetState createState() => _VoteWidgetState();
 }
 
 class _VoteWidgetState extends State<VoteWidget> {
-  Future<BillVoteSuccess> _futureSuccess;
+  Future<BillVoteSuccess> /*?*/ _futureSuccess;
 
   @override
   Widget build(BuildContext context) {
     return BaseView<BillVoteModel>(
+      onModelReady: (model) {},
       builder: (context, model, child) => Center(
         child: Container(
           width: appSizes.largeWidth,
@@ -42,15 +47,20 @@ class _VoteWidgetState extends State<VoteWidget> {
                         style: Theme.of(context).textTheme.headline5,
                       ),
                     ),
-                    widget.vote != null
-                        ? Container(
+                    widget.vote == null
+                        ? Divider()
+                        : Container(
                             padding: EdgeInsets.all(appSizes.standardPadding),
                             child: Text(
                                 "You voted " +
-                                    widget.vote.toUpperCase() +
+                                    (widget.vote ??
+                                            (() {
+                                              throw Exception(
+                                                  "WIDGET.VOTE SHOULD NEVER BE NULL HERE");
+                                            })())
+                                        .toUpperCase() +
                                     ". You can change your vote below.",
-                                style: Theme.of(context).textTheme.headline6))
-                        : Divider(),
+                                style: Theme.of(context).textTheme.headline6)),
                     Container(
                       padding: EdgeInsets.all(appSizes.standardPadding),
                       child: Row(
@@ -108,7 +118,8 @@ class _VoteWidgetState extends State<VoteWidget> {
     );
   }
 
-  areYouSure(String vote, model, String id, String ballotSpecHash) {
+  Future<void> areYouSure(
+      String vote, BillVoteModel model, String id, String ballotSpecHash) {
     /// Dialog to confirm the vote
     return showDialog<void>(
       context: context,
@@ -143,8 +154,8 @@ class _VoteWidgetState extends State<VoteWidget> {
                 setState(() {
                   _futureSuccess = model.postVote(
                     BillVote(
-                        //TO DO: update to real data
-                        pubKey: "",
+                        // TODO: update to real data
+                        ethAddrHex: EthereumAddress(Uint8List(40)),
                         ballotId: id,
                         ballotSpecHash: ballotSpecHash,
                         constituency: "Australia",

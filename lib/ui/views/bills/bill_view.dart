@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:voting_app/core/consts.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
@@ -8,41 +9,62 @@ import 'package:voting_app/core/viewmodels/bill_model.dart';
 import 'package:voting_app/locator.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
+import 'package:voting_app/ui/views/bills/pdf_viewer.dart';
 import 'package:voting_app/ui/widgets/house_icon_widget.dart';
 import 'package:voting_app/ui/widgets/pie_chart.dart';
 import 'package:voting_app/ui/widgets/voting_status_widget.dart';
 import 'package:voting_app/ui/widgets/voting_widgets.dart';
-import 'package:voting_app/ui/views/bills/pdf_viewer.dart';
 
 class BillPage extends StatefulWidget {
+  /* Not sure how we'd instantiate this. -MK
+  */
   @override
   _BillPageState createState() => _BillPageState();
+  /*
+   */
 
   final Bill bill;
 
-  BillPage({Key key, this.bill}) : super(key: key);
+  BillPage({Key /*?*/ key, @required this.bill}) : super(key: key);
 }
 
 class _BillPageState extends State<BillPage> {
   BillModel billModel = locator<BillModel>();
-  String _vote;
-  BlockChainData completeBlockChainData;
-  Box<Bill> billsBox = Hive.box<Bill>("bills");
+  String /*?*/ _vote;
+  Box<Bill> billsBox = Hive.box<Bill>(HIVE_BILLS);
   Box<BlockChainData> blockChainData =
-      Hive.box<BlockChainData>("block_chain_data");
+      Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
+  //late BlockChainData completeBlockChainData;
+  BlockChainData completeBlockChainData;
+
+  _BillPageState() {}
 
   Future getVote() async {
+    /* do this in constructor  -MK
+       (later) can't do this in the constructor, this.widget not defined. -MK
     // Get all bill data from Box
-
     List<BlockChainData> list = blockChainData.values
         .where((bill) => bill.id == widget.bill.id)
         .toList();
     completeBlockChainData = list[0];
+     */
+    print("this.completeBlockChainData: ${this.completeBlockChainData}");
+    print("this.blockChainData: ${this.blockChainData}");
+    print("start _BillPageState");
+    this.completeBlockChainData = this
+        .blockChainData
+        .values
+        .where((bill) => bill.id == this.widget.bill.id)
+        .toList()
+        .first;
+    print("end _BillPageState");
 
+    print("start getVote");
     var vote = await billModel.hasVoted(widget.bill.id);
-    setState(() {
-      _vote = vote;
-    });
+    vote.map((v) => setState(() {
+          _vote = v;
+        }));
+    print("end getVote");
   }
 
   @protected
@@ -125,7 +147,7 @@ class _BillPageState extends State<BillPage> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
+                                  MaterialPageRoute<PdfPage>(
                                       builder: (context) => PdfPage(
                                           pdfUrl: widget.bill.textLinkPdf)),
                                 );
@@ -144,7 +166,7 @@ class _BillPageState extends State<BillPage> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
+                                  MaterialPageRoute<PdfPage>(
                                       builder: (context) => PdfPage(
                                           pdfUrl: widget.bill.emLinkPdf)),
                                 );
@@ -161,7 +183,7 @@ class _BillPageState extends State<BillPage> {
                         ),
                       ),
                       VoteWidget(
-                        data: completeBlockChainData,
+                        data: completeBlockChainData.toBillChainData(),
                         vote: model.getVote,
                       ),
                     ],

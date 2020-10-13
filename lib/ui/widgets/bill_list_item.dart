@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/viewmodels/bill_model.dart';
 import 'package:voting_app/locator.dart';
-import 'package:voting_app/ui/views/bills/bill_view.dart';
 import 'package:voting_app/ui/styles.dart';
+import 'package:voting_app/ui/views/bills/bill_view.dart';
 import 'package:voting_app/ui/widgets/house_icon_widget.dart';
 import 'package:voting_app/ui/widgets/pie_chart.dart';
 import 'package:voting_app/ui/widgets/voting_status_widget.dart';
@@ -14,22 +14,29 @@ class BillListItem extends StatefulWidget {
   _BillListItemState createState() => _BillListItemState();
 
   final Bill billData;
-  final Map issuesMap;
-  final Map billColors = {"House": appColors.house, "Senate": appColors.senate};
-  final Map billIntro = {"House": "Intro House", "Senate": "Intro Senate"};
+  final Map /*?*/ issuesMap;
+  final Map<String, Color> billColors = {
+    "House": appColors.house,
+    "Senate": appColors.senate
+  };
+  final Map<String, String> billIntro = {
+    "House": "Intro House",
+    "Senate": "Intro Senate"
+  };
 
-  BillListItem({Key key, this.billData, this.issuesMap}) : super(key: key);
+  BillListItem({Key /*?*/ key, @required this.billData, this.issuesMap})
+      : super(key: key);
 }
 
 class _BillListItemState extends State<BillListItem> {
   BillModel billModel = locator<BillModel>();
-  String _vote;
+  /*late*/ String _vote;
 
-  Future getVote() async {
-    var vote = await billModel.hasVoted(widget.billData.id);
-    setState(() {
-      _vote = vote;
-    });
+  Future<void> getVote() async {
+    var voteOpt = await billModel.hasVoted(widget.billData.id);
+    voteOpt.map<void>((vote) => setState(() {
+          this._vote = vote;
+        }));
   }
 
   @protected
@@ -39,8 +46,8 @@ class _BillListItemState extends State<BillListItem> {
     getVote();
   }
 
-  _buildTopicList(billTopics) {
-    List<Widget> topics = List();
+  List<Widget> _buildTopicList(List<String> billTopics, BuildContext context) {
+    List<Widget> topics = new List();
     billTopics.forEach((item) {
       topics.add(
         Padding(
@@ -65,7 +72,7 @@ class _BillListItemState extends State<BillListItem> {
             if (!currentFocus.hasPrimaryFocus) {
               currentFocus.unfocus();
             }
-            Navigator.push(
+            Navigator.push<MaterialPageRoute>(
               context,
               MaterialPageRoute(
                 builder: (context) => BillPage(
@@ -128,7 +135,8 @@ class _BillListItemState extends State<BillListItem> {
                         height: 30.0,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
-                          children: _buildTopicList(widget.billData.topics),
+                          children:
+                              _buildTopicList(widget.billData.topics, context),
                         ),
                       )
                     : Padding(

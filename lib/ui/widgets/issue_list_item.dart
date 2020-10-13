@@ -1,28 +1,28 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/models/issue.dart';
-import 'dart:math';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/issues/issue_view.dart';
-import 'package:voting_app/ui/widgets/pie_chart.dart';
 
 class IssueListItem extends StatefulWidget {
   @override
   _IssueListItemState createState() => _IssueListItemState();
 
   final BlockChainData blockChainData;
-  final Map billColorsDark = {
+  final Map<String, Color> billColorsDark = {
     "House": appColors.house,
     "Senate": appColors.senate
   };
   final Random random = new Random();
 
-  IssueListItem({this.blockChainData});
+  IssueListItem({@required this.blockChainData});
 }
 
 class _IssueListItemState extends State<IssueListItem> {
-  Issue completeIssueData;
+  /*late*/ Issue completeIssueData;
   Box<Issue> issuesBox = Hive.box<Issue>("issues");
 
   Future getVote() async {
@@ -48,7 +48,11 @@ class _IssueListItemState extends State<IssueListItem> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => IssuePage(issue: completeIssueData, blockChainData: widget.blockChainData,)),
+              MaterialPageRoute<IssuePage>(
+                  builder: (context) => IssuePage(
+                        issue: completeIssueData,
+                        blockChainData: widget.blockChainData,
+                      )),
             );
           },
           child: Container(

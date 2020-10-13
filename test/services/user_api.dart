@@ -1,15 +1,15 @@
+import 'package:dartz/dartz.dart';
 import 'package:test/test.dart';
-import 'dart:io';
-import 'package:voting_app/core/services/wallet.dart';
-import 'package:voting_app/core/services/voting_service.dart';
 import 'package:voting_app/core/services/user_api.dart';
+import 'package:voting_app/core/services/voting_service.dart';
+import 'package:voting_app/core/services/wallet.dart';
 
 void main() {
-  WalletService walletService;
-  UserApi userApi;
+  /*late*/ WalletService walletService;
+  /*late*/ UserApi userApi;
 
   setUp(() async {
-    walletService = WalletService(".");
+    walletService = WalletService(Some("."));
     userApi = UserApi();
   });
 
@@ -21,7 +21,7 @@ void main() {
     test('sign up', () async {
       var wallet = await walletService.make();
       walletService.save(wallet);
-      var response = await userApi
+      dynamic response = await userApi
           .signup((await walletService.ethereumAddress()).toString());
       print(response);
       //sleep(Duration(seconds: 10));

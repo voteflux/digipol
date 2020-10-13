@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/viewmodels/user_model.dart';
+import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/widgets/custom_form_feild_widget.dart';
-import 'package:voting_app/ui/styles.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -12,13 +12,13 @@ class ProfilePage extends StatefulWidget {
 }
 
 final _formKey = GlobalKey<FormState>();
-final Map<String, dynamic> formData = {'name': null};
-String _name;
+final Map<String, String> formData = {"name": ""};
+// TODO: this should not be a global variable! -MK
+String _name = "";
 
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-
     return BaseView<UserModel>(
       onModelReady: (model) => model.login(),
       builder: (context, model, child) => Scaffold(
@@ -45,11 +45,11 @@ class _ProfilePageState extends State<ProfilePage> {
                               _name = value;
                             },
                             validation: (String value) {
-                              if (!RegExp(
-                                      r"([a-zA-Z]{3,30}\s*)+")
+                              if (!RegExp(r"([a-zA-Z]{3,30}\s*)+")
                                   .hasMatch(value)) {
                                 return 'Please enter your name';
                               }
+                              return null;
                             }),
                         _buildSubmitButton(model)
                       ],
@@ -61,8 +61,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _buildSubmitButton(model) {
-
+  Widget _buildSubmitButton(UserModel model) {
     return RaisedButton(
       onPressed: () {
         _submitForm(model);
@@ -73,7 +72,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  void _submitForm(model) {
+  void _submitForm(UserModel model) {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       model.create(_name);

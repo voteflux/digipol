@@ -1,17 +1,17 @@
 /// Wallet service
 ///
 /// The wallet is loaded on demand, and not kept in memory. This is to make illegal access to the keys more difficult.
-
 import 'dart:io';
 import 'dart:math';
+import 'dart:typed_data';
 
-//import 'package:flutter/services.dart' as services;
-import 'package:http/http.dart';
-import 'package:web3dart/web3dart.dart';
-import 'package:bip39/bip39.dart' as bip39;
 import 'package:bip32/bip32.dart' as bip32;
+import 'package:bip39/bip39.dart' as bip39;
+import 'package:dartz/dartz.dart';
 import 'package:hex/hex.dart';
+import 'package:http/http.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:web3dart/web3dart.dart';
 
 const WALLET_FILE_NAME = "wallet.json";
 const TEMPORARY_PASSWORD = "4%8=)l_L210920A@g,";
@@ -25,7 +25,7 @@ class WalletMissingException implements Exception {
 }
 
 class WalletService {
-  String _walletDirectoryPath;
+  Option<String> _walletDirectoryPath;
 
   /// Instantiate the service.
   /// @param _walletDirectoryPath The path of the directory to be used for storing the wallet file.
@@ -34,7 +34,7 @@ class WalletService {
   /// Create a new wallet and save it to the wallet file.
   /// If a list of strings is supplied as the parameter [words], they are used to generate the private key via BIP-39
   /// Otherwise, a random private key is generated from scratch.
-  Future<Wallet> make({List<String> words, String hex}) async {
+  Future<Wallet> make({List<String> /*?*/ words, String /*?*/ hex}) async {
     var rand = Random.secure();
 
     //Use mnemonic words if supplied, otherwise create a random key
@@ -71,7 +71,8 @@ class WalletService {
     String seed = bip39.mnemonicToSeedHex(mnemonic);
 
     // Make a BIP32 for an Ethereum key
-    bip32.BIP32 root = bip32.BIP32.fromSeed(HEX.decode(seed));
+    bip32.BIP32 root =
+        bip32.BIP32.fromSeed(Uint8List.fromList(HEX.decode(seed)));
     bip32.BIP32 child = root.derivePath(ETH_HD_DERIVATION_PATH);
 
     // Make into an EthPrivateKey
@@ -139,11 +140,9 @@ class WalletService {
 
   /// The file handle for the file used to store the wallet object.
   Future<File> walletFile() async {
-    if (_walletDirectoryPath == null) {
-      Directory appDocDir = await getApplicationDocumentsDirectory();
-      _walletDirectoryPath = appDocDir.path;
-    }
-    return File('${_walletDirectoryPath}/$WALLET_FILE_NAME');
+    var appDocsDir = await getApplicationDocumentsDirectory();
+    String wp = _walletDirectoryPath.getOrElse(() => appDocsDir.path);
+    return File('${wp}/$WALLET_FILE_NAME');
   }
 
   Future<String> sendTransaction(DeployedContract contract,

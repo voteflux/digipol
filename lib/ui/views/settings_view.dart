@@ -1,14 +1,16 @@
+import 'dart:async';
+
+import 'package:dartz/dartz.dart' hide State;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:voting_app/core/services/wallet.dart';
 import 'package:voting_app/core/viewmodels/settings_model.dart';
 import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
-import 'dart:async';
-import 'package:voting_app/core/services/wallet.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatefulWidget {
   // where the app and user settings go
@@ -20,14 +22,22 @@ class _SettingsPageState extends State<SettingsPage> {
   String pubKey = "";
 
   @override
-  Widget build(BuildContext context) {
-    Future getPubKey() async {
-      var walletService = WalletService(null);
-      var ethAddress = await walletService.ethereumAddress();
-      pubKey = ethAddress.toString();
-      setState(() {});
-    }
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      getPubKey();
+    });
+  }
 
+  Future getPubKey() async {
+    var walletService = WalletService(None());
+    var ethAddress = await walletService.ethereumAddress();
+    pubKey = ethAddress.toString();
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return BaseView<SettingsModel>(
       onModelReady: (model) => model.setUser(),
       builder: (context, model, child) => Scaffold(

@@ -10,11 +10,14 @@ import 'base_model.dart';
 class IssueModel extends BaseModel {
   Api _api = locator<Api>();
 
-  Issue issue;
-  BillVoteResult billVoteResult;
+  /*late*/ Issue issue;
+  /*late*/ BillVoteResult billVoteResult;
 
-  String _vote;
+  /*late*/ String _vote;
   String get getVote => _vote;
+
+  IssueModel();
+  // this.issue, this.billVoteResult, this._vote
 
   Future getIssue(String issueId) async {
     setState(ViewState.Busy);
@@ -26,8 +29,8 @@ class IssueModel extends BaseModel {
 
   Future hasVoted(String ballotId) async {
     final prefs = await SharedPreferences.getInstance();
-    final vote = prefs.getString(ballotId) ?? null;
-    _vote = vote;
+    final vote = prefs.getString(ballotId);
+    this._vote = vote;
     return vote;
   }
 }

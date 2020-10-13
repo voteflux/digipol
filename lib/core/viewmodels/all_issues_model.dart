@@ -4,21 +4,24 @@ import 'package:voting_app/core/models/block_chain_data.dart';
 import 'package:voting_app/core/services/api.dart';
 import 'package:voting_app/locator.dart';
 
+import '../consts.dart';
 import 'base_model.dart';
 
 class IssuesModel extends BaseModel {
   Api _api = locator<Api>();
 
-  List<BlockChainData> filteredIssues;
+  /*late*/ List<BlockChainData> filteredIssues;
   List<BlockChainData> get issueList => filteredIssues;
-  List<BlockChainData> blockChainList;
+  /*late*/ List<BlockChainData> blockChainList;
   Box<BlockChainData> blockChainData =
-      Hive.box<BlockChainData>("block_chain_data");
+      Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
+
+  IssuesModel();
 
   Future getIssues() async {
     setState(ViewState.Busy);
 
-    List list =
+    var list =
         blockChainData.values.where((bill) => bill.id.startsWith('i')).toList();
 
     blockChainList = list;

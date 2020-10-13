@@ -5,7 +5,6 @@ import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/styles.dart';
 
 class HouseIconsWidget extends StatelessWidget {
-
   final Bill bill;
   final Color senateColor = appColors.senate;
   final Color houseColor = appColors.house;
@@ -17,7 +16,6 @@ class HouseIconsWidget extends StatelessWidget {
   final Color senateLightColor = Colors.deepPurple[200];
   final Color senateDarkColor = Colors.deepPurple[400];
 
-
   final double size;
 
   /// shows the progression of a bill as coloured icons
@@ -26,14 +24,11 @@ class HouseIconsWidget extends StatelessWidget {
   /// usage:
   ///
   /// `child: HouseIconsWidget(issuesMap: issuesMap,size: 20,),`
-  HouseIconsWidget({
-    Key key,
-    @required this.size,
-    @required this.bill
-  }) : super(key: key);
+  HouseIconsWidget({Key /*?*/ key, @required this.size, @required this.bill})
+      : super(key: key);
 
   // gets correct colour for Intro House
-  hiChooser(theBill, state) {
+  Color hiChooser(Bill theBill, bool state) {
     if (theBill.chamber == "House") {
       if (theBill.introHouse == "") {
         return noFillColor;
@@ -44,13 +39,13 @@ class HouseIconsWidget extends StatelessWidget {
       if (theBill.introSenate == "") {
         return noFillColor;
       } else {
-        return state ? senateDarkColor: senateLightColor;
+        return state ? senateDarkColor : senateLightColor;
       }
     }
   }
 
   // gets correct colour for Passed House
-  hpChooser(theBill, state) {
+  Color hpChooser(Bill theBill, bool state) {
     if (theBill.chamber == "House") {
       if (theBill.passedHouse == "") {
         return noFillColor;
@@ -61,18 +56,18 @@ class HouseIconsWidget extends StatelessWidget {
       if (theBill.passedSenate == "") {
         return noFillColor;
       } else {
-        return state ? senateDarkColor: senateLightColor;
+        return state ? senateDarkColor : senateLightColor;
       }
     }
   }
 
   // gets correct colour for Intro Senate
-  siChooser(theBill, state) {
+  Color siChooser(Bill theBill, bool state) {
     if (theBill.chamber == "House") {
       if (theBill.introHouse == "") {
         return noFillColor;
       } else {
-        return state ? senateDarkColor: senateLightColor;
+        return state ? senateDarkColor : senateLightColor;
       }
     } else {
       if (theBill.introHouse == "") {
@@ -84,12 +79,12 @@ class HouseIconsWidget extends StatelessWidget {
   }
 
   // gets correct colour for Passed Senate
-  spChooser(theBill, state) {
+  Color spChooser(Bill theBill, bool state) {
     if (theBill.chamber == "House") {
       if (theBill.passedSenate == "") {
         return noFillColor;
       } else {
-        return state ? senateDarkColor: senateLightColor;
+        return state ? senateDarkColor : senateLightColor;
       }
     } else {
       if (theBill.passedHouse == "") {
@@ -111,7 +106,8 @@ class HouseIconsWidget extends StatelessWidget {
         children: <Widget>[
           Icon(
             Icons.account_balance,
-            color: hiChooser(bill, Provider.of<ThemeModel>(context, listen: false).isDarkMode),
+            color: hiChooser(bill,
+                Provider.of<ThemeModel>(context, listen: false).isDarkMode),
             size: this.size,
           ),
           Icon(
@@ -121,7 +117,8 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.check_circle,
-            color: hpChooser(bill, Provider.of<ThemeModel>(context, listen: false).isDarkMode),
+            color: hpChooser(bill,
+                Provider.of<ThemeModel>(context, listen: false).isDarkMode),
             size: this.size,
           ),
           Icon(
@@ -131,7 +128,8 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.account_balance,
-            color: siChooser(bill, Provider.of<ThemeModel>(context, listen: false).isDarkMode),
+            color: siChooser(bill,
+                Provider.of<ThemeModel>(context, listen: false).isDarkMode),
             size: this.size,
           ),
           Icon(
@@ -141,7 +139,8 @@ class HouseIconsWidget extends StatelessWidget {
           ),
           Icon(
             Icons.check_circle,
-            color: spChooser(bill, Provider.of<ThemeModel>(context, listen: false).isDarkMode),
+            color: spChooser(bill,
+                Provider.of<ThemeModel>(context, listen: false).isDarkMode),
             size: this.size,
           ),
         ],

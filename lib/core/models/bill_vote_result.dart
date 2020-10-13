@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 class BillVoteResult {
   String id;
   String constituency;
@@ -5,15 +7,18 @@ class BillVoteResult {
   int yes;
 
   BillVoteResult({
-    this.id,
-    this.constituency,
-    this.yes, this.no,
+    @required this.id,
+    @required this.constituency,
+    @required this.yes,
+    @required this.no,
   });
 
-  BillVoteResult.fromJson(Map<String, dynamic> json) {
-    id = json['_id'];
-    constituency = json['data']['constituency'];
-    yes = json['data']['yes'];
-    no = json['data']['no'];
+  factory BillVoteResult.fromJson(Map<String, dynamic> json) {
+    return BillVoteResult(
+      id: json['_id'] as String,
+      constituency: json['data']['constituency'] as String,
+      yes: json['data']['yes'] as int,
+      no: json['data']['no'] as int,
+    );
   }
 }

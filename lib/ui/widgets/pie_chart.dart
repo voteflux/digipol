@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:voting_app/ui/styles.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/material.dart';
 
 class PieWidget extends StatelessWidget {
   final int yes;
@@ -15,7 +14,7 @@ class PieWidget extends StatelessWidget {
   ///
   /// `child: PieWidget(yes: 1000, no: 551, radius: 50,),`
   PieWidget(
-      {Key key,
+      {Key /*?*/ key,
       @required this.yes,
       @required this.no,
       @required this.sectionSpace,
@@ -39,7 +38,8 @@ class PieWidget extends StatelessWidget {
     );
   }
 
-  List<PieChartSectionData> showingSections(yes, no, showValues) {
+  List<PieChartSectionData> showingSections(
+      double yes, double no, bool showValues) {
     return List.generate(2, (i) {
       switch (i) {
         case 0:
@@ -65,7 +65,8 @@ class PieWidget extends StatelessWidget {
                 color: const Color(0xffffffff)),
           );
         default:
-          return null;
+          throw Exception(
+              "Tried to generate pie chart sections but would have returned null");
       }
     });
   }

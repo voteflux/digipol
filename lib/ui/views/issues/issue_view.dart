@@ -14,10 +14,9 @@ class IssuePage extends StatelessWidget {
   final Issue issue;
   final BlockChainData blockChainData;
 
-  IssuePage({
-    Key key,
-    @required this.issue, this.blockChainData
-  }) : super(key: key);
+  IssuePage(
+      {Key /*?*/ key, @required this.issue, @required this.blockChainData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +49,7 @@ class IssuePage extends StatelessWidget {
                           showValues: true,
                           no: model.billVoteResult.no,
                           radius: dynamicMediumHeight,
+                          sectionSpace: 2.0,
                         ),
                       ),
                       Container(
@@ -88,7 +88,7 @@ class IssuePage extends StatelessWidget {
                               style: Theme.of(context).textTheme.bodyText2,
                             ),
                             VoteWidget(
-                              data: blockChainData,
+                              data: blockChainData.toBillChainData(),
                               vote: model.getVote,
                             ),
                           ],

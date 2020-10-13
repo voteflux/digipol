@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:voting_app/main.dart';
-import 'package:voting_app/ui/views/login_view.dart';
 import 'package:voting_app/ui/views/bills/pdf_viewer.dart';
+import 'package:voting_app/ui/views/login_view.dart';
 import 'package:voting_app/ui/views/onboarding_view.dart';
 
 // there are three separate routing's. One for each for each;
@@ -11,7 +11,7 @@ import 'package:voting_app/ui/views/onboarding_view.dart';
 
 class RouteGenerator {
   /// for bills
-  static Route<dynamic> generateBillRoute(RouteSettings settings) {
+  static Route<MaterialPageRoute> generateBillRoute(RouteSettings settings) {
     final args = settings.arguments;
 
     switch (settings.name) {
@@ -32,7 +32,7 @@ class RouteGenerator {
   }
 
   /// for issues
-  static Route<dynamic> generateIssueRoute(RouteSettings settings) {
+  static Route<MaterialPageRoute> generateIssueRoute(RouteSettings settings) {
     final args = settings.arguments;
 
     switch (settings.name) {
@@ -45,7 +45,8 @@ class RouteGenerator {
   }
 
   /// for Settings
-  static Route<dynamic> generateSettingsRoute(RouteSettings settings) {
+  static Route<MaterialPageRoute> generateSettingsRoute(
+      RouteSettings settings) {
     // Getting arguments passed in while calling Navigator.pushNamed
     final args = settings.arguments;
 
@@ -55,9 +56,9 @@ class RouteGenerator {
 
       case '/profile':
         return MaterialPageRoute(builder: (_) => ProfilePage());
-      
+
       case '/onboarding':
-        return MaterialPageRoute(builder: (_) => OnBoardingView());        
+        return MaterialPageRoute(builder: (_) => OnBoardingView());
 
       default:
         return _errorRoute();
@@ -65,7 +66,7 @@ class RouteGenerator {
   }
 
   /// for routing errors
-  static Route<dynamic> _errorRoute() {
+  static Route<MaterialPageRoute> _errorRoute() {
     return MaterialPageRoute(builder: (_) {
       return Scaffold(
         appBar: AppBar(

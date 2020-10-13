@@ -1,10 +1,11 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
-import 'package:pdf_viewer_plugin/pdf_viewer_plugin.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
+import 'package:pdf_viewer_plugin/pdf_viewer_plugin.dart';
 import 'package:voting_app/ui/styles.dart';
 
 /// This is the page that displays the PDFs
@@ -13,7 +14,7 @@ class PdfPage extends StatelessWidget {
   final String pdfUrl;
 
   PdfPage({
-    Key key,
+    Key /*?*/ key,
     @required this.pdfUrl,
   }) : super(key: key);
 
@@ -50,13 +51,13 @@ class PdfWidget extends StatefulWidget {
   /// `body: PdfWidget(pdfUrl: pdfUrl))`
 
   PdfWidget({
-    Key key,
+    Key /*?*/ key,
     @required this.pdfUrl,
   }) : super(key: key);
 }
 
 class _PdfWidgetState extends State<PdfWidget> {
-  String path;
+  String /*?*/ path;
 
   @override
   initState() {
@@ -88,7 +89,7 @@ class _PdfWidgetState extends State<PdfWidget> {
     return responseJson;
   }
 
-  loadPdf() async {
+  void loadPdf() async {
     writeCounter(await fetchPost());
     path = (await _localFile).path;
 

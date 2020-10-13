@@ -38,7 +38,7 @@ class BillAdapter extends TypeAdapter<Bill> {
       no: fields[18] as int,
       portfolio: fields[19] as String,
       startDate: fields[20] as String,
-      topics: (fields[21] as List)?.cast<dynamic>(),
+      topics: (fields[21] as List)?.cast<String>(),
     );
   }
 
