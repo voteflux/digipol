@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:voting_app/ui/stylesorm_feild_widget.dart';
+import 'package:voting_app/ui/styles.dart';
+import 'package:voting_app/ui/widgets/custom_form_feild_widget.dart';
+
+import '../../styles.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
