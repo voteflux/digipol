@@ -104,4 +104,9 @@ class Bill {
       no: data['no'] as int,
     );
   }
+
+  @override
+  String toString() {
+    return 'Bill <id: ${this.id}; shortTitle: ${this.shortTitle}>';
+  }
 }

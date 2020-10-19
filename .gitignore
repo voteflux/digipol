@@ -33,6 +33,12 @@ ios/RunnerArchive.xcarchive/*
 ios/build/*
 .gradle
 
+# exclude generated files
+*.g.dart
+*.config.dart
+*.gr.dart
+*.web3.dart
+
 # Test related
 /coverage/
 
