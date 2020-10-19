@@ -1,5 +1,7 @@
 # DigiPol
 
+[BUILD INSTRUCTIONS](#build-instructions)
+
 ## *Connecting Real People with their Parliament*
 
 **Attention:** Alpha testers, please read [this guide](docs/ALPHATESTING.md).
@@ -158,6 +160,14 @@ To run the web build: `flutter run -d chrome`
 -->
 
 --------------------------------------------------------------------------------
+
+## BUILD INSTRUCTIONS
+
+* You **must** run `flutter pub run build_runner build --delete-conflicting-outputs` to generate necessary files.
+  * You **should** probably have `flutter pub run build_runner watch --delete-conflicting-outputs` running while you develop
+    * You **should** use the scripts (or contribute new scripts) in `./tool/` instead of coming back to the readme to find the commands.
+* `flutter pub get` for dependencies (make sure to use the newest stable version of flutter possible)
+* `flutter run` to run -- or just use the debug button in android-studio / vs-code.
 
 ## Future Plans (Beta)
 

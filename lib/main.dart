@@ -112,15 +112,15 @@ class _MainScreenState extends State<MainScreen> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: Icon(Icons.assignment),
-              title: Text('Bills'),
+              label: 'Bills',
               backgroundColor: Theme.of(context).backgroundColor),
           BottomNavigationBarItem(
               icon: Icon(Icons.assignment_late),
-              title: Text('Issues'),
+              label: 'Issues',
               backgroundColor: Theme.of(context).backgroundColor),
           BottomNavigationBarItem(
               icon: Icon(Icons.settings),
-              title: Text('Settings'),
+              label: 'Settings',
               backgroundColor: Theme.of(context).backgroundColor),
         ],
         currentIndex: _currentIndex,

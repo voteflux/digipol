@@ -94,8 +94,10 @@ class WalletService {
   }
 
   /// Read wallet from the wallet file.
+  /// TODO: set allowCreation to false once we figure out a fix for on-load
+  /// exception
   Future<Wallet> load(
-      {bool allowCreation = false, bool allowPreexistingFile = true}) async {
+      {bool allowCreation = true, bool allowPreexistingFile = true}) async {
     log.i("checking for walletExists");
     var _walletExists = await walletExists();
     log.i("got walletExists=${_walletExists}");
