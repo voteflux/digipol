@@ -62,9 +62,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 child: Container(
                   child: PageView(
                     children: <Widget>[
-                      for (var page in pages)
-                        _buildWalkThrough(context, page['image'],
-                            page['heading'], page['text']),
                       ProfilePage()
                     ],
                     onPageChanged: (value) {
@@ -73,16 +70,16 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   ),
                 ),
               ),
-              Container(
-                child: DotsIndicator(
-                  dotsCount: pageLength,
-                  position: currentIndexPage,
-                  decorator: DotsDecorator(
-                    color: Colors.grey,
-                    activeColor: Theme.of(context).colorScheme.primary,
-                  ),
-                ),
-              )
+//              Container(
+//                child: DotsIndicator(
+//                  dotsCount: pageLength,
+//                  position: currentIndexPage,
+//                  decorator: DotsDecorator(
+//                    color: Colors.grey,
+//                    activeColor: Theme.of(context).colorScheme.primary,
+//                  ),
+//                ),
+//              )
             ],
           ),
         ),
