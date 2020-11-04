@@ -106,7 +106,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       style: Theme.of(context).textTheme.headline5,
                     ),
                     Text(
-                      "v0.1.3",
+                      "v0.1.5",
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     Divider(
