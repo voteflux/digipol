@@ -42,6 +42,7 @@ dependencies:
   convert: ^2.1.1
   fl_chart: ^0.11.1
   flutter_svg: ^0.18.1
+  flutter_fullpdfview: ^1.1.5
 
 #dependency_overrides:
 #  analyzer: "0.39.14"
