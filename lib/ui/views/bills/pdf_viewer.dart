@@ -160,7 +160,7 @@ class _PDFScreenState extends State<PDFScreen> {
             Completer<PDFViewController>();
         return Scaffold(
           appBar: AppBar(
-            title: Text("Document"),
+            title: Text("Swipe to turn page"),
           ),
           body: Stack(
             children: <Widget>[
