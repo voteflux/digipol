@@ -11,7 +11,8 @@ jobs:
         java-version: '12.x'
     - uses: subosito/flutter-action@v1
       with:
-        flutter-version: '1.22.4'
+        flutter-version: '1.22.x'
+        channel: 'stable'
     - run: flutter pub get
     - run: flutter pub run build_runner build --delete-conflicting-outputs
     - run: flutter pub get
