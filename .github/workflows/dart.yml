@@ -11,7 +11,7 @@ jobs:
       with:
         java-version: '12.x'
 
-    - uses: subosito/flutter-action@v1.3.2
+    - uses: subosito/flutter-action@v1.22.4
 
       with:
         flutter-version: '1.20.2'
