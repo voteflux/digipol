@@ -15,6 +15,7 @@ jobs:
 
       with:
         flutter-version: '1.20.2'
+    - run: flutter pub run build_runner build --delete-conflicting-outputs
     - run: flutter pub get
     - run: flutter test
     - run: flutter build apk
