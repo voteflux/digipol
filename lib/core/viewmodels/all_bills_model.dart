@@ -14,7 +14,7 @@ class BillsModel extends BaseModel {
   /*late*/ List<Bill> filteredBills;
   List<Bill> get billList => filteredBills;
   final Box<BlockChainData> blockChainData =
-      Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
+  Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
   final Box<Bill> billsBox = Hive.box<Bill>(HIVE_BILLS);
 
   final Box<BillVote> billVoteBox = Hive.box<BillVote>(HIVE_BILL_VOTE_BOX);
@@ -42,23 +42,15 @@ class BillsModel extends BaseModel {
   Future getBills() async {
     setState(ViewState.Busy);
 
-    var billOnChain = blockChainData.values.map((el) => el.id).toList();
-
-    var bills =
-        billsBox.values.where((bill) => billOnChain.contains(bill.id)).toList();
-
-    bills.sort((a, b) => b.startDate.compareTo(a.startDate));
-
-    blockChainList = bills;
-    filteredBills = bills;
+    updateLists();
 
     // set voting prefs
     bool onlyVotedPref =
-        userPrefsBool.get('onlyVotedBills', defaultValue: false);
+    userPrefsBool.get('onlyVotedBills', defaultValue: false);
     onlyVoted(onlyVotedPref);
 
     bool removeVotedPref =
-        userPrefsBool.get('removeVotedBills', defaultValue: false);
+    userPrefsBool.get('removeVotedBills', defaultValue: false);
     removeVoted(removeVotedPref);
 
     // bool dateRangeVotingPref =
@@ -66,12 +58,26 @@ class BillsModel extends BaseModel {
     // filterByDateTime(dateRangeVotingPref);
 
     bool removeCloseBillsPref =
-        userPrefsBool.get('removeClosedBills', defaultValue: true);
+    userPrefsBool.get('removeClosedBills', defaultValue: true);
     removeClosedBillsFunction(removeCloseBillsPref);
 
     print('Bills on BlockChain: ' + blockChainList.length.toString());
+
     setState(ViewState.Idle);
   }
+
+  void updateLists() {
+    var billOnChain = blockChainData.values.map((el) => el.id).toList();
+
+    var bills =
+    billsBox.values.where((bill) => billOnChain.contains(bill.id)).toList();
+
+    bills.sort((a, b) => b.startDate.compareTo(a.startDate));
+
+    blockChainList = bills;
+    filteredBills = bills;
+  }
+
 
   //
   // search bills
@@ -79,8 +85,8 @@ class BillsModel extends BaseModel {
   void searchBills(String value) {
     filteredBills = blockChainList
         .where((text) =>
-            text.shortTitle.toLowerCase().contains(value.toLowerCase()) ||
-            text.summary.toLowerCase().contains(value.toLowerCase()))
+    text.shortTitle.toLowerCase().contains(value.toLowerCase()) ||
+        text.summary.toLowerCase().contains(value.toLowerCase()))
         .toList();
     notifyListeners();
   }
