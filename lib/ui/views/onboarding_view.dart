@@ -69,8 +69,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     children: <Widget>[
                       for (var page in pages)
                         _buildWalkThrough(context, page.image, page.heading,
-                            page.body, page.label),
-                      ProfilePage()
+                            page.body, page.label)
+                      // ProfilePage() // moved to StartupView
                     ],
                     onPageChanged: (value) {
                       setState(() => currentIndexPage = value.toDouble());
