@@ -13,6 +13,7 @@ import 'package:voting_app/ui/widgets/pie_chart.dart';
 import 'package:voting_app/ui/widgets/voting_status_widget.dart';
 import 'package:voting_app/ui/widgets/voting_widgets.dart';
 import 'package:voting_app/ui/views/bills/pdf_viewer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BillPage extends StatefulWidget {
   @override
@@ -123,12 +124,14 @@ class _BillPageState extends State<BillPage> {
                               padding: EdgeInsets.all(20.0),
                               child: Text("View Bill Text"),
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => PdfPage(
-                                          pdfUrl: widget.bill.textLinkPdf)),
-                                );
+                                launch(widget.bill.textLinkPdf);
+
+//                                Navigator.push(
+//                                  context,
+//                                  MaterialPageRoute(
+//                                      builder: (context) => PdfPage(
+//                                          pdfUrl: widget.bill.textLinkPdf)),
+//                                );
                               },
                             ),
                             Container(
@@ -142,12 +145,13 @@ class _BillPageState extends State<BillPage> {
                               child: Text("View Explanatory Memoranda"),
                               padding: EdgeInsets.all(20.0),
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => PdfPage(
-                                          pdfUrl: widget.bill.emLinkPdf)),
-                                );
+                                launch(widget.bill.emLinkPdf);
+//                                Navigator.push(
+//                                  context,
+//                                  MaterialPageRoute(
+//                                      builder: (context) => PdfPage(
+//                                          pdfUrl: widget.bill.emLinkPdf)),
+//                                );
                               },
                             ),
                             Container(
