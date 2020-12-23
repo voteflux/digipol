@@ -79,6 +79,7 @@ class _ProfilePageState extends State<ProfilePage> {
       _formKey.currentState.save();
       model.create(_name);
       // redirect to OnBoarding page
+      // TODO: will change it later - Meena
       Navigator.pushNamed(context, Routes.onBoardingView);
       // Navigator.pushNamed(context, '/');
     }
