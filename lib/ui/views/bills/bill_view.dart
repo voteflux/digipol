@@ -124,7 +124,7 @@ class _BillPageState extends State<BillPage> {
                               padding: EdgeInsets.all(20.0),
                               child: Text("View Bill Text"),
                               onPressed: () {
-                                launch(widget.bill.textLinkPdf);
+                                launch(widget.bill.textLinkHtml);
 
 //                                Navigator.push(
 //                                  context,
@@ -145,7 +145,7 @@ class _BillPageState extends State<BillPage> {
                               child: Text("View Explanatory Memoranda"),
                               padding: EdgeInsets.all(20.0),
                               onPressed: () {
-                                launch(widget.bill.emLinkPdf);
+                                launch(widget.bill.emLinkHtml);
 //                                Navigator.push(
 //                                  context,
 //                                  MaterialPageRoute(
