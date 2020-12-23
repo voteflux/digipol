@@ -30,7 +30,7 @@ class Bill {
   @HiveField(12)
   String sponsor;
   @HiveField(13)
-  String textLinkDoc;
+  String textLinkHtml;
   @HiveField(14)
   String textLinkPdf;
   @HiveField(15)
@@ -62,7 +62,7 @@ class Bill {
       this.url,
       this.summary,
       this.sponsor,
-      this.textLinkDoc,
+      this.textLinkHtml,
       this.textLinkPdf,
       this.emLinkPdf,
       this.emLinkHtml,
@@ -86,7 +86,7 @@ class Bill {
     url = json['data']['url'];
     summary = json['data']['summary'];
     sponsor = json['sponsor'];
-    textLinkDoc = json['data']['text_link_doc'];
+    textLinkHtml = json['data']['text_link_html'];
     textLinkPdf = json['data']['text_link_pdf'];
     emLinkPdf = json['data']['em_link_pdf'];
     emLinkHtml = json['data']['em_link_html'];
