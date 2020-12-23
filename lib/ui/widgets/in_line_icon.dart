@@ -2,17 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class InLineIcon extends StatelessWidget {
-  static const String _ICON    = '<icon';
-  static const String _IMAGE   = '<image';
-  static const String _BOLD    = '<b';
-  final String _assets_path = 'assets/graphics/';
-  final double _iconSize = 20.0;
-  final double _imgHeight = 32.0;
+  static const String _IMAGE          = '<image';
+  static const String _BOLD           = '<b';
+  static const String _ASSETS_PATH    = 'assets/graphics/';
   final String text;
 
-  InLineIcon(
-      {Key /*?*/ key,
-        @required this.text})
+  InLineIcon( this.text,
+      {Key /*?*/ key})
       : super(key: key);
 
   @override
@@ -35,32 +31,24 @@ class InLineIcon extends StatelessWidget {
 
     // otherwise, return an icon or image
     var parameters = line.split(':');
-    switch(parameters[0]) {
-      case _BOLD:
-        return TextSpan(text: parameters[1],
-          style: Theme.of(context).textTheme.bodyText1,
-        );
-      case _ICON:
-        return WidgetSpan(
+    try {
+      switch(parameters[0]) {
+        case _BOLD:
+          return TextSpan(text: parameters[1],
+            style: Theme.of(context).textTheme.bodyText1,
+          );
+        case _IMAGE:
+          return WidgetSpan(
             child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 1.0),
-                child: Icon(
-                    IconData(int.parse(parameters[1]),
-                        fontFamily: 'MaterialIcons'
-                    ),
-                  size: _iconSize,
+                padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                child: Image.asset(_ASSETS_PATH + parameters[1],
+                  height: double.parse(parameters[2]),
                 )
-            )
-        );
-      case _IMAGE:
-        return WidgetSpan(
-          child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 2.0),
-              child: Image.asset(_assets_path + parameters[1],
-                  height: _imgHeight,
-              )
-          ),
-        );
+            ),
+          );
+      }
+    } on Exception catch(_) {
+
     }
     return TextSpan();
   }

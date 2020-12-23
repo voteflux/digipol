@@ -15,7 +15,7 @@ class OnboardingSlide {
   String heading;
   String body;
   String label;
-  List<String> bg;
+  List<String> bg; // background gradient colors in String
   OnboardingSlide(this.image, this.label, this.heading, this.body, this.bg);
 }
 
@@ -47,7 +47,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         'Your decisions are secure.',
         'By using state-of-the-art technology, no one can alter your votes but '
             'you.\nFind out more in <b:Settings>'
-            '<icon:${Icons.settings.codePoint}>.',
+            '<image:icon-ios-android.png:20.0>(temporary icon).',
         ['0xFFF5A5FE', '0xFFFFABAB']
     ),
     OnboardingSlide(
@@ -64,8 +64,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         'Have your say on what\'s important to you.',
         'We\'ve made it easier to find the bills and issues that you want to '
             'vote on. Start by selecting some tags below, and you can use the '
-            '<image:icon-ios-android.png>(temporary icon) button to customise '
-            'your result in the Bill Hub at any time.',
+            '<image:icon-ios-android.png:32.0>(temporary icon) button to '
+            'customise your result in the Bill Hub at any time.',
         ['0xFFFFF6BA', '0xFFBDFDF9']
     ),
   ];
@@ -233,13 +233,12 @@ Widget _buildWalkThrough(BuildContext context, String graphic, String heading,
                   ),Padding(
                       padding:
                         EdgeInsets.only(left: 40.0, right: 40.0, bottom: 20.0),
-                      child: InLineIcon(text: body)
+                      child: InLineIcon(body)
                   ),
                 ],
               ),
               Container(
                 child: Flexible(
-                  flex: 2,
                   child: Padding(
                     padding: EdgeInsets.only(left: 80.0, right: 80.0),
                     child: SvgPicture.asset('assets/graphics/' + graphic,
