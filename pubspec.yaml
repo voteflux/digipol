@@ -25,6 +25,7 @@ dependencies:
   flutter_statusbarcolor: 0.2.1
   bip39: ^1.0.3
   # instabug_flutter:
+  pin_code_text_field: 1.7.1
   cupertino_icons: ^1.0.0
   pdf_viewer_plugin: ^1.0.0+2
   pdf: ^1.11.2

@@ -14,6 +14,7 @@ import 'package:voting_app/ui/appTheme.dart';
 import 'package:voting_app/ui/views/all_bills_view.dart';
 import 'package:voting_app/ui/views/all_issues_view.dart';
 import 'package:voting_app/ui/views/base_view.dart';
+import 'package:voting_app/ui/views/login/signin.dart';
 import 'package:voting_app/ui/views/settings_view.dart';
 
 import 'core/consts.dart';
@@ -39,7 +40,8 @@ void initHive() async {
 void main() async {
   await initHive();
   setupLocator();
-  runApp(MyApp());
+  //runApp(MyApp());
+  runApp(Signin());
 }
 
 class MyApp extends StatelessWidget {
