@@ -21,7 +21,6 @@ class OnboardingSlide {
   OnboardingSlide(this.image, this.label, this.heading, this.body, this.bg);
 }
 
-
 class _OnBoardingViewState extends State<OnBoardingView> {
   PageController _pageController;
   double _currentIndexPage = 0;
@@ -34,16 +33,14 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         'Welcome to DigiPol!',
         'Ready to make a change?',
         'The voting app where you can have your say!',
-        ['0xFFBDFDC1', '0xFF49F2DD']
-    ),
+        ['0xFFBDFDC1', '0xFF49F2DD']),
     OnboardingSlide(
         'ob-2_send_msg_politi.png',
         'Welcome to DigiPol!',
         'Send a message directly to politicians.',
         'By voting directly on the bills that affect you and your fellow '
             'citizens, DigiPol, gives you the power to have your voice heard.',
-        ['0xFF4BE2FF', '0xFFB28DFF']
-    ),
+        ['0xFF4BE2FF', '0xFFB28DFF']),
     OnboardingSlide(
         'ob-3_secure_final_decisions.svg',
         'Welcome to DigiPol!',
@@ -51,16 +48,14 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         'By using state-of-the-art technology, no one can alter your votes but '
             'you.\nFind out more in <b:Settings>'
             '<image:icon-ios-android.png:20.0>(temporary icon).',
-        ['0xFFF5A5FE', '0xFFFFABAB']
-    ),
+        ['0xFFF5A5FE', '0xFFFFABAB']),
     OnboardingSlide(
         'ob-4_hear_from_commu.svg',
         'Welcome to DigiPol!',
         'Hear from your community.',
         'Coming soon - You can also comment on bills and see what others have '
             'to say about them!',
-        ['0xFFFFABAB', '0xFFFFF6BA']
-    ),
+        ['0xFFFFABAB', '0xFFFFF6BA']),
     OnboardingSlide(
         'ob-5_say_whats_important.svg',
         'Welcome to DigiPol!',
@@ -69,8 +64,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             'vote on. Start by selecting some tags below, and you can use the '
             '<image:icon-ios-android.png:32.0>(temporary icon) button to '
             'customise your result in the Bill Hub at any time.',
-        ['0xFFFFF6BA', '0xFFBDFDF9']
-    ),
+        ['0xFFFFF6BA', '0xFFBDFDF9']),
   ];
 
   @override
@@ -93,13 +87,14 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration( // the gradient background
+          decoration: BoxDecoration(
+            // the gradient background
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               stops: [0.1, 0.9],
               colors: <Color>[
-                for(var color in pages[_currentIndexPage.toInt()].bg)
+                for (var color in pages[_currentIndexPage.toInt()].bg)
                   Color(int.parse(color))
               ],
             ),
@@ -112,40 +107,47 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   child: Image.asset(_logo, height: 70.0, width: 70.0),
                 ),
               ),
-              Flexible(child:
-              Container(
-                child: PageView(
-                  controller: _pageController,
-                  children: <Widget>[
-                    for (var page in pages)
-                      _buildWalkThrough(context, page.image, page.heading,
-                          page.body, page.label)
-                    // ProfilePage() // moved to StartupView
-                  ],
-                  onPageChanged: (value) {
-                    setState(() => _currentIndexPage = value.toDouble());
-                  },
+              Flexible(
+                child: Container(
+                  child: PageView(
+                    controller: _pageController,
+                    children: <Widget>[
+                      for (var page in pages)
+                        _buildWalkThrough(context, page.image, page.heading,
+                            page.body, page.label)
+                      // ProfilePage() // moved to StartupView
+                    ],
+                    onPageChanged: (value) {
+                      setState(() => _currentIndexPage = value.toDouble());
+                    },
+                  ),
                 ),
-              ),
               ),
               Container(
                 child: RaisedButton(
+                  padding: EdgeInsets.all(20.0),
                   onPressed: _nextPage,
-                  child: (_currentIndexPage < pageLength-1) ?
-                  Text('Next', style: TextStyle(color: Colors.white),) :
-                  Text('View bills', style: TextStyle(color: Colors.white)),
+                  child: (_currentIndexPage < pageLength - 1)
+                      ? Text(
+                          'Next',
+                          style: TextStyle(color: Colors.white),
+                        )
+                      : Text('View bills',
+                          style: TextStyle(color: Colors.white)),
                   color: Colors.black,
                 ),
               ),
               Stack(
                 children: [
-                  if(_currentIndexPage > 0)
-                    Align(alignment: Alignment.bottomLeft,
+                  if (_currentIndexPage > 0)
+                    Align(
+                      alignment: Alignment.bottomLeft,
                       child: TextButton(
                         onPressed: _previousPage,
                         child: Padding(
                           padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                          child: Text('BACK',
+                          child: Text(
+                            'BACK',
                             style: TextStyle(color: Colors.white70),
                           ),
                         ),
@@ -165,12 +167,14 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       ),
                     ),
                   ),
-                  Align(alignment: Alignment.bottomRight,
+                  Align(
+                    alignment: Alignment.bottomRight,
                     child: TextButton(
                       onPressed: _toMainScreen,
                       child: Padding(
-                        padding:  EdgeInsets.only(left: 20.0, right: 20.0),
-                        child: Text('SKIP',
+                        padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                        child: Text(
+                          'SKIP',
                           style: TextStyle(color: Colors.white70),
                         ),
                       ),
@@ -187,12 +191,13 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   void _nextPage() {
     // go to the next page
-    (_currentIndexPage < pageLength-1) ?
-    _pageController.animateToPage(
-      (_currentIndexPage + 1).toInt(),
-      duration: const Duration(milliseconds: 400),
-      curve: Curves.easeIn,
-    ) : _toMainScreen();
+    (_currentIndexPage < pageLength - 1)
+        ? _pageController.animateToPage(
+            (_currentIndexPage + 1).toInt(),
+            duration: const Duration(milliseconds: 400),
+            curve: Curves.easeIn,
+          )
+        : _toMainScreen();
   }
 
   void _toMainScreen() {
@@ -203,14 +208,13 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   void _previousPage() {
     // go back to the previous page
-    if(_currentIndexPage > 0)
-    _pageController.animateToPage(
-      (_currentIndexPage - 1).toInt(),
-      duration: const Duration(milliseconds: 400),
-      curve: Curves.easeOutBack,
-    );
+    if (_currentIndexPage > 0)
+      _pageController.animateToPage(
+        (_currentIndexPage - 1).toInt(),
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeOutBack,
+      );
   }
-
 }
 
 Widget _buildWalkThrough(BuildContext context, String graphic, String heading,
@@ -221,36 +225,38 @@ Widget _buildWalkThrough(BuildContext context, String graphic, String heading,
         Container(
           child: Column(
             children: <Widget>[
-              Spacer(
-                flex: 2
-              ),
+              Spacer(flex: 2),
               ListBody(
                 mainAxis: Axis.vertical,
                 children: <Widget>[
                   Padding(
                     padding:
-                      EdgeInsets.only(left: 40.0, right: 40.0, bottom: 20.0),
-                    child: Text(label,
-                      style: Theme.of(context).textTheme.headline5.apply(
-                          color: Colors.black87
-                      ),
+                        EdgeInsets.only(left: 40.0, right: 40.0, bottom: 20.0),
+                    child: Text(
+                      label,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline5
+                          .apply(color: Colors.black87),
                       textAlign: TextAlign.center,
                     ),
                   ),
                   Padding(
                     padding:
-                      EdgeInsets.only(left: 40.0, right: 40.0, bottom: 20.0),
-                    child: Text(heading,
-                      style: Theme.of(context).textTheme.headline4.apply(
-                          color: Colors.black87
-                      ),
+                        EdgeInsets.only(left: 40.0, right: 40.0, bottom: 20.0),
+                    child: Text(
+                      heading,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline4
+                          .apply(color: Colors.black87),
                       textAlign: TextAlign.center,
                     ),
-                  ),Padding(
-                      padding:
-                        EdgeInsets.only(left: 40.0, right: 40.0, bottom: 20.0),
-                      child: InLineIcon(body)
                   ),
+                  Padding(
+                      padding: EdgeInsets.only(
+                          left: 40.0, right: 40.0, bottom: 20.0),
+                      child: InLineIcon(body)),
                 ],
               ),
               Spacer(
@@ -260,9 +266,8 @@ Widget _buildWalkThrough(BuildContext context, String graphic, String heading,
                 child: Flexible(
                   flex: 8,
                   child: Padding(
-                    padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                    child: _loadImage('assets/graphics/' + graphic, heading)
-                  ),
+                      padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                      child: _loadImage('assets/graphics/' + graphic, heading)),
                 ),
               ),
             ],
@@ -274,12 +279,8 @@ Widget _buildWalkThrough(BuildContext context, String graphic, String heading,
 }
 
 Widget _loadImage(String path, String label) {
-  if(path.split('.')[1] == 'svg')
-    return SvgPicture.asset(path,
-        semanticsLabel: label);
+  if (path.split('.')[1] == 'svg')
+    return SvgPicture.asset(path, semanticsLabel: label);
   else
     return Image.asset(path);
 }
-
-
-
