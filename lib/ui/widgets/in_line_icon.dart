@@ -18,7 +18,9 @@ class InLineIcon extends StatelessWidget {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-          style: Theme.of(context).textTheme.bodyText2,
+          style: ThemeData.light().textTheme.bodyText2.apply(
+              color: Colors.black87
+          ),
           children: [for(var line in lines) _inLineSpan(context, line)]
       ),
     );
@@ -31,24 +33,22 @@ class InLineIcon extends StatelessWidget {
 
     // otherwise, return an icon or image
     var parameters = line.split(':');
-    try {
-      switch(parameters[0]) {
-        case _BOLD:
-          return TextSpan(text: parameters[1],
-            style: Theme.of(context).textTheme.bodyText1,
-          );
-        case _IMAGE:
-          return WidgetSpan(
-            child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                child: Image.asset(_ASSETS_PATH + parameters[1],
-                  height: double.parse(parameters[2]),
-                )
-            ),
-          );
-      }
-    } on Exception catch(_) {
-
+    switch(parameters[0]) {
+      case _BOLD:
+        return TextSpan(text: parameters[1],
+          style: ThemeData.light().textTheme.bodyText1.apply(
+              color: Colors.black87
+          ),
+        );
+      case _IMAGE:
+        return WidgetSpan(
+          child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 2.0),
+              child: Image.asset(_ASSETS_PATH + parameters[1],
+                height: double.parse(parameters[2]),
+              )
+          ),
+        );
     }
     return TextSpan();
   }
