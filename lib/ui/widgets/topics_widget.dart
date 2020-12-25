@@ -18,13 +18,30 @@ class TopicsWidget extends StatelessWidget {
       topics.add(
         Padding(
           padding: EdgeInsets.only(right: 10),
-          child: Chip(
-              label: Text(_tagToTopic(item)),
-              labelStyle: Theme.of(context).textTheme.caption),
+          child: Row(
+            children: [
+              _tagToIcon(item),
+              Text(_tagToTopic(item))
+            ],
+          )
         ),
       );
     });
     return topics;
+  }
+
+  Icon _tagToIcon(String tag) {
+    switch(tag) {
+      case "citizens": {return Icon(Icons.map);}
+      case "citizen": {return Icon(Icons.map);}
+      case "nature": {return Icon(Icons.add);}
+      case "national development": {return Icon(Icons.add);}
+      case "national_development": {return Icon(Icons.add);}
+      case "borders": {return Icon(Icons.add);}
+      case "economy": {return Icon(Icons.add);}
+      case "communications": {return Icon(Icons.add);}
+      default: {return Icon(Icons.add);}
+    }
   }
 
   String _tagToTopic(String tag) {
@@ -38,7 +55,6 @@ class TopicsWidget extends StatelessWidget {
       case "economy": {return "Economy & Finance";}
       case "communications": {return "Media & Communication";}
       default: {return "Australia";}
-
     }
 
   }
@@ -49,6 +65,7 @@ class TopicsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return topics != null
         ? Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: _buildTopicList(topics, context),
     )
         : Padding(
