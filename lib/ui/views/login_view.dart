@@ -6,6 +6,8 @@ import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/widgets/custom_form_feild_widget.dart';
 
+import '../../core/router.gr.dart';
+
 class ProfilePage extends StatefulWidget {
   @override
   _ProfilePageState createState() => _ProfilePageState();
@@ -76,7 +78,10 @@ class _ProfilePageState extends State<ProfilePage> {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       model.create(_name);
-      Navigator.pushNamed(context, '/');
+      // redirect to OnBoarding page
+      // TODO: will change it later - Meena
+      Navigator.pushNamed(context, Routes.onBoardingView);
+      // Navigator.pushNamed(context, '/');
     }
   }
 }

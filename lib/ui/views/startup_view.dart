@@ -40,7 +40,7 @@ class StartupView extends HookWidget {
 class StartupViewModel extends ChangeNotifier {
   final log = Logger();
   bool _animationComplete = false;
-  String _destinationRoute = Routes.mainScreen;
+  String _destinationRoute = Routes.profilePage;
   dynamic _destinationArguments;
   final NavigationService _navigationService = locator<NavigationService>();
 
@@ -54,6 +54,7 @@ class StartupViewModel extends ChangeNotifier {
   }
 
   Future navigateHome() async {
+    // TODO: Should I refactor this too? - Meena
     await _navigationService.navigateTo(Routes.mainScreen);
   }
 
