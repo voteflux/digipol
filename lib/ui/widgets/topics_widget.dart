@@ -36,7 +36,7 @@ class TopicsWidget extends StatelessWidget {
       case "borders": {return "Security & Foreign Affairs";}
       case "economy": {return "Economy & Finance";}
       case "communications": {return "Media & Communication";}
-      default: {return "";}
+      default: {return "Australia";}
 
     }
 
