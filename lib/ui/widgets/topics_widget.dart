@@ -18,13 +18,20 @@ class TopicsWidget extends StatelessWidget {
       topics.add(
         Padding(
           padding: EdgeInsets.only(right: 10),
-          child: Row(
-            children: [
-              _tagToIcon(item),
-              Text(_tagToTopic(item))
-            ],
-          )
+          child: Container(
+            margin: const EdgeInsets.all(3.0),
+            padding: const EdgeInsets.all(3.0),
+            decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey) // TODO need to use theme color - Kip
         ),
+            child: Row(
+              children: [
+                _tagToIcon(item),
+                Text(_tagToTopic(item))
+              ],
+            )
+          ),
+          )
       );
     });
     return topics;
@@ -32,14 +39,14 @@ class TopicsWidget extends StatelessWidget {
 
   Icon _tagToIcon(String tag) {
     switch(tag) {
-      case "citizens": {return Icon(Icons.map);}
-      case "citizen": {return Icon(Icons.map);}
-      case "nature": {return Icon(Icons.add);}
-      case "national development": {return Icon(Icons.add);}
-      case "national_development": {return Icon(Icons.add);}
-      case "borders": {return Icon(Icons.add);}
-      case "economy": {return Icon(Icons.add);}
-      case "communications": {return Icon(Icons.add);}
+      case "citizens": {return Icon(Icons.person);}
+      case "citizen": {return Icon(Icons.person);}
+      case "nature": {return Icon(Icons.grass);}
+      case "national development": {return Icon(Icons.delete);}
+      case "national_development": {return Icon(Icons.pan_tool);}
+      case "borders": {return Icon(Icons.shield);}
+      case "economy": {return Icon(Icons.money);}
+      case "communications": {return Icon(Icons.smartphone);}
       default: {return Icon(Icons.add);}
     }
   }
