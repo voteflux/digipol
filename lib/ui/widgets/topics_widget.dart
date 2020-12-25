@@ -42,8 +42,8 @@ class TopicsWidget extends StatelessWidget {
       case "citizens": {return Icon(Icons.person);}
       case "citizen": {return Icon(Icons.person);}
       case "nature": {return Icon(Icons.grass);}
-      case "national development": {return Icon(Icons.delete);}
-      case "national_development": {return Icon(Icons.pan_tool);}
+      case "national development": {return Icon(Icons.biotech);}
+      case "national_development": {return Icon(Icons.biotech);}
       case "borders": {return Icon(Icons.shield);}
       case "economy": {return Icon(Icons.money);}
       case "communications": {return Icon(Icons.smartphone);}
