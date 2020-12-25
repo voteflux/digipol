@@ -12,6 +12,7 @@ import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/views/bills/pdf_viewer.dart';
 import 'package:voting_app/ui/widgets/house_icon_widget.dart';
 import 'package:voting_app/ui/widgets/pie_chart.dart';
+import 'package:voting_app/ui/widgets/topics_widget.dart';
 import 'package:voting_app/ui/widgets/voting_status_widget.dart';
 import 'package:voting_app/ui/widgets/voting_widgets.dart';
 
@@ -74,6 +75,9 @@ class _BillPageState extends State<BillPage> {
     getVote();
   }
 
+
+
+
   @override
   Widget build(BuildContext context) {
     double dynamicMediumHeight = MediaQuery.of(context).size.height * 0.25;
@@ -103,11 +107,7 @@ class _BillPageState extends State<BillPage> {
                         no: model.billVoteResult.no,
                         radius: 100,
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            bottom: 20.0, top: 20.0, left: 20.0),
-                        child: HouseIconsWidget(bill: widget.bill, size: 25),
-                      ),
+                      TopicsWidget(topics: widget.bill.topics),
                       Container(
                         width: dynamicLargeWidth,
                         decoration: BoxDecoration(
@@ -194,3 +194,5 @@ class _BillPageState extends State<BillPage> {
     );
   }
 }
+
+
