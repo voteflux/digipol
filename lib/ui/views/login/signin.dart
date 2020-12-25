@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_text_field/pin_code_text_field.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
-import 'package:voting_app/core/viewmodels/base_model.dart';
 import 'package:voting_app/core/viewmodels/user_model.dart';
 
 import '../base_view.dart';
@@ -16,10 +15,12 @@ class Signin extends StatelessWidget {
       onModelReady: (model) {},
       builder: (context, model, child) => MaterialApp(
         home: Scaffold(
-          //appBar: AppBar(
-          //backgroundColor: Color(0xff1c1f27),
-          //),
           backgroundColor: Color(0xff1c1f27),
+          appBar: AppBar(
+            //remove the tiny gap between appbar and body
+            elevation: 0,
+            backgroundColor: Color(0xff1c1f27),
+          ),
           body: Card(
             color: Color(0xff1c1f27),
             child: SingleChildScrollView(
@@ -45,7 +46,7 @@ class Signin extends StatelessWidget {
 
   Widget _logo() {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 40.0),
+      padding: EdgeInsets.symmetric(vertical: 30.0),
       child: Image(
           width: 90.0,
           height: 90.0,
@@ -170,7 +171,7 @@ class Signin extends StatelessWidget {
                   ),
                 )
               : CircularProgressIndicator(),
-          SizedBox(height: 150.0),
+          SizedBox(height: 130.0),
           FlatButton(
             onPressed: () {
               //Todo: redirect to signin page
