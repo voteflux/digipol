@@ -39,15 +39,15 @@ class TopicsWidget extends StatelessWidget {
 
   Icon _tagToIcon(String tag) {
     switch(tag) {
-      case "citizens": {return Icon(Icons.person);}
-      case "citizen": {return Icon(Icons.person);}
-      case "nature": {return Icon(Icons.grass);}
-      case "national development": {return Icon(Icons.biotech);}
-      case "national_development": {return Icon(Icons.biotech);}
-      case "borders": {return Icon(Icons.shield);}
-      case "economy": {return Icon(Icons.money);}
-      case "communications": {return Icon(Icons.smartphone);}
-      default: {return Icon(Icons.add);}
+      case "citizens": {return Icon(Icons.person, color: Color(0XffF6A6FE),);} // TODO abstract these colors - Kip
+      case "citizen": {return Icon(Icons.person, color: Color(0XffF6A6FE),);}
+      case "nature": {return Icon(Icons.grass, color: Color(0XffBDFDC1),);}
+      case "national development": {return Icon(Icons.biotech, color: Color(0XffFFABAB),);}
+      case "national_development": {return Icon(Icons.biotech, color: Color(0XffFFABAB),);}
+      case "borders": {return Icon(Icons.shield, color: Color(0Xff49F2DD),);}
+      case "economy": {return Icon(Icons.money, color: Color(0XffFFF58B),);}
+      case "communications": {return Icon(Icons.smartphone, color: Color(0XffB28DFF),);}
+      default: {return Icon(Icons.add, color: Color(0XffB28DFF),);}
     }
   }
 
