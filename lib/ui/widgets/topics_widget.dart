@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voting_app/core/funcs/convert_topic.dart';
 
 class TopicsWidget extends StatelessWidget {
   final List<String> topics;
@@ -27,7 +28,7 @@ class TopicsWidget extends StatelessWidget {
             child: Row(
               children: [
                 _tagToIcon(item),
-                Text(_tagToTopic(item))
+                Text(item)
               ],
             )
           ),
@@ -39,31 +40,14 @@ class TopicsWidget extends StatelessWidget {
 
   Icon _tagToIcon(String tag) {
     switch(tag) {
-      case "citizens": {return Icon(Icons.person, color: Color(0XffF6A6FE),);} // TODO abstract these colors - Kip
-      case "citizen": {return Icon(Icons.person, color: Color(0XffF6A6FE),);}
-      case "nature": {return Icon(Icons.grass, color: Color(0XffBDFDC1),);}
-      case "national development": {return Icon(Icons.biotech, color: Color(0XffFFABAB),);}
-      case "national_development": {return Icon(Icons.biotech, color: Color(0XffFFABAB),);}
-      case "borders": {return Icon(Icons.shield, color: Color(0Xff49F2DD),);}
-      case "economy": {return Icon(Icons.money, color: Color(0XffFFF58B),);}
-      case "communications": {return Icon(Icons.smartphone, color: Color(0XffB28DFF),);}
-      default: {return Icon(Icons.add, color: Color(0XffB28DFF),);}
+      case HEALTH_EDU_SOCIAL: {return Icon(Icons.person, color: Color(0XffF6A6FE),);} // TODO abstract these colors - Kip
+      case ENV_AG: {return Icon(Icons.grass, color: Color(0XffBDFDC1),);}
+      case SCI_TRANS_INF: {return Icon(Icons.biotech, color: Color(0XffFFABAB),);}
+      case SECURITY_FOREIGN: {return Icon(Icons.shield, color: Color(0Xff49F2DD),);}
+      case ECONOMY_FINANCE: {return Icon(Icons.money, color: Color(0XffFFF58B),);}
+      case MEDIA_COMS: {return Icon(Icons.smartphone, color: Color(0XffB28DFF),);}
+      default: {return Icon(Icons.map);}
     }
-  }
-
-  String _tagToTopic(String tag) {
-    switch(tag) {
-      case "citizens": {return "Health, Education & Social Issues";}
-      case "citizen": {return "Health, Education & Social Issues";}
-      case "nature": {return "Environment & Agriculture";}
-      case "national development": {return "Science, Transport and Infrastructure";}
-      case "national_development": {return "Science, Transport and Infrastructure";}
-      case "borders": {return "Security & Foreign Affairs";}
-      case "economy": {return "Economy & Finance";}
-      case "communications": {return "Media & Communication";}
-      default: {return "Australia";}
-    }
-
   }
 
 
