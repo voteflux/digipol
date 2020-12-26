@@ -23,8 +23,9 @@ class TopicsWidget extends StatelessWidget {
             margin: const EdgeInsets.all(3.0),
             padding: const EdgeInsets.all(3.0),
             decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey) // TODO need to use theme color - Kip
-        ),
+              borderRadius: BorderRadius.circular(10.0),
+//              border: Border.all(color: Colors.grey,) // TODO need to use theme color - Kip
+            ),
             child: Row(
               children: [
                 _tagToIcon(item),
