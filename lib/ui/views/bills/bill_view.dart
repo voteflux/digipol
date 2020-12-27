@@ -13,6 +13,7 @@ import 'package:voting_app/ui/views/bills/pdf_viewer.dart';
 import 'package:voting_app/ui/widgets/house_icon_widget.dart';
 import 'package:voting_app/ui/widgets/pie_chart.dart';
 import 'package:voting_app/ui/widgets/topics_widget.dart';
+import 'package:voting_app/ui/widgets/user_voted_status_widget.dart';
 import 'package:voting_app/ui/widgets/voting_status_widget.dart';
 import 'package:voting_app/ui/widgets/voting_widgets.dart';
 
@@ -75,9 +76,6 @@ class _BillPageState extends State<BillPage> {
     getVote();
   }
 
-
-
-
   @override
   Widget build(BuildContext context) {
     double dynamicMediumHeight = MediaQuery.of(context).size.height * 0.25;
@@ -89,47 +87,65 @@ class _BillPageState extends State<BillPage> {
       onModelReady: (model) => model.getBill(widget.bill.id),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: appColors.text),
+          iconTheme:
+              IconThemeData(color: Theme.of(context).colorScheme.secondary),
+          backgroundColor: Theme.of(context).backgroundColor,
           elevation: 0,
-          title: Text('Vote on Bill', style: appTextStyles.standard),
+          title: Text('Vote On Bill',
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.secondary,
+                  fontSize: 14)),
         ),
         body: model.state == ViewState.Busy
             ? Center(child: CircularProgressIndicator())
             : Center(
                 child: Container(
-                  width: dynamicLargeWidth,
+                  margin: EdgeInsets.all(14.0),
                   child: ListView(
                     children: <Widget>[
-                      PieWidget(
-                        yes: model.billVoteResult.yes,
-                        showValues: true,
-                        sectionSpace: 10,
-                        no: model.billVoteResult.no,
-                        radius: 100,
+                      Card(
+                        margin: EdgeInsets.all(4.0),
+                        child: Align(
+                          child: Padding(
+                            padding: EdgeInsets.all(20.0),
+                            child: Text(widget.bill.shortTitle,
+                                style: Theme.of(context).textTheme.headline5),
+                          ),
+                          alignment: Alignment.centerLeft,
+                        ),
                       ),
-                      TopicsWidget(topics: widget.bill.topics),
                       Container(
-                        width: dynamicLargeWidth,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.surface,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(25.0),
-                                topRight: Radius.circular(25.0))),
-                        padding: EdgeInsets.all(appSizes.standardPadding),
+                        padding: EdgeInsets.only(top: 14.0, bottom: 14.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            VotingStatusWidget(
+                                bill: widget.bill,
+                                voted: _vote != null ? true : false,
+                                size: 20),
+                            _vote != null
+                                ? UserVotedStatus(
+                                    bill: widget.bill,
+                                    voted: _vote != null ? true : false,
+                                    size: 20)
+                                : Padding(
+                                    padding:
+                                        EdgeInsets.only(bottom: 10, top: 10),
+                                  ),
+                          ],
+                        ),
+                      ),
+                      Container(
                         child: Column(
                           children: <Widget>[
                             Align(
-                              child: VotingStatusWidget(
-                                  bill: widget.bill, voted: false, size: 20),
-                              alignment: Alignment.centerLeft,
-                            ),
-                            Align(
                               child: Padding(
                                 padding:
-                                    EdgeInsets.only(bottom: 20.0, top: 10.0),
-                                child: Text(widget.bill.shortTitle,
+                                    EdgeInsets.only(bottom: 10.0, top: 10.0),
+                                child: Text('About this bill',
                                     style:
-                                        Theme.of(context).textTheme.headline5),
+                                        Theme.of(context).textTheme.headline6),
                               ),
                               alignment: Alignment.centerLeft,
                             ),
@@ -140,10 +156,33 @@ class _BillPageState extends State<BillPage> {
                                 style: Theme.of(context).textTheme.bodyText2,
                               ),
                             ),
-                            Divider(),
+                            Align(
+                              child: Padding(
+                                padding:
+                                    EdgeInsets.only(bottom: 10.0, top: 20.0),
+                                child: Text('Tags',
+                                    style:
+                                        Theme.of(context).textTheme.headline6),
+                              ),
+                              alignment: Alignment.centerLeft,
+                            ),
+                            TopicsWidget(topics: widget.bill.topics),
+                            Align(
+                              child: Padding(
+                                padding:
+                                    EdgeInsets.only(bottom: 10.0, top: 20.0),
+                                child: Text('More info',
+                                    style:
+                                        Theme.of(context).textTheme.headline6),
+                              ),
+                              alignment: Alignment.centerLeft,
+                            ),
                             RaisedButton(
-                              padding: EdgeInsets.all(20.0),
-                              child: Text("View Bill Text"),
+                              padding: EdgeInsets.only(
+                                  bottom: 8.0,
+                                  top: 8.0,
+                                  left: 10.0,
+                                  right: 10.0),
                               onPressed: () {
                                 Navigator.push(
                                   context,
@@ -152,17 +191,37 @@ class _BillPageState extends State<BillPage> {
                                           pdfUrl: widget.bill.textLinkPdf)),
                                 );
                               },
+                              color: Color(0xff898989),
+                              child: Padding(
+                                padding: EdgeInsets.all(6.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text(
+                                      'View Bill Text',
+                                    ),
+                                    Icon(
+                                      Icons.arrow_right_alt,
+                                      color: Colors.white,
+                                    )
+                                  ],
+                                ),
+                              ),
                             ),
                             Container(
-                              padding: EdgeInsets.all(20.0),
+                              padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
                               child: Text(
                                 "Text of the bill as introduced into the Parliament",
                                 style: Theme.of(context).textTheme.bodyText2,
                               ),
                             ),
                             RaisedButton(
-                              child: Text("View Explanatory Memoranda"),
-                              padding: EdgeInsets.all(20.0),
+                              padding: EdgeInsets.only(
+                                  bottom: 8.0,
+                                  top: 8.0,
+                                  left: 10.0,
+                                  right: 10.0),
                               onPressed: () {
                                 Navigator.push(
                                   context,
@@ -171,9 +230,26 @@ class _BillPageState extends State<BillPage> {
                                           pdfUrl: widget.bill.emLinkPdf)),
                                 );
                               },
+                              color: Color(0xff898989),
+                              child: Padding(
+                                padding: EdgeInsets.all(6.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text(
+                                      'View Explanatory Memoranda',
+                                    ),
+                                    Icon(
+                                      Icons.arrow_right_alt,
+                                      color: Colors.white,
+                                    )
+                                  ],
+                                ),
+                              ),
                             ),
                             Container(
-                              padding: EdgeInsets.all(20.0),
+                              padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
                               child: Text(
                                 "Accompanies and provides an explanation of the content of the introduced version (first reading) of the bill.",
                                 style: Theme.of(context).textTheme.bodyText2,
@@ -194,5 +270,3 @@ class _BillPageState extends State<BillPage> {
     );
   }
 }
-
-

@@ -34,23 +34,28 @@ class _VoteWidgetState extends State<VoteWidget> {
       onModelReady: (model) {},
       builder: (context, model, child) => Center(
         child: Container(
-          width: appSizes.largeWidth,
           child: Card(
-            margin: EdgeInsets.all(30.0),
             color: Theme.of(context).scaffoldBackgroundColor,
             child: (_futureSuccess == null)
                 ? Column(children: <Widget>[
                     Container(
-                      padding: EdgeInsets.all(appSizes.standardPadding),
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        'VOTE',
+                        style: Theme.of(context).textTheme.headline5,
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(8.0),
                       child: Text(
                         widget.data.shortTitle,
-                        style: Theme.of(context).textTheme.headline5,
+                        style: Theme.of(context).textTheme.headline6,
                       ),
                     ),
                     widget.vote == null
                         ? Divider()
                         : Container(
-                            padding: EdgeInsets.all(appSizes.standardPadding),
+                            padding: EdgeInsets.all(8.0),
                             child: Text(
                                 "You voted " +
                                     (widget.vote ??
@@ -62,26 +67,34 @@ class _VoteWidgetState extends State<VoteWidget> {
                                     ". You can change your vote below.",
                                 style: Theme.of(context).textTheme.headline6)),
                     Container(
-                      padding: EdgeInsets.all(appSizes.standardPadding),
+                      padding: EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           RaisedButton(
+                              padding: EdgeInsets.only(
+                                  bottom: 8.0,
+                                  top: 8.0,
+                                  left: 10.0,
+                                  right: 10.0),
                               onPressed: () {
                                 areYouSure("yes", model, widget.data.id,
                                     widget.data.ballotSpecHash);
                               },
-                              color: Color(0xff0066CC),
-                              child: Text("Vote Yes",
-                                  style: appTextStyles.yesnobutton)),
+                              color: Theme.of(context).colorScheme.primary,
+                              child: Text("Vote YES")),
                           RaisedButton(
+                              padding: EdgeInsets.only(
+                                  bottom: 8.0,
+                                  top: 8.0,
+                                  left: 10.0,
+                                  right: 10.0),
                               onPressed: () {
                                 areYouSure("no", model, widget.data.id,
                                     widget.data.ballotSpecHash);
                               },
-                              color: Color(0xffFFB1AC),
-                              child: Text("Vote No",
-                                  style: appTextStyles.yesnobutton)),
+                              color: Theme.of(context).colorScheme.secondary,
+                              child: Text("Vote NO")),
                         ],
                       ),
                     ),
