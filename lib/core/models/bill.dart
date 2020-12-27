@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
+import 'package:voting_app/core/funcs/convert_topic.dart';
 
 part 'bill.g.dart';
 
@@ -76,9 +77,11 @@ class Bill {
 
   factory Bill.fromJson(Map<String, dynamic> json) {
     var data = json['data'] as Map<String, dynamic>;
-    var topics = ((data['topics'] as List<dynamic>) ?? <dynamic>[])
+    var perTopics = ((data['topics'] as List<dynamic>) ?? <dynamic>[])
         .map((dynamic s) => s as String)
         .toList();
+    var preTopicsList = List<String>.from(perTopics);
+    List<String> topics = preTopicsList.map((e) => topicConverter(e)).toList();
     return new Bill(
       id: json['_id'] as String,
       chamber: data['chamber'] as String,
@@ -99,7 +102,7 @@ class Bill {
       emLinkHtml: data['em_link_html'] as String,
       portfolio: data['portfolio'] as String,
       startDate: data['start_date'] as String,
-      topics: List<String>.from(topics),
+      topics: topics,
       yes: data['yes'] as int,
       no: data['no'] as int,
     );

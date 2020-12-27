@@ -46,20 +46,7 @@ class _BillListItemState extends State<BillListItem> {
     getVote();
   }
 
-  List<Widget> _buildTopicList(List<String> billTopics, BuildContext context) {
-    List<Widget> topics = new List();
-    billTopics.forEach((item) {
-      topics.add(
-        Padding(
-          padding: EdgeInsets.only(right: 10),
-          child: Chip(
-              label: Text(item),
-              labelStyle: Theme.of(context).textTheme.caption),
-        ),
-      );
-    });
-    return topics;
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -97,9 +84,9 @@ class _BillListItemState extends State<BillListItem> {
                           voted: _vote != null ? true : false,
                           size: 20),
                       Text(widget.billData.chamber,
-                          style: Theme.of(context).textTheme.caption),
+                          style: Theme.of(context).textTheme.bodyText2),
                       Text(widget.billData.startDate,
-                          style: Theme.of(context).textTheme.caption),
+                          style: Theme.of(context).textTheme.bodyText2),
                     ],
                   ),
                 ),
@@ -129,19 +116,6 @@ class _BillListItemState extends State<BillListItem> {
                     )
                   ],
                 ),
-                widget.billData.topics != null
-                    ? Container(
-                        margin: EdgeInsets.symmetric(vertical: 5.0),
-                        height: 30.0,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children:
-                              _buildTopicList(widget.billData.topics, context),
-                        ),
-                      )
-                    : Padding(
-                        padding: EdgeInsets.only(bottom: 0, top: 0),
-                      ),
               ],
             ),
           ),
