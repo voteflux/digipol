@@ -47,20 +47,7 @@ class _BillListItemState extends State<BillListItem> {
     getVote();
   }
 
-  List<Widget> _buildTopicList(List<String> billTopics, BuildContext context) {
-    List<Widget> topics = new List();
-    billTopics.forEach((item) {
-      topics.add(
-        Padding(
-          padding: EdgeInsets.only(right: 10),
-          child: Chip(
-              label: Text(item),
-              labelStyle: Theme.of(context).textTheme.caption),
-        ),
-      );
-    });
-    return topics;
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -88,6 +75,24 @@ class _BillListItemState extends State<BillListItem> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
+<<<<<<< HEAD
+=======
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      VotingStatusWidget(
+                          bill: widget.billData,
+                          voted: _vote != null ? true : false,
+                          size: 20),
+                      Text(widget.billData.chamber,
+                          style: Theme.of(context).textTheme.bodyText2),
+                      Text(widget.billData.startDate,
+                          style: Theme.of(context).textTheme.bodyText2),
+                    ],
+                  ),
+                ),
+>>>>>>> d98fd8ff94ef717f252a4470dedcc3c5a008deb6
                 Padding(
                   padding: EdgeInsets.only(bottom: 10, top: 10),
                   child: Text(widget.billData.shortTitle,
@@ -107,6 +112,7 @@ class _BillListItemState extends State<BillListItem> {
                         size: 20),
                   ],
                 ),
+<<<<<<< HEAD
                 // Row(
                 //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 //   crossAxisAlignment: CrossAxisAlignment.center,
@@ -141,6 +147,8 @@ class _BillListItemState extends State<BillListItem> {
                     : Padding(
                         padding: EdgeInsets.only(bottom: 0, top: 0),
                       ),
+=======
+>>>>>>> d98fd8ff94ef717f252a4470dedcc3c5a008deb6
               ],
             ),
           ),
