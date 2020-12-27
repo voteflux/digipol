@@ -84,7 +84,7 @@ class AppTheme {
   );
 
   static final ThemeData darkTheme = ThemeData(
-    scaffoldBackgroundColor: Color(0xFF34393e),
+    scaffoldBackgroundColor: Color(0xFF1c1f27),
     appBarTheme: AppBarTheme(
       color: Color(0xFF34393e),
       iconTheme: IconThemeData(
@@ -98,7 +98,7 @@ class AppTheme {
         textTheme: ButtonTextTheme.primary),
     inputDecorationTheme:
         InputDecorationTheme(hintStyle: TextStyle(color: Colors.white)),
-    backgroundColor: Color(0xFF202125),
+    backgroundColor: Color(0xFF1c1f27),
     colorScheme: ColorScheme.light(
         primary: Color(0xFFE0E6E9),
         onPrimary: Colors.white,
@@ -106,7 +106,7 @@ class AppTheme {
         secondary: Colors.red,
         surface: Color(0xFF272a2f)),
     cardTheme: CardTheme(
-        color: Color(0xFF272a2f), elevation: 3.0, margin: EdgeInsets.all(20.0)),
+        color: Color(0xFF373841), elevation: 3.0, margin: EdgeInsets.all(20.0)),
     iconTheme: IconThemeData(
       color: Colors.white,
     ),
