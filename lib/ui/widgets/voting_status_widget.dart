@@ -56,10 +56,8 @@ class VotingStatusWidget extends StatelessWidget {
         children: <Widget>[
           Text(
             statsMsg.value2, // message
-            style: TextStyle(
-                fontSize: this.size * 4 / 10,
-                fontWeight: FontWeight.bold,
-                color: statsMsg.value1),
+            style:
+                TextStyle(fontSize: this.size * 6 / 10, color: statsMsg.value1),
           ),
         ],
       ),

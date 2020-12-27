@@ -7,6 +7,7 @@ import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/bills/bill_view.dart';
 import 'package:voting_app/ui/widgets/house_icon_widget.dart';
 import 'package:voting_app/ui/widgets/pie_chart.dart';
+import 'package:voting_app/ui/widgets/topics_widget.dart';
 import 'package:voting_app/ui/widgets/voting_status_widget.dart';
 import 'package:voting_app/ui/widgets/user_voted_status_widget.dart';
 
@@ -47,8 +48,6 @@ class _BillListItemState extends State<BillListItem> {
     getVote();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -75,29 +74,12 @@ class _BillListItemState extends State<BillListItem> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-<<<<<<< HEAD
-=======
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      VotingStatusWidget(
-                          bill: widget.billData,
-                          voted: _vote != null ? true : false,
-                          size: 20),
-                      Text(widget.billData.chamber,
-                          style: Theme.of(context).textTheme.bodyText2),
-                      Text(widget.billData.startDate,
-                          style: Theme.of(context).textTheme.bodyText2),
-                    ],
-                  ),
-                ),
->>>>>>> d98fd8ff94ef717f252a4470dedcc3c5a008deb6
                 Padding(
                   padding: EdgeInsets.only(bottom: 10, top: 10),
                   child: Text(widget.billData.shortTitle,
                       style: Theme.of(context).textTheme.headline6),
                 ),
+                TopicsWidget(topics: widget.billData.topics),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -106,13 +88,16 @@ class _BillListItemState extends State<BillListItem> {
                         bill: widget.billData,
                         voted: _vote != null ? true : false,
                         size: 20),
-                    UserVotedStatus(
-                        bill: widget.billData,
-                        voted: _vote != null ? true : false,
-                        size: 20),
+                    _vote != null
+                        ? UserVotedStatus(
+                            bill: widget.billData,
+                            voted: _vote != null ? true : false,
+                            size: 20)
+                        : Padding(
+                            padding: EdgeInsets.only(bottom: 10, top: 10),
+                          ),
                   ],
                 ),
-<<<<<<< HEAD
                 // Row(
                 //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 //   crossAxisAlignment: CrossAxisAlignment.center,
@@ -134,21 +119,20 @@ class _BillListItemState extends State<BillListItem> {
                 //     )
                 //   ],
                 // ),
-                widget.billData.topics != null
-                    ? Container(
-                        margin: EdgeInsets.symmetric(vertical: 5.0),
-                        height: 30.0,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children:
-                              _buildTopicList(widget.billData.topics, context),
-                        ),
-                      )
-                    : Padding(
-                        padding: EdgeInsets.only(bottom: 0, top: 0),
-                      ),
-=======
->>>>>>> d98fd8ff94ef717f252a4470dedcc3c5a008deb6
+
+                // widget.billData.topics != null
+                //     ? Container(
+                //         margin: EdgeInsets.symmetric(vertical: 5.0),
+                //         height: 30.0,
+                //         child: ListView(
+                //           scrollDirection: Axis.horizontal,
+                //           children:
+                //               ,
+                //         ),
+                //       )
+                //     : Padding(
+                //         padding: EdgeInsets.only(bottom: 0, top: 0),
+                //       ),
               ],
             ),
           ),
