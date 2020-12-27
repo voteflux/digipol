@@ -8,6 +8,7 @@ import 'package:voting_app/ui/views/bills/bill_view.dart';
 import 'package:voting_app/ui/widgets/house_icon_widget.dart';
 import 'package:voting_app/ui/widgets/pie_chart.dart';
 import 'package:voting_app/ui/widgets/voting_status_widget.dart';
+import 'package:voting_app/ui/widgets/user_voted_status_widget.dart';
 
 class BillListItem extends StatefulWidget {
   @override
@@ -82,27 +83,11 @@ class _BillListItemState extends State<BillListItem> {
             );
           },
           child: Container(
-            padding: EdgeInsets.all(27.0),
-            width: appSizes.mediumWidth,
+            padding: EdgeInsets.all(14.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      VotingStatusWidget(
-                          bill: widget.billData,
-                          voted: _vote != null ? true : false,
-                          size: 20),
-                      Text(widget.billData.chamber,
-                          style: Theme.of(context).textTheme.caption),
-                      Text(widget.billData.startDate,
-                          style: Theme.of(context).textTheme.caption),
-                    ],
-                  ),
-                ),
                 Padding(
                   padding: EdgeInsets.only(bottom: 10, top: 10),
                   child: Text(widget.billData.shortTitle,
@@ -112,23 +97,37 @@ class _BillListItemState extends State<BillListItem> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    HouseIconsWidget(
-                      bill: widget.billData,
-                      size: 20,
-                    ),
-                    SizedBox(
-                      width: 50.0,
-                      height: 50.0,
-                      child: PieWidget(
-                        yes: widget.billData.yes,
-                        showValues: false,
-                        sectionSpace: 0,
-                        no: widget.billData.no,
-                        radius: 35,
-                      ),
-                    )
+                    VotingStatusWidget(
+                        bill: widget.billData,
+                        voted: _vote != null ? true : false,
+                        size: 20),
+                    UserVotedStatus(
+                        bill: widget.billData,
+                        voted: _vote != null ? true : false,
+                        size: 20),
                   ],
                 ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: <Widget>[
+                //     HouseIconsWidget(
+                //       bill: widget.billData,
+                //       size: 20,
+                //     ),
+                //     SizedBox(
+                //       width: 50.0,
+                //       height: 50.0,
+                //       child: PieWidget(
+                //         yes: widget.billData.yes,
+                //         showValues: false,
+                //         sectionSpace: 0,
+                //         no: widget.billData.no,
+                //         radius: 35,
+                //       ),
+                //     )
+                //   ],
+                // ),
                 widget.billData.topics != null
                     ? Container(
                         margin: EdgeInsets.symmetric(vertical: 5.0),

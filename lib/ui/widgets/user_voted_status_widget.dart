@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/ui/styles.dart';
 
-class VotingStatusWidget extends StatelessWidget {
+class UserVotedStatus extends StatelessWidget {
   final Bill bill;
   final bool voted;
   final double size;
@@ -16,7 +16,7 @@ class VotingStatusWidget extends StatelessWidget {
   ///
   /// `child:  VotingStatusWidget(issuesMap: issuesMap,voted: true,size: 20),`
 
-  VotingStatusWidget({
+  UserVotedStatus({
     Key /*?*/ key,
     @required this.bill,
     @required this.voted,
@@ -30,20 +30,11 @@ class VotingStatusWidget extends StatelessWidget {
     String s = "Voting closed";
     Color c = appColors.voteClosed;
     var i = Icons.adjust;
-    if (bill.chamber == "House") {
-      if (bill.passedSenate == "") {
-        s = "Voting open";
-        c = Theme.of(context).colorScheme.primary;
-        i = Icons.add_circle_outline;
-      }
-    } else {
-      if (bill.passedHouse == "") {
-        s = "Voting open";
-        c = Theme.of(context).colorScheme.primary;
-        i = Icons.add_circle_outline;
-      }
+    if (voted) {
+      s = "Voted";
+      c = Theme.of(context).colorScheme.primary;
+      i = Icons.check_circle_outline;
     }
-
     // [colour, message, icon]
     return Tuple3(c, s, i);
   }
@@ -60,6 +51,11 @@ class VotingStatusWidget extends StatelessWidget {
                 fontSize: this.size * 4 / 10,
                 fontWeight: FontWeight.bold,
                 color: statsMsg.value1),
+          ),
+          Icon(
+            statsMsg.value3, // icon
+            color: statsMsg.value1, //color
+            size: this.size, // size
           ),
         ],
       ),

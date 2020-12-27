@@ -100,13 +100,15 @@ class AppTheme {
         InputDecorationTheme(hintStyle: TextStyle(color: Colors.white)),
     backgroundColor: Color(0xFF1c1f27),
     colorScheme: ColorScheme.light(
-        primary: Color(0xFFE0E6E9),
+        primary: Color(0xFF49f2dd),
         onPrimary: Colors.white,
         primaryVariant: Color(0xff354355),
-        secondary: Colors.red,
+        secondary: Color(0xFFb28dff),
         surface: Color(0xFF272a2f)),
     cardTheme: CardTheme(
-        color: Color(0xFF373841), elevation: 3.0, margin: EdgeInsets.all(20.0)),
+        color: Color(0xFF373841),
+        elevation: 10.0,
+        margin: EdgeInsets.all(20.0)),
     iconTheme: IconThemeData(
       color: Colors.white,
     ),
@@ -128,7 +130,7 @@ class AppTheme {
       headline6: TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.bold,
-        fontSize: 19.0,
+        fontSize: 16.0,
       ),
       subtitle2: TextStyle(
         color: darkAppColors.text,
