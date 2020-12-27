@@ -16,6 +16,7 @@ import 'package:voting_app/ui/widgets/topics_widget.dart';
 import 'package:voting_app/ui/widgets/user_voted_status_widget.dart';
 import 'package:voting_app/ui/widgets/voting_status_widget.dart';
 import 'package:voting_app/ui/widgets/voting_widgets.dart';
+import 'package:voting_app/ui/widgets/watch_bill_widget.dart';
 
 class BillPage extends StatefulWidget {
   /* Not sure how we'd instantiate this. -MK
@@ -88,12 +89,12 @@ class _BillPageState extends State<BillPage> {
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           iconTheme:
-              IconThemeData(color: Theme.of(context).colorScheme.secondary),
+              IconThemeData(color: Theme.of(context).colorScheme.onSurface),
           backgroundColor: Theme.of(context).backgroundColor,
           elevation: 0,
-          title: Text('Vote On Bill',
+          title: Text('Back',
               style: TextStyle(
-                  color: Theme.of(context).colorScheme.secondary,
+                  color: Theme.of(context).colorScheme.onSurface,
                   fontSize: 14)),
         ),
         body: model.state == ViewState.Busy
@@ -120,19 +121,15 @@ class _BillPageState extends State<BillPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
+                            WatchBillWidget(),
                             VotingStatusWidget(
                                 bill: widget.bill,
                                 voted: _vote != null ? true : false,
                                 size: 20),
-                            _vote != null
-                                ? UserVotedStatus(
-                                    bill: widget.bill,
-                                    voted: _vote != null ? true : false,
-                                    size: 20)
-                                : Padding(
-                                    padding:
-                                        EdgeInsets.only(bottom: 10, top: 10),
-                                  ),
+                            UserVotedStatus(
+                                bill: widget.bill,
+                                voted: _vote != null ? true : false,
+                                size: 20)
                           ],
                         ),
                       ),

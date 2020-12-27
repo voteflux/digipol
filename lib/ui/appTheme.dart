@@ -86,6 +86,7 @@ class AppTheme {
   static final ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: Color(0xFF1c1f27),
     primaryColor: Color(0xFF49f2dd),
+    accentColor: Color(0xFF49f2dd),
     appBarTheme: AppBarTheme(
       color: Color(0xFF34393e),
       iconTheme: IconThemeData(
@@ -105,6 +106,7 @@ class AppTheme {
         onPrimary: Colors.white,
         primaryVariant: Color(0xff354355),
         secondary: Color(0xFFb28dff),
+        onSurface: Colors.grey[400],
         surface: Color(0xFF272a2f)),
     cardTheme: CardTheme(
         color: Color(0xFF373841),

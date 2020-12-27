@@ -165,6 +165,7 @@ class _VoteWidgetState extends State<VoteWidget> {
               onPressed: () {
                 Navigator.of(context).pop();
                 setState(() {
+                  print(vote);
                   _futureSuccess = model.postVote(
                     BillVote(
                         // TODO: update to real data

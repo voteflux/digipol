@@ -27,7 +27,7 @@ class UserVotedStatus extends StatelessWidget {
   ///
   /// Returns a list: [colour, message, icon]
   Tuple3<Color, String, IconData> statusMessage(BuildContext context) {
-    String s = "Voting closed";
+    String s = "Not voted";
     Color c = appColors.voteClosed;
     var i = Icons.adjust;
     if (voted) {
@@ -48,15 +48,16 @@ class UserVotedStatus extends StatelessWidget {
           Text(
             statsMsg.value2, // message
             style: TextStyle(
-                fontSize: this.size * 4 / 10,
-                fontWeight: FontWeight.bold,
-                color: statsMsg.value1),
+                fontSize: 12, color: Theme.of(context).colorScheme.secondary),
           ),
-          Icon(
-            statsMsg.value3, // icon
-            color: statsMsg.value1, //color
-            size: this.size, // size
-          ),
+          Padding(
+            padding: EdgeInsets.only(left: 4),
+            child: Icon(
+              statsMsg.value3, // icon
+              color: Theme.of(context).colorScheme.secondary, //color
+              size: 16, // size
+            ),
+          )
         ],
       ),
     );
