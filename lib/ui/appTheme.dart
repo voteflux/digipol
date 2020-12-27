@@ -85,6 +85,7 @@ class AppTheme {
 
   static final ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: Color(0xFF1c1f27),
+    primaryColor: Color(0xFF49f2dd),
     appBarTheme: AppBarTheme(
       color: Color(0xFF34393e),
       iconTheme: IconThemeData(
@@ -129,7 +130,6 @@ class AppTheme {
       ),
       headline6: TextStyle(
         color: Colors.white,
-        fontWeight: FontWeight.bold,
         fontSize: 16.0,
       ),
       subtitle2: TextStyle(
