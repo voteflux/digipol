@@ -33,7 +33,7 @@ class Bill {
   @HiveField(12)
   String sponsor;
   @HiveField(13)
-  String textLinkDoc;
+  String textLinkHtml;
   @HiveField(14)
   String textLinkPdf;
   @HiveField(15)
@@ -65,7 +65,7 @@ class Bill {
       @required this.url,
       @required this.summary,
       @required this.sponsor,
-      @required this.textLinkDoc,
+      @required this.textLinkHtml,
       @required this.textLinkPdf,
       @required this.emLinkPdf,
       @required this.emLinkHtml,
@@ -96,7 +96,7 @@ class Bill {
       url: data['url'] as String,
       summary: data['summary'] as String,
       sponsor: json['sponsor'] as String,
-      textLinkDoc: data['text_link_doc'] as String,
+      textLinkHtml: data['text_link_html'] as String,
       textLinkPdf: data['text_link_pdf'] as String,
       emLinkPdf: data['em_link_pdf'] as String,
       emLinkHtml: data['em_link_html'] as String,

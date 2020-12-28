@@ -17,6 +17,7 @@ import 'package:voting_app/ui/widgets/user_voted_status_widget.dart';
 import 'package:voting_app/ui/widgets/voting_status_widget.dart';
 import 'package:voting_app/ui/widgets/voting_widgets.dart';
 import 'package:voting_app/ui/widgets/watch_bill_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BillPage extends StatefulWidget {
   /* Not sure how we'd instantiate this. -MK
@@ -181,12 +182,14 @@ class _BillPageState extends State<BillPage> {
                                   left: 10.0,
                                   right: 10.0),
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute<PdfPage>(
-                                      builder: (context) => PdfPage(
-                                          pdfUrl: widget.bill.textLinkPdf)),
-                                );
+                                launch(widget.bill.textLinkHtml);
+
+//                                Navigator.push(
+//                                  context,
+//                                  MaterialPageRoute<PdfPage>(
+//                                      builder: (context) => PdfPage(
+//                                          pdfUrl: widget.bill.textLinkPdf)),
+//                                );
                               },
                               color: Color(0xff898989),
                               child: Padding(
@@ -220,12 +223,13 @@ class _BillPageState extends State<BillPage> {
                                   left: 10.0,
                                   right: 10.0),
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute<PdfPage>(
-                                      builder: (context) => PdfPage(
-                                          pdfUrl: widget.bill.emLinkPdf)),
-                                );
+                                  launch(widget.bill.emLinkHtml);
+//                                Navigator.push(
+//                                  context,
+//                                  MaterialPageRoute<PdfPage>(
+//                                      builder: (context) => PdfPage(
+//                                          pdfUrl: widget.bill.emLinkPdf)),
+//                                );
                               },
                               color: Color(0xff898989),
                               child: Padding(

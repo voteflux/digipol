@@ -30,7 +30,7 @@ class BillAdapter extends TypeAdapter<Bill> {
       url: fields[10] as String,
       summary: fields[11] as String,
       sponsor: fields[12] as String,
-      textLinkDoc: fields[13] as String,
+      textLinkHtml: fields[13] as String,
       textLinkPdf: fields[14] as String,
       emLinkPdf: fields[15] as String,
       emLinkHtml: fields[16] as String,
@@ -73,7 +73,7 @@ class BillAdapter extends TypeAdapter<Bill> {
       ..writeByte(12)
       ..write(obj.sponsor)
       ..writeByte(13)
-      ..write(obj.textLinkDoc)
+      ..write(obj.textLinkHtml)
       ..writeByte(14)
       ..write(obj.textLinkPdf)
       ..writeByte(15)
