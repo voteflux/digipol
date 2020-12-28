@@ -161,7 +161,7 @@ class Signin extends StatelessWidget {
                       debugPrint(_userName.text);
                       debugPrint(_pinCode.text);
                       //Todo: register the user
-                      await model.create(_userName.text);
+                      //await model.create(_userName.text);
                       await Future.delayed(Duration(seconds: 2), () {});
                     }
 
