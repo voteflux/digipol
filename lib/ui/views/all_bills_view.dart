@@ -40,6 +40,8 @@ class _AllBillsPageState extends State<AllBillsPage> {
                           SliverSafeArea(
                             top: false,
                             sliver: SliverAppBar(
+                              backgroundColor:
+                                  Theme.of(context).backgroundColor,
                               automaticallyImplyLeading: false,
                               floating: true,
                               pinned: false,
@@ -48,42 +50,50 @@ class _AllBillsPageState extends State<AllBillsPage> {
                               bottom: PreferredSize(
                                 preferredSize: Size.fromHeight(50.0),
                                 child: Row(
-                                  // mainAxisSize: MainAxisSize.max,
-                                  // mainAxisAlignment:
-                                  //     MainAxisAlignment.spaceBetween,
-                                  // crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: <Widget>[
-                                    ButtonBar(
-                                      // alignment: MainAxisAlignment.spaceAround,
-                                      // mainAxisSize: MainAxisSize.max,
-                                      children: <Widget>[
-                                        DropdownButton<String>(
-                                          value: dropdownValue,
-                                          underline: SizedBox.shrink(),
-                                          icon: Icon(Icons.expand_more),
-                                          iconSize: 24,
-                                          elevation: 16,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: 12),
-                                          onChanged: (String newValue) {
-                                            setState(() {
-                                              dropdownValue = newValue;
-                                            });
-                                          },
-                                          items: <String>[
-                                            'Newest',
-                                            'Oldest',
-                                            'A-Z'
-                                          ].map<DropdownMenuItem<String>>(
-                                              (String value) {
-                                            return DropdownMenuItem<String>(
-                                              value: value,
-                                              child: Text(value),
-                                            );
-                                          }).toList(),
-                                        ),
-                                        RaisedButton.icon(
+                                    Expanded(
+                                        child: Padding(
+                                      padding:
+                                          EdgeInsets.only(right: 4, left: 4),
+                                      child: DropdownButton<String>(
+                                        value: dropdownValue,
+                                        dropdownColor:
+                                            Theme.of(context).backgroundColor,
+                                        underline: SizedBox.shrink(),
+                                        icon: Icon(Icons.expand_more),
+                                        iconSize: 24,
+                                        elevation: 16,
+                                        style: TextStyle(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary,
+                                            fontWeight: FontWeight.normal,
+                                            fontSize: 12),
+                                        onChanged: (String newValue) {
+                                          setState(() {
+                                            dropdownValue = newValue;
+                                          });
+                                        },
+                                        items: <String>[
+                                          'Newest',
+                                          'Oldest',
+                                          'A-Z'
+                                        ].map<DropdownMenuItem<String>>(
+                                            (String value) {
+                                          return DropdownMenuItem<String>(
+                                            value: value,
+                                            child: Text(value),
+                                          );
+                                        }).toList(),
+                                      ),
+                                    )),
+                                    Expanded(
+                                      child: Padding(
+                                        padding:
+                                            EdgeInsets.only(right: 4, left: 4),
+                                        child: RaisedButton.icon(
                                           onPressed: () {},
                                           color: Theme.of(context)
                                               .colorScheme
@@ -94,7 +104,13 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                                   fontSize: 12)),
                                           icon: Icon(Icons.filter_list),
                                         ),
-                                        Builder(
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding:
+                                            EdgeInsets.only(right: 4, left: 4),
+                                        child: Builder(
                                           builder: (context) =>
                                               OutlineButton.icon(
                                             splashColor: Theme.of(context)
@@ -127,8 +143,8 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                                         .colorScheme
                                                         .primary)),
                                           ),
-                                        )
-                                      ],
+                                        ),
+                                      ),
                                     )
                                   ],
                                 ),
@@ -153,7 +169,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                           SliverList(
                             key: ObjectKey(model.filteredBills),
                             delegate: SliverChildBuilderDelegate(
-                              (BuildContext _scbdContext, int index) {
+                              (BuildContext context, int index) {
                                 if (model.filteredBills.isNotEmpty) {
                                   var bill = model.filteredBills[index];
                                   print(
@@ -165,7 +181,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                     : Padding(
                                         padding: EdgeInsets.all(10),
                                         child: Text('No bills found',
-                                            style: Theme.of(_scbdContext)
+                                            style: Theme.of(context)
                                                 .textTheme
                                                 .headline6),
                                       );

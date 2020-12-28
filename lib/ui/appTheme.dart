@@ -87,6 +87,7 @@ class AppTheme {
     scaffoldBackgroundColor: Color(0xFF1c1f27),
     primaryColor: Color(0xFF49f2dd),
     accentColor: Color(0xFF49f2dd),
+    cursorColor: Color(0xFF49f2dd),
     appBarTheme: AppBarTheme(
       color: Color(0xFF34393e),
       iconTheme: IconThemeData(
