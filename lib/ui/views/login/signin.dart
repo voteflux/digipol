@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_text_field/pin_code_text_field.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
+import 'package:voting_app/core/router.gr.dart';
 import 'package:voting_app/core/viewmodels/user_model.dart';
 
 import '../base_view.dart';
@@ -15,14 +16,14 @@ class Signin extends StatelessWidget {
       onModelReady: (model) {},
       builder: (context, model, child) => MaterialApp(
         home: Scaffold(
-          backgroundColor: Color(0xff1c1f27),
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           appBar: AppBar(
             //remove the tiny gap between appbar and body
             elevation: 0,
-            backgroundColor: Color(0xff1c1f27),
+            backgroundColor: Theme.of(context).backgroundColor,
           ),
           body: Card(
-            color: Color(0xff1c1f27),
+            color: Theme.of(context).backgroundColor,
             child: SingleChildScrollView(
               child: Form(
                 key: _formKey,
@@ -30,9 +31,9 @@ class Signin extends StatelessWidget {
                   child: Column(
                     children: [
                       _logo(),
-                      _username(),
-                      _pincode(),
-                      _submit(model),
+                      _username(context),
+                      _pincode(context),
+                      _submit(context, model),
                     ],
                   ),
                 ),
@@ -55,7 +56,7 @@ class Signin extends StatelessWidget {
     );
   }
 
-  Widget _pincode() {
+  Widget _pincode(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 40.0),
       child: Column(
@@ -63,7 +64,7 @@ class Signin extends StatelessWidget {
           Text(
             'Choose a pin',
             style: TextStyle(
-              color: Color(0xff49f2dd),
+              color: Theme.of(context).primaryColor,
               fontSize: 15,
               fontWeight: FontWeight.bold,
             ),
@@ -75,17 +76,17 @@ class Signin extends StatelessWidget {
             controller: _pinCode,
             pinBoxWidth: 45,
             pinBoxHeight: 50,
-            pinTextStyle: TextStyle(color: Color(0xffababab), fontSize: 20.0),
+            pinTextStyle: Theme.of(context).textTheme.headline5,
             onDone: (text) {
               print(text);
             },
             highlight: true,
-            highlightColor: Color(0xff49f2dd),
-            highlightPinBoxColor: Color(0xff373841),
+            highlightColor: Theme.of(context).primaryColor,
+            highlightPinBoxColor: Theme.of(context).colorScheme.primaryVariant,
             maxLength: 4,
             hasUnderline: false,
-            pinBoxColor: Color(0xff373841),
-            defaultBorderColor: Color(0xff373841),
+            pinBoxColor: Theme.of(context).colorScheme.primaryVariant,
+            defaultBorderColor: Theme.of(context).colorScheme.primaryVariant,
             pinBoxRadius: 10.0,
           )
         ],
@@ -93,7 +94,7 @@ class Signin extends StatelessWidget {
     );
   }
 
-  Widget _username() {
+  Widget _username(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 40.0),
       child: Column(
@@ -101,8 +102,8 @@ class Signin extends StatelessWidget {
           Text(
             'Choose a name',
             style: TextStyle(
-              color: Color(0xff49f2dd),
-              fontSize: 15,
+              color: Theme.of(context).primaryColor,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -118,18 +119,19 @@ class Signin extends StatelessWidget {
                 return 'No special charactors allowed';
               return null;
             },
-            style: TextStyle(color: Colors.white),
+            style: Theme.of(context).textTheme.headline6,
             controller: _userName,
             decoration: InputDecoration(
-              fillColor: Color(0xff373841),
+              fillColor: Theme.of(context).colorScheme.primaryVariant,
               filled: true,
               labelText: "username",
               labelStyle: TextStyle(
-                  color: Color(0xffababab),
+                  color: Theme.of(context).colorScheme.onSurface,
                   fontStyle: FontStyle.italic,
                   fontSize: 20),
               hintText: 'between 2-50 charactors',
-              hintStyle: TextStyle(color: Color(0xffababab)),
+              hintStyle:
+                  TextStyle(color: Theme.of(context).colorScheme.onSurface),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
@@ -140,7 +142,7 @@ class Signin extends StatelessWidget {
     );
   }
 
-  Widget _submit(UserModel model) {
+  Widget _submit(BuildContext context, UserModel model) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 20.0),
       child: Column(
@@ -151,14 +153,15 @@ class Signin extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  color: Color(0xff49f2dd),
+                  color: Theme.of(context).primaryColor,
                   onPressed: () async {
                     model.setState(ViewState.Busy);
                     //check validator and register the user
                     if (_formKey.currentState.validate()) {
-                      print(_userName.text);
-                      print(_pinCode.text);
+                      debugPrint(_userName.text);
+                      debugPrint(_pinCode.text);
                       //Todo: register the user
+                      await model.create(_userName.text);
                       await Future.delayed(Duration(seconds: 2), () {});
                     }
 
@@ -175,11 +178,12 @@ class Signin extends StatelessWidget {
           FlatButton(
             onPressed: () {
               //Todo: redirect to signin page
+              Navigator.pushNamed(context, Routes.profilePage);
             },
             child: Text(
               'Already a user? Log in',
               style: TextStyle(
-                color: Colors.deepPurpleAccent,
+                color: Theme.of(context).colorScheme.secondary,
                 fontSize: 18.0,
               ),
             ),
