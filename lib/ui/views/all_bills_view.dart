@@ -6,7 +6,6 @@ import 'package:hive/hive.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/core/viewmodels/all_bills_model.dart';
-import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/widgets/bill_list_item.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -19,19 +18,17 @@ class AllBillsPage extends StatefulWidget {
 TextEditingController _textController = TextEditingController();
 
 class _AllBillsPageState extends State<AllBillsPage> {
-  bool _lights = false;
   String dropdownValue = 'Newest';
   @override
   Widget build(BuildContext context) {
     return BaseView<BillsModel>(
       onModelReady: (model) => model.getBills(),
       builder: (context, model, child) {
-        print(model.filteredBills);
+        // print(model.filteredBills);
         return SafeArea(
           child: ValueListenableBuilder(
             valueListenable: model.billsBox.listenable(),
             builder: (context, Box<Bill> billsBox, widget) {
-              model.updateLists();
               return Scaffold(
                 body: model.state == ViewState.Busy
                     ? Center(child: CircularProgressIndicator())
@@ -170,11 +167,11 @@ class _AllBillsPageState extends State<AllBillsPage> {
                             key: ObjectKey(model.filteredBills),
                             delegate: SliverChildBuilderDelegate(
                               (BuildContext context, int index) {
-                                if (model.filteredBills.isNotEmpty) {
-                                  var bill = model.filteredBills[index];
-                                  print(
-                                      '${bill} | ${model.filteredBills.indexOf(bill)} | ${index}');
-                                }
+                                // if (model.filteredBills.isNotEmpty) {
+                                //   var bill = model.filteredBills[index];
+                                //   print(
+                                //       '${bill} | ${model.filteredBills.indexOf(bill)} | ${index}');
+                                // }
                                 return model.filteredBills.length > 0
                                     ? BillListItem(
                                         billData: model.filteredBills[index])
