@@ -100,9 +100,10 @@ class _PdfWidgetState extends State<PdfWidget> {
 
   Widget outView() {
     if (path != null)
-      return PdfViewer(
-        filePath: path,
-      );
+      return Container();
+//      return PdfViewer(
+//        filePath: path,
+//      );
     else
       return FlatButton(
         color: appColors.card,

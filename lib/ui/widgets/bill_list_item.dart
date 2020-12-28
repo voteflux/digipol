@@ -7,7 +7,9 @@ import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/bills/bill_view.dart';
 import 'package:voting_app/ui/widgets/house_icon_widget.dart';
 import 'package:voting_app/ui/widgets/pie_chart.dart';
+import 'package:voting_app/ui/widgets/topics_widget.dart';
 import 'package:voting_app/ui/widgets/voting_status_widget.dart';
+import 'package:voting_app/ui/widgets/user_voted_status_widget.dart';
 
 class BillListItem extends StatefulWidget {
   @override
@@ -46,8 +48,6 @@ class _BillListItemState extends State<BillListItem> {
     getVote();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -69,53 +69,70 @@ class _BillListItemState extends State<BillListItem> {
             );
           },
           child: Container(
-            padding: EdgeInsets.all(27.0),
-            width: appSizes.mediumWidth,
+            padding: EdgeInsets.all(14.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      VotingStatusWidget(
-                          bill: widget.billData,
-                          voted: _vote != null ? true : false,
-                          size: 20),
-                      Text(widget.billData.chamber,
-                          style: Theme.of(context).textTheme.bodyText2),
-                      Text(widget.billData.startDate,
-                          style: Theme.of(context).textTheme.bodyText2),
-                    ],
-                  ),
-                ),
                 Padding(
                   padding: EdgeInsets.only(bottom: 10, top: 10),
                   child: Text(widget.billData.shortTitle,
                       style: Theme.of(context).textTheme.headline6),
                 ),
+                TopicsWidget(topics: widget.billData.topics),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    HouseIconsWidget(
-                      bill: widget.billData,
-                      size: 20,
-                    ),
-                    SizedBox(
-                      width: 50.0,
-                      height: 50.0,
-                      child: PieWidget(
-                        yes: widget.billData.yes,
-                        showValues: false,
-                        sectionSpace: 0,
-                        no: widget.billData.no,
-                        radius: 35,
-                      ),
-                    )
+                    VotingStatusWidget(
+                        bill: widget.billData,
+                        voted: _vote != null ? true : false,
+                        size: 20),
+                    _vote != null
+                        ? UserVotedStatus(
+                            bill: widget.billData,
+                            voted: _vote != null ? true : false,
+                            size: 20)
+                        : Padding(
+                            padding: EdgeInsets.only(bottom: 10, top: 10),
+                          ),
                   ],
                 ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: <Widget>[
+                //     HouseIconsWidget(
+                //       bill: widget.billData,
+                //       size: 20,
+                //     ),
+                //     SizedBox(
+                //       width: 50.0,
+                //       height: 50.0,
+                //       child: PieWidget(
+                //         yes: widget.billData.yes,
+                //         showValues: false,
+                //         sectionSpace: 0,
+                //         no: widget.billData.no,
+                //         radius: 35,
+                //       ),
+                //     )
+                //   ],
+                // ),
+
+                // widget.billData.topics != null
+                //     ? Container(
+                //         margin: EdgeInsets.symmetric(vertical: 5.0),
+                //         height: 30.0,
+                //         child: ListView(
+                //           scrollDirection: Axis.horizontal,
+                //           children:
+                //               ,
+                //         ),
+                //       )
+                //     : Padding(
+                //         padding: EdgeInsets.only(bottom: 0, top: 0),
+                //       ),
               ],
             ),
           ),

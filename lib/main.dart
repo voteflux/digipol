@@ -91,44 +91,29 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int index = 0;
-  int _currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        top: false,
-        child: IndexedStack(index: _currentIndex, children: <Widget>[
-          AllBillsPage(),
-          AllIssuesPage(),
-          SettingsPage()
-        ]),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Theme.of(context).colorScheme.primary,
-        unselectedItemColor: Theme.of(context).colorScheme.primaryVariant,
-        type: BottomNavigationBarType.shifting,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(Icons.assignment),
-              label: 'Bills',
-              backgroundColor: Theme.of(context).backgroundColor),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.assignment_late),
-              label: 'Issues',
-              backgroundColor: Theme.of(context).backgroundColor),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
-              backgroundColor: Theme.of(context).backgroundColor),
-        ],
-        currentIndex: _currentIndex,
-        onTap: (int index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(50.0),
+          child: Padding(
+            padding: EdgeInsets.only(top: 40),
+            child: TabBar(
+                indicatorColor: Theme.of(context).colorScheme.primary,
+                labelColor: Theme.of(context).colorScheme.primary,
+                unselectedLabelColor: Colors.grey,
+                tabs: <Tab>[
+                  Tab(icon: Icon(Icons.assignment)),
+                  Tab(icon: Icon(Icons.assignment_late)),
+                  Tab(icon: Icon(Icons.settings)),
+                ]),
+          ),
+        ),
+        body: TabBarView(
+          children: <Widget>[AllBillsPage(), AllIssuesPage(), SettingsPage()],
+        ),
       ),
     );
   }
