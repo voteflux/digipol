@@ -36,9 +36,11 @@ class _BillListItemState extends State<BillListItem> {
 
   Future<void> getVote() async {
     var voteOpt = await billModel.hasVoted(widget.billData.id);
-    voteOpt.map<void>((vote) => setState(() {
-          this._vote = vote;
-        }));
+    voteOpt.map<void>(
+      (vote) => setState(() {
+        this._vote = vote;
+      }),
+    );
   }
 
   @protected
@@ -98,41 +100,6 @@ class _BillListItemState extends State<BillListItem> {
                           ),
                   ],
                 ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   crossAxisAlignment: CrossAxisAlignment.center,
-                //   children: <Widget>[
-                //     HouseIconsWidget(
-                //       bill: widget.billData,
-                //       size: 20,
-                //     ),
-                //     SizedBox(
-                //       width: 50.0,
-                //       height: 50.0,
-                //       child: PieWidget(
-                //         yes: widget.billData.yes,
-                //         showValues: false,
-                //         sectionSpace: 0,
-                //         no: widget.billData.no,
-                //         radius: 35,
-                //       ),
-                //     )
-                //   ],
-                // ),
-
-                // widget.billData.topics != null
-                //     ? Container(
-                //         margin: EdgeInsets.symmetric(vertical: 5.0),
-                //         height: 30.0,
-                //         child: ListView(
-                //           scrollDirection: Axis.horizontal,
-                //           children:
-                //               ,
-                //         ),
-                //       )
-                //     : Padding(
-                //         padding: EdgeInsets.only(bottom: 0, top: 0),
-                //       ),
               ],
             ),
           ),

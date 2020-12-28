@@ -34,6 +34,7 @@ void initHive() async {
   await Hive.openBox<BillVote>(HIVE_BILL_VOTE_BOX);
   await Hive.openBox<bool>(HIVE_USER_PREFS_BOOLS);
   await Hive.openBox<String>(HIVE_USER_PREFS_STR);
+  await Hive.openBox<List>('USER_TAGS');
 }
 
 void main() async {

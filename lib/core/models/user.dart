@@ -9,13 +9,15 @@ class User {
   String firstName;
   @HiveField(1)
   String ethereumAddress;
+  @HiveField(2)
+  List<String> tags;
 
-  User({@required this.firstName, @required this.ethereumAddress});
+  User({this.firstName, this.ethereumAddress, this.tags});
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      firstName: json['first_name'] as String,
-      ethereumAddress: json['id'] as String,
-    );
+        firstName: json['first_name'] as String,
+        ethereumAddress: json['id'] as String,
+        tags: json['tags'] as List<String>);
   }
 }

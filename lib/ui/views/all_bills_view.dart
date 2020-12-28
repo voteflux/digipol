@@ -9,6 +9,8 @@ import 'package:voting_app/core/viewmodels/all_bills_model.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/widgets/bill_list_item.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:voting_app/ui/widgets/topics_widget.dart';
+import 'package:voting_app/core/funcs/convert_topic.dart';
 
 class AllBillsPage extends StatefulWidget {
   @override
@@ -91,7 +93,8 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                         padding:
                                             EdgeInsets.only(right: 4, left: 4),
                                         child: RaisedButton.icon(
-                                          onPressed: () {},
+                                          onPressed: () => Scaffold.of(context)
+                                              .openEndDrawer(),
                                           color: Theme.of(context)
                                               .colorScheme
                                               .secondary,
@@ -193,54 +196,154 @@ class _AllBillsPageState extends State<AllBillsPage> {
                     color: Theme.of(context).backgroundColor,
                     child: ListView(
                       children: <Widget>[
+                        Container(
+                          height: 60.0,
+                          child: DrawerHeader(
+                              child: Text('Filters',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primary)),
+                              margin: EdgeInsets.all(0),
+                              padding:
+                                  EdgeInsets.only(top: 10.0, bottom: 10.0)),
+                        ),
+                        Divider(),
+                        Container(
+                          height: 40.0,
+                          child: DrawerHeader(
+                              child: Text('Show only',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurface)),
+                              margin: EdgeInsets.all(0),
+                              padding: EdgeInsets.only(top: 10.0, bottom: 2.0)),
+                        ),
                         // only voted switch
                         SwitchListTile(
-                          title: Text('Only voted'),
+                          title: Text("Bills i've voted on"),
                           value: model.getOnlyVotedBills,
                           onChanged: (bool value) {
                             setState(() {
                               model.onlyVotedSearchSave(value);
                             });
                           },
-                          secondary: Icon(Icons.done_outline,
-                              color: Theme.of(context).iconTheme.color),
                         ),
                         // remove voted switch
                         SwitchListTile(
-                          title: Text('Remove voted'),
+                          title: Text("Bills i've not voted on"),
                           value: model.getRemoveVotedBills,
                           onChanged: (bool value) {
                             setState(() {
                               model.removeVotedSearchSave(value);
                             });
                           },
-                          secondary: Icon(Icons.layers_clear,
-                              color: Theme.of(context).iconTheme.color),
                         ),
-                        // filter by date switch
-                        // SwitchListTile(
-                        //   title: Text('Sort by date'),
-                        //   value: model.getfilterByDate,
-                        //   onChanged: (bool value) {
-                        //     setState(() {
-                        //       model.filterByDateSave(value);
-                        //     });
-                        //   },
-                        //   secondary: Icon(Icons.date_range,
-                        //       color: Theme.of(context).iconTheme.color),
-                        // ),
-                        // filter by date switch
                         SwitchListTile(
-                          title: Text('Remove closed bills'),
+                          title: Text('Open bills'),
                           value: model.getRemoveClosedBills,
                           onChanged: (bool value) {
                             setState(() {
                               model.removeClosedBillsFunction(value);
                             });
                           },
-                          secondary: Icon(Icons.close,
-                              color: Theme.of(context).iconTheme.color),
                         ),
+                        Padding(
+                          padding: EdgeInsets.all(10),
+                          child: RaisedButton(
+                            padding: EdgeInsets.only(
+                                bottom: 8.0, top: 8.0, left: 10.0, right: 10.0),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            color: Color(0xff898989),
+                            child: Padding(
+                              padding: EdgeInsets.all(6.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text(
+                                    'Show results',
+                                  ),
+                                  Icon(
+                                    Icons.arrow_right_alt,
+                                    color: Colors.white,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                endDrawer: Drawer(
+                  child: Container(
+                    padding: EdgeInsets.only(right: 8, left: 8),
+                    color: Theme.of(context).backgroundColor,
+                    child: ListView(
+                      children: <Widget>[
+                        Container(
+                          height: 60.0,
+                          child: DrawerHeader(
+                              child: Text('Interests',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary)),
+                              margin: EdgeInsets.all(0),
+                              padding:
+                                  EdgeInsets.only(top: 10.0, bottom: 10.0)),
+                        ),
+                        Divider(),
+                        Container(
+                          height: 40.0,
+                          child: DrawerHeader(
+                              child: Text('Tags',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurface)),
+                              margin: EdgeInsets.all(0),
+                              padding: EdgeInsets.only(top: 10.0, bottom: 2.0)),
+                        ),
+                        TopicsWidget(topics: ALL_TOPICS),
+                        Padding(
+                          padding: EdgeInsets.all(10),
+                          child: RaisedButton(
+                            padding: EdgeInsets.only(
+                                bottom: 8.0, top: 8.0, left: 10.0, right: 10.0),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            color: Color(0xff898989),
+                            child: Padding(
+                              padding: EdgeInsets.all(6.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text(
+                                    'Show results',
+                                  ),
+                                  Icon(
+                                    Icons.arrow_right_alt,
+                                    color: Colors.white,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
