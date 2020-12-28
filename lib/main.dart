@@ -40,17 +40,17 @@ void initHive() async {
 void main() async {
   await initHive();
   setupLocator();
-  //runApp(MyApp());
-  runApp(Signin());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView<ThemeModel>(
+        onModelReady: (model) {},
         builder: (context, model, child) => MaterialApp(
               onGenerateRoute: Router().onGenerateRoute,
-              initialRoute: Routes.startupView,
+              initialRoute: Routes.signup,
               title: "DigiPol (TITLE)",
               navigatorKey: locator<NavigationService>().navigatorKey,
               // home: StartupView(), // MainScreen()
