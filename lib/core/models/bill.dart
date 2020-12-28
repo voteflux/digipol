@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
+import 'package:voting_app/core/funcs/convert_topic.dart';
 
 part 'bill.g.dart';
 
@@ -32,7 +33,7 @@ class Bill {
   @HiveField(12)
   String sponsor;
   @HiveField(13)
-  String textLinkDoc;
+  String textLinkHtml;
   @HiveField(14)
   String textLinkPdf;
   @HiveField(15)
@@ -64,7 +65,7 @@ class Bill {
       @required this.url,
       @required this.summary,
       @required this.sponsor,
-      @required this.textLinkDoc,
+      @required this.textLinkHtml,
       @required this.textLinkPdf,
       @required this.emLinkPdf,
       @required this.emLinkHtml,
@@ -76,9 +77,11 @@ class Bill {
 
   factory Bill.fromJson(Map<String, dynamic> json) {
     var data = json['data'] as Map<String, dynamic>;
-    var topics = ((data['topics'] as List<dynamic>) ?? <dynamic>[])
+    var perTopics = ((data['topics'] as List<dynamic>) ?? <dynamic>[])
         .map((dynamic s) => s as String)
         .toList();
+    var preTopicsList = List<String>.from(perTopics);
+    List<String> topics = preTopicsList.map((e) => topicConverter(e)).toList();
     return new Bill(
       id: json['_id'] as String,
       chamber: data['chamber'] as String,
@@ -93,13 +96,13 @@ class Bill {
       url: data['url'] as String,
       summary: data['summary'] as String,
       sponsor: json['sponsor'] as String,
-      textLinkDoc: data['text_link_doc'] as String,
+      textLinkHtml: data['text_link_html'] as String,
       textLinkPdf: data['text_link_pdf'] as String,
       emLinkPdf: data['em_link_pdf'] as String,
       emLinkHtml: data['em_link_html'] as String,
       portfolio: data['portfolio'] as String,
       startDate: data['start_date'] as String,
-      topics: List<String>.from(topics),
+      topics: topics,
       yes: data['yes'] as int,
       no: data['no'] as int,
     );

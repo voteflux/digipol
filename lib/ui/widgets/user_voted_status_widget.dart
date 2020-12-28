@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:voting_app/core/models/bill.dart';
 import 'package:voting_app/ui/styles.dart';
 
-class VotingStatusWidget extends StatelessWidget {
+class UserVotedStatus extends StatelessWidget {
   final Bill bill;
   final bool voted;
   final double size;
@@ -16,7 +16,7 @@ class VotingStatusWidget extends StatelessWidget {
   ///
   /// `child:  VotingStatusWidget(issuesMap: issuesMap,voted: true,size: 20),`
 
-  VotingStatusWidget({
+  UserVotedStatus({
     Key /*?*/ key,
     @required this.bill,
     @required this.voted,
@@ -27,23 +27,14 @@ class VotingStatusWidget extends StatelessWidget {
   ///
   /// Returns a list: [colour, message, icon]
   Tuple3<Color, String, IconData> statusMessage(BuildContext context) {
-    String s = "Voting closed";
+    String s = "Not voted";
     Color c = appColors.voteClosed;
     var i = Icons.adjust;
-    if (bill.chamber == "House") {
-      if (bill.passedSenate == "") {
-        s = "Voting open";
-        c = Theme.of(context).colorScheme.primary;
-        i = Icons.add_circle_outline;
-      }
-    } else {
-      if (bill.passedHouse == "") {
-        s = "Voting open";
-        c = Theme.of(context).colorScheme.primary;
-        i = Icons.add_circle_outline;
-      }
+    if (voted) {
+      s = "Voted";
+      c = Theme.of(context).colorScheme.primary;
+      i = Icons.check_circle_outline;
     }
-
     // [colour, message, icon]
     return Tuple3(c, s, i);
   }
@@ -56,9 +47,17 @@ class VotingStatusWidget extends StatelessWidget {
         children: <Widget>[
           Text(
             statsMsg.value2, // message
-            style:
-                TextStyle(fontSize: this.size * 6 / 10, color: statsMsg.value1),
+            style: TextStyle(
+                fontSize: 12, color: Theme.of(context).colorScheme.secondary),
           ),
+          Padding(
+            padding: EdgeInsets.only(left: 4),
+            child: Icon(
+              statsMsg.value3, // icon
+              color: Theme.of(context).colorScheme.secondary, //color
+              size: 16, // size
+            ),
+          )
         ],
       ),
     );
