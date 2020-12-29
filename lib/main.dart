@@ -47,10 +47,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView<ThemeModel>(
-        onModelReady: (model) {},
         builder: (context, model, child) => MaterialApp(
               onGenerateRoute: Router().onGenerateRoute,
-              initialRoute: Routes.signup,
+              initialRoute: Routes.startupView,
               title: "DigiPol (TITLE)",
               navigatorKey: locator<NavigationService>().navigatorKey,
               // home: StartupView(), // MainScreen()
