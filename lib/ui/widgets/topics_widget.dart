@@ -53,17 +53,15 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
   bool _active = false;
   void _updateTagPreferences(String item) {
     List<String> finalTags = [];
-    List<String> tags = userPrefs.get('tags');
+    List<String> tags = userPrefs.get('tags', defaultValue: []);
 
-    if (tags != null) {
-      finalTags.addAll(tags);
-    }
-    print(tags);
-    tags != null && tags.contains(item)
+    //tags.clear();
+
+    finalTags.addAll(tags);
+
+    finalTags.contains(item)
         ? finalTags.removeWhere((tag) => tag == item)
         : finalTags.add(item);
-
-    userPrefs.put('tags', finalTags);
 
     setState(() {
       if (finalTags.contains(item)) {
@@ -72,9 +70,7 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
         _active = false;
       }
     });
-
-    print(_active);
-    print(finalTags);
+    userPrefs.put('tags', finalTags);
   }
 
   @override
