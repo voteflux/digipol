@@ -10,8 +10,8 @@ import 'base_model.dart';
 
 @injectable
 class BillsModel extends BaseModel {
-  /*late*/ List<Bill> blockChainList;
-  /*late*/ List<Bill> filteredBills;
+  List<Bill> blockChainList;
+  List<Bill> filteredBills;
   List<Bill> get billList => filteredBills;
   final Box<BlockChainData> blockChainData =
       Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
@@ -19,7 +19,6 @@ class BillsModel extends BaseModel {
 
   final Box<BillVote> billVoteBox = Hive.box<BillVote>(HIVE_BILL_VOTE_BOX);
   final Box<bool> userPrefsBool = Hive.box<bool>(HIVE_USER_PREFS_BOOLS);
-  final Box userTags = Hive.box<List>('USER_TAGS');
 
   bool onlyVotedBills = false;
   bool get getOnlyVotedBills => onlyVotedBills;
@@ -47,11 +46,11 @@ class BillsModel extends BaseModel {
 
     // set voting prefs
     bool onlyVotedPref =
-        userPrefsBool.get('onlyVotedBills', defaultValue: false);
+        userPrefsBool.get(ONLY_VOTED_BILLS, defaultValue: false);
     onlyVoted(onlyVotedPref);
 
     bool removeVotedPref =
-        userPrefsBool.get('removeVotedBills', defaultValue: false);
+        userPrefsBool.get(REMOVE_VOTED_BILLS, defaultValue: false);
     removeVoted(removeVotedPref);
 
     // bool dateRangeVotingPref =
@@ -59,7 +58,7 @@ class BillsModel extends BaseModel {
     // filterByDateTime(dateRangeVotingPref);
 
     bool removeCloseBillsPref =
-        userPrefsBool.get('removeClosedBills', defaultValue: true);
+        userPrefsBool.get(REMOVE_CLOSED_BILLS, defaultValue: true);
     removeClosedBillsFunction(removeCloseBillsPref);
 
     print('Bills on BlockChain: ' + blockChainList.length.toString());
@@ -96,9 +95,9 @@ class BillsModel extends BaseModel {
   //
   // saves pref in hive
   void onlyVotedSearchSave(bool value) {
-    userPrefsBool.put('onlyVotedBills', value);
+    userPrefsBool.put(ONLY_VOTED_BILLS, value);
     onlyVoted(value);
-    print("onlyVotedBills: ${userPrefsBool.get('onlyVotedBills')}");
+    print("onlyVotedBills: ${userPrefsBool.get(ONLY_VOTED_BILLS)}");
   }
 
   // filters list
@@ -121,9 +120,9 @@ class BillsModel extends BaseModel {
   // filters list
 
   void removeVotedSearchSave(bool value) {
-    userPrefsBool.put('removeVotedBills', value);
+    userPrefsBool.put(REMOVE_VOTED_BILLS, value);
     removeVoted(value);
-    print("removeVotedBills: ${userPrefsBool.get('removeVotedBills')}");
+    print("removeVotedBills: ${userPrefsBool.get(REMOVE_VOTED_BILLS)}");
   }
 
   void removeVoted(bool value) {
@@ -148,29 +147,29 @@ class BillsModel extends BaseModel {
     notifyListeners();
   }
 
-  // // filter by date
-  // void filterByDateSave(bool value) {
-  //   userPreferencesBox.put('filterByDate', value);
-  //   filterByDateTime(value);
-  //   print(userPreferencesBox.get('filterByDate'));
-  // }
+  // filter by date
+  void filterByDateSave(bool value) {
+    userPrefsBool.put('filterByDate', value);
+    filterByDateTime(value);
+    print(userPrefsBool.get('filterByDate'));
+  }
 
-  // void filterByDateTime(bool value) {
-  //   this.filterByDate = value;
-  //   if (value) {
-  //     filteredBills.sort((a, b) => b.startDate.compareTo(a.startDate));
-  //   } else {
-  //     filteredBills.sort((a, b) => a.shortTitle.compareTo(b.shortTitle));
-  //   }
-  //   notifyListeners();
-  // }
+  void filterByDateTime(bool value) {
+    this.filterByDate = value;
+    if (value) {
+      filteredBills.sort((a, b) => b.startDate.compareTo(a.startDate));
+    } else {
+      filteredBills.sort((a, b) => a.shortTitle.compareTo(b.shortTitle));
+    }
+    notifyListeners();
+  }
 
   // remove closed bills
 
   void removeClosedBillsFunctionSave(bool value) {
-    userPrefsBool.put('removeClosedBills', value);
+    userPrefsBool.put(REMOVE_CLOSED_BILLS, value);
     removeClosedBillsFunction(value);
-    print("removeVotedBills: ${userPrefsBool.get('removeVotedBills')}");
+    print("removeVotedBills: ${userPrefsBool.get(REMOVE_VOTED_BILLS)}");
   }
 
   void removeClosedBillsFunction(bool value) {

@@ -311,7 +311,10 @@ class _AllBillsPageState extends State<AllBillsPage> {
                               margin: EdgeInsets.all(0),
                               padding: EdgeInsets.only(top: 10.0, bottom: 2.0)),
                         ),
-                        TopicsWidget(topics: ALL_TOPICS),
+                        TopicsWidget(
+                          topics: ALL_TOPICS,
+                          canPress: true,
+                        ),
                         Padding(
                           padding: EdgeInsets.all(10),
                           child: RaisedButton(

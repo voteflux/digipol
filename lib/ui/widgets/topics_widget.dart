@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:voting_app/core/consts.dart';
 import 'package:voting_app/core/funcs/convert_topic.dart';
-import 'package:voting_app/core/models/user.dart';
 
 class TopicsWidget extends StatelessWidget {
   final List<String> topics;
@@ -14,14 +13,17 @@ class TopicsWidget extends StatelessWidget {
   /// usage:
   ///
   /// `child: TopicsWidget(topics: topics),`
-  TopicsWidget({Key /*?*/ key, @required this.topics, this.canPress})
+  TopicsWidget({Key /*?*/ key, @required this.topics, @required this.canPress})
       : super(key: key);
 
   List<Widget> _buildTopicList(
       List<String> billTopics, BuildContext context, bool canPress) {
     List<Widget> topics = new List();
     billTopics.forEach((item) {
-      topics.add(TopicsButtonWidget(topic: item));
+      topics.add(TopicsButtonWidget(
+        topic: item,
+        canPress: canPress,
+      ));
     });
     return topics;
   }
@@ -43,7 +45,7 @@ class TopicsButtonWidget extends StatefulWidget {
   final String topic;
   final bool canPress;
 
-  TopicsButtonWidget({Key key, @required this.topic, this.canPress})
+  TopicsButtonWidget({Key key, @required this.topic, @required this.canPress})
       : super(key: key);
 
   @override
@@ -112,7 +114,7 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
         widget.topic,
         style: TextStyle(
           fontWeight: FontWeight.normal,
-          fontSize: 11,
+          fontSize: 10,
           color: _active
               ? Theme.of(context).colorScheme.primary
               : Theme.of(context).colorScheme.onSurface,

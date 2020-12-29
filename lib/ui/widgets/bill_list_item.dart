@@ -81,7 +81,10 @@ class _BillListItemState extends State<BillListItem> {
                   child: Text(widget.billData.shortTitle,
                       style: Theme.of(context).textTheme.headline6),
                 ),
-                TopicsWidget(topics: widget.billData.topics),
+                TopicsWidget(
+                  topics: widget.billData.topics,
+                  canPress: false,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
