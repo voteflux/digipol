@@ -7,7 +7,6 @@ import 'package:voting_app/core/models/user.dart';
 class TopicsWidget extends StatelessWidget {
   final List<String> topics;
   final bool canPress;
-  final Box userPrefs = Hive.box<List>('USER_TAGS');
 
   /// To convert tags to topics and display them
   ///
@@ -18,7 +17,8 @@ class TopicsWidget extends StatelessWidget {
   TopicsWidget({Key /*?*/ key, @required this.topics, this.canPress})
       : super(key: key);
 
-  List<Widget> _buildTopicList(List<String> billTopics, BuildContext context) {
+  List<Widget> _buildTopicList(
+      List<String> billTopics, BuildContext context, bool canPress) {
     List<Widget> topics = new List();
     billTopics.forEach((item) {
       topics.add(TopicsButtonWidget(topic: item));
@@ -31,7 +31,7 @@ class TopicsWidget extends StatelessWidget {
     return topics != null
         ? Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: _buildTopicList(topics, context),
+            children: _buildTopicList(topics, context, canPress),
           )
         : Padding(
             padding: EdgeInsets.only(bottom: 0, top: 0),
@@ -41,21 +41,24 @@ class TopicsWidget extends StatelessWidget {
 
 class TopicsButtonWidget extends StatefulWidget {
   final String topic;
+  final bool canPress;
 
-  TopicsButtonWidget({Key key, @required this.topic}) : super(key: key);
+  TopicsButtonWidget({Key key, @required this.topic, this.canPress})
+      : super(key: key);
 
   @override
   _TopicsButtonWidgetState createState() => _TopicsButtonWidgetState();
 }
 
 class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
-  final Box userPrefs = Hive.box<List>('USER_TAGS');
+  final Box<List> userTags = Hive.box<List>(HIVE_USER_TAGS);
   bool _active = false;
   void _updateTagPreferences(String item) {
+    List<String> blankTags = [];
     List<String> finalTags = [];
-    List<String> tags = userPrefs.get('tags', defaultValue: []);
 
-    //tags.clear();
+    List<String> tags =
+        userTags.get('tags', defaultValue: blankTags).cast<String>();
 
     finalTags.addAll(tags);
 
@@ -70,7 +73,7 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
         _active = false;
       }
     });
-    userPrefs.put('tags', finalTags);
+    userTags.put('tags', finalTags);
   }
 
   @override
@@ -79,7 +82,7 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
   }
 
   void checkActive(String item) {
-    List<String> tags = userPrefs.get('tags');
+    List<dynamic> tags = userTags.get('tags');
     if (tags != null && tags.contains(item)) {
       _active = true;
     } else {
@@ -100,7 +103,9 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
           style: BorderStyle.solid,
           width: 1),
       onPressed: () {
-        _updateTagPreferences(widget.topic);
+        if (widget.canPress) {
+          _updateTagPreferences(widget.topic);
+        }
       },
       icon: _tagToIcon(widget.topic),
       label: Text(
