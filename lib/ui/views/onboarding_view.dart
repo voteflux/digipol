@@ -32,16 +32,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   /*late*/ int pageLength;
   String _logo = 'assets/graphics/static-logo.png';
 
-  static const List<String> _ONBOARDING_TOPICS = [
-    HEALTH_EDU_SOCIAL,
-    ENV_AG,
-    SCI_TRANS_INF,
-    SECURITY_FOREIGN,
-    ECONOMY_FINANCE,
-    MEDIA_COMS,
-    AUS,
-  ];
-
   List<OnboardingSlide> pages = [
     OnboardingSlide(
         'ob-1_ready_to_change.svg',
@@ -156,7 +146,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     controller: _pageController,
                     children: <Widget>[
                       for (var page in pages)
-                        _buildWalkThrough(context, page)
+                        _buildWalkThrough(context, page,
+                            _currentIndexPage == pageLength-1)
                       // ProfilePage() // moved to StartupView
                     ],
                     onPageChanged: (value) {
@@ -165,21 +156,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   ),
                 ),
               ),
-              if(_currentIndexPage == pageLength-1) // last page, then
-                Expanded(
-                    child: Container(
-                      padding: EdgeInsets.only(right: 50.0, left: 50.0,),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: <Widget>[
-                            Container(
-                              child: TopicsWidget(topics: _ONBOARDING_TOPICS,),
-                            ),
-                          ],
-                        ),
-                      ),
-                    )
-                ),
               Container(
                 child: RaisedButton(
                   padding: EdgeInsets.all(18.0),
@@ -274,7 +250,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   }
 }
 
-Widget _buildWalkThrough(BuildContext context, OnboardingSlide page) {
+Widget _buildWalkThrough(BuildContext context, OnboardingSlide page,
+    bool displayTopics) {
   return Container(
     child: Stack(
       children: <Widget>[
@@ -315,6 +292,33 @@ Widget _buildWalkThrough(BuildContext context, OnboardingSlide page) {
                       child: InLineIcon(page.body, widgets: page.widgets)),
                 ],
               ),
+              if(displayTopics)
+                Expanded(
+                  flex: 8,
+                  child: Container(
+                    padding: EdgeInsets.all(5.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            child: TopicsWidget(
+                              topics: [
+                                HEALTH_EDU_SOCIAL,
+                                ENV_AG,
+                                SCI_TRANS_INF,
+                                SECURITY_FOREIGN,
+                                ECONOMY_FINANCE,
+                                MEDIA_COMS,
+                                AUS,
+                              ],
+                              canPress: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               Flexible(
                 flex: 8,
                 child: Padding(
