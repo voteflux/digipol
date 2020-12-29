@@ -19,6 +19,7 @@ class BillsModel extends BaseModel {
 
   final Box<BillVote> billVoteBox = Hive.box<BillVote>(HIVE_BILL_VOTE_BOX);
   final Box<bool> userPrefsBool = Hive.box<bool>(HIVE_USER_PREFS_BOOLS);
+  final Box userTags = Hive.box<List>('USER_TAGS');
 
   bool onlyVotedBills = false;
   bool get getOnlyVotedBills => onlyVotedBills;

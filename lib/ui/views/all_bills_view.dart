@@ -170,11 +170,6 @@ class _AllBillsPageState extends State<AllBillsPage> {
                             key: ObjectKey(model.filteredBills),
                             delegate: SliverChildBuilderDelegate(
                               (BuildContext context, int index) {
-                                // if (model.filteredBills.isNotEmpty) {
-                                //   var bill = model.filteredBills[index];
-                                //   print(
-                                //       '${bill} | ${model.filteredBills.indexOf(bill)} | ${index}');
-                                // }
                                 return model.filteredBills.length > 0
                                     ? BillListItem(
                                         billData: model.filteredBills[index])

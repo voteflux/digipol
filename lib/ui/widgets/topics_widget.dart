@@ -6,6 +6,7 @@ import 'package:voting_app/core/models/user.dart';
 
 class TopicsWidget extends StatelessWidget {
   final List<String> topics;
+  final bool canPress;
   final Box userPrefs = Hive.box<List>('USER_TAGS');
 
   /// To convert tags to topics and display them
@@ -14,7 +15,8 @@ class TopicsWidget extends StatelessWidget {
   /// usage:
   ///
   /// `child: TopicsWidget(topics: topics),`
-  TopicsWidget({Key /*?*/ key, @required this.topics}) : super(key: key);
+  TopicsWidget({Key /*?*/ key, @required this.topics, this.canPress})
+      : super(key: key);
 
   List<Widget> _buildTopicList(List<String> billTopics, BuildContext context) {
     List<Widget> topics = new List();
@@ -52,19 +54,25 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
   void _updateTagPreferences(String item) {
     List<String> finalTags = [];
     List<String> tags = userPrefs.get('tags');
-    finalTags.addAll(tags);
-    tags.contains(item)
+    //tags.clear();
+    if (tags != null) {
+      finalTags.addAll(tags);
+    }
+    print(tags);
+    tags != null && tags.contains(item)
         ? finalTags.removeWhere((tag) => tag == item)
         : finalTags.add(item);
+
     userPrefs.put('tags', finalTags);
 
     setState(() {
-      if (_active) {
-        _active = false;
-      } else {
+      if (tags.contains(item)) {
         _active = true;
+      } else {
+        _active = false;
       }
     });
+
     print(_active);
     print(tags);
   }
@@ -76,7 +84,7 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
 
   void checkActive(String item) {
     List<String> tags = userPrefs.get('tags');
-    if (tags.contains(item)) {
+    if (tags != null && tags.contains(item)) {
       _active = true;
     } else {
       _active = false;
