@@ -54,7 +54,7 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
   void _updateTagPreferences(String item) {
     List<String> finalTags = [];
     List<String> tags = userPrefs.get('tags');
-    //tags.clear();
+
     if (tags != null) {
       finalTags.addAll(tags);
     }
@@ -66,7 +66,7 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
     userPrefs.put('tags', finalTags);
 
     setState(() {
-      if (tags.contains(item)) {
+      if (finalTags.contains(item)) {
         _active = true;
       } else {
         _active = false;
@@ -74,7 +74,7 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
     });
 
     print(_active);
-    print(tags);
+    print(finalTags);
   }
 
   @override
