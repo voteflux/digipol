@@ -106,6 +106,7 @@ class BillsModel extends BaseModel {
 
   // filters list
   void onlyVoted(bool value) {
+    List<Bill> filteredBillsState = filteredBills;
     this.onlyVotedBills = value;
     if (value) {
       this.removeVotedBills = !value;
@@ -113,7 +114,7 @@ class BillsModel extends BaseModel {
       filteredBills =
           blockChainList.where((bill) => list.contains(bill.id)).toList();
     } else {
-      filteredBills = blockChainList;
+      filteredBills = filteredBillsState;
     }
     notifyListeners();
   }
@@ -131,6 +132,7 @@ class BillsModel extends BaseModel {
 
   void removeVoted(bool value) {
     this.removeVotedBills = value;
+    List<Bill> filteredBillsState = filteredBills;
     if (value) {
       this.onlyVotedBills = !value;
 
@@ -146,7 +148,7 @@ class BillsModel extends BaseModel {
       });
       filteredBills = filtered;
     } else {
-      filteredBills = blockChainList;
+      filteredBills = filteredBillsState;
     }
     notifyListeners();
   }
@@ -179,11 +181,12 @@ class BillsModel extends BaseModel {
   }
 
   void removeClosedBillsFunction(bool value) {
+    List<Bill> filteredBillsState = filteredBills;
     this.removeClosedBills = value;
     if (value) {
       filteredBills = filteredBills.where((i) => i.assentDate == '').toList();
     } else {
-      filteredBills = blockChainList;
+      filteredBills = filteredBillsState;
     }
     notifyListeners();
   }
