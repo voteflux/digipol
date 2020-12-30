@@ -10,16 +10,12 @@ import 'base_model.dart';
 
 @injectable
 class BillsModel extends BaseModel {
+  //VARS
   List<Bill> blockChainList;
   List<Bill> filteredBills;
+  String dropdownValue = FILTER_NEWEST;
+
   List<Bill> get billList => filteredBills;
-  final Box<BlockChainData> blockChainData =
-      Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
-  final Box<Bill> billsBox = Hive.box<Bill>(HIVE_BILLS);
-
-  final Box<BillVote> billVoteBox = Hive.box<BillVote>(HIVE_BILL_VOTE_BOX);
-  final Box<bool> userPrefsBool = Hive.box<bool>(HIVE_USER_PREFS_BOOLS);
-
   bool onlyVotedBills = false;
   bool get getOnlyVotedBills => onlyVotedBills;
 
@@ -31,6 +27,14 @@ class BillsModel extends BaseModel {
 
   bool removeClosedBills = false;
   bool get getRemoveClosedBills => removeClosedBills;
+
+  //HIVE BOXES
+  final Box<BlockChainData> blockChainData =
+      Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
+  final Box<Bill> billsBox = Hive.box<Bill>(HIVE_BILLS);
+  final Box<BillVote> billVoteBox = Hive.box<BillVote>(HIVE_BILL_VOTE_BOX);
+  final Box<bool> userPrefsBool = Hive.box<bool>(HIVE_USER_PREFS_BOOLS);
+  final Box<String> userPrefsString = Hive.box<String>(HIVE_USER_PREFS_STR);
 
   BillsModel([this.blockChainList, this.filteredBills]);
 
@@ -44,7 +48,7 @@ class BillsModel extends BaseModel {
 
     updateLists();
 
-    // set voting prefs
+    // set voting prefs according to HIVE storage
     bool onlyVotedPref =
         userPrefsBool.get(ONLY_VOTED_BILLS, defaultValue: false);
     onlyVoted(onlyVotedPref);
@@ -72,7 +76,7 @@ class BillsModel extends BaseModel {
     var bills =
         billsBox.values.where((bill) => billOnChain.contains(bill.id)).toList();
 
-    bills.sort((a, b) => b.startDate.compareTo(a.startDate));
+    //bills.sort((a, b) => b.startDate.compareTo(a.startDate));
 
     blockChainList = bills;
     filteredBills = bills;
@@ -148,17 +152,19 @@ class BillsModel extends BaseModel {
   }
 
   // filter by date
-  void filterByDateSave(bool value) {
-    userPrefsBool.put('filterByDate', value);
-    filterByDateTime(value);
-    print(userPrefsBool.get('filterByDate'));
-  }
+  // void filterByDateSave(bool value) {
+  //   userPrefsBool.put('filterByDate', value);
+  //   filterByDateTime(value);
+  //   print(userPrefsBool.get('filterByDate'));
+  // }
 
-  void filterByDateTime(bool value) {
-    this.filterByDate = value;
-    if (value) {
+  void dropDownFilter(String value) {
+    this.dropdownValue = value;
+    if (value == FILTER_NEWEST) {
       filteredBills.sort((a, b) => b.startDate.compareTo(a.startDate));
-    } else {
+    } else if (value == FILTER_OLDEST) {
+      filteredBills.sort((a, b) => a.startDate.compareTo(b.startDate));
+    } else if (value == FILTER_A_TO_Z) {
       filteredBills.sort((a, b) => a.shortTitle.compareTo(b.shortTitle));
     }
     notifyListeners();

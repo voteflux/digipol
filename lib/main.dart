@@ -30,11 +30,10 @@ void initHive() async {
   await Hive.openBox<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
   await Hive.openBox<Bill>(HIVE_BILLS);
   await Hive.openBox<Issue>(HIVE_ISSUES);
-  await Hive.openBox<Box>(HIVE_USER_BOX);
   await Hive.openBox<BillVote>(HIVE_BILL_VOTE_BOX);
   await Hive.openBox<bool>(HIVE_USER_PREFS_BOOLS);
   await Hive.openBox<String>(HIVE_USER_PREFS_STR);
-  await Hive.openBox<List>(HIVE_USER_TAGS);
+  await Hive.openBox<List>(HIVE_USER_PREFS_LIST);
 }
 
 void main() async {

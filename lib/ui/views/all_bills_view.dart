@@ -11,6 +11,7 @@ import 'package:voting_app/ui/widgets/bill_list_item.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:voting_app/ui/widgets/topics_widget.dart';
 import 'package:voting_app/core/funcs/convert_topic.dart';
+import 'package:voting_app/core/consts.dart';
 
 class AllBillsPage extends StatefulWidget {
   @override
@@ -20,7 +21,6 @@ class AllBillsPage extends StatefulWidget {
 TextEditingController _textController = TextEditingController();
 
 class _AllBillsPageState extends State<AllBillsPage> {
-  String dropdownValue = 'Newest';
   @override
   Widget build(BuildContext context) {
     return BaseView<BillsModel>(
@@ -57,7 +57,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                       padding:
                                           EdgeInsets.only(right: 4, left: 4),
                                       child: DropdownButton<String>(
-                                        value: dropdownValue,
+                                        value: model.dropdownValue,
                                         dropdownColor:
                                             Theme.of(context).backgroundColor,
                                         underline: SizedBox.shrink(),
@@ -72,15 +72,12 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                             fontSize: 12),
                                         onChanged: (String newValue) {
                                           setState(() {
-                                            dropdownValue = newValue;
+                                            model.dropDownFilter(newValue);
                                           });
                                         },
-                                        items: <String>[
-                                          'Newest',
-                                          'Oldest',
-                                          'A-Z'
-                                        ].map<DropdownMenuItem<String>>(
-                                            (String value) {
+                                        items: DROPDOWN_FILTER_OPTIONS
+                                            .map<DropdownMenuItem<String>>(
+                                                (String value) {
                                           return DropdownMenuItem<String>(
                                             value: value,
                                             child: Text(value),
@@ -167,12 +164,12 @@ class _AllBillsPageState extends State<AllBillsPage> {
                             ),
                           ),
                           SliverList(
-                            key: ObjectKey(model.filteredBills),
+                            key: ObjectKey(model.billList),
                             delegate: SliverChildBuilderDelegate(
                               (BuildContext context, int index) {
-                                return model.filteredBills.length > 0
+                                return model.billList.length > 0
                                     ? BillListItem(
-                                        billData: model.filteredBills[index])
+                                        billData: model.billList[index])
                                     : Padding(
                                         padding: EdgeInsets.all(10),
                                         child: Text('No bills found',
@@ -181,7 +178,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                                 .headline6),
                                       );
                               },
-                              childCount: max(1, model.filteredBills.length),
+                              childCount: max(1, model.billList.length),
                             ),
                           ),
                         ],

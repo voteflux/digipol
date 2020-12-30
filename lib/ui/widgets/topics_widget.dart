@@ -53,7 +53,7 @@ class TopicsButtonWidget extends StatefulWidget {
 }
 
 class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
-  final Box<List> userTags = Hive.box<List>(HIVE_USER_TAGS);
+  final Box<List> userTags = Hive.box<List>(HIVE_USER_PREFS_LIST);
   bool _active = false;
   void _updateTagPreferences(String item) {
     List<String> blankTags = [];
@@ -107,6 +107,8 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
       onPressed: () {
         if (widget.canPress) {
           _updateTagPreferences(widget.topic);
+        } else {
+          print('no');
         }
       },
       icon: _tagToIcon(widget.topic),

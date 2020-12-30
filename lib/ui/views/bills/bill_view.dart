@@ -164,7 +164,10 @@ class _BillPageState extends State<BillPage> {
                               ),
                               alignment: Alignment.centerLeft,
                             ),
-                            TopicsWidget(topics: widget.bill.topics),
+                            TopicsWidget(
+                              topics: widget.bill.topics,
+                              canPress: true,
+                            ),
                             Align(
                               child: Padding(
                                 padding:
@@ -223,7 +226,7 @@ class _BillPageState extends State<BillPage> {
                                   left: 10.0,
                                   right: 10.0),
                               onPressed: () {
-                                  launch(widget.bill.emLinkHtml);
+                                launch(widget.bill.emLinkHtml);
 //                                Navigator.push(
 //                                  context,
 //                                  MaterialPageRoute<PdfPage>(
