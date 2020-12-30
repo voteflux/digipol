@@ -318,6 +318,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                             padding: EdgeInsets.only(
                                 bottom: 8.0, top: 8.0, left: 10.0, right: 10.0),
                             onPressed: () {
+                              model.refineByTopics();
                               Navigator.pop(context);
                             },
                             color: Color(0xff898989),

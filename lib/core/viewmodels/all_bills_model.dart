@@ -35,6 +35,7 @@ class BillsModel extends BaseModel {
   final Box<BillVote> billVoteBox = Hive.box<BillVote>(HIVE_BILL_VOTE_BOX);
   final Box<bool> userPrefsBool = Hive.box<bool>(HIVE_USER_PREFS_BOOLS);
   final Box<String> userPrefsString = Hive.box<String>(HIVE_USER_PREFS_STR);
+  final Box<List> userPrefsList = Hive.box<List>(HIVE_USER_PREFS_LIST);
 
   BillsModel([this.blockChainList, this.filteredBills]);
 
@@ -189,5 +190,32 @@ class BillsModel extends BaseModel {
       filteredBills = filteredBillsState;
     }
     notifyListeners();
+  }
+
+  void refineByTopics() {
+    List<Bill> filteredBillsState = filteredBills;
+    List<String> blankTags = [];
+    List<String> tags =
+        userPrefsList.get('tags', defaultValue: blankTags).cast<String>();
+    List<Bill> filtered = [];
+
+    if (tags.length > 0) {
+      filteredBills.forEach((bill) {
+        bill.topics.forEach((topic) {
+          if (tags.contains(topic)) {
+            filtered.add(bill);
+          } else {
+            print('does not contain');
+          }
+        });
+      });
+
+      filteredBills = filtered;
+    } else {
+      filteredBills = filteredBillsState;
+    }
+
+    notifyListeners();
+    print(tags);
   }
 }
