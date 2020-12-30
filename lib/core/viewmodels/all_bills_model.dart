@@ -87,8 +87,19 @@ class BillsModel extends BaseModel {
   // search bills
   //
   void searchBills(String value) {
+    checkTags(Bill bill, String searchValue) {
+      bool contains = false;
+      bill.topics.forEach((topic) {
+        if (topic.toLowerCase().contains(searchValue.toLowerCase())) {
+          contains = true;
+        }
+      });
+      return contains;
+    }
+
     filteredBills = blockChainList
         .where((text) =>
+            checkTags(text, value) ||
             text.shortTitle.toLowerCase().contains(value.toLowerCase()) ||
             text.summary.toLowerCase().contains(value.toLowerCase()))
         .toList();

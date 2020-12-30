@@ -26,7 +26,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
     return BaseView<BillsModel>(
       onModelReady: (model) => model.getBills(),
       builder: (context, model, child) {
-        // print(model.filteredBills);
+        print(model.filteredBills);
         return SafeArea(
           child: ValueListenableBuilder(
             valueListenable: model.billsBox.listenable(),
@@ -55,7 +55,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                     Expanded(
                                         child: Padding(
                                       padding:
-                                          EdgeInsets.only(right: 4, left: 4),
+                                          EdgeInsets.only(right: 4, left: 8),
                                       child: DropdownButton<String>(
                                         value: model.dropdownValue,
                                         dropdownColor:
@@ -106,7 +106,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                     Expanded(
                                       child: Padding(
                                         padding:
-                                            EdgeInsets.only(right: 4, left: 4),
+                                            EdgeInsets.only(right: 8, left: 4),
                                         child: Builder(
                                           builder: (context) =>
                                               OutlineButton.icon(
