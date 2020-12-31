@@ -89,17 +89,22 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                       child: Padding(
                                         padding:
                                             EdgeInsets.only(right: 4, left: 4),
-                                        child: RaisedButton.icon(
-                                          onPressed: () => Scaffold.of(context)
-                                              .openEndDrawer(),
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .secondary,
-                                          label: Text("Interests",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.normal,
-                                                  fontSize: 12)),
-                                          icon: Icon(Icons.filter_list),
+                                        child: Builder(
+                                          builder: (context) =>
+                                              RaisedButton.icon(
+                                            onPressed: () =>
+                                                Scaffold.of(context)
+                                                    .openEndDrawer(),
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .secondary,
+                                            label: Text("Interests",
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontSize: 12)),
+                                            icon: Icon(Icons.filter_list),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -146,18 +151,19 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                   ],
                                 ),
                               ),
+                              actions: <Widget>[
+                                IconButton(
+                                  icon: const Icon(Icons.search),
+                                  tooltip: 'Add new entry',
+                                  onPressed: () {/* ... */},
+                                ),
+                              ],
                               title: TextField(
                                 controller: _textController,
                                 onChanged: (value) {
                                   model.searchBills(value);
                                 },
                                 decoration: InputDecoration(
-                                    icon: Icon(
-                                      Icons.search,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onSurface,
-                                    ),
                                     hintText: "Search Bills",
                                     border: InputBorder.none),
                               ),

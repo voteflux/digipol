@@ -46,7 +46,7 @@ class BillsModel extends BaseModel {
 
   Future getBills() async {
     setState(ViewState.Busy);
-
+    print('getbills');
     updateLists();
 
     // set voting prefs according to HIVE storage
@@ -165,13 +165,7 @@ class BillsModel extends BaseModel {
     notifyListeners();
   }
 
-  // filter by date
-  // void filterByDateSave(bool value) {
-  //   userPrefsBool.put('filterByDate', value);
-  //   filterByDateTime(value);
-  //   print(userPrefsBool.get('filterByDate'));
-  // }
-
+  // Drop down filter
   void dropDownFilter(String value) {
     this.dropdownValue = value;
     if (value == FILTER_NEWEST) {
@@ -185,7 +179,6 @@ class BillsModel extends BaseModel {
   }
 
   // remove closed bills
-
   void removeClosedBillsFunctionSave(bool value) {
     userPrefsBool.put(REMOVE_CLOSED_BILLS, value);
     removeClosedBillsFunction(value);
@@ -203,6 +196,7 @@ class BillsModel extends BaseModel {
     notifyListeners();
   }
 
+  // Refine by topics
   void refineByTopics() {
     List<Bill> filteredBillsState = filteredBills;
     List<String> blankTags = [];
@@ -227,6 +221,5 @@ class BillsModel extends BaseModel {
     }
 
     notifyListeners();
-    print(tags);
   }
 }
