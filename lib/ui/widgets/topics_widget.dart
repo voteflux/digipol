@@ -60,7 +60,7 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
     List<String> finalTags = [];
 
     List<String> tags =
-        userTags.get('tags', defaultValue: blankTags).cast<String>();
+        userTags.get(USER_TAGS, defaultValue: blankTags).cast<String>();
 
     finalTags.addAll(tags);
 
@@ -75,7 +75,7 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
         _active = false;
       }
     });
-    userTags.put('tags', finalTags);
+    userTags.put(USER_TAGS, finalTags);
   }
 
   @override
@@ -84,7 +84,7 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
   }
 
   void checkActive(String item) {
-    List<dynamic> tags = userTags.get('tags');
+    List<dynamic> tags = userTags.get(USER_TAGS);
     if (tags != null && tags.contains(item)) {
       _active = true;
     } else {

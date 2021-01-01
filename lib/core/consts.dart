@@ -12,6 +12,8 @@ const HIVE_USER_PREFS_LIST = "user_prefs_list";
 const ONLY_VOTED_BILLS = "onlyVotedBills";
 const REMOVE_VOTED_BILLS = "removeVotedBills";
 const REMOVE_CLOSED_BILLS = "removeClosedBills";
+const REMOVE_OPEN_BILLS = "removeOpenBills";
+const USER_TAGS = "tags";
 
 // FILTERS
 const FILTER_NEWEST = 'Newest';

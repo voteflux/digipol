@@ -31,6 +31,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
           child: ValueListenableBuilder(
             valueListenable: model.billsBox.listenable(),
             builder: (context, Box<Bill> billsBox, widget) {
+              model.updateLists();
               return Scaffold(
                 body: model.state == ViewState.Busy
                     ? Center(child: CircularProgressIndicator())
@@ -55,7 +56,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                     Expanded(
                                         child: Padding(
                                       padding:
-                                          EdgeInsets.only(right: 4, left: 8),
+                                          EdgeInsets.only(right: 4, left: 10),
                                       child: DropdownButton<String>(
                                         value: model.dropdownValue,
                                         dropdownColor:
@@ -64,6 +65,9 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                         icon: Icon(Icons.expand_more),
                                         iconSize: 24,
                                         elevation: 16,
+                                        iconEnabledColor: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
                                         style: TextStyle(
                                             color: Theme.of(context)
                                                 .colorScheme
@@ -111,7 +115,7 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                     Expanded(
                                       child: Padding(
                                         padding:
-                                            EdgeInsets.only(right: 8, left: 4),
+                                            EdgeInsets.only(right: 10, left: 4),
                                         child: Builder(
                                           builder: (context) =>
                                               OutlineButton.icon(
@@ -221,23 +225,32 @@ class _AllBillsPageState extends State<AllBillsPage> {
                               margin: EdgeInsets.all(0),
                               padding: EdgeInsets.only(top: 10.0, bottom: 2.0)),
                         ),
+                        SwitchListTile(
+                          title: Text("Watched bills"),
+                          value: model.getOnlyVotedBills,
+                          onChanged: (bool value) {
+                            setState(() {});
+                          },
+                        ),
                         // only voted switch
                         SwitchListTile(
-                          title: Text("Bills i've voted on"),
+                          title: Text("Bills I've voted on"),
                           value: model.getOnlyVotedBills,
                           onChanged: (bool value) {
                             setState(() {
-                              model.onlyVotedSearchSave(value);
+                              model.savePrefInHive(
+                                  value, ONLY_VOTED_BILLS, model.onlyVoted);
                             });
                           },
                         ),
                         // remove voted switch
                         SwitchListTile(
-                          title: Text("Bills i've not voted on"),
+                          title: Text("Bills I've not voted on"),
                           value: model.getRemoveVotedBills,
                           onChanged: (bool value) {
                             setState(() {
-                              model.removeVotedSearchSave(value);
+                              model.savePrefInHive(
+                                  value, REMOVE_VOTED_BILLS, model.removeVoted);
                             });
                           },
                         ),
@@ -246,7 +259,18 @@ class _AllBillsPageState extends State<AllBillsPage> {
                           value: model.getRemoveClosedBills,
                           onChanged: (bool value) {
                             setState(() {
-                              model.removeClosedBillsFunction(value);
+                              model.savePrefInHive(value, REMOVE_CLOSED_BILLS,
+                                  model.removeClosedBillsFunction);
+                            });
+                          },
+                        ),
+                        SwitchListTile(
+                          title: Text('Closed bills'),
+                          value: model.getRemoveOpenBills,
+                          onChanged: (bool value) {
+                            setState(() {
+                              model.savePrefInHive(value, REMOVE_OPEN_BILLS,
+                                  model.removeOpenBillsFunction);
                             });
                           },
                         ),
