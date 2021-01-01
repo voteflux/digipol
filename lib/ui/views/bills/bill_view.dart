@@ -122,7 +122,7 @@ class _BillPageState extends State<BillPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            WatchBillWidget(),
+                            WatchBillWidget(id: widget.bill.id),
                             VotingStatusWidget(
                                 bill: widget.bill,
                                 voted: _vote != null ? true : false,
