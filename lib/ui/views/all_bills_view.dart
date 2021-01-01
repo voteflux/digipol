@@ -31,7 +31,6 @@ class _AllBillsPageState extends State<AllBillsPage> {
           child: ValueListenableBuilder(
             valueListenable: model.billsBox.listenable(),
             builder: (context, Box<Bill> billsBox, widget) {
-              model.updateLists();
               return Scaffold(
                 body: model.state == ViewState.Busy
                     ? Center(child: CircularProgressIndicator())
@@ -227,9 +226,12 @@ class _AllBillsPageState extends State<AllBillsPage> {
                         ),
                         SwitchListTile(
                           title: Text("Watched bills"),
-                          value: model.getOnlyVotedBills,
+                          value: model.getonlyWatchedBills,
                           onChanged: (bool value) {
-                            setState(() {});
+                            setState(() {
+                              model.savePrefInHive(value, USER_WATCHED_BILLS,
+                                  model.showOnlyWatchedBills);
+                            });
                           },
                         ),
                         // only voted switch

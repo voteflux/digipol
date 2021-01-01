@@ -30,6 +30,9 @@ class BillsModel extends BaseModel {
   bool removeOpenBills = false;
   bool get getRemoveOpenBills => removeOpenBills;
 
+  bool onlyWatchedBills = false;
+  bool get getonlyWatchedBills => onlyWatchedBills;
+
   //HIVE BOXES
   final Box<BlockChainData> blockChainData =
       Hive.box<BlockChainData>(HIVE_BLOCKCHAIN_DATA);
@@ -219,6 +222,35 @@ class BillsModel extends BaseModel {
           }
         });
       });
+      filteredBills = filtered;
+    } else {
+      filteredBills = filteredBillsState;
+    }
+    notifyListeners();
+  }
+
+  //
+  // Refine by watched
+  //
+  void showOnlyWatchedBills(bool value) {
+    this.onlyWatchedBills = value;
+    List<Bill> filteredBillsState = filteredBills;
+    List<String> blankBills = [];
+    List<String> billIds = userPrefsList
+        .get(USER_WATCHED_BILLS, defaultValue: blankBills)
+        .cast<String>();
+    List<Bill> filtered = [];
+
+    print(billIds);
+    if (billIds.length > 0) {
+      filteredBills.forEach((bill) {
+        if (billIds.contains(bill.id)) {
+          filtered.add(bill);
+        } else {
+          print('does not contain');
+        }
+      });
+      print(filtered);
       filteredBills = filtered;
     } else {
       filteredBills = filteredBillsState;
