@@ -15,6 +15,7 @@ const REMOVE_CLOSED_BILLS = "removeClosedBills";
 const REMOVE_OPEN_BILLS = "removeOpenBills";
 const USER_TAGS = "tags";
 const USER_WATCHED_BILLS = "userWatchedBills";
+const USER_FILTERED_PREFERENCE = "userFilteredOption";
 
 // FILTERS
 const FILTER_NEWEST = 'Newest';

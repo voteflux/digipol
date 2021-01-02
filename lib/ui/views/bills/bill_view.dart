@@ -80,11 +80,6 @@ class _BillPageState extends State<BillPage> {
 
   @override
   Widget build(BuildContext context) {
-    double dynamicMediumHeight = MediaQuery.of(context).size.height * 0.25;
-    double dynamicLargeWidth = MediaQuery.of(context).size.width * 1;
-    if (dynamicLargeWidth > appSizes.largeWidth) {
-      dynamicLargeWidth = appSizes.largeWidth;
-    }
     return BaseView<BillModel>(
       onModelReady: (model) => model.getBill(widget.bill.id),
       builder: (context, model, child) => Scaffold(

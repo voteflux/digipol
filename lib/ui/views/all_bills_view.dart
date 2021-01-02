@@ -75,7 +75,10 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                             fontSize: 12),
                                         onChanged: (String newValue) {
                                           setState(() {
-                                            model.dropDownFilter(newValue);
+                                            model.saveStringPrefInHive(
+                                                newValue,
+                                                USER_FILTERED_PREFERENCE,
+                                                model.dropDownFilter);
                                           });
                                         },
                                         items: DROPDOWN_FILTER_OPTIONS

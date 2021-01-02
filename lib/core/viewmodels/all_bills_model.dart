@@ -55,17 +55,7 @@ class BillsModel extends BaseModel {
     print('getting bills....');
 
     updateLists();
-
-    setPreferencesOnStartup(String preference, Function function) {
-      bool userPref = userPrefsBool.get(preference, defaultValue: false);
-      function(userPref);
-    }
-
-    // set voting prefs according to HIVE storage
-    setPreferencesOnStartup(ONLY_VOTED_BILLS, onlyVoted);
-    setPreferencesOnStartup(REMOVE_VOTED_BILLS, removeVoted);
-    setPreferencesOnStartup(REMOVE_CLOSED_BILLS, removeClosedBillsFunction);
-    setPreferencesOnStartup(REMOVE_OPEN_BILLS, removeOpenBillsFunction);
+    setSearchState();
 
     print('Bills on BlockChain: ' + blockChainList.length.toString());
 
@@ -80,6 +70,26 @@ class BillsModel extends BaseModel {
 
     blockChainList = bills;
     filteredBills = bills;
+  }
+
+  void setBoolPreferencesOnStartup(String preference, Function function) {
+    bool userPref = userPrefsBool.get(preference, defaultValue: false);
+    function(userPref);
+  }
+
+  void setStringPreferencesOnStartup(String preference, Function function) {
+    String userPref =
+        userPrefsString.get(preference, defaultValue: FILTER_NEWEST);
+    function(userPref);
+  }
+
+  void setSearchState() {
+    // set voting prefs according to HIVE storage
+    setStringPreferencesOnStartup(USER_FILTERED_PREFERENCE, dropDownFilter);
+    setBoolPreferencesOnStartup(ONLY_VOTED_BILLS, onlyVoted);
+    setBoolPreferencesOnStartup(REMOVE_VOTED_BILLS, removeVoted);
+    setBoolPreferencesOnStartup(REMOVE_CLOSED_BILLS, removeClosedBillsFunction);
+    setBoolPreferencesOnStartup(REMOVE_OPEN_BILLS, removeOpenBillsFunction);
   }
 
   //
@@ -106,18 +116,25 @@ class BillsModel extends BaseModel {
     notifyListeners();
   }
 
-  // helper save function
+  // helper bool save function
   void savePrefInHive(bool value, String preference, Function function) {
     userPrefsBool.put(preference, value);
     function(value);
     print(preference + ": " + "${userPrefsBool.get(preference)}");
   }
 
+  // helper string save function
+  void saveStringPrefInHive(
+      String value, String preference, Function function) {
+    userPrefsString.put(preference, value);
+    function(value);
+    print(preference + ": " + "${userPrefsString.get(preference)}");
+  }
+
   //
   // only voted switch methods
   //
   void onlyVoted(bool value) {
-    List<Bill> filteredBillsState = filteredBills;
     this.onlyVotedBills = value;
     if (value) {
       this.removeVotedBills = !value;
@@ -125,7 +142,11 @@ class BillsModel extends BaseModel {
       filteredBills =
           blockChainList.where((bill) => list.contains(bill.id)).toList();
     } else {
-      filteredBills = filteredBillsState;
+      filteredBills = blockChainList;
+      setBoolPreferencesOnStartup(REMOVE_VOTED_BILLS, removeVoted);
+      setBoolPreferencesOnStartup(
+          REMOVE_CLOSED_BILLS, removeClosedBillsFunction);
+      setBoolPreferencesOnStartup(REMOVE_OPEN_BILLS, removeOpenBillsFunction);
     }
     notifyListeners();
   }
@@ -135,7 +156,6 @@ class BillsModel extends BaseModel {
   //
   void removeVoted(bool value) {
     this.removeVotedBills = value;
-    List<Bill> filteredBillsState = filteredBills;
     if (value) {
       this.onlyVotedBills = !value;
       List list = billVoteBox.values.map((el) => el.ballotId).toList();
@@ -150,7 +170,10 @@ class BillsModel extends BaseModel {
       });
       filteredBills = filtered;
     } else {
-      filteredBills = filteredBillsState;
+      filteredBills = blockChainList;
+      setBoolPreferencesOnStartup(
+          REMOVE_CLOSED_BILLS, removeClosedBillsFunction);
+      setBoolPreferencesOnStartup(REMOVE_OPEN_BILLS, removeOpenBillsFunction);
     }
     notifyListeners();
   }
@@ -174,14 +197,13 @@ class BillsModel extends BaseModel {
   // Remove closed bills
   //
   void removeClosedBillsFunction(bool value) {
-    List<Bill> filteredBillsState = filteredBills;
     this.removeClosedBills = value;
 
     if (value) {
       this.removeOpenBills = !value;
       filteredBills = filteredBills.where((i) => i.assentDate == '').toList();
     } else {
-      filteredBills = filteredBillsState;
+      filteredBills = blockChainList;
     }
     notifyListeners();
   }
@@ -190,14 +212,13 @@ class BillsModel extends BaseModel {
   // Remove open bills
   //
   void removeOpenBillsFunction(bool value) {
-    List<Bill> filteredBillsState = filteredBills;
     this.removeOpenBills = value;
 
     if (value) {
       this.removeClosedBills = !value;
       filteredBills = filteredBills.where((i) => i.assentDate != '').toList();
     } else {
-      filteredBills = filteredBillsState;
+      filteredBills = blockChainList;
     }
     notifyListeners();
   }
@@ -206,7 +227,6 @@ class BillsModel extends BaseModel {
   // Refine by topics
   //
   void refineByTopics() {
-    List<Bill> filteredBillsState = filteredBills;
     List<String> blankTags = [];
     List<String> tags =
         userPrefsList.get(USER_TAGS, defaultValue: blankTags).cast<String>();
@@ -224,7 +244,7 @@ class BillsModel extends BaseModel {
       });
       filteredBills = filtered;
     } else {
-      filteredBills = filteredBillsState;
+      filteredBills = blockChainList;
     }
     notifyListeners();
   }
@@ -234,7 +254,6 @@ class BillsModel extends BaseModel {
   //
   void showOnlyWatchedBills(bool value) {
     this.onlyWatchedBills = value;
-    List<Bill> filteredBillsState = filteredBills;
     List<String> blankBills = [];
     List<String> billIds = userPrefsList
         .get(USER_WATCHED_BILLS, defaultValue: blankBills)
@@ -253,7 +272,7 @@ class BillsModel extends BaseModel {
       print(filtered);
       filteredBills = filtered;
     } else {
-      filteredBills = filteredBillsState;
+      filteredBills = blockChainList;
     }
     notifyListeners();
   }
