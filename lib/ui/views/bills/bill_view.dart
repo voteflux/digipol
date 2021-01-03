@@ -80,11 +80,6 @@ class _BillPageState extends State<BillPage> {
 
   @override
   Widget build(BuildContext context) {
-    double dynamicMediumHeight = MediaQuery.of(context).size.height * 0.25;
-    double dynamicLargeWidth = MediaQuery.of(context).size.width * 1;
-    if (dynamicLargeWidth > appSizes.largeWidth) {
-      dynamicLargeWidth = appSizes.largeWidth;
-    }
     return BaseView<BillModel>(
       onModelReady: (model) => model.getBill(widget.bill.id),
       builder: (context, model, child) => Scaffold(
@@ -122,7 +117,7 @@ class _BillPageState extends State<BillPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            WatchBillWidget(),
+                            WatchBillWidget(id: widget.bill.id),
                             VotingStatusWidget(
                                 bill: widget.bill,
                                 voted: _vote != null ? true : false,
@@ -164,7 +159,10 @@ class _BillPageState extends State<BillPage> {
                               ),
                               alignment: Alignment.centerLeft,
                             ),
-                            TopicsWidget(topics: widget.bill.topics),
+                            TopicsWidget(
+                              topics: widget.bill.topics,
+                              canPress: true,
+                            ),
                             Align(
                               child: Padding(
                                 padding:
@@ -223,7 +221,7 @@ class _BillPageState extends State<BillPage> {
                                   left: 10.0,
                                   right: 10.0),
                               onPressed: () {
-                                  launch(widget.bill.emLinkHtml);
+                                launch(widget.bill.emLinkHtml);
 //                                Navigator.push(
 //                                  context,
 //                                  MaterialPageRoute<PdfPage>(

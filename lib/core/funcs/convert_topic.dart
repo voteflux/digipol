@@ -6,17 +6,53 @@ const String ECONOMY_FINANCE = "Economy & Finance";
 const String MEDIA_COMS = "Media & Communication";
 const String AUS = "Australia";
 
-String topicConverter(String tag) {
-  switch(tag) {
-    case "citizens": {return HEALTH_EDU_SOCIAL;}
-    case "citizen": {return HEALTH_EDU_SOCIAL;}
-    case "nature": {return ENV_AG;}
-    case "national development": {return SCI_TRANS_INF;}
-    case "national_development": {return SCI_TRANS_INF;}
-    case "borders": {return SECURITY_FOREIGN;}
-    case "economy": {return ECONOMY_FINANCE;}
-    case "communications": {return MEDIA_COMS;}
-    default: {return AUS;}
-  }
+const List<String> ALL_TOPICS = [
+  HEALTH_EDU_SOCIAL,
+  ENV_AG,
+  SCI_TRANS_INF,
+  SECURITY_FOREIGN,
+  ECONOMY_FINANCE,
+  MEDIA_COMS,
+  AUS
+];
 
+String topicConverter(String tag) {
+  switch (tag) {
+    case "citizens":
+      {
+        return HEALTH_EDU_SOCIAL;
+      }
+    case "citizen":
+      {
+        return HEALTH_EDU_SOCIAL;
+      }
+    case "nature":
+      {
+        return ENV_AG;
+      }
+    case "national development":
+      {
+        return SCI_TRANS_INF;
+      }
+    case "national_development":
+      {
+        return SCI_TRANS_INF;
+      }
+    case "borders":
+      {
+        return SECURITY_FOREIGN;
+      }
+    case "economy":
+      {
+        return ECONOMY_FINANCE;
+      }
+    case "communications":
+      {
+        return MEDIA_COMS;
+      }
+    default:
+      {
+        return AUS;
+      }
+  }
 }
