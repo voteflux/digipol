@@ -26,7 +26,6 @@ class _AllBillsPageState extends State<AllBillsPage> {
     return BaseView<BillsModel>(
       onModelReady: (model) => model.getBills(),
       builder: (context, model, child) {
-        print(model.filteredBills);
         return SafeArea(
           child: ValueListenableBuilder(
             valueListenable: model.billsBox.listenable(),
@@ -142,11 +141,14 @@ class _AllBillsPageState extends State<AllBillsPage> {
                                                   .colorScheme
                                                   .primary,
                                             ),
-                                            label: Text("Filters",
+                                            label: Text(
+                                                "Filters: " +
+                                                    model.filteredBills.length
+                                                        .toString(),
                                                 style: TextStyle(
                                                     fontWeight:
                                                         FontWeight.normal,
-                                                    fontSize: 12,
+                                                    fontSize: 8,
                                                     color: Theme.of(context)
                                                         .colorScheme
                                                         .primary)),

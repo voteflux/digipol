@@ -86,10 +86,14 @@ class BillsModel extends BaseModel {
   void setSearchState() {
     // set voting prefs according to HIVE storage
     setStringPreferencesOnStartup(USER_FILTERED_PREFERENCE, dropDownFilter);
+    setBoolPreferencesOnStartup(USER_WATCHED_BILLS, showOnlyWatchedBills);
     setBoolPreferencesOnStartup(ONLY_VOTED_BILLS, onlyVoted);
     setBoolPreferencesOnStartup(REMOVE_VOTED_BILLS, removeVoted);
     setBoolPreferencesOnStartup(REMOVE_CLOSED_BILLS, removeClosedBillsFunction);
     setBoolPreferencesOnStartup(REMOVE_OPEN_BILLS, removeOpenBillsFunction);
+
+    // refine by user topics
+    refineByTopics();
   }
 
   //
@@ -143,10 +147,6 @@ class BillsModel extends BaseModel {
           blockChainList.where((bill) => list.contains(bill.id)).toList();
     } else {
       filteredBills = blockChainList;
-      setBoolPreferencesOnStartup(REMOVE_VOTED_BILLS, removeVoted);
-      setBoolPreferencesOnStartup(
-          REMOVE_CLOSED_BILLS, removeClosedBillsFunction);
-      setBoolPreferencesOnStartup(REMOVE_OPEN_BILLS, removeOpenBillsFunction);
     }
     notifyListeners();
   }
@@ -171,9 +171,6 @@ class BillsModel extends BaseModel {
       filteredBills = filtered;
     } else {
       filteredBills = blockChainList;
-      setBoolPreferencesOnStartup(
-          REMOVE_CLOSED_BILLS, removeClosedBillsFunction);
-      setBoolPreferencesOnStartup(REMOVE_OPEN_BILLS, removeOpenBillsFunction);
     }
     notifyListeners();
   }
@@ -260,20 +257,21 @@ class BillsModel extends BaseModel {
         .cast<String>();
     List<Bill> filtered = [];
 
-    print(billIds);
-    if (billIds.length > 0) {
-      filteredBills.forEach((bill) {
-        if (billIds.contains(bill.id)) {
-          filtered.add(bill);
-        } else {
-          print('does not contain');
-        }
-      });
-      print(filtered);
-      filteredBills = filtered;
+    if (value) {
+      if (billIds.length > 0) {
+        filteredBills.forEach((bill) {
+          if (billIds.contains(bill.id)) {
+            filtered.add(bill);
+          } else {
+            print('does not contain');
+          }
+        });
+        filteredBills = filtered;
+      }
     } else {
       filteredBills = blockChainList;
     }
+
     notifyListeners();
   }
 }
