@@ -6,6 +6,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:voting_app/core/router.gr.dart';
 import 'package:voting_app/ui/widgets/in_line_icon.dart';
+import 'package:voting_app/core/funcs/convert_topic.dart';
+
+import '../widgets/topics_widget.dart';
 
 class OnBoardingView extends StatefulWidget {
   @override
@@ -17,8 +20,10 @@ class OnboardingSlide {
   String heading;
   String body;
   String label;
-  List<String> bg; // background gradient colors in String
-  OnboardingSlide(this.image, this.label, this.heading, this.body, this.bg);
+  List<int> bg; // background gradient colors in String
+  List<Widget> widgets; // widgets to be displayed between text
+  OnboardingSlide(this.image, this.label, this.heading, this.body,
+      this.bg, this.widgets);
 }
 
 class _OnBoardingViewState extends State<OnBoardingView> {
@@ -33,39 +38,67 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         'Welcome to DigiPol!',
         'Ready to make a change?',
         'The voting app where you can have your say!',
-        ['0xFFBDFDC1', '0xFF49F2DD']),
+        [0xFFBDFDC1, 0xFF49F2DD],
+        []
+    ),
     OnboardingSlide(
         'ob-2_send_msg_politi.png',
         'Welcome to DigiPol!',
         'Send a message directly to politicians.',
         'By voting directly on the bills that affect you and your fellow '
             'citizens, DigiPol, gives you the power to have your voice heard.',
-        ['0xFF4BE2FF', '0xFFB28DFF']),
+        [0xFF4BE2FF, 0xFFB28DFF],
+        []),
     OnboardingSlide(
         'ob-3_secure_final_decisions.svg',
         'Welcome to DigiPol!',
         'Your decisions are secure.',
         'By using state-of-the-art technology, no one can alter your votes but '
             'you.\nFind out more in <b:Settings>'
-            '<image:icon-ios-android.png:20.0>(temporary icon).',
-        ['0xFFF5A5FE', '0xFFFFABAB']),
+            '<widget:0>.',
+        [0xFFF5A5FE, 0xFFFFABAB],
+        [Icon(
+            Icons.settings,
+            size: 24.0,
+            color: Colors.black87),
+        ]),
     OnboardingSlide(
         'ob-4_hear_from_commu.svg',
         'Welcome to DigiPol!',
         'Hear from your community.',
         'Coming soon - You can also comment on bills and see what others have '
             'to say about them!',
-        ['0xFFFFABAB', '0xFFFFF6BA']),
+        [0xFFFFABAB, 0xFFFFF6BA],
+        []),
     OnboardingSlide(
         'ob-5_say_whats_important.svg',
         'Welcome to DigiPol!',
         'Have your say on what\'s important to you.',
         'We\'ve made it easier to find the bills and issues that you want to '
             'vote on. Start by selecting some tags below, and you can use the '
-            '<image:icon-ios-android.png:32.0>(temporary icon) button to '
+            '<widget:0> button to '
             'customise your result in the Bill Hub at any time.',
-        ['0xFFFFF6BA', '0xFFBDFDF9']),
+        [0xFFFFF6BA, 0xFFBDFDF9],
+        [ Padding(
+            padding: EdgeInsets.all(3.0),
+            child: Container(
+              height: 24.0,
+              child: RaisedButton.icon(
+                  onPressed: (){},
+                  color: Color(0XFFB28DFF),
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  label: Text("Interests",
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: 12)),
+                  icon: Icon(Icons.filter_list)
+              ),
+            ),
+          ),
+        ]),
   ];
+
 
   @override
   void initState() {
@@ -95,7 +128,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               stops: [0.1, 0.9],
               colors: <Color>[
                 for (var color in pages[_currentIndexPage.toInt()].bg)
-                  Color(int.parse(color))
+                  Color(color)
               ],
             ),
           ),
@@ -113,8 +146,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     controller: _pageController,
                     children: <Widget>[
                       for (var page in pages)
-                        _buildWalkThrough(context, page.image, page.heading,
-                            page.body, page.label)
+                        _buildWalkThrough(context, page,
+                            _currentIndexPage == pageLength-1)
                       // ProfilePage() // moved to StartupView
                     ],
                     onPageChanged: (value) {
@@ -125,7 +158,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               ),
               Container(
                 child: RaisedButton(
-                  padding: EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(18.0),
                   onPressed: _nextPage,
                   child: (_currentIndexPage < pageLength - 1)
                       ? Text(
@@ -217,8 +250,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   }
 }
 
-Widget _buildWalkThrough(BuildContext context, String graphic, String heading,
-    String body, String label) {
+Widget _buildWalkThrough(BuildContext context, OnboardingSlide page,
+    bool displayTopics) {
   return Container(
     child: Stack(
       children: <Widget>[
@@ -233,7 +266,7 @@ Widget _buildWalkThrough(BuildContext context, String graphic, String heading,
                     padding:
                         EdgeInsets.only(left: 40.0, right: 40.0, bottom: 20.0),
                     child: Text(
-                      label,
+                      page.label,
                       style: Theme.of(context)
                           .textTheme
                           .headline5
@@ -245,7 +278,7 @@ Widget _buildWalkThrough(BuildContext context, String graphic, String heading,
                     padding:
                         EdgeInsets.only(left: 40.0, right: 40.0, bottom: 20.0),
                     child: Text(
-                      heading,
+                      page.heading,
                       style: Theme.of(context)
                           .textTheme
                           .headline4
@@ -255,19 +288,43 @@ Widget _buildWalkThrough(BuildContext context, String graphic, String heading,
                   ),
                   Padding(
                       padding: EdgeInsets.only(
-                          left: 40.0, right: 40.0, bottom: 20.0),
-                      child: InLineIcon(body)),
+                          left: 40.0, right: 40.0),
+                      child: InLineIcon(page.body, widgets: page.widgets)),
                 ],
               ),
-              Spacer(
-                flex: 1,
-              ),
-              Container(
-                child: Flexible(
+              if(displayTopics)
+                Expanded(
                   flex: 8,
-                  child: Padding(
-                      padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                      child: _loadImage('assets/graphics/' + graphic, heading)),
+                  child: Container(
+                    padding: EdgeInsets.all(5.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            child: TopicsWidget(
+                              topics: [
+                                HEALTH_EDU_SOCIAL,
+                                ENV_AG,
+                                SCI_TRANS_INF,
+                                SECURITY_FOREIGN,
+                                ECONOMY_FINANCE,
+                                MEDIA_COMS,
+                                AUS,
+                              ],
+                              canPress: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              Flexible(
+                flex: 8,
+                child: Padding(
+                    padding: EdgeInsets.only(left: 2.0, right: 2.0),
+                    child: _loadImage('assets/graphics/${page.image}',
+                        page.heading)
                 ),
               ),
             ],
