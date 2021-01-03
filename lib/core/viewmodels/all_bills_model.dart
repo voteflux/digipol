@@ -85,6 +85,7 @@ class BillsModel extends BaseModel {
 
   void setSearchState() {
     // set voting prefs according to HIVE storage
+    filteredBills = blockChainList;
     setStringPreferencesOnStartup(USER_FILTERED_PREFERENCE, dropDownFilter);
     setBoolPreferencesOnStartup(USER_WATCHED_BILLS, showOnlyWatchedBills);
     setBoolPreferencesOnStartup(ONLY_VOTED_BILLS, onlyVoted);
@@ -123,7 +124,7 @@ class BillsModel extends BaseModel {
   // helper bool save function
   void savePrefInHive(bool value, String preference, Function function) {
     userPrefsBool.put(preference, value);
-    function(value);
+    setSearchState();
     print(preference + ": " + "${userPrefsBool.get(preference)}");
   }
 
@@ -131,7 +132,7 @@ class BillsModel extends BaseModel {
   void saveStringPrefInHive(
       String value, String preference, Function function) {
     userPrefsString.put(preference, value);
-    function(value);
+    setSearchState();
     print(preference + ": " + "${userPrefsString.get(preference)}");
   }
 
@@ -145,8 +146,6 @@ class BillsModel extends BaseModel {
       List list = billVoteBox.values.map((el) => el.ballotId).toList();
       filteredBills =
           blockChainList.where((bill) => list.contains(bill.id)).toList();
-    } else {
-      filteredBills = blockChainList;
     }
     notifyListeners();
   }
@@ -169,8 +168,6 @@ class BillsModel extends BaseModel {
         }
       });
       filteredBills = filtered;
-    } else {
-      filteredBills = blockChainList;
     }
     notifyListeners();
   }
@@ -199,8 +196,6 @@ class BillsModel extends BaseModel {
     if (value) {
       this.removeOpenBills = !value;
       filteredBills = filteredBills.where((i) => i.assentDate == '').toList();
-    } else {
-      filteredBills = blockChainList;
     }
     notifyListeners();
   }
@@ -214,8 +209,6 @@ class BillsModel extends BaseModel {
     if (value) {
       this.removeClosedBills = !value;
       filteredBills = filteredBills.where((i) => i.assentDate != '').toList();
-    } else {
-      filteredBills = blockChainList;
     }
     notifyListeners();
   }
@@ -240,8 +233,6 @@ class BillsModel extends BaseModel {
         });
       });
       filteredBills = filtered;
-    } else {
-      filteredBills = blockChainList;
     }
     notifyListeners();
   }
@@ -268,8 +259,6 @@ class BillsModel extends BaseModel {
         });
         filteredBills = filtered;
       }
-    } else {
-      filteredBills = blockChainList;
     }
 
     notifyListeners();
