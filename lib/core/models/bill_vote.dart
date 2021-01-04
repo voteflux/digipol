@@ -9,7 +9,7 @@ class BillVote {
   @HiveField(0)
   /*late*/ String id;
   @HiveField(1)
-  EthereumAddress ethAddrHex;
+  String ethAddrHex;
   @HiveField(2)
   String ballotId;
   @HiveField(3)
@@ -30,8 +30,7 @@ class BillVote {
   factory BillVote.fromJson(Map<String, dynamic> json) {
     return BillVote(
       id: json['_id'] as String,
-      ethAddrHex: EthereumAddress.fromHex(json['ethAddrHex'] as String,
-          enforceEip55: true),
+      ethAddrHex: json['ethAddrHex'] as String,
       ballotId: json['ballotId'] as String,
       ballotSpecHash: json['ballotSpecHash'] as String,
       constituency: json['constituency'] as String,

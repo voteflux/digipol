@@ -1,6 +1,8 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:voting_app/core/consts.dart';
 import 'package:voting_app/core/models/bill_chain_data.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/bill_vote_success.dart';
@@ -27,6 +29,7 @@ class VoteWidget extends StatefulWidget {
 
 class _VoteWidgetState extends State<VoteWidget> {
   Future<BillVoteSuccess> /*?*/ _futureSuccess;
+  Box userBox = Hive.box<String>(HIVE_USER_PREFS_STR);
 
   @override
   Widget build(BuildContext context) {
@@ -134,6 +137,8 @@ class _VoteWidgetState extends State<VoteWidget> {
   Future<void> areYouSure(
       String vote, BillVoteModel model, String id, String ballotSpecHash) {
     /// Dialog to confirm the vote
+    String ethAddress = userBox.get('ethereumAddress') as String;
+
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
@@ -165,11 +170,12 @@ class _VoteWidgetState extends State<VoteWidget> {
               onPressed: () {
                 Navigator.of(context).pop();
                 setState(() {
-                  print(vote);
+                  print(ethAddress);
                   _futureSuccess = model.postVote(
                     BillVote(
+
                         // TODO: update to real data
-                        ethAddrHex: EthereumAddress(Uint8List(40)),
+                        ethAddrHex: ethAddress,
                         ballotId: id,
                         ballotSpecHash: ballotSpecHash,
                         constituency: "Australia",

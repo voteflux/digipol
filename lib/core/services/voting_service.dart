@@ -61,7 +61,7 @@ class VotingService {
       throw Exception("Invalid vote value");
     }
 
-    List params = List<dynamic>(1);
+    List params = List<dynamic>();
     params.add(specHash);
     return walletService.sendTransaction(contract, voteFn, params);
   }
@@ -77,17 +77,21 @@ class VotingService {
 
     var _bsh = nullToE(
         vote.ballotSpecHash, "BallotSpecHash is null (and shouldn't be).");
+
     var _vv = nullToE(vote.vote, "Vote object is null (and shouldn't be)");
+
     var afterTx = await Either.sequenceFuture(_bsh
-        .bind((String bsh) => _vv.map((vv) => Tuple2(bsh, vv) as TxInputs))
+        .bind((String bsh) => _vv.map((vv) => Tuple2(bsh, vv)))
         .map(this.sendTxAndGetHash));
+    print(afterTx);
+
     var atx2 = afterTx.bind((e) => e).map((var t3) async {
       await billVoteBox.add(BillVote(
           id: billVoteBox.length.toString(),
           ballotId: vote.ballotId,
           vote: t3.value2,
           ballotSpecHash: t3.value1,
-          ethAddrHex: ethAddr,
+          ethAddrHex: ethAddr.toString(),
           constituency: vote.constituency));
       return t3;
     });
@@ -96,16 +100,14 @@ class VotingService {
         (r) => BillVoteSuccess(ballotspecHash: r.value1));
   }
 
-  Future<Either<String, AfterTx>> sendTxAndGetHash<T>(TxInputs t2) async {
+  Future<Either<String, Tuple3<String, String, String>>> sendTxAndGetHash<T>(
+      Tuple2<String, String> t2) async {
     String txHash = await submitVoteTransaction(t2.value1, t2.value2);
     if (txHash == "") {
       return Left("txHash was empty when submitting vote transaction!");
     }
-    return Right(Tuple3(t2.value1, t2.value2, txHash) as AfterTx);
+    return Right(Tuple3(t2.value1, t2.value2, txHash));
   }
 }
 
 mixin ToAlias {}
-
-class TxInputs = Tuple2<String, String> with ToAlias;
-class AfterTx = Tuple3<String, String, String> with ToAlias;
