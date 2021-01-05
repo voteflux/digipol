@@ -40,7 +40,7 @@ class StartupView extends HookWidget {
 class StartupViewModel extends ChangeNotifier {
   final log = Logger();
   bool _animationComplete = false;
-  String _destinationRoute = Routes.profilePage;
+  String _destinationRoute = Routes.signin;
   dynamic _destinationArguments;
   final NavigationService _navigationService = locator<NavigationService>();
 

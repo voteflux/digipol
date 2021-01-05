@@ -19,17 +19,20 @@ class UserAdapter extends TypeAdapter<User> {
     return User(
       firstName: fields[0] as String,
       ethereumAddress: fields[1] as String,
+      tags: (fields[2] as List)?.cast<String>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, User obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.firstName)
       ..writeByte(1)
-      ..write(obj.ethereumAddress);
+      ..write(obj.ethereumAddress)
+      ..writeByte(2)
+      ..write(obj.tags);
   }
 
   @override
