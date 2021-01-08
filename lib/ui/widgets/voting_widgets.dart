@@ -20,8 +20,11 @@ import 'package:web3dart/web3dart.dart';
 class VoteWidget extends StatefulWidget {
   final BillChainData data;
   final String /*?*/ vote;
+  final int yes;
+  final int no;
 
-  VoteWidget({Key /*?*/ key, @required this.data, this.vote}) : super(key: key);
+  VoteWidget({Key /*?*/ key, @required this.data, this.vote, this.no, this.yes})
+      : super(key: key);
 
   @override
   _VoteWidgetState createState() => _VoteWidgetState();
@@ -44,31 +47,98 @@ class _VoteWidgetState extends State<VoteWidget> {
                     Container(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
-                        'VOTE',
-                        style: Theme.of(context).textTheme.headline5,
+                        widget.vote != null
+                            ? "You've voted ".toUpperCase() +
+                                widget.vote.toUpperCase()
+                            : 'vote'.toUpperCase(),
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600),
                       ),
                     ),
                     Container(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
                         widget.data.shortTitle,
+                        textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.headline6,
                       ),
                     ),
-                    widget.vote == null
-                        ? Divider()
-                        : Container(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                                "You voted " +
-                                    (widget.vote ??
-                                            (() {
-                                              throw Exception(
-                                                  "WIDGET.VOTE SHOULD NEVER BE NULL HERE");
-                                            })())
-                                        .toUpperCase() +
-                                    ". You can change your vote below.",
-                                style: Theme.of(context).textTheme.headline6)),
+                    Container(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        'Votes so far',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodyText2,
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: widget.yes,
+                            child: Container(
+                              alignment: Alignment.centerLeft,
+                              height: 40,
+                              padding: EdgeInsets.only(left: 10),
+                              child: Text(
+                                  ((widget.yes / (widget.yes + widget.no)) *
+                                              100)
+                                          .toString() +
+                                      '%',
+                                  style: TextStyle(
+                                    color: Theme.of(context)
+                                        .scaffoldBackgroundColor,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0,
+                                  )),
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                          ),
+                          Expanded(
+                            flex: widget.no,
+                            child: Container(
+                              alignment: Alignment.centerRight,
+                              height: 40,
+                              padding: EdgeInsets.only(right: 10),
+                              child: Text(
+                                  ((widget.no / (widget.yes + widget.no)) * 100)
+                                          .toString() +
+                                      '%',
+                                  style: TextStyle(
+                                    color: Theme.of(context)
+                                        .scaffoldBackgroundColor,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0,
+                                  )),
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text('YES',
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.primary,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14.0,
+                              )),
+                          Text('NO',
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.secondary,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14.0,
+                              ))
+                        ],
+                      ),
+                    ),
                     Container(
                       padding: EdgeInsets.all(8.0),
                       child: Row(

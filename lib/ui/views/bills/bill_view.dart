@@ -97,7 +97,7 @@ class _BillPageState extends State<BillPage> {
             ? Center(child: CircularProgressIndicator())
             : Center(
                 child: Container(
-                  margin: EdgeInsets.all(14.0),
+                  margin: EdgeInsets.only(left: 14.0, right: 14.0),
                   child: ListView(
                     children: <Widget>[
                       Card(
@@ -258,9 +258,10 @@ class _BillPageState extends State<BillPage> {
                         ),
                       ),
                       VoteWidget(
-                        data: completeBlockChainData.toBillChainData(),
-                        vote: model.getVote,
-                      ),
+                          data: completeBlockChainData.toBillChainData(),
+                          vote: model.getVote,
+                          yes: model.billVoteResult.yes,
+                          no: model.billVoteResult.no),
                     ],
                   ),
                 ),
