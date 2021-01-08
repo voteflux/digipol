@@ -18,7 +18,7 @@ class BillVoteAdapter extends TypeAdapter<BillVote> {
     };
     return BillVote(
       id: fields[0] as String,
-      ethAddrHex: fields[1] as EthereumAddress,
+      ethAddrHex: fields[1] as String,
       ballotId: fields[2] as String,
       ballotSpecHash: fields[3] as String,
       constituency: fields[4] as String,
