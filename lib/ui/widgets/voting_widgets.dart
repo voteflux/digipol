@@ -48,7 +48,6 @@ class _VoteWidgetState extends State<VoteWidget> {
       builder: (context, model, child) => Center(
         child: Container(
           child: Card(
-            color: Theme.of(context).scaffoldBackgroundColor,
             child: (_futureSuccess == null)
                 ? Column(children: <Widget>[
                     Container(
@@ -139,13 +138,7 @@ class _VoteWidgetState extends State<VoteWidget> {
                     future: _futureSuccess,
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
-                        return Container(
-                            padding: EdgeInsets.all(10),
-                            child: Text(
-                              "Successful vote: " +
-                                  snapshot.data.ballotspecHash,
-                              style: Theme.of(context).textTheme.headline6,
-                            ));
+                        return _votingGraph(widget.yes, widget.no);
                       } else if (snapshot.hasError) {
                         return Container(
                             padding: EdgeInsets.all(10),
@@ -185,6 +178,12 @@ class _VoteWidgetState extends State<VoteWidget> {
                 Expanded(
                   flex: yes,
                   child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(6),
+                          bottomLeft: Radius.circular(6)),
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
                     alignment: Alignment.centerLeft,
                     height: 40,
                     padding: EdgeInsets.only(left: 10),
@@ -195,12 +194,17 @@ class _VoteWidgetState extends State<VoteWidget> {
                           fontWeight: FontWeight.bold,
                           fontSize: 18.0,
                         )),
-                    color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
                 Expanded(
                   flex: no,
                   child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(6),
+                          bottomRight: Radius.circular(6)),
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
                     alignment: Alignment.centerRight,
                     height: 40,
                     padding: EdgeInsets.only(right: 10),
@@ -211,7 +215,6 @@ class _VoteWidgetState extends State<VoteWidget> {
                               fontWeight: FontWeight.bold,
                               fontSize: 18.0,
                             )),
-                    color: Theme.of(context).colorScheme.secondary,
                   ),
                 ),
               ],
