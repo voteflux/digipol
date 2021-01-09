@@ -22,8 +22,15 @@ class VoteWidget extends StatefulWidget {
   final String /*?*/ vote;
   final int yes;
   final int no;
+  final String shortDescription;
 
-  VoteWidget({Key /*?*/ key, @required this.data, this.vote, this.no, this.yes})
+  VoteWidget(
+      {Key /*?*/ key,
+      @required this.data,
+      this.vote,
+      this.no,
+      this.yes,
+      this.shortDescription})
       : super(key: key);
 
   @override
@@ -65,109 +72,65 @@ class _VoteWidgetState extends State<VoteWidget> {
                         style: Theme.of(context).textTheme.headline6,
                       ),
                     ),
+                    widget.vote != null
+                        ? _votingGraph(widget.yes, widget.no)
+                        : Divider(
+                            height: 0,
+                          ),
+                    widget.vote != null
+                        ? Text('Change your vote')
+                        : Divider(
+                            height: 0,
+                          ),
                     Container(
                       padding: EdgeInsets.all(8.0),
-                      child: Text(
-                        'Votes so far',
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.bodyText2,
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(left: 16.0, right: 16.0),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            flex: widget.yes,
-                            child: Container(
-                              alignment: Alignment.centerLeft,
-                              height: 40,
-                              padding: EdgeInsets.only(left: 10),
-                              child: Text(
-                                  ((widget.yes / (widget.yes + widget.no)) *
-                                              100)
-                                          .toString() +
-                                      '%',
-                                  style: TextStyle(
-                                    color: Theme.of(context)
-                                        .scaffoldBackgroundColor,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18.0,
-                                  )),
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          Expanded(
-                            flex: widget.no,
-                            child: Container(
-                              alignment: Alignment.centerRight,
-                              height: 40,
-                              padding: EdgeInsets.only(right: 10),
-                              child: Text(
-                                  ((widget.no / (widget.yes + widget.no)) * 100)
-                                          .toString() +
-                                      '%',
-                                  style: TextStyle(
-                                    color: Theme.of(context)
-                                        .scaffoldBackgroundColor,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18.0,
-                                  )),
-                              color: Theme.of(context).colorScheme.secondary,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(left: 16.0, right: 16.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          Text('YES',
-                              style: TextStyle(
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.all(10),
+                              child: RaisedButton(
+                                padding: EdgeInsets.only(
+                                    bottom: 8.0,
+                                    top: 8.0,
+                                    left: 10.0,
+                                    right: 10.0),
+                                onPressed: () {
+                                  areYouSure(
+                                      "yes",
+                                      model,
+                                      widget.data.id,
+                                      widget.data.ballotSpecHash,
+                                      widget.shortDescription);
+                                },
                                 color: Theme.of(context).colorScheme.primary,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14.0,
-                              )),
-                          Text('NO',
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.secondary,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14.0,
-                              ))
-                        ],
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          RaisedButton(
-                              padding: EdgeInsets.only(
-                                  bottom: 8.0,
-                                  top: 8.0,
-                                  left: 10.0,
-                                  right: 10.0),
-                              onPressed: () {
-                                areYouSure("yes", model, widget.data.id,
-                                    widget.data.ballotSpecHash);
-                              },
-                              color: Theme.of(context).colorScheme.primary,
-                              child: Text("Vote YES")),
-                          RaisedButton(
-                              padding: EdgeInsets.only(
-                                  bottom: 8.0,
-                                  top: 8.0,
-                                  left: 10.0,
-                                  right: 10.0),
-                              onPressed: () {
-                                areYouSure("no", model, widget.data.id,
-                                    widget.data.ballotSpecHash);
-                              },
-                              color: Theme.of(context).colorScheme.secondary,
-                              child: Text("Vote NO")),
+                                child: Text("Vote YES"),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.all(10),
+                              child: RaisedButton(
+                                  padding: EdgeInsets.only(
+                                      bottom: 8.0,
+                                      top: 8.0,
+                                      left: 10.0,
+                                      right: 10.0),
+                                  onPressed: () {
+                                    areYouSure(
+                                        "no",
+                                        model,
+                                        widget.data.id,
+                                        widget.data.ballotSpecHash,
+                                        widget.shortDescription);
+                                  },
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                  child: Text("Vote NO")),
+                            ),
+                          )
                         ],
                       ),
                     ),
@@ -176,9 +139,8 @@ class _VoteWidgetState extends State<VoteWidget> {
                     future: _futureSuccess,
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
-                        print(snapshot.hasData);
                         return Container(
-                            padding: EdgeInsets.all(appSizes.standardPadding),
+                            padding: EdgeInsets.all(10),
                             child: Text(
                               "Successful vote: " +
                                   snapshot.data.ballotspecHash,
@@ -186,14 +148,14 @@ class _VoteWidgetState extends State<VoteWidget> {
                             ));
                       } else if (snapshot.hasError) {
                         return Container(
-                            padding: EdgeInsets.all(appSizes.standardPadding),
+                            padding: EdgeInsets.all(10),
                             child: Text(
                               "${snapshot.error}",
                               style: Theme.of(context).textTheme.headline6,
                             ));
                       }
                       return Container(
-                        padding: EdgeInsets.all(appSizes.standardPadding),
+                        padding: EdgeInsets.all(10),
                         child: Center(child: CircularProgressIndicator()),
                       );
                     },
@@ -204,8 +166,84 @@ class _VoteWidgetState extends State<VoteWidget> {
     );
   }
 
-  Future<void> areYouSure(
-      String vote, BillVoteModel model, String id, String ballotSpecHash) {
+  Widget _votingGraph(int yes, int no) {
+    return Container(
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              'Votes so far',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 16.0, right: 16.0),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: yes,
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    height: 40,
+                    padding: EdgeInsets.only(left: 10),
+                    child: Text(
+                        ((yes / (yes + no)) * 100).toStringAsFixed(2) + '%',
+                        style: TextStyle(
+                          color: Theme.of(context).scaffoldBackgroundColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0,
+                        )),
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
+                Expanded(
+                  flex: no,
+                  child: Container(
+                    alignment: Alignment.centerRight,
+                    height: 40,
+                    padding: EdgeInsets.only(right: 10),
+                    child:
+                        Text(((no / (yes + no)) * 100).toStringAsFixed(2) + '%',
+                            style: TextStyle(
+                              color: Theme.of(context).scaffoldBackgroundColor,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.0,
+                            )),
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 16.0, right: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text('YES',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14.0,
+                    )),
+                Text('NO',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14.0,
+                    ))
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> areYouSure(String vote, BillVoteModel model, String id,
+      String ballotSpecHash, String shortDescription) {
     /// Dialog to confirm the vote
     String ethAddress = userBox.get('ethereumAddress') as String;
 
@@ -214,47 +252,60 @@ class _VoteWidgetState extends State<VoteWidget> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
+          elevation: 100,
           backgroundColor: Theme.of(context).backgroundColor,
-          title: Text('Confirm Vote',
-              style: Theme.of(context).textTheme.headline6),
+          title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Text('Vote',
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.onSurface,
+                        fontSize: 14.0)),
+                Text(vote.toUpperCase(),
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontSize: 20.0)),
+                Text('for:',
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.onSurface,
+                        fontSize: 14.0)),
+              ]),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text(
-                  'Are you sure you want to vote ',
-                  style: Theme.of(context).textTheme.bodyText1,
+                Text(shortDescription, textAlign: TextAlign.center),
+                Divider(),
+                Divider(),
+                RaisedButton(
+                  child: Text('Confirm'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    setState(() {
+                      _futureSuccess = model.postVote(
+                        BillVote(
+                            ethAddrHex: ethAddress,
+                            ballotId: id,
+                            ballotSpecHash: ballotSpecHash,
+                            constituency: "Australia",
+                            vote: vote),
+                      );
+                    });
+                  },
                 ),
-                Text(vote + '?', style: Theme.of(context).textTheme.headline6),
+                FlatButton(
+                  child: Text(
+                    'back',
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.onSurface,
+                        fontSize: 14.0),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
               ],
             ),
           ),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('Cancel'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            RaisedButton(
-              child: Text('Confirm Vote'),
-              onPressed: () {
-                Navigator.of(context).pop();
-                setState(() {
-                  print(ethAddress);
-                  _futureSuccess = model.postVote(
-                    BillVote(
-
-                        // TODO: update to real data
-                        ethAddrHex: ethAddress,
-                        ballotId: id,
-                        ballotSpecHash: ballotSpecHash,
-                        constituency: "Australia",
-                        vote: vote),
-                  );
-                });
-              },
-            ),
-          ],
         );
       },
     );
