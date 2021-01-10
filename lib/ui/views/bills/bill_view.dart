@@ -52,22 +52,18 @@ class _BillPageState extends State<BillPage> {
         .toList();
     completeBlockChainData = list[0];
      */
-    print("this.completeBlockChainData: ${this.completeBlockChainData}");
-    print("this.blockChainData: ${this.blockChainData}");
-    print("start _BillPageState");
     this.completeBlockChainData = this
         .blockChainData
         .values
         .where((bill) => bill.id == this.widget.bill.id)
         .toList()
         .first;
-    print("end _BillPageState");
 
-    print("start getVote");
     var vote = await billModel.hasVoted(widget.bill.id);
     vote.map((v) => setState(() {
           _vote = v;
         }));
+    print(_vote);
     print("end getVote");
   }
 
@@ -161,7 +157,7 @@ class _BillPageState extends State<BillPage> {
                             ),
                             TopicsWidget(
                               topics: widget.bill.topics,
-                              canPress: true,
+                              canPress: false,
                             ),
                             Align(
                               child: Padding(

@@ -7,9 +7,7 @@ import 'package:voting_app/core/models/bill_chain_data.dart';
 import 'package:voting_app/core/models/bill_vote.dart';
 import 'package:voting_app/core/models/bill_vote_success.dart';
 import 'package:voting_app/core/viewmodels/bill_vote_model.dart';
-import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
-import 'package:web3dart/web3dart.dart';
 
 // The plan here is to have a card that has 3 states
 // 1 voting options - the default
@@ -58,7 +56,11 @@ class _VoteWidgetState extends State<VoteWidget> {
                                 widget.vote.toUpperCase()
                             : 'vote'.toUpperCase(),
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
+                            color: widget.vote != null
+                                ? (widget.vote == 'yes'
+                                    ? Theme.of(context).colorScheme.primary
+                                    : Theme.of(context).colorScheme.secondary)
+                                : Theme.of(context).colorScheme.primary,
                             fontSize: 20,
                             fontWeight: FontWeight.w600),
                       ),
@@ -188,7 +190,7 @@ class _VoteWidgetState extends State<VoteWidget> {
                     height: 40,
                     padding: EdgeInsets.only(left: 10),
                     child: Text(
-                        ((yes / (yes + no)) * 100).toStringAsFixed(2) + '%',
+                        ((yes / (yes + no)) * 100).toStringAsFixed(0) + '%',
                         style: TextStyle(
                           color: Theme.of(context).scaffoldBackgroundColor,
                           fontWeight: FontWeight.bold,
@@ -209,7 +211,7 @@ class _VoteWidgetState extends State<VoteWidget> {
                     height: 40,
                     padding: EdgeInsets.only(right: 10),
                     child:
-                        Text(((no / (yes + no)) * 100).toStringAsFixed(2) + '%',
+                        Text(((no / (yes + no)) * 100).toStringAsFixed(0) + '%',
                             style: TextStyle(
                               color: Theme.of(context).scaffoldBackgroundColor,
                               fontWeight: FontWeight.bold,
@@ -266,7 +268,9 @@ class _VoteWidgetState extends State<VoteWidget> {
                         fontSize: 14.0)),
                 Text(vote.toUpperCase(),
                     style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
+                        color: vote == 'yes'
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).colorScheme.secondary,
                         fontSize: 20.0)),
                 Text('for:',
                     style: TextStyle(
@@ -286,6 +290,7 @@ class _VoteWidgetState extends State<VoteWidget> {
                     setState(() {
                       _futureSuccess = model.postVote(
                         BillVote(
+                            id: id,
                             ethAddrHex: ethAddress,
                             ballotId: id,
                             ballotSpecHash: ballotSpecHash,
@@ -295,8 +300,12 @@ class _VoteWidgetState extends State<VoteWidget> {
                     });
                   },
                 ),
-                FlatButton(
-                  child: Text(
+                FlatButton.icon(
+                  icon: Icon(
+                    Icons.arrow_left_sharp,
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
+                  label: Text(
                     'back',
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.onSurface,
