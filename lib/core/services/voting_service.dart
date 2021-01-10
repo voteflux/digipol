@@ -71,10 +71,6 @@ class VotingService {
 
     var ethAddr = await this.walletService.ethereumAddress();
 
-    // to delete
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setString(vote.ballotId, vote.vote);
-
     var _bsh = nullToE(
         vote.ballotSpecHash, "BallotSpecHash is null (and shouldn't be).");
 
@@ -86,13 +82,15 @@ class VotingService {
     print(afterTx);
 
     var atx2 = afterTx.bind((e) => e).map((var t3) async {
-      await billVoteBox.add(BillVote(
-          id: billVoteBox.length.toString(),
-          ballotId: vote.ballotId,
-          vote: t3.value2,
-          ballotSpecHash: t3.value1,
-          ethAddrHex: ethAddr.toString(),
-          constituency: vote.constituency));
+      await billVoteBox.put(
+          vote.ballotId,
+          BillVote(
+              id: vote.ballotId,
+              ballotId: vote.ballotId,
+              vote: t3.value2,
+              ballotSpecHash: t3.value1,
+              ethAddrHex: ethAddr.toString(),
+              constituency: vote.constituency));
       return t3;
     });
     return (await Either.sequenceFuture(atx2)).fold(

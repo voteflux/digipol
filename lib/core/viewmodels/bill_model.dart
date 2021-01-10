@@ -39,13 +39,12 @@ class BillModel extends BaseModel {
   }
 
   Future<Option<String>> hasVoted(String ballotId) async {
-    List<BillVote> voteList =
-        billVoteBox.values.where((bill) => bill.ballotId == ballotId).toList();
+    BillVote vote = billVoteBox.get(ballotId);
 
     Option<String> hasVoted;
-    if (voteList.length > 0) {
+    if (vote != null) {
       // Note: I moved this from down there, but we still shouldn't have it in this function. -MK
-      _vote = voteList[0].vote;
+      _vote = vote.vote;
       hasVoted = Some(_vote);
     } else {
       hasVoted = None();

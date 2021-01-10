@@ -33,13 +33,13 @@ class VotingStatusWidget extends StatelessWidget {
     if (bill.chamber == "House") {
       if (bill.passedSenate == "") {
         s = "Voting open";
-        c = Theme.of(context).colorScheme.primary;
+        c = Theme.of(context).colorScheme.secondaryVariant;
         i = Icons.add_circle_outline;
       }
     } else {
       if (bill.passedHouse == "") {
         s = "Voting open";
-        c = Theme.of(context).colorScheme.primary;
+        c = Theme.of(context).colorScheme.secondaryVariant;
         i = Icons.add_circle_outline;
       }
     }

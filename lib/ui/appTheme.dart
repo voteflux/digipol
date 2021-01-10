@@ -105,8 +105,9 @@ class AppTheme {
     colorScheme: ColorScheme.light(
         primary: Color(0xFF49f2dd),
         onPrimary: Colors.white,
-        primaryVariant: Color(0xffebe2ad),
+        primaryVariant: Color(0xffFFF5BA),
         secondary: Color(0xFFb28dff),
+        secondaryVariant: Color(0xFFBDFDC1),
         onSurface: Colors.grey[400],
         surface: Color(0xFF272a2f)),
     cardTheme: CardTheme(

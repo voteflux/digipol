@@ -52,22 +52,18 @@ class _BillPageState extends State<BillPage> {
         .toList();
     completeBlockChainData = list[0];
      */
-    print("this.completeBlockChainData: ${this.completeBlockChainData}");
-    print("this.blockChainData: ${this.blockChainData}");
-    print("start _BillPageState");
     this.completeBlockChainData = this
         .blockChainData
         .values
         .where((bill) => bill.id == this.widget.bill.id)
         .toList()
         .first;
-    print("end _BillPageState");
 
-    print("start getVote");
     var vote = await billModel.hasVoted(widget.bill.id);
     vote.map((v) => setState(() {
           _vote = v;
         }));
+    print(_vote);
     print("end getVote");
   }
 
@@ -97,7 +93,7 @@ class _BillPageState extends State<BillPage> {
             ? Center(child: CircularProgressIndicator())
             : Center(
                 child: Container(
-                  margin: EdgeInsets.all(14.0),
+                  margin: EdgeInsets.only(left: 14.0, right: 14.0),
                   child: ListView(
                     children: <Widget>[
                       Card(
@@ -161,7 +157,7 @@ class _BillPageState extends State<BillPage> {
                             ),
                             TopicsWidget(
                               topics: widget.bill.topics,
-                              canPress: true,
+                              canPress: false,
                             ),
                             Align(
                               child: Padding(
@@ -258,9 +254,11 @@ class _BillPageState extends State<BillPage> {
                         ),
                       ),
                       VoteWidget(
-                        data: completeBlockChainData.toBillChainData(),
-                        vote: model.getVote,
-                      ),
+                          data: completeBlockChainData.toBillChainData(),
+                          vote: model.getVote,
+                          yes: model.billVoteResult.yes,
+                          no: model.billVoteResult.no,
+                          shortDescription: widget.bill.shortTitle),
                     ],
                   ),
                 ),
