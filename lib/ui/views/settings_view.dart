@@ -44,130 +44,340 @@ class _SettingsPageState extends State<SettingsPage> {
       builder: (context, model, child) => Scaffold(
         body: Center(
           child: Container(
-            padding: EdgeInsets.all(appSizes.standardPadding),
-            width: appSizes.mediumWidth,
-            child: ListView(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      "Dark mode",
-                      style: appTextStyles.standardBold,
+            padding: EdgeInsets.only(top: 10),
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    "Settings",
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(height: 10),
+                  _userProfile(),
+                  //ListTile(
+                  //tileColor: Theme.of(context).colorScheme.secondary,
+                  //title: Text("Cheezburger"),
+                  //),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    width: appSizes.mediumWidth,
+                    child: Column(
+                      children: [
+                        _account(),
+                        Divider(
+                          color: Theme.of(context).colorScheme.secondary,
+                        ),
+                        _apprearance(),
+                        Divider(
+                          color: Theme.of(context).colorScheme.secondary,
+                        ),
+                        _notifications(),
+                        Divider(
+                          color: Theme.of(context).colorScheme.secondary,
+                        ),
+                        _digipol(),
+                        SizedBox(height: 30),
+                        _signout(),
+                      ],
                     ),
-                    Container(
-                      width: 70,
-                      child: Switch(
-                        materialTapTargetSize: MaterialTapTargetSize.padded,
-                        value: Provider.of<ThemeModel>(context).isDarkMode,
-                        onChanged: (value) {
-                          setState(() {
-                            Provider.of<ThemeModel>(context, listen: false)
-                                .updateTheme(value);
-                          });
-                        },
-                        activeTrackColor: Theme.of(context).colorScheme.primary,
-                        activeColor: Theme.of(context).colorScheme.primary,
-                      ),
-                    )
-                  ],
-                ),
-//                Divider(thickness: 2.0,),
-//                Row(
-//                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                  children: <Widget>[
-//                  RaisedButton(
-//                    color: Colors.red,
-//                        onPressed: () {
-//                          model.clearUser();
-//                          Navigator.pop(context, '/profile');
-//                        },
-//                        child: Text('Log out'),
-//                      ),
-//                  ],
-//                ),
-                Divider(
-                  thickness: 2.0,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    RaisedButton(
-                      color: Colors.red,
-                      onPressed: () {
-                        setState(() {
-                          getPubKey();
-                        });
-                      },
-                      child: Text('  Show Public Key  '),
-                    ),
-                  ],
-                ),
-                Text(
-                  pubKey,
-                  style: appTextStyles.standardBold,
-                ),
-                Divider(
-                  thickness: 2.0,
-                ),
-                Column(
-                  children: <Widget>[
-                    Text(
-                      "App details",
-                      style: Theme.of(context).textTheme.headline5,
-                    ),
-                    Text(
-                      "v0.1.3",
-                      style: Theme.of(context).textTheme.headline6,
-                    ),
-                    Divider(
-                      thickness: 1.0,
-                    ),
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Please submit issues into the ',
-                            style: Theme.of(context).textTheme.bodyText1,
-                          ),
-                          TextSpan(
-                            text: 'Github issues page.',
-                            style:
-                                TextStyle(color: Colors.blue, fontSize: 16.0),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                launch(
-                                    'https://github.com/voteflux/voting_app/issues/new/choose');
-                              },
-                          ),
-                        ],
-                      ),
-                    ),
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Join us on ',
-                            style: Theme.of(context).textTheme.bodyText1,
-                          ),
-                          TextSpan(
-                            text: 'Discord',
-                            style:
-                                TextStyle(color: Colors.blue, fontSize: 16.0),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                launch('https://discord.gg/xFMUTZw');
-                              },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _account() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 30,
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            title: Text(
+              "Account",
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w700),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 30,
+          child: ListTile(
+            onTap: () {},
+            contentPadding: EdgeInsets.zero,
+            title: Text(
+              'Change username',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontSize: 14,
+              ),
+            ),
+            trailing: Icon(Icons.arrow_forward_ios_rounded,
+                size: 14, color: Theme.of(context).colorScheme.primary),
+          ),
+        ),
+        ListTile(
+          onTap: () {},
+          contentPadding: EdgeInsets.zero,
+          title: Text(
+            'Change pin',
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurface,
+              fontSize: 14,
+            ),
+          ),
+          trailing: Icon(Icons.arrow_forward_ios_rounded,
+              size: 14, color: Theme.of(context).colorScheme.primary),
+        ),
+      ],
+    );
+  }
+
+  Widget _apprearance() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 30,
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            title: Text(
+              "Appearance",
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Theme.of(context).colorScheme.primary,
+                  fontWeight: FontWeight.w700),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 30,
+          child: ListTile(
+            onTap: () {},
+            contentPadding: EdgeInsets.zero,
+            title: Text(
+              'Language (coming soon)',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontSize: 14,
+              ),
+            ),
+            trailing: Icon(Icons.arrow_forward_ios_rounded,
+                size: 14, color: Theme.of(context).colorScheme.primary),
+          ),
+        ),
+        ListTile(
+          onTap: () {},
+          contentPadding: EdgeInsets.zero,
+          title: Text(
+            'Dark / light (coming soon)',
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurface,
+              fontSize: 14,
+            ),
+          ),
+          trailing: Icon(Icons.arrow_forward_ios_rounded,
+              size: 14, color: Theme.of(context).colorScheme.primary),
+        ),
+      ],
+    );
+  }
+
+  Widget _digipol() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 30,
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            title: Text(
+              "DigiPol",
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Theme.of(context).colorScheme.primary,
+                  fontWeight: FontWeight.w700),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 30,
+          child: ListTile(
+            onTap: () {},
+            contentPadding: EdgeInsets.zero,
+            title: Text(
+              'Restart quiz (coming soon)',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontSize: 14,
+              ),
+            ),
+            trailing: Icon(Icons.arrow_forward_ios_rounded,
+                size: 14, color: Theme.of(context).colorScheme.primary),
+          ),
+        ),
+        SizedBox(
+          height: 30,
+          child: ListTile(
+            onTap: () {},
+            contentPadding: EdgeInsets.zero,
+            title: Text(
+              'Submit an issue',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontSize: 14,
+              ),
+            ),
+            trailing: Icon(Icons.arrow_forward_ios_rounded,
+                size: 14, color: Theme.of(context).colorScheme.primary),
+          ),
+        ),
+        SizedBox(
+          height: 30,
+          child: ListTile(
+            onTap: () {},
+            contentPadding: EdgeInsets.zero,
+            title: Text(
+              'Join us on Discord chat',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontSize: 14,
+              ),
+            ),
+            trailing: Icon(Icons.arrow_forward_ios_rounded,
+                size: 14, color: Theme.of(context).colorScheme.primary),
+          ),
+        ),
+        SizedBox(
+          height: 30,
+          child: ListTile(
+            onTap: () {},
+            contentPadding: EdgeInsets.zero,
+            title: Text(
+              'App version',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontSize: 14,
+              ),
+            ),
+            trailing: Icon(Icons.arrow_forward_ios_rounded,
+                size: 14, color: Theme.of(context).colorScheme.primary),
+          ),
+        ),
+        ListTile(
+          onTap: () {},
+          contentPadding: EdgeInsets.zero,
+          title: Text(
+            'Security info',
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurface,
+              fontSize: 14,
+            ),
+          ),
+          trailing: Icon(Icons.arrow_forward_ios_rounded,
+              size: 14, color: Theme.of(context).colorScheme.primary),
+        ),
+      ],
+    );
+  }
+
+  Widget _notifications() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 30,
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            title: Text(
+              "Notifications",
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Theme.of(context).colorScheme.primary,
+                  fontWeight: FontWeight.w700),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 30,
+          child: ListTile(
+            onTap: () {},
+            contentPadding: EdgeInsets.zero,
+            title: Text(
+              'Push notifications',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontSize: 14,
+              ),
+            ),
+            trailing: Icon(Icons.arrow_forward_ios_rounded,
+                size: 14, color: Theme.of(context).colorScheme.primary),
+          ),
+        ),
+        ListTile(
+          onTap: () {},
+          contentPadding: EdgeInsets.zero,
+          title: Text(
+            'Edit preferences',
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurface,
+              fontSize: 14,
+            ),
+          ),
+          trailing: Icon(Icons.arrow_forward_ios_rounded,
+              size: 14, color: Theme.of(context).colorScheme.primary),
+        ),
+      ],
+    );
+  }
+
+  Widget _signout() {
+    return MaterialButton(
+      minWidth: 80,
+      height: 15,
+      padding: EdgeInsets.symmetric(vertical: 5),
+      color: Theme.of(context).colorScheme.secondary,
+      onPressed: () {},
+      child: Text(
+        'Sign out',
+        style: TextStyle(fontSize: 14),
+      ),
+    );
+  }
+
+  Widget _userProfile() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 5),
+      color: Theme.of(context).colorScheme.secondary,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: 20,
+            backgroundColor: Theme.of(context).backgroundColor,
+            child: Icon(Icons.person,
+                size: 38, color: Theme.of(context).colorScheme.onSurface),
+          ),
+          SizedBox(width: 20),
+          Text(
+            "Cheezburger",
+            style: TextStyle(
+              color: Theme.of(context).backgroundColor,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
       ),
     );
   }
