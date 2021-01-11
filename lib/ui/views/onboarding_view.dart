@@ -22,8 +22,8 @@ class OnboardingSlide {
   String label;
   List<int> bg; // background gradient colors in String
   List<Widget> widgets; // widgets to be displayed between text
-  OnboardingSlide(this.image, this.label, this.heading, this.body,
-      this.bg, this.widgets);
+  OnboardingSlide(
+      this.image, this.label, this.heading, this.body, this.bg, this.widgets);
 }
 
 class _OnBoardingViewState extends State<OnBoardingView> {
@@ -39,8 +39,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         'Ready to make a change?',
         'The voting app where you can have your say!',
         [0xFFBDFDC1, 0xFF49F2DD],
-        []
-    ),
+        []),
     OnboardingSlide(
         'ob-2_send_msg_politi.png',
         'Welcome to DigiPol!',
@@ -56,11 +55,12 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         'By using state-of-the-art technology, no one can alter your votes but '
             'you.\nFind out more in <b:Settings>'
             '<widget:0>.',
-        [0xFFF5A5FE, 0xFFFFABAB],
-        [Icon(
-            Icons.settings,
-            size: 24.0,
-            color: Colors.black87),
+        [
+          0xFFF5A5FE,
+          0xFFFFABAB
+        ],
+        [
+          Icon(Icons.settings, size: 24.0, color: Colors.black87),
         ]),
     OnboardingSlide(
         'ob-4_hear_from_commu.svg',
@@ -78,27 +78,28 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             'vote on. Start by selecting some tags below, and you can use the '
             '<widget:0> button to '
             'customise your result in the Bill Hub at any time.',
-        [0xFFFFF6BA, 0xFFBDFDF9],
-        [ Padding(
+        [
+          0xFFFFF6BA,
+          0xFFBDFDF9
+        ],
+        [
+          Padding(
             padding: EdgeInsets.all(3.0),
             child: Container(
               height: 24.0,
               child: RaisedButton.icon(
-                  onPressed: (){},
+                  onPressed: () {},
                   color: Color(0XFFB28DFF),
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   label: Text("Interests",
                       style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontSize: 12)),
-                  icon: Icon(Icons.filter_list)
-              ),
+                          fontWeight: FontWeight.normal, fontSize: 12)),
+                  icon: Icon(Icons.filter_list)),
             ),
           ),
         ]),
   ];
-
 
   @override
   void initState() {
@@ -146,8 +147,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     controller: _pageController,
                     children: <Widget>[
                       for (var page in pages)
-                        _buildWalkThrough(context, page,
-                            _currentIndexPage == pageLength-1)
+                        _buildWalkThrough(
+                            context, page, _currentIndexPage == pageLength - 1)
                       // ProfilePage() // moved to StartupView
                     ],
                     onPageChanged: (value) {
@@ -250,8 +251,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   }
 }
 
-Widget _buildWalkThrough(BuildContext context, OnboardingSlide page,
-    bool displayTopics) {
+Widget _buildWalkThrough(
+    BuildContext context, OnboardingSlide page, bool displayTopics) {
   return Container(
     child: Stack(
       children: <Widget>[
@@ -287,12 +288,11 @@ Widget _buildWalkThrough(BuildContext context, OnboardingSlide page,
                     ),
                   ),
                   Padding(
-                      padding: EdgeInsets.only(
-                          left: 40.0, right: 40.0),
+                      padding: EdgeInsets.only(left: 40.0, right: 40.0),
                       child: InLineIcon(page.body, widgets: page.widgets)),
                 ],
               ),
-              if(displayTopics)
+              if (displayTopics)
                 Expanded(
                   flex: 8,
                   child: Container(
@@ -302,15 +302,7 @@ Widget _buildWalkThrough(BuildContext context, OnboardingSlide page,
                         children: <Widget>[
                           Container(
                             child: TopicsWidget(
-                              topics: [
-                                HEALTH_EDU_SOCIAL,
-                                ENV_AG,
-                                SCI_TRANS_INF,
-                                SECURITY_FOREIGN,
-                                ECONOMY_FINANCE,
-                                MEDIA_COMS,
-                                AUS,
-                              ],
+                              topics: ALL_TOPICS,
                               canPress: true,
                             ),
                           ),
@@ -323,9 +315,8 @@ Widget _buildWalkThrough(BuildContext context, OnboardingSlide page,
                 flex: 8,
                 child: Padding(
                     padding: EdgeInsets.only(left: 2.0, right: 2.0),
-                    child: _loadImage('assets/graphics/${page.image}',
-                        page.heading)
-                ),
+                    child: _loadImage(
+                        'assets/graphics/${page.image}', page.heading)),
               ),
             ],
           ),
