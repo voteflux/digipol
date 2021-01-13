@@ -21,9 +21,7 @@ class ProfilePage extends StatefulWidget {
 final TextEditingController _userName = TextEditingController();
 final TextEditingController _pinCode = TextEditingController();
 final _formKey = GlobalKey<FormState>();
-final Map<String, String> formData = {"name": ""};
 // TODO: this should not be a global variable! -MK
-String _name = "";
 
 class _ProfilePageState extends State<ProfilePage> {
   @override
@@ -34,21 +32,29 @@ class _ProfilePageState extends State<ProfilePage> {
         body: Center(
           child: model.state == ViewState.Busy
               ? CircularProgressIndicator()
-              : Card(
-                  color: Theme.of(context).backgroundColor,
-                  child: SingleChildScrollView(
-                    child: Form(
-                      key: _formKey,
-                      child: Center(
-                        child: Column(
-                          children: [
-                            _logo(),
-                            _username(context),
-                            _pincode(context),
-                            _submit(context, model),
-                          ],
-                        ),
-                      ),
+              : SingleChildScrollView(
+                  child: Form(
+                    key: _formKey,
+                    child: ListBody(
+                      children: [
+                        _logo(),
+                        _username(context, model),
+                        _pincode(context, model),
+                        _submit(context, model),
+                        FlatButton(
+                          onPressed: () {
+                            //Todo: redirect to signin page
+                            Navigator.pushNamed(context, Routes.profilePage);
+                          },
+                          child: Text(
+                            'Already a user? Log in',
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.secondary,
+                              fontSize: 14.0,
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
@@ -59,16 +65,16 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget _logo() {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 30.0),
+      padding: EdgeInsets.symmetric(vertical: 0.0),
       child: Image(
-          width: 90.0,
-          height: 90.0,
+          width: 150.0,
+          height: 150.0,
           image: NetworkImage(
-              'https://user-images.githubusercontent.com/68624164/92993763-9fba1400-f537-11ea-8403-808759f998c6.png')),
+              'https://digipol.app/wp-content/uploads/2020/11/digipol-logo.png')),
     );
   }
 
-  Widget _pincode(BuildContext context) {
+  Widget _pincode(BuildContext context, UserModel model) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 40.0),
       child: Column(
@@ -90,8 +96,8 @@ class _ProfilePageState extends State<ProfilePage> {
             pinBoxHeight: 50,
             pinTextStyle:
                 TextStyle(color: Theme.of(context).colorScheme.onSurface),
-            onDone: (text) {
-              print(text);
+            onDone: (code) {
+              model.pincode = code;
             },
             highlight: true,
             highlightColor: Theme.of(context).primaryColor,
@@ -107,7 +113,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _username(BuildContext context) {
+  Widget _username(BuildContext context, UserModel model) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
       child: Column(
@@ -126,7 +132,7 @@ class _ProfilePageState extends State<ProfilePage> {
           CustomFormField(
               helpText: "Your name",
               submitAction: (String value) {
-                _name = value;
+                model.user = value;
               },
               validation: (String value) {
                 if (!RegExp(r"([a-zA-Z]{3,30}\s*)+").hasMatch(value)) {
@@ -152,13 +158,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   color: Theme.of(context).primaryColor,
                   onPressed: () async {
-                    model.setState(ViewState.Busy);
-                    //check validator and register the user
-
                     await _submitForm(model);
-
-                    model.setState(ViewState.Idle);
-                    //Todo: redirect to onboarding page
                   },
                   child: Text(
                     'Create login',
@@ -166,20 +166,6 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 )
               : CircularProgressIndicator(),
-          SizedBox(height: 130.0),
-          FlatButton(
-            onPressed: () {
-              //Todo: redirect to signin page
-              Navigator.pushNamed(context, Routes.profilePage);
-            },
-            child: Text(
-              'Already a user? Log in',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.secondary,
-                fontSize: 18.0,
-              ),
-            ),
-          )
         ],
       ),
     );
@@ -188,7 +174,7 @@ class _ProfilePageState extends State<ProfilePage> {
   void _submitForm(UserModel model) {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
-      model.create(_name);
+      model.create(model.user, model.pincode);
       // redirect to OnBoarding page
       // TODO: will change it later - Meena
       Navigator.pushNamed(context, Routes.onBoardingView);

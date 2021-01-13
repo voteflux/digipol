@@ -12,6 +12,7 @@ class UserModel extends BaseModel {
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
   /*late*/ String user;
+  String pincode;
 
   final NavigationService _navigationService = locator<NavigationService>();
 
@@ -22,16 +23,16 @@ class UserModel extends BaseModel {
 
     var name = await _authenticationService.getUser();
     // TODO: might be a better way to pass a success/fail message - Meena
-    if(name != null) // logged in successfully, redirect to the main screen.
+    if (name != null) // logged in successfully, redirect to the main screen.
       await _navigationService.replaceWith(Routes.mainScreen);
 
     setState(ViewState.Idle);
     return name;
   }
 
-  Future create(String name) async {
+  Future create(String name, String pincode) async {
     setState(ViewState.Busy);
-    user = await _authenticationService.createUser(name);
+    user = await _authenticationService.createUser(name, pincode);
     setState(ViewState.Idle);
   }
 }
