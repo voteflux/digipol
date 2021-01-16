@@ -22,6 +22,7 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   String pubKey = "";
   final WalletService walletService = locator<WalletService>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -42,9 +43,12 @@ class _SettingsPageState extends State<SettingsPage> {
     return BaseView<SettingsModel>(
       onModelReady: (model) => model.setUser(),
       builder: (context, model, child) => Scaffold(
-        body: Center(
+        key: _scaffoldKey,
+        // Disable opening the end drawer with a swipe gesture.
+        body: Align(
+          alignment: Alignment.topCenter,
           child: Container(
-            padding: EdgeInsets.only(top: 10),
+            padding: EdgeInsets.symmetric(vertical: 20),
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
@@ -57,15 +61,12 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   SizedBox(height: 10),
                   _userProfile(),
-                  //ListTile(
-                  //tileColor: Theme.of(context).colorScheme.secondary,
-                  //title: Text("Cheezburger"),
-                  //),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     width: appSizes.mediumWidth,
                     child: Column(
                       children: [
+                        SizedBox(height: 20),
                         _account(),
                         Divider(
                           color: Theme.of(context).colorScheme.secondary,
@@ -97,48 +98,19 @@ class _SettingsPageState extends State<SettingsPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: 30,
-          child: ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              "Account",
-              style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700),
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 30,
-          child: ListTile(
-            onTap: () {},
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              'Change username',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
-                fontSize: 14,
-              ),
-            ),
-            trailing: Icon(Icons.arrow_forward_ios_rounded,
-                size: 14, color: Theme.of(context).colorScheme.primary),
-          ),
-        ),
-        ListTile(
-          onTap: () {},
-          contentPadding: EdgeInsets.zero,
-          title: Text(
-            'Change pin',
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.onSurface,
+        Text(
+          "Account",
+          style: TextStyle(
+              color: Theme.of(context).colorScheme.primary,
               fontSize: 14,
-            ),
-          ),
-          trailing: Icon(Icons.arrow_forward_ios_rounded,
-              size: 14, color: Theme.of(context).colorScheme.primary),
+              fontWeight: FontWeight.w700),
         ),
+        SettingEntry("Change username", () {
+          print("change username");
+        }),
+        SettingEntry("Change pin", () {
+          print("change pin");
+        }),
       ],
     );
   }
@@ -147,48 +119,19 @@ class _SettingsPageState extends State<SettingsPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: 30,
-          child: ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              "Appearance",
-              style: TextStyle(
-                  fontSize: 14,
-                  color: Theme.of(context).colorScheme.primary,
-                  fontWeight: FontWeight.w700),
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 30,
-          child: ListTile(
-            onTap: () {},
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              'Language (coming soon)',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
-                fontSize: 14,
-              ),
-            ),
-            trailing: Icon(Icons.arrow_forward_ios_rounded,
-                size: 14, color: Theme.of(context).colorScheme.primary),
-          ),
-        ),
-        ListTile(
-          onTap: () {},
-          contentPadding: EdgeInsets.zero,
-          title: Text(
-            'Dark / light (coming soon)',
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.onSurface,
+        Text(
+          "Apprearance",
+          style: TextStyle(
+              color: Theme.of(context).colorScheme.primary,
               fontSize: 14,
-            ),
-          ),
-          trailing: Icon(Icons.arrow_forward_ios_rounded,
-              size: 14, color: Theme.of(context).colorScheme.primary),
+              fontWeight: FontWeight.w700),
         ),
+        SettingEntry("Language (coming soon)", () {
+          print("change language");
+        }),
+        SettingEntry("Dark / light (coming soon)", () {
+          print("change theme");
+        }),
       ],
     );
   }
@@ -197,96 +140,28 @@ class _SettingsPageState extends State<SettingsPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: 30,
-          child: ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              "DigiPol",
-              style: TextStyle(
-                  fontSize: 14,
-                  color: Theme.of(context).colorScheme.primary,
-                  fontWeight: FontWeight.w700),
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 30,
-          child: ListTile(
-            onTap: () {},
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              'Restart quiz (coming soon)',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
-                fontSize: 14,
-              ),
-            ),
-            trailing: Icon(Icons.arrow_forward_ios_rounded,
-                size: 14, color: Theme.of(context).colorScheme.primary),
-          ),
-        ),
-        SizedBox(
-          height: 30,
-          child: ListTile(
-            onTap: () {},
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              'Submit an issue',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
-                fontSize: 14,
-              ),
-            ),
-            trailing: Icon(Icons.arrow_forward_ios_rounded,
-                size: 14, color: Theme.of(context).colorScheme.primary),
-          ),
-        ),
-        SizedBox(
-          height: 30,
-          child: ListTile(
-            onTap: () {},
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              'Join us on Discord chat',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
-                fontSize: 14,
-              ),
-            ),
-            trailing: Icon(Icons.arrow_forward_ios_rounded,
-                size: 14, color: Theme.of(context).colorScheme.primary),
-          ),
-        ),
-        SizedBox(
-          height: 30,
-          child: ListTile(
-            onTap: () {},
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              'App version',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
-                fontSize: 14,
-              ),
-            ),
-            trailing: Icon(Icons.arrow_forward_ios_rounded,
-                size: 14, color: Theme.of(context).colorScheme.primary),
-          ),
-        ),
-        ListTile(
-          onTap: () {},
-          contentPadding: EdgeInsets.zero,
-          title: Text(
-            'Security info',
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.onSurface,
+        Text(
+          "DigiPol",
+          style: TextStyle(
+              color: Theme.of(context).colorScheme.primary,
               fontSize: 14,
-            ),
-          ),
-          trailing: Icon(Icons.arrow_forward_ios_rounded,
-              size: 14, color: Theme.of(context).colorScheme.primary),
+              fontWeight: FontWeight.w700),
         ),
+        SettingEntry("Restart quiz (coming soon)", () {
+          print("restart quiz");
+        }),
+        SettingEntry("Submit an issue", () {
+          print("Submit an issue");
+        }),
+        SettingEntry("Join us on Discord chat", () {
+          print("Join us on Discord chat");
+        }),
+        SettingEntry("App version", () {
+          print("App version");
+        }),
+        SettingEntry("Security info", () {
+          print("Security info");
+        }),
       ],
     );
   }
@@ -295,48 +170,19 @@ class _SettingsPageState extends State<SettingsPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: 30,
-          child: ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              "Notifications",
-              style: TextStyle(
-                  fontSize: 14,
-                  color: Theme.of(context).colorScheme.primary,
-                  fontWeight: FontWeight.w700),
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 30,
-          child: ListTile(
-            onTap: () {},
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              'Push notifications',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
-                fontSize: 14,
-              ),
-            ),
-            trailing: Icon(Icons.arrow_forward_ios_rounded,
-                size: 14, color: Theme.of(context).colorScheme.primary),
-          ),
-        ),
-        ListTile(
-          onTap: () {},
-          contentPadding: EdgeInsets.zero,
-          title: Text(
-            'Edit preferences',
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.onSurface,
+        Text(
+          "Notifications",
+          style: TextStyle(
+              color: Theme.of(context).colorScheme.primary,
               fontSize: 14,
-            ),
-          ),
-          trailing: Icon(Icons.arrow_forward_ios_rounded,
-              size: 14, color: Theme.of(context).colorScheme.primary),
+              fontWeight: FontWeight.w700),
         ),
+        SettingEntry("Push notifications", () {
+          print("Push notifications");
+        }),
+        SettingEntry("Edit preference", () {
+          print("Edit preference");
+        }),
       ],
     );
   }
@@ -376,6 +222,32 @@ class _SettingsPageState extends State<SettingsPage> {
               fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget SettingEntry(String text, Function func) {
+    return Container(
+      height: 40,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            text,
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurface,
+              fontSize: 14,
+            ),
+          ),
+          IconButton(
+            iconSize: 16,
+            icon: Icon(Icons.arrow_forward_ios_rounded,
+                color: Theme.of(context).colorScheme.primary),
+            onPressed: () {
+              func();
+            },
           ),
         ],
       ),
