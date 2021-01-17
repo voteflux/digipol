@@ -47,4 +47,9 @@ class AuthenticationService {
     final String /*?*/ user = (userBox.get('firstName') ?? null) as String;
     return Future.value(user);
   }
+
+  Future<String> getUserPin() async {
+    final String /*?*/ pincode = (userBox.get('pincode') ?? null) as String;
+    return Future.value(pincode);
+  }
 }

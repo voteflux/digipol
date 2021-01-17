@@ -13,21 +13,36 @@ class UserModel extends BaseModel {
       locator<AuthenticationService>();
   /*late*/ String user;
   String pincode;
+  bool wrongPin = false;
+  bool isUser = false;
 
   final NavigationService _navigationService = locator<NavigationService>();
 
   UserModel();
 
-  Future<String> login() async {
+  Future<String> start() async {
     setState(ViewState.Busy);
 
     var name = await _authenticationService.getUser();
-    // TODO: might be a better way to pass a success/fail message - Meena
-    if (name != null) // logged in successfully, redirect to the main screen.
-      await _navigationService.replaceWith(Routes.mainScreen);
+    if (name != null) {
+      user = name;
+      isUser = true;
+    }
 
     setState(ViewState.Idle);
     return name;
+  }
+
+  Future<String> login(String pincode) async {
+    var userPincode = await _authenticationService.getUserPin();
+    print(userPincode);
+    if (userPincode == pincode) {
+      await _navigationService.replaceWith(Routes.mainScreen);
+    } else {
+      wrongPin = true;
+      print('incorrect pin');
+      notifyListeners();
+    }
   }
 
   Future create(String name, String pincode) async {

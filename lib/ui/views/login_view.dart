@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voting_app/core/enums/viewstate.dart';
 import 'package:voting_app/core/viewmodels/user_model.dart';
-import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/widgets/custom_form_feild_widget.dart';
 import 'package:flutter/material.dart';
@@ -21,13 +20,12 @@ class ProfilePage extends StatefulWidget {
 final TextEditingController _userName = TextEditingController();
 final TextEditingController _pinCode = TextEditingController();
 final _formKey = GlobalKey<FormState>();
-// TODO: this should not be a global variable! -MK
 
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return BaseView<UserModel>(
-      onModelReady: (model) => model.login(),
+      onModelReady: (model) => model.start(),
       builder: (context, model, child) => Scaffold(
         body: Center(
           child: model.state == ViewState.Busy
@@ -38,16 +36,19 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: ListBody(
                       children: [
                         _logo(),
-                        _username(context, model),
+                        model.isUser
+                            ? _nameStrip(model)
+                            : _username(context, model),
                         _pincode(context, model),
                         _submit(context, model),
                         FlatButton(
                           onPressed: () {
                             //Todo: redirect to signin page
-                            Navigator.pushNamed(context, Routes.profilePage);
                           },
                           child: Text(
-                            'Already a user? Log in',
+                            model.isUser
+                                ? 'Reset account'
+                                : 'Already a user? Log in',
                             style: TextStyle(
                               color: Theme.of(context).colorScheme.secondary,
                               fontSize: 14.0,
@@ -60,6 +61,32 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
         ),
       ),
+    );
+  }
+
+  Widget _nameStrip(UserModel model) {
+    return Container(
+      child: Row(children: [
+        Expanded(
+          flex: 1,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.secondary,
+            ),
+            alignment: Alignment.center,
+            height: 60,
+            padding: EdgeInsets.only(right: 10),
+            child: Text(
+              model.user,
+              style: TextStyle(
+                color: Theme.of(context).backgroundColor,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ]),
     );
   }
 
@@ -80,9 +107,11 @@ class _ProfilePageState extends State<ProfilePage> {
       child: Column(
         children: [
           Text(
-            'Choose a pin',
+            model.isUser ? 'Enter pin' : 'Choose a pin',
             style: TextStyle(
-              color: Theme.of(context).primaryColor,
+              color: model.isUser
+                  ? Theme.of(context).colorScheme.secondary
+                  : Theme.of(context).colorScheme.primary,
               fontSize: 15,
               fontWeight: FontWeight.bold,
             ),
@@ -103,11 +132,18 @@ class _ProfilePageState extends State<ProfilePage> {
             highlightColor: Theme.of(context).primaryColor,
             highlightPinBoxColor: Theme.of(context).backgroundColor,
             maxLength: 4,
+            hasError: model.wrongPin,
             hasUnderline: false,
             pinBoxColor: Theme.of(context).backgroundColor,
             defaultBorderColor: Theme.of(context).colorScheme.onSurface,
             pinBoxRadius: 10.0,
-          )
+          ),
+          Visibility(
+            child: Text(
+              "Wrong PIN!",
+            ),
+            visible: model.wrongPin,
+          ),
         ],
       ),
     );
@@ -153,15 +189,14 @@ class _ProfilePageState extends State<ProfilePage> {
           model.state == ViewState.Idle
               ? RaisedButton(
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
                   color: Theme.of(context).primaryColor,
                   onPressed: () async {
-                    await _submitForm(model);
+                    model.isUser
+                        ? await _logBackIn(model)
+                        : await _submitForm(model);
                   },
                   child: Text(
-                    'Create login',
+                    model.isUser ? 'Login' : 'Create login',
                     style: TextStyle(fontSize: 18),
                   ),
                 )
@@ -179,6 +214,13 @@ class _ProfilePageState extends State<ProfilePage> {
       // TODO: will change it later - Meena
       Navigator.pushNamed(context, Routes.onBoardingView);
       // Navigator.pushNamed(context, '/');
+    }
+  }
+
+  void _logBackIn(UserModel model) {
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save();
+      model.login(model.pincode);
     }
   }
 }
