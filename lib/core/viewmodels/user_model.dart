@@ -46,8 +46,14 @@ class UserModel extends BaseModel {
   }
 
   Future create(String name, String pincode) async {
-    setState(ViewState.Busy);
-    user = await _authenticationService.createUser(name, pincode);
-    setState(ViewState.Idle);
+    if (pincode != null) {
+      setState(ViewState.Busy);
+      user = await _authenticationService.createUser(name, pincode);
+      await _navigationService.replaceWith(Routes.onBoardingView);
+      setState(ViewState.Idle);
+    } else {
+      wrongPin = true;
+      notifyListeners();
+    }
   }
 }

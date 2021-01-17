@@ -120,7 +120,7 @@ class _ProfilePageState extends State<ProfilePage> {
             height: 20.0,
           ),
           PinCodeTextField(
-            controller: _pinCode,
+            controller: _userName,
             pinBoxWidth: 45,
             pinBoxHeight: 50,
             pinTextStyle:
@@ -140,7 +140,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           Visibility(
             child: Text(
-              "Wrong PIN!",
+              model.isUser ? "Wrong PIN!" : "Enter Valid Pin",
             ),
             visible: model.wrongPin,
           ),
@@ -210,10 +210,6 @@ class _ProfilePageState extends State<ProfilePage> {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       model.create(model.user, model.pincode);
-      // redirect to OnBoarding page
-      // TODO: will change it later - Meena
-      Navigator.pushNamed(context, Routes.onBoardingView);
-      // Navigator.pushNamed(context, '/');
     }
   }
 
