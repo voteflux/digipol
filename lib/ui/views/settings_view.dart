@@ -23,6 +23,7 @@ class _SettingsPageState extends State<SettingsPage> {
   String pubKey = "";
   final WalletService walletService = locator<WalletService>();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  Drawer drawer = Drawer(key: UniqueKey());
 
   @override
   void initState() {
@@ -45,47 +46,50 @@ class _SettingsPageState extends State<SettingsPage> {
       builder: (context, model, child) => Scaffold(
         key: _scaffoldKey,
         // Disable opening the end drawer with a swipe gesture.
-        body: Align(
-          alignment: Alignment.topCenter,
-          child: Container(
-            padding: EdgeInsets.symmetric(vertical: 20),
-            child: SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    "Settings",
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(height: 10),
-                  _userProfile(),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    width: appSizes.mediumWidth,
-                    child: Column(
-                      children: [
-                        SizedBox(height: 20),
-                        _account(),
-                        Divider(
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-                        _apprearance(),
-                        Divider(
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-                        _notifications(),
-                        Divider(
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-                        _digipol(),
-                        SizedBox(height: 30),
-                        _signout(),
-                      ],
+        endDrawer: drawer,
+        body: Builder(
+          builder: (context) => Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 20),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      "Settings",
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
                     ),
-                  )
-                ],
+                    SizedBox(height: 10),
+                    _userProfile(),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      width: appSizes.mediumWidth,
+                      child: Column(
+                        children: [
+                          SizedBox(height: 20),
+                          _account(),
+                          Divider(
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
+                          _apprearance(),
+                          Divider(
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
+                          _notifications(),
+                          Divider(
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
+                          _digipol(),
+                          SizedBox(height: 30),
+                          _signout(),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
@@ -109,7 +113,18 @@ class _SettingsPageState extends State<SettingsPage> {
           print("change username");
         }),
         SettingEntry("Change pin", () {
-          print("change pin");
+          setState(() {
+            drawer = Drawer(
+              key: UniqueKey(),
+              child: FlatButton(
+                child: Text('close'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            );
+          });
+          _scaffoldKey.currentState.openEndDrawer();
         }),
       ],
     );
