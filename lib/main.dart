@@ -15,7 +15,9 @@ import 'package:voting_app/ui/views/all_bills_view.dart';
 import 'package:voting_app/ui/views/all_issues_view.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 import 'package:voting_app/ui/views/login/signin.dart';
+import 'package:voting_app/ui/views/login_view.dart';
 import 'package:voting_app/ui/views/settings_view.dart';
+import 'package:voting_app/ui/views/user/profile_view.dart';
 
 import 'core/consts.dart';
 
@@ -95,7 +97,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(50.0),
@@ -108,12 +110,18 @@ class _MainScreenState extends State<MainScreen> {
                 tabs: <Tab>[
                   Tab(icon: Icon(Icons.assignment)),
                   Tab(icon: Icon(Icons.assignment_late)),
+                  Tab(icon: Icon(Icons.account_circle_rounded)),
                   Tab(icon: Icon(Icons.settings)),
                 ]),
           ),
         ),
         body: TabBarView(
-          children: <Widget>[AllBillsPage(), AllIssuesPage(), SettingsPage()],
+          children: <Widget>[
+            AllBillsPage(),
+            AllIssuesPage(),
+            ProfileHubPage(),
+            SettingsPage()
+          ],
         ),
       ),
     );
