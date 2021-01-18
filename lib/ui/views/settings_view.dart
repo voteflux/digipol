@@ -41,25 +41,28 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return BaseView<SettingsModel>(
-      onModelReady: (model) => model.setUser(),
+      onModelReady: (model) => print('user'),
       builder: (context, model, child) => Scaffold(
         key: _scaffoldKey,
         // Disable opening the end drawer with a swipe gesture.
         body: Align(
           alignment: Alignment.topCenter,
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: 20),
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  Text(
-                    "Settings",
-                    style: TextStyle(
+                  Container(
+                    alignment: Alignment.center,
+                    height: 50,
+                    child: Text(
+                      'Settings',
+                      style: TextStyle(
                         color: Theme.of(context).colorScheme.primary,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
-                  SizedBox(height: 10),
                   _userProfile(),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
@@ -203,7 +206,8 @@ class _SettingsPageState extends State<SettingsPage> {
 
   Widget _userProfile() {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 5),
+      alignment: Alignment.center,
+      height: 60,
       color: Theme.of(context).colorScheme.secondary,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -216,7 +220,7 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
           SizedBox(width: 20),
           Text(
-            "Cheezburger",
+            's',
             style: TextStyle(
               color: Theme.of(context).backgroundColor,
               fontSize: 16,
