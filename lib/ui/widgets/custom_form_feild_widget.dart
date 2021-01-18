@@ -44,6 +44,8 @@ class CustomFormField extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(4)),
                 borderSide: BorderSide(width: 2, color: Colors.yellowAccent)),
             labelText: this.helpText,
+            labelStyle: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface, fontSize: 16.0),
           ),
           onSaved: this.submitAction,
           validator: this.validation,

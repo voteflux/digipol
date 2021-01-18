@@ -13,7 +13,7 @@ class AuthenticationService {
   final WalletService _walletService = locator<WalletService>();
 
   Box userBox = Hive.box<String>(HIVE_USER_PREFS_STR);
-  Future<String> createUser(String name) async {
+  Future<String> createUser(String name, String pincode) async {
     // clear box
     userBox.clear();
 
@@ -28,10 +28,12 @@ class AuthenticationService {
     var ethAddress = await _walletService.ethereumAddress();
 
     userBox.put("firstName", name);
+    userBox.put("pincode", pincode);
     userBox.put("ethereumAddress", ethAddress.toString());
 
     //Debug
     print("Ethereum address: ${ethAddress.toString()}");
+    print("pincode: ${pincode.toString()}");
     print("Name: $name");
 
     //Call signup API
@@ -44,5 +46,10 @@ class AuthenticationService {
   Future<String> getUser() async {
     final String /*?*/ user = (userBox.get('firstName') ?? null) as String;
     return Future.value(user);
+  }
+
+  Future<String> getUserPin() async {
+    final String /*?*/ pincode = (userBox.get('pincode') ?? null) as String;
+    return Future.value(pincode);
   }
 }
