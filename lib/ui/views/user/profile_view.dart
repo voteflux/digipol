@@ -136,26 +136,27 @@ class _ProfileHubPageState extends State<ProfileHubPage> {
                         }).toList(),
                       ),
                     )),
-                    Text('Voted'),
-                    Switch(
-                      value: model.onlyVotedBills,
-                      activeColor: Theme.of(context).colorScheme.secondary,
-                      onChanged: (value) {
-                        setState(() {
-                          model.changeSwitch(value, model.onlyVoted);
-                        });
-                      },
-                    ),
-                    Text('Watching'),
-                    Switch(
-                      value: model.onlyWatchedBills,
-                      activeColor: Theme.of(context).colorScheme.primaryVariant,
-                      onChanged: (value) {
-                        setState(() {
-                          model.changeSwitch(value, model.showOnlyWatchedBills);
-                        });
-                      },
-                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 10.0),
+                      child: Row(children: [
+                        Text('Voted'),
+                        Switch(
+                          value: model.pref,
+                          inactiveThumbColor:
+                              Theme.of(context).colorScheme.secondary,
+                          inactiveTrackColor:
+                              Theme.of(context).colorScheme.secondary,
+                          activeColor:
+                              Theme.of(context).colorScheme.primaryVariant,
+                          onChanged: (value) {
+                            setState(() {
+                              model.changeSwitch(value);
+                            });
+                          },
+                        ),
+                        Text('Watching'),
+                      ]),
+                    )
                   ],
                 ),
               ),

@@ -34,10 +34,11 @@ class UserModel extends BaseModel {
   final Box<String> userPrefsString = Hive.box<String>(HIVE_USER_PREFS_STR);
   final Box<List> userPrefsList = Hive.box<List>(HIVE_USER_PREFS_LIST);
 
-  bool onlyWatchedBills = false;
+  bool onlyWatchedBills = true;
   bool get getonlyWatchedBills => onlyWatchedBills;
-  bool onlyVotedBills = false;
+  bool onlyVotedBills = true;
   bool get getOnlyVotedBills => onlyVotedBills;
+  bool pref = false;
 
   UserModel();
 
@@ -50,13 +51,18 @@ class UserModel extends BaseModel {
     setState(ViewState.Idle);
   }
 
-  void changeSwitch(bool value, Function function) {
-    function(value);
+  void changeSwitch(bool value) {
+    this.pref = value;
+    if (value) {
+      showOnlyWatchedBills(value);
+    } else {
+      onlyVoted(value);
+    }
   }
 
   void setSearchState() {
-    onlyVoted(this.onlyWatchedBills);
-    showOnlyWatchedBills(this.onlyWatchedBills);
+    onlyVoted(true);
+    showOnlyWatchedBills(false);
   }
 
   void updateLists() {
