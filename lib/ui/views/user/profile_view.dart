@@ -121,10 +121,7 @@ class _ProfileHubPageState extends State<ProfileHubPage> {
                             fontSize: 12),
                         onChanged: (String newValue) {
                           setState(() {
-                            // model.saveStringPrefInHive(
-                            //     newValue,
-                            //     USER_FILTERED_PREFERENCE,
-                            //     model.dropDownFilter);
+                            model.dropDownFilter(newValue);
                           });
                         },
                         items: DROPDOWN_FILTER_OPTIONS

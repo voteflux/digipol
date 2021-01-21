@@ -14,6 +14,7 @@ import 'base_model.dart';
 
 @injectable
 class UserModel extends BaseModel {
+  String dropdownValue = FILTER_NEWEST;
   List<Bill> blockChainList;
   List<Bill> filteredBills;
   List<Bill> get billList => filteredBills;
@@ -106,6 +107,21 @@ class UserModel extends BaseModel {
       List list = billVoteBox.values.map((el) => el.ballotId).toList();
       filteredBills =
           blockChainList.where((bill) => list.contains(bill.id)).toList();
+    }
+    notifyListeners();
+  }
+
+  //
+  // Drop down filter
+  //
+  void dropDownFilter(String value) {
+    this.dropdownValue = value;
+    if (value == FILTER_NEWEST) {
+      filteredBills.sort((a, b) => b.startDate.compareTo(a.startDate));
+    } else if (value == FILTER_OLDEST) {
+      filteredBills.sort((a, b) => a.startDate.compareTo(b.startDate));
+    } else if (value == FILTER_A_TO_Z) {
+      filteredBills.sort((a, b) => a.shortTitle.compareTo(b.shortTitle));
     }
     notifyListeners();
   }
