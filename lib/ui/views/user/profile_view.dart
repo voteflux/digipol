@@ -24,70 +24,71 @@ class _ProfileHubPageState extends State<ProfileHubPage> {
       onModelReady: (model) => model.getBills(),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
-            bottom: PreferredSize(
-          preferredSize: Size(100, 190),
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
-                  height: 50,
-                  child: Text(
-                    'Profile',
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+          bottom: PreferredSize(
+            preferredSize: Size(100, 190),
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.center,
+                    height: 50,
+                    child: Text(
+                      'Profile',
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  height: 60,
-                  color: Theme.of(context).colorScheme.secondary,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CircleAvatar(
-                        radius: 20,
-                        backgroundColor: Theme.of(context).backgroundColor,
-                        child: Icon(Icons.person,
-                            size: 38,
-                            color: Theme.of(context).colorScheme.onSurface),
-                      ),
-                      SizedBox(width: 20),
-                      Text(
-                        model.getUser != null ? model.getUser : '',
-                        style: TextStyle(
-                          color: Theme.of(context).backgroundColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
+                  Container(
+                    alignment: Alignment.center,
+                    height: 60,
+                    color: Theme.of(context).colorScheme.secondary,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CircleAvatar(
+                          radius: 20,
+                          backgroundColor: Theme.of(context).backgroundColor,
+                          child: Icon(Icons.person,
+                              size: 38,
+                              color: Theme.of(context).colorScheme.onSurface),
+                        ),
+                        SizedBox(width: 20),
+                        Text(
+                          model.getUser != null ? model.getUser : '',
+                          style: TextStyle(
+                            color: Theme.of(context).backgroundColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Card(
+                    margin: EdgeInsets.all(10.0),
+                    child: InkWell(
+                      child: Container(
+                        padding: EdgeInsets.all(20.0),
+                        child: Column(
+                          children: [
+                            Text('Achievements'),
+                            Text(
+                              'Coming Soon',
+                              style: Theme.of(context).textTheme.headline4,
+                            )
+                          ],
                         ),
                       ),
-                    ],
-                  ),
-                ),
-                Card(
-                  margin: EdgeInsets.all(10.0),
-                  child: InkWell(
-                    child: Container(
-                      padding: EdgeInsets.all(20.0),
-                      child: Column(
-                        children: [
-                          Text('Achievements'),
-                          Text(
-                            'Coming Soon',
-                            style: Theme.of(context).textTheme.headline4,
-                          )
-                        ],
-                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        )),
+        ),
         body: CustomScrollView(slivers: <Widget>[
           SliverSafeArea(
             top: false,
@@ -135,6 +136,26 @@ class _ProfileHubPageState extends State<ProfileHubPage> {
                         }).toList(),
                       ),
                     )),
+                    Text('Voted'),
+                    Switch(
+                      value: model.onlyVotedBills,
+                      activeColor: Theme.of(context).colorScheme.secondary,
+                      onChanged: (value) {
+                        setState(() {
+                          model.changeSwitch(value, model.onlyVoted);
+                        });
+                      },
+                    ),
+                    Text('Watching'),
+                    Switch(
+                      value: model.onlyWatchedBills,
+                      activeColor: Theme.of(context).colorScheme.primaryVariant,
+                      onChanged: (value) {
+                        setState(() {
+                          model.changeSwitch(value, model.showOnlyWatchedBills);
+                        });
+                      },
+                    ),
                   ],
                 ),
               ),

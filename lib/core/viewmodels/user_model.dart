@@ -19,6 +19,7 @@ class UserModel extends BaseModel {
   List<Bill> get billList => filteredBills;
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
+  final NavigationService _navigationService = locator<NavigationService>();
   /*late*/ String user;
   String get getUser => user;
   String pincode;
@@ -32,7 +33,6 @@ class UserModel extends BaseModel {
   final Box<bool> userPrefsBool = Hive.box<bool>(HIVE_USER_PREFS_BOOLS);
   final Box<String> userPrefsString = Hive.box<String>(HIVE_USER_PREFS_STR);
   final Box<List> userPrefsList = Hive.box<List>(HIVE_USER_PREFS_LIST);
-  final NavigationService _navigationService = locator<NavigationService>();
 
   bool onlyWatchedBills = false;
   bool get getonlyWatchedBills => onlyWatchedBills;
@@ -43,19 +43,26 @@ class UserModel extends BaseModel {
 
   Future getBills() async {
     setState(ViewState.Busy);
+
     updateLists();
-    filteredBills = blockChainList;
-    showOnlyWatchedBills(true);
-    onlyVoted(true);
+    setSearchState();
+
     setState(ViewState.Idle);
+  }
+
+  void changeSwitch(bool value, Function function) {
+    function(value);
+  }
+
+  void setSearchState() {
+    onlyVoted(this.onlyWatchedBills);
+    showOnlyWatchedBills(this.onlyWatchedBills);
   }
 
   void updateLists() {
     var billOnChain = blockChainData.values.map((el) => el.id).toList();
-
     var bills =
         billsBox.values.where((bill) => billOnChain.contains(bill.id)).toList();
-
     blockChainList = bills;
     filteredBills = bills;
   }
@@ -110,7 +117,7 @@ class UserModel extends BaseModel {
     return name;
   }
 
-  Future<String> login(String pincode) async {
+  Future login(String pincode) async {
     var userPincode = await _authenticationService.getUserPin();
     print(userPincode);
     if (userPincode == pincode) {

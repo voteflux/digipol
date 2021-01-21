@@ -11,32 +11,51 @@ class AllIssuesPage extends StatefulWidget {
   @override
   _AllIssuesPageState createState() => _AllIssuesPageState();
 }
+
 TextEditingController _textController = TextEditingController();
 
 class _AllIssuesPageState extends State<AllIssuesPage> {
-
   @override
   Widget build(BuildContext context) {
     return BaseView<IssuesModel>(
       onModelReady: (model) => model.getIssues(),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: false, 
-          elevation: 0,
-          title: InkWell(
-            child: TextField(
-              autofocus: false,
-              enableInteractiveSelection: false,
-              controller: _textController,
-              onChanged: (value) {
-                model.searchIssues(value);
-              },
-              decoration: InputDecoration(
-                icon: Icon(Icons.search),
-                fillColor: appColors.text,
-                hintText: "Search Issues",
-                border: InputBorder.none
-                ),
+          bottom: PreferredSize(
+            preferredSize: Size(50, 120),
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.center,
+                    height: 50,
+                    child: Text(
+                      'Issues',
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Card(
+                    margin: EdgeInsets.all(10.0),
+                    child: InkWell(
+                      child: Container(
+                        padding: EdgeInsets.all(20.0),
+                        child: Column(
+                          children: [
+                            Text(
+                              'Coming Soon',
+                              style: Theme.of(context).textTheme.headline4,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -57,9 +76,9 @@ class _AllIssuesPageState extends State<AllIssuesPage> {
   }
 }
 
-
 Widget issues(List<BlockChainData> issues) => ListView.builder(
     itemCount: issues.length,
     shrinkWrap: true,
     physics: ClampingScrollPhysics(),
-    itemBuilder: (context, index) => IssueListItem(blockChainData: issues[index]));
+    itemBuilder: (context, index) =>
+        IssueListItem(blockChainData: issues[index]));
