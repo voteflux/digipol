@@ -34,14 +34,14 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   List<OnboardingSlide> pages = [
     OnboardingSlide(
-        'ob-1_ready_to_change.svg',
+        '1_ready_to_change.svg',
         'Welcome to DigiPol!',
         'Ready to make a change?',
         'The voting app where you can have your say!',
-        [0xFFBDFDC1, 0xFF49F2DD],
+        [0xFF49F2DD, 0xFFBDFDC1],
         []),
     OnboardingSlide(
-        'ob-2_send_msg_politi.png',
+        '2_send_msg_politi.png',
         'Welcome to DigiPol!',
         'Send a message directly to politicians.',
         'By voting directly on the bills that affect you and your fellow '
@@ -49,21 +49,16 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         [0xFF4BE2FF, 0xFFB28DFF],
         []),
     OnboardingSlide(
-        'ob-3_secure_final_decisions.svg',
+        '3_secure_final_decisions.png',
         'Welcome to DigiPol!',
         'Your decisions are secure.',
         'By using state-of-the-art technology, no one can alter your votes but '
             'you.\nFind out more in <b:Settings>'
             '<widget:0>.',
-        [
-          0xFFF5A5FE,
-          0xFFFFABAB
-        ],
-        [
-          Icon(Icons.settings, size: 24.0, color: Colors.black87),
-        ]),
+        [0xFFF5A5FE, 0xFFFFABAB],
+        [Icon(Icons.settings, size: 20.0, color: Colors.black87)]),
     OnboardingSlide(
-        'ob-4_hear_from_commu.svg',
+        '4_hear_from_commu.svg',
         'Welcome to DigiPol!',
         'Hear from your community.',
         'Coming soon - You can also comment on bills and see what others have '
@@ -71,19 +66,15 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         [0xFFFFABAB, 0xFFFFF6BA],
         []),
     OnboardingSlide(
-        'ob-5_say_whats_important.svg',
+        '5_say_whats_important.svg',
         'Welcome to DigiPol!',
-        'Have your say on what\'s important to you.',
+        'Vote on what\'s important to you.',
         'We\'ve made it easier to find the bills and issues that you want to '
             'vote on. Start by selecting some tags below, and you can use the '
             '<widget:0> button to '
             'customise your result in the Bill Hub at any time.',
-        [
-          0xFFFFF6BA,
-          0xFFBDFDF9
-        ],
-        [
-          Padding(
+        [0xFFFFF6BA, 0xFFBDFDF9],
+        [Padding(
             padding: EdgeInsets.all(3.0),
             child: Container(
               height: 24.0,
@@ -135,11 +126,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
           ),
           child: Column(
             children: <Widget>[
-              Container(
-                child: Padding(
-                  padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 30.0),
-                  child: Image.asset(_logo, height: 70.0, width: 70.0),
-                ),
+              Padding(
+                padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 30.0),
+                child: Image.asset(_logo, height: 70.0, width: 70.0),
               ),
               Flexible(
                 child: Container(
@@ -159,7 +148,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               ),
               Container(
                 child: RaisedButton(
-                  padding: EdgeInsets.all(18.0),
+                  padding: EdgeInsets.all(10.0),
                   onPressed: _nextPage,
                   child: (_currentIndexPage < pageLength - 1)
                       ? Text(
@@ -171,50 +160,55 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   color: Colors.black,
                 ),
               ),
-              Stack(
-                children: [
-                  if (_currentIndexPage > 0)
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(0, 0, 0, 0.5)
+                ),
+                child: Stack(
+                  children: [
+                    if (_currentIndexPage > 0)
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: TextButton(
+                          onPressed: _previousPage,
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                            child: Text(
+                              'BACK',
+                              style: TextStyle(color: Colors.white70),
+                            ),
+                          ),
+                        ),
+                      ),
                     Align(
-                      alignment: Alignment.bottomLeft,
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 12.0),
+                        child: DotsIndicator(
+                          dotsCount: pageLength,
+                          position: _currentIndexPage,
+                          decorator: DotsDecorator(
+                            color: Colors.grey,
+                            activeColor: Theme.of(context).colorScheme.primary,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
                       child: TextButton(
-                        onPressed: _previousPage,
+                        onPressed: _toMainScreen,
                         child: Padding(
                           padding: EdgeInsets.only(left: 20.0, right: 20.0),
                           child: Text(
-                            'BACK',
+                            'SKIP',
                             style: TextStyle(color: Colors.white70),
                           ),
                         ),
                       ),
                     ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 12.0),
-                      child: DotsIndicator(
-                        dotsCount: pageLength,
-                        position: _currentIndexPage,
-                        decorator: DotsDecorator(
-                          color: Colors.grey,
-                          activeColor: Theme.of(context).colorScheme.primary,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: TextButton(
-                      onPressed: _toMainScreen,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                        child: Text(
-                          'SKIP',
-                          style: TextStyle(color: Colors.white70),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),
@@ -254,73 +248,56 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 Widget _buildWalkThrough(
     BuildContext context, OnboardingSlide page, bool displayTopics) {
   return Container(
-    child: Stack(
+    padding: EdgeInsets.only(top: 20, left: 20.0, right: 20.0),
+    child: Column(
       children: <Widget>[
-        Container(
-          child: Column(
-            children: <Widget>[
-              Spacer(flex: 2),
-              ListBody(
-                mainAxis: Axis.vertical,
-                children: <Widget>[
-                  Padding(
-                    padding:
-                        EdgeInsets.only(left: 40.0, right: 40.0, bottom: 20.0),
-                    child: Text(
-                      page.label,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline5
-                          .apply(color: Colors.black87),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.only(left: 40.0, right: 40.0, bottom: 20.0),
-                    child: Text(
-                      page.heading,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline4
-                          .apply(color: Colors.black87),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Padding(
-                      padding: EdgeInsets.only(left: 40.0, right: 40.0),
-                      child: InLineIcon(page.body, widgets: page.widgets)),
-                ],
-              ),
-              if (displayTopics)
-                Expanded(
-                  flex: 8,
-                  child: Container(
-                    padding: EdgeInsets.all(5.0),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            child: TopicsWidget(
-                              topics: ALL_TOPICS,
-                              canPress: true,
-                            ),
-                          ),
-                        ],
+        Text(
+          page.label,
+          style: Theme.of(context)
+              .textTheme
+              .headline5
+              .apply(color: Colors.black87),
+          textAlign: TextAlign.center,
+        ),
+        SizedBox(height: 20),
+        Text(
+            page.heading,
+            style: Theme.of(context)
+                .textTheme
+                .headline4
+                .apply(color: Colors.black87),
+            textAlign: TextAlign.center,
+          ),
+        SizedBox(height: 20),
+        InLineIcon(page.body, widgets: page.widgets),
+        SizedBox(height: 20),
+        if (displayTopics)
+          Expanded(
+            flex: 4,
+            child: Container(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      child: TopicsWidget(
+                        topics: ALL_TOPICS,
+                        canPress: true,
+                        hasFill: true,
                       ),
                     ),
-                  ),
+                  ],
                 ),
-              Flexible(
-                flex: 8,
-                child: Padding(
-                    padding: EdgeInsets.only(left: 2.0, right: 2.0),
-                    child: _loadImage(
-                        'assets/graphics/${page.image}', page.heading)),
               ),
-            ],
+            ),
           ),
+        Expanded(
+          flex: 4,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: _loadImage('assets/graphics/onboarding/${page.image}', page.heading)
+          )
         ),
+        SizedBox(height: 20)
       ],
     ),
   );
@@ -328,7 +305,7 @@ Widget _buildWalkThrough(
 
 Widget _loadImage(String path, String label) {
   if (path.split('.')[1] == 'svg')
-    return SvgPicture.asset(path, semanticsLabel: label);
+    return SvgPicture.asset(path, semanticsLabel: label, width: 300);
   else
-    return Image.asset(path);
+    return Image.asset(path, width: 300);
 }

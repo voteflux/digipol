@@ -6,6 +6,7 @@ import 'package:voting_app/core/funcs/convert_topic.dart';
 class TopicsWidget extends StatelessWidget {
   final List<String> topics;
   final bool canPress;
+  final bool hasFill;
 
   /// To convert tags to topics and display them
   ///
@@ -13,7 +14,7 @@ class TopicsWidget extends StatelessWidget {
   /// usage:
   ///
   /// `child: TopicsWidget(topics: topics),`
-  TopicsWidget({Key /*?*/ key, @required this.topics, @required this.canPress})
+  TopicsWidget({Key /*?*/ key, @required this.topics, @required this.canPress, this.hasFill = false})
       : super(key: key);
 
   List<Widget> _buildTopicList(
@@ -23,6 +24,7 @@ class TopicsWidget extends StatelessWidget {
       topics.add(TopicsButtonWidget(
         topic: item,
         canPress: canPress,
+        hasFill: hasFill
       ));
     });
     return topics;
@@ -44,8 +46,9 @@ class TopicsWidget extends StatelessWidget {
 class TopicsButtonWidget extends StatefulWidget {
   final String topic;
   final bool canPress;
+  final bool hasFill;
 
-  TopicsButtonWidget({Key key, @required this.topic, @required this.canPress})
+  TopicsButtonWidget({Key key, @required this.topic, @required this.canPress, this.hasFill = false})
       : super(key: key);
 
   @override
@@ -93,24 +96,26 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
   }
 
   Widget build(BuildContext context) {
-    return OutlineButton.icon(
+    return RaisedButton.icon(
       splashColor: Theme.of(context).colorScheme.primary,
+      color: widget.hasFill ? Color.fromRGBO(0, 0, 0, 0.6) : Colors.transparent,
+      highlightElevation: 0,
+      disabledColor: Colors.transparent,
       textColor: _active
           ? Theme.of(context).colorScheme.primary
           : Theme.of(context).colorScheme.onSecondary,
-      borderSide: BorderSide(
-          color: _active
-              ? Theme.of(context).colorScheme.primary
-              : Theme.of(context).colorScheme.onSecondary,
-          style: BorderStyle.solid,
-          width: 1),
-      onPressed: () {
-        if (widget.canPress) {
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5.0),
+        side: BorderSide(color: _active
+          ? Theme.of(context).colorScheme.primary
+          : Theme.of(context).colorScheme.onSecondary,
+          width: 1.5
+        )
+      ),
+      onPressed: widget.canPress
+        ? () {
           _updateTagPreferences(widget.topic);
-        } else {
-          print('no');
-        }
-      },
+        } : null,
       icon: _tagToIcon(widget.topic),
       label: Text(
         widget.topic,
@@ -119,7 +124,9 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
           fontSize: 10,
           color: _active
               ? Theme.of(context).colorScheme.primary
-              : Theme.of(context).colorScheme.onSurface,
+              : widget.hasFill
+                ? Colors.white
+                : Theme.of(context).colorScheme.onSurface,
         ),
       ),
     );

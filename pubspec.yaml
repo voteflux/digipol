@@ -99,6 +99,7 @@ flutter:
     #- assets/graphics/undraw_new_ideas_jdea.svg
     #- assets/graphics/undraw_process_e90d.svg
     - assets/graphics/
+    - assets/graphics/onboarding/
     #- assets/data/bills_out.json
     #- assets/data/sample_bills.json
     #- assets/data/sample_issues.json
