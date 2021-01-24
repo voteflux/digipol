@@ -84,6 +84,7 @@ class _BillListItemState extends State<BillListItem> {
                 TopicsWidget(
                   topics: widget.billData.topics,
                   canPress: false,
+                  compressed: true,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
