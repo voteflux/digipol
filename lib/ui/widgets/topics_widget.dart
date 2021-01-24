@@ -117,7 +117,7 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
   }
 
   Widget build(BuildContext context) {
-    Widget TopicButton = RaisedButton.icon(
+    return widget.compressed ? _tagToIcon(widget.topic) : RaisedButton.icon(
       splashColor: Theme.of(context).colorScheme.primary,
       color: widget.hasFill ? Color.fromRGBO(0, 0, 0, 0.6) : Colors.transparent,
       highlightElevation: 0,
@@ -151,8 +151,6 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
         ),
       ),
     );
-
-    return widget.compressed == false ? TopicButton : _tagToIcon(widget.topic);
   }
 }
 
