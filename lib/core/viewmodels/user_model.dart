@@ -62,8 +62,7 @@ class UserModel extends BaseModel {
   }
 
   void setSearchState() {
-    onlyVoted(true);
-    showOnlyWatchedBills(false);
+    onlyVoted(false);
   }
 
   void updateLists() {
@@ -84,7 +83,7 @@ class UserModel extends BaseModel {
 
     if (value) {
       if (billIds.length > 0) {
-        filteredBills.forEach((bill) {
+        blockChainList.forEach((bill) {
           if (billIds.contains(bill.id)) {
             filtered.add(bill);
           } else {
@@ -103,7 +102,7 @@ class UserModel extends BaseModel {
   //
   void onlyVoted(bool value) {
     this.onlyVotedBills = value;
-    if (value) {
+    if (!value) {
       List list = billVoteBox.values.map((el) => el.ballotId).toList();
       filteredBills =
           blockChainList.where((bill) => list.contains(bill.id)).toList();
