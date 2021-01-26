@@ -60,11 +60,13 @@ class _BillPageState extends State<BillPage> {
         .first;
 
     var vote = await billModel.hasVoted(widget.bill.id);
+
     vote.map((v) => setState(() {
           _vote = v;
         }));
     print(_vote);
     print("end getVote");
+    print(widget.bill.shortTitle.replaceAll("—", "'"));
   }
 
   @protected
@@ -101,7 +103,7 @@ class _BillPageState extends State<BillPage> {
                         child: Align(
                           child: Padding(
                             padding: EdgeInsets.all(20.0),
-                            child: Text(widget.bill.shortTitle,
+                            child: Text(widget.bill.shortTitle.replaceAll(new RegExp(r"[^\s\w()]"), ""),
                                 style: Theme.of(context).textTheme.headline5),
                           ),
                           alignment: Alignment.centerLeft,
