@@ -24,6 +24,7 @@ class _ProfileHubPageState extends State<ProfileHubPage> {
       onModelReady: (model) => model.getBills(),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           bottom: PreferredSize(
             preferredSize: Size(100, 190),
             child: Center(
