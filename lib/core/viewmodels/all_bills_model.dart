@@ -233,6 +233,8 @@ class BillsModel extends BaseModel {
         });
       });
       filteredBills = filtered;
+    } else {
+      filteredBills = blockChainList;
     }
     notifyListeners();
   }

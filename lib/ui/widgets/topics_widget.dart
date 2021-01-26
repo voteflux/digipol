@@ -6,6 +6,8 @@ import 'package:voting_app/core/funcs/convert_topic.dart';
 class TopicsWidget extends StatelessWidget {
   final List<String> topics;
   final bool canPress;
+  final bool hasFill;
+  final bool compressed;
 
   /// To convert tags to topics and display them
   ///
@@ -13,16 +15,23 @@ class TopicsWidget extends StatelessWidget {
   /// usage:
   ///
   /// `child: TopicsWidget(topics: topics),`
-  TopicsWidget({Key /*?*/ key, @required this.topics, @required this.canPress})
+  TopicsWidget(
+      {Key /*?*/ key,
+      @required this.topics,
+      @required this.canPress,
+      this.hasFill = false,
+      this.compressed = false})
       : super(key: key);
 
-  List<Widget> _buildTopicList(
-      List<String> billTopics, BuildContext context, bool canPress) {
+  List<Widget> _buildTopicList(List<String> billTopics, BuildContext context,
+      bool canPress, bool compressed) {
     List<Widget> topics = new List();
     billTopics.forEach((item) {
       topics.add(TopicsButtonWidget(
         topic: item,
         canPress: canPress,
+        hasFill: hasFill,
+        compressed: compressed,
       ));
     });
     return topics;
@@ -31,10 +40,17 @@ class TopicsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return topics != null
-        ? Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: _buildTopicList(topics, context, canPress),
-          )
+        ? compressed == false
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children:
+                    _buildTopicList(topics, context, canPress, compressed),
+              )
+            : Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children:
+                    _buildTopicList(topics, context, canPress, compressed),
+              )
         : Padding(
             padding: EdgeInsets.only(bottom: 0, top: 0),
           );
@@ -44,8 +60,15 @@ class TopicsWidget extends StatelessWidget {
 class TopicsButtonWidget extends StatefulWidget {
   final String topic;
   final bool canPress;
+  final bool hasFill;
+  final bool compressed;
 
-  TopicsButtonWidget({Key key, @required this.topic, @required this.canPress})
+  TopicsButtonWidget(
+      {Key key,
+      @required this.topic,
+      @required this.canPress,
+      this.hasFill = false,
+      this.compressed = false})
       : super(key: key);
 
   @override
@@ -55,6 +78,7 @@ class TopicsButtonWidget extends StatefulWidget {
 class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
   final Box<List> userTags = Hive.box<List>(HIVE_USER_PREFS_LIST);
   bool _active = false;
+
   void _updateTagPreferences(String item) {
     List<String> blankTags = [];
     List<String> finalTags = [];
@@ -93,24 +117,26 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
   }
 
   Widget build(BuildContext context) {
-    return OutlineButton.icon(
+    return widget.compressed ? _tagToIcon(widget.topic) : RaisedButton.icon(
       splashColor: Theme.of(context).colorScheme.primary,
+      color: widget.hasFill ? Color.fromRGBO(0, 0, 0, 0.6) : Colors.transparent,
+      highlightElevation: 0,
+      disabledColor: Colors.transparent,
       textColor: _active
           ? Theme.of(context).colorScheme.primary
           : Theme.of(context).colorScheme.onSecondary,
-      borderSide: BorderSide(
-          color: _active
-              ? Theme.of(context).colorScheme.primary
-              : Theme.of(context).colorScheme.onSecondary,
-          style: BorderStyle.solid,
-          width: 1),
-      onPressed: () {
-        if (widget.canPress) {
-          _updateTagPreferences(widget.topic);
-        } else {
-          print('no');
-        }
-      },
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5.0),
+          side: BorderSide(
+              color: _active
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).colorScheme.onSecondary,
+              width: 1.5)),
+      onPressed: widget.canPress
+          ? () {
+              _updateTagPreferences(widget.topic);
+            }
+          : null,
       icon: _tagToIcon(widget.topic),
       label: Text(
         widget.topic,
@@ -119,7 +145,9 @@ class _TopicsButtonWidgetState extends State<TopicsButtonWidget> {
           fontSize: 10,
           color: _active
               ? Theme.of(context).colorScheme.primary
-              : Theme.of(context).colorScheme.onSurface,
+              : widget.hasFill
+                  ? Colors.white
+                  : Theme.of(context).colorScheme.onSurface,
         ),
       ),
     );

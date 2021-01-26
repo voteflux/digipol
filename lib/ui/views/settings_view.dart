@@ -28,16 +28,16 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      getPubKey();
-    });
+    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    //   getPubKey();
+    // });
   }
 
-  Future getPubKey() async {
-    var ethAddress = await walletService.ethereumAddress();
-    pubKey = ethAddress.toString();
-    setState(() {});
-  }
+  // Future getPubKey() async {
+  //   var ethAddress = await walletService.ethereumAddress();
+  //   pubKey = ethAddress.toString();
+  //   setState(() {});
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -218,7 +218,8 @@ class _SettingsPageState extends State<SettingsPage> {
 
   Widget _userProfile() {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 5),
+      alignment: Alignment.center,
+      height: 60,
       color: Theme.of(context).colorScheme.secondary,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -231,7 +232,7 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
           SizedBox(width: 20),
           Text(
-            "Cheezburger",
+            's',
             style: TextStyle(
               color: Theme.of(context).backgroundColor,
               fontSize: 16,
