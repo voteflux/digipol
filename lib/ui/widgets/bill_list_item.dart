@@ -78,7 +78,7 @@ class _BillListItemState extends State<BillListItem> {
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(bottom: 10, top: 10),
-                  child: Text(widget.billData.shortTitle,
+                  child: Text(widget.billData.shortTitle.replaceAll(new RegExp(r"[^\s\w()]"), ""),
                       style: Theme.of(context).textTheme.headline6),
                 ),
                 TopicsWidget(
