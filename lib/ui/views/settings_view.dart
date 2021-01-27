@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:voting_app/core/router.gr.dart';
 import 'package:voting_app/core/services/wallet.dart';
@@ -23,9 +24,18 @@ class _SettingsPageState extends State<SettingsPage> {
   final WalletService walletService = locator<WalletService>();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  var version = "...";
+
   @override
   void initState() {
     super.initState();
+
+    PackageInfo.fromPlatform().then((PackageInfo packageInfo) {
+      setState(() {
+        print(packageInfo.version);
+        version = packageInfo.version;
+      });
+    });
     // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
     //   getPubKey();
     // });
@@ -146,15 +156,37 @@ class _SettingsPageState extends State<SettingsPage> {
               fontSize: 14,
               fontWeight: FontWeight.w700),
         ), alignment: Alignment.center),
+        Container(
+          height: 40,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("App Version",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400
+                ),
+              ),
+              Text(version,
+                style: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400
+                ),
+              )
+            ]
+          )
+        ),
         SettingEntry("Revisit introduction", () {
           Navigator.pushNamed(context, Routes.onBoardingView);
         }),
         SettingEntry("Submit an issue/feedback", () {
           //launch("TODO: Google forms link");
         }),
-        SettingEntry("App version", () {
-          print("App version");
-        }),
+        // SettingEntry("App version", () {
+        //   print("App version");
+        // }),
         SettingEntry("Security info", () {
           print("Security info");
         })
