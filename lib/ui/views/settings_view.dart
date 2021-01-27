@@ -1,13 +1,12 @@
-import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:voting_app/core/router.gr.dart';
 import 'package:voting_app/core/services/wallet.dart';
 import 'package:voting_app/core/viewmodels/settings_model.dart';
-import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
 
@@ -63,7 +62,6 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ),
                   ),
-                  _userProfile(),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     width: appSizes.mediumWidth,
@@ -71,20 +69,16 @@ class _SettingsPageState extends State<SettingsPage> {
                       children: [
                         SizedBox(height: 20),
                         _account(),
-                        Divider(
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-                        _apprearance(),
-                        Divider(
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-                        _notifications(),
-                        Divider(
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-                        _digipol(),
-                        SizedBox(height: 30),
-                        _signout(),
+                        Divider(color: Theme.of(context).colorScheme.secondary),
+                        _helpAndInfo(),
+                        Divider(color: Theme.of(context).colorScheme.secondary),
+                        _community()
+                        // Divider(color: Theme.of(context).colorScheme.secondary),
+                        // _appearance(),
+                        // Divider(color: Theme.of(context).colorScheme.secondary),
+                        // _notifications(),
+                        // SizedBox(height: 30),
+                        // _signout(),
                       ],
                     ),
                   )
@@ -101,13 +95,13 @@ class _SettingsPageState extends State<SettingsPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        Align(child: Text(
           "Account",
           style: TextStyle(
               color: Theme.of(context).colorScheme.primary,
               fontSize: 14,
               fontWeight: FontWeight.w700),
-        ),
+        ), alignment: Alignment.center),
         SettingEntry("Change username", () {
           print("change username");
         }),
@@ -118,17 +112,17 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  Widget _apprearance() {
+  Widget _appearance() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        Align(child: Text(
           "Apprearance",
           style: TextStyle(
               color: Theme.of(context).colorScheme.primary,
               fontSize: 14,
               fontWeight: FontWeight.w700),
-        ),
+        ), alignment: Alignment.center),
         SettingEntry("Language (coming soon)", () {
           print("change language");
         }),
@@ -139,33 +133,90 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  Widget _digipol() {
+  Widget _helpAndInfo() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "DigiPol",
+        Align(child: Text(
+          "Help and Info",
           style: TextStyle(
               color: Theme.of(context).colorScheme.primary,
               fontSize: 14,
               fontWeight: FontWeight.w700),
-        ),
-        SettingEntry("Restart quiz (coming soon)", () {
-          print("restart quiz");
+        ), alignment: Alignment.center),
+        SettingEntry("Revisit introduction", () {
+          Navigator.pushNamed(context, Routes.onBoardingView);
         }),
-        SettingEntry("Submit an issue", () {
-          print("Submit an issue");
-        }),
-        SettingEntry("Join us on Discord chat", () {
-          print("Join us on Discord chat");
+        SettingEntry("Submit an issue/feedback", () {
+          //launch("TODO: Google forms link");
         }),
         SettingEntry("App version", () {
           print("App version");
         }),
         SettingEntry("Security info", () {
           print("Security info");
-        }),
-      ],
+        })
+      ]
+    );
+  }
+
+  Widget _community() {
+     return Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(
+            "Join the Flux Community!",
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.primary,
+              fontSize: 14,
+              fontWeight: FontWeight.w700
+            ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 10),
+          SignInButton(
+            Buttons.FacebookNew,
+            text: "Like us on Facebook",
+            onPressed: () {
+              launch("https://www.facebook.com/VoteFlux.org");
+            }
+          ),
+          SizedBox(height: 10),
+          SignInButton(
+            Buttons.Twitter,
+            text: "Follow our Twitter",
+            onPressed: () {
+              launch("https://twitter.com/voteflux");
+            },
+          ),
+          SizedBox(height: 10),
+          SignInButtonBuilder(
+            text: "Join our Discord",
+            image: SvgPicture.asset("assets/graphics/discord-logo.svg", width: 20),
+            iconColor: Colors.white,
+            onPressed: () {
+              launch("https://discord.io/FluxParty");
+            },
+            backgroundColor: Color.fromRGBO(114,137,218,1),
+          ),
+          SizedBox(height: 10),
+          SignInButton(
+            Buttons.GitHub,
+            text: "Follow our Github",
+            onPressed: () {
+              launch("https://github.com/voteflux/");
+            },
+          ),
+          SizedBox(height: 10),
+          SignInButton(
+            Buttons.Email,
+            text: "Send us an Email",
+            onPressed: () {
+              launch("mailto://digipol@voteflux.org");
+            },
+          )
+        ]
     );
   }
 
@@ -200,34 +251,6 @@ class _SettingsPageState extends State<SettingsPage> {
       child: Text(
         'Sign out',
         style: TextStyle(fontSize: 14),
-      ),
-    );
-  }
-
-  Widget _userProfile() {
-    return Container(
-      alignment: Alignment.center,
-      height: 60,
-      color: Theme.of(context).colorScheme.secondary,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            radius: 20,
-            backgroundColor: Theme.of(context).backgroundColor,
-            child: Icon(Icons.person,
-                size: 38, color: Theme.of(context).colorScheme.onSurface),
-          ),
-          SizedBox(width: 20),
-          Text(
-            's',
-            style: TextStyle(
-              color: Theme.of(context).backgroundColor,
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ],
       ),
     );
   }

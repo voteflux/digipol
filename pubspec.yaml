@@ -55,6 +55,7 @@ dependencies:
   logger: ^0.9.4
   logger_flutter: any
   injectable: any
+  flutter_signin_button: ^1.1.0
 
 # Why is this here? -MK
 #dependency_overrides:
