@@ -67,18 +67,20 @@ class _SettingsPageState extends State<SettingsPage> {
                     width: appSizes.mediumWidth,
                     child: Column(
                       children: [
-                        SizedBox(height: 20),
+                        SizedBox(height: 10),
                         _account(),
                         Divider(color: Theme.of(context).colorScheme.secondary),
+                        SizedBox(height: 10),
                         _helpAndInfo(),
                         Divider(color: Theme.of(context).colorScheme.secondary),
-                        _community()
+                        SizedBox(height: 10),
+                        _community(),
                         // Divider(color: Theme.of(context).colorScheme.secondary),
                         // _appearance(),
-                        // Divider(color: Theme.of(context).colorScheme.secondary),
+                        Divider(color: Theme.of(context).colorScheme.secondary),
                         // _notifications(),
                         // SizedBox(height: 30),
-                        // _signout(),
+                        _signout(),
                       ],
                     ),
                   )
@@ -243,11 +245,13 @@ class _SettingsPageState extends State<SettingsPage> {
 
   Widget _signout() {
     return MaterialButton(
-      minWidth: 80,
-      height: 15,
+      minWidth: 100,
+      height: 30,
       padding: EdgeInsets.symmetric(vertical: 5),
       color: Theme.of(context).colorScheme.secondary,
-      onPressed: () {},
+      onPressed: () {
+        //TODO: Lock system
+      },
       child: Text(
         'Sign out',
         style: TextStyle(fontSize: 14),
@@ -256,8 +260,9 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   Widget SettingEntry(String text, Function func) {
-    return Container(
+    return FlatButton(
       height: 40,
+      onPressed: () { func(); },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -266,15 +271,13 @@ class _SettingsPageState extends State<SettingsPage> {
             style: TextStyle(
               color: Theme.of(context).colorScheme.onSurface,
               fontSize: 14,
+              fontWeight: FontWeight.w400
             ),
           ),
-          IconButton(
-            iconSize: 16,
-            icon: Icon(Icons.arrow_forward_ios_rounded,
-                color: Theme.of(context).colorScheme.primary),
-            onPressed: () {
-              func();
-            },
+          Icon(
+            Icons.arrow_forward_ios_rounded,
+            color: Theme.of(context).colorScheme.primary,
+            size: 16
           ),
         ],
       ),
