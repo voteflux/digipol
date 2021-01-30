@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:package_info/package_info.dart';
@@ -20,32 +21,28 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  String pubKey = "";
   final WalletService walletService = locator<WalletService>();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  var version = "...";
+  String version = "...";
+  String pubKey = "";
 
   @override
   void initState() {
     super.initState();
 
     PackageInfo.fromPlatform().then((PackageInfo packageInfo) {
-      setState(() {
-        print(packageInfo.version);
-        version = packageInfo.version;
-      });
+      setState(() { version = packageInfo.version; });
     });
     // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
     //   getPubKey();
     // });
   }
 
-  // Future getPubKey() async {
-  //   var ethAddress = await walletService.ethereumAddress();
-  //   pubKey = ethAddress.toString();
-  //   setState(() {});
-  // }
+  Future getPubKey() async {
+    var ethAddress = await walletService.ethereumAddress();
+    setState(() { pubKey = ethAddress.toString(); });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -184,11 +181,12 @@ class _SettingsPageState extends State<SettingsPage> {
         SettingEntry("Submit an issue/feedback", () {
           //launch("TODO: Google forms link");
         }),
-        // SettingEntry("App version", () {
-        //   print("App version");
-        // }),
-        SettingEntry("Security info", () {
-          print("Security info");
+        SettingEntry("Security info", () async {
+          if (pubKey == "") await getPubKey();
+          await showDialog<void>(
+            context: context,
+            builder: (BuildContext context) { return _securityDialog(); }
+          );
         })
       ]
     );
@@ -209,6 +207,16 @@ class _SettingsPageState extends State<SettingsPage> {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 10),
+          SignInButtonBuilder(
+            text: "Join our Discord",
+            image: SvgPicture.asset("assets/graphics/discord-logo.svg", width: 20),
+            iconColor: Colors.white,
+            onPressed: () {
+              launch("https://discord.io/FluxParty");
+            },
+            backgroundColor: Color.fromRGBO(114,137,218,1),
+          ),
+          SizedBox(height: 10),
           SignInButton(
             Buttons.FacebookNew,
             text: "Like us on Facebook",
@@ -223,16 +231,6 @@ class _SettingsPageState extends State<SettingsPage> {
             onPressed: () {
               launch("https://twitter.com/voteflux");
             },
-          ),
-          SizedBox(height: 10),
-          SignInButtonBuilder(
-            text: "Join our Discord",
-            image: SvgPicture.asset("assets/graphics/discord-logo.svg", width: 20),
-            iconColor: Colors.white,
-            onPressed: () {
-              launch("https://discord.io/FluxParty");
-            },
-            backgroundColor: Color.fromRGBO(114,137,218,1),
           ),
           SizedBox(height: 10),
           SignInButton(
@@ -313,6 +311,44 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _securityDialog() {
+    return SimpleDialog(
+      backgroundColor: Theme.of(context).backgroundColor,
+      title: Align(
+        alignment: Alignment.center,
+        child: Text(
+          'Public Key',
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.primary,
+            fontSize: 14,
+            fontWeight: FontWeight.w700
+          ),
+        ),
+      ),
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.all(20),
+          child: Align(
+            alignment: Alignment.center,
+            child: Text(
+              pubKey,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600
+              ),
+            ),
+          )
+        ),
+        IconButton(
+          icon: Icon(Icons.copy),
+          onPressed: () {
+            Clipboard.setData(ClipboardData(text: pubKey));
+          }
+        )
+      ]
     );
   }
 }
