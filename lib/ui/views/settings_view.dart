@@ -75,11 +75,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     child: Column(
                       children: [
                         SizedBox(height: 10),
-                        _account(),
-                        Divider(color: Theme.of(context).colorScheme.secondary),
-                        SizedBox(height: 10),
                         _helpAndInfo(),
                         Divider(color: Theme.of(context).colorScheme.secondary),
+                        // SizedBox(height: 10),
+                        // _account(),
+                        // Divider(color: Theme.of(context).colorScheme.secondary),
                         SizedBox(height: 10),
                         _community(),
                         // Divider(color: Theme.of(context).colorScheme.secondary),
@@ -280,7 +280,7 @@ class _SettingsPageState extends State<SettingsPage> {
       padding: EdgeInsets.symmetric(vertical: 5),
       color: Theme.of(context).colorScheme.secondary,
       onPressed: () {
-        //TODO: Lock system
+        Navigator.pushNamedAndRemoveUntil(context, Routes.startupView, (r) => false);
       },
       child: Text(
         'Sign out',

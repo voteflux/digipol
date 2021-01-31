@@ -17,8 +17,6 @@ class ProfilePage extends StatefulWidget {
   _ProfilePageState createState() => _ProfilePageState();
 }
 
-final TextEditingController _userName = TextEditingController();
-final TextEditingController _pinCode = TextEditingController();
 final _formKey = GlobalKey<FormState>();
 
 class _ProfilePageState extends State<ProfilePage> {
@@ -39,7 +37,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         model.isUser
                             ? _nameStrip(model)
                             : _username(context, model),
-                        _pincode(context, model),
+                        _pinCode(context, model),
                         _submit(context, model),
                         FlatButton(
                           onPressed: () {
@@ -101,7 +99,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _pincode(BuildContext context, UserModel model) {
+  Widget _pinCode(BuildContext context, UserModel model) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 40.0),
       child: Column(
@@ -120,14 +118,13 @@ class _ProfilePageState extends State<ProfilePage> {
             height: 20.0,
           ),
           PinCodeTextField(
-            controller: _userName,
             pinBoxWidth: 45,
             pinBoxHeight: 50,
             pinTextStyle:
                 TextStyle(color: Theme.of(context).colorScheme.onSurface),
-            onDone: (code) {
-              model.pincode = code;
-            },
+            onDone: (code) { model.pincode = code; },
+            maskCharacter: '*',
+            hideCharacter: true,
             highlight: true,
             highlightColor: Theme.of(context).primaryColor,
             highlightPinBoxColor: Theme.of(context).backgroundColor,
