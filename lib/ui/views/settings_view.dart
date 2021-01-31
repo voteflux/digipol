@@ -10,6 +10,8 @@ import 'package:voting_app/core/viewmodels/settings_model.dart';
 import 'package:voting_app/core/viewmodels/theme_model.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
+import 'package:hive/hive.dart';
+import '../../core/consts.dart';
 
 import '../../locator.dart';
 
@@ -24,6 +26,8 @@ class _SettingsPageState extends State<SettingsPage> {
   final WalletService walletService = locator<WalletService>();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   Drawer drawer = Drawer(key: UniqueKey());
+
+  Box userBox = Hive.box<String>(HIVE_USER_PREFS_STR);
 
   @override
   void initState() {
@@ -70,7 +74,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       child: Column(
                         children: [
                           SizedBox(height: 20),
-                          _account(),
+                          _account(context),
                           Divider(
                             color: Theme.of(context).colorScheme.secondary,
                           ),
@@ -98,7 +102,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  Widget _account() {
+  Widget _account(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -110,7 +114,20 @@ class _SettingsPageState extends State<SettingsPage> {
               fontWeight: FontWeight.w700),
         ),
         SettingEntry("Change username", () {
-          print("change username");
+          setState(() {
+            drawer = Drawer(
+              key: UniqueKey(),
+              child: FlatButton(
+                child: Text(userBox.get('firstName') as String),
+                onPressed: () {
+                  userBox.put('firstName', 'emma');
+                  Navigator.of(context).pop();
+                },
+              ),
+            );
+          });
+          //_scaffoldKey.currentState.openEndDrawer();
+          Scaffold.of(context).openEndDrawer();
         }),
         SettingEntry("Change pin", () {
           setState(() {
@@ -119,12 +136,14 @@ class _SettingsPageState extends State<SettingsPage> {
               child: FlatButton(
                 child: Text('close'),
                 onPressed: () {
+                  userBox.put('pincode', '1111');
                   Navigator.of(context).pop();
                 },
               ),
             );
           });
-          _scaffoldKey.currentState.openEndDrawer();
+          //_scaffoldKey.currentState.openEndDrawer();
+          Scaffold.of(context).openEndDrawer();
         }),
       ],
     );
@@ -232,7 +251,7 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
           SizedBox(width: 20),
           Text(
-            's',
+            userBox.get('firstName') as String,
             style: TextStyle(
               color: Theme.of(context).backgroundColor,
               fontSize: 16,
