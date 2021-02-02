@@ -486,7 +486,8 @@ class _SettingsPageState extends State<SettingsPage> {
         Navigator.pushNamed(context, Routes.onBoardingView);
       }),
       SettingEntry("Submit an issue/feedback", () {
-        //launch("TODO: Google forms link");
+        launch(
+            "https://docs.google.com/forms/d/12ctu92x3W-Wwn5R-XMz-D-t5kK_GXBHnmJAiRFPxqac/edit?usp=sharing");
       }),
       SettingEntry("Security info", () async {
         if (pubKey == "") await getPubKey();
