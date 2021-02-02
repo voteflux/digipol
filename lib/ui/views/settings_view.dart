@@ -33,8 +33,9 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget drawer = Drawer(key: UniqueKey());
 
   Box userBox = Hive.box<String>(HIVE_USER_PREFS_STR);
-  bool error = false;
-  String errorMsg = '';
+  //TODO: display error message when old pin incorrect or two new pins don't match
+  //bool error = false;
+  //String errorMsg = '';
 
   String version = "...";
   String pubKey = "";
@@ -240,17 +241,19 @@ class _SettingsPageState extends State<SettingsPage> {
                       RaisedButton(
                         child: Text("Update"),
                         onPressed: () {
-                          userBox.put('firstName', _userName.text);
-                          final snackBar = SnackBar(
-                            content: Text('User name has been changed'),
-                          );
-                          Navigator.of(context).pop();
-                          Future.delayed(Duration(milliseconds: 300), () {
-                            Scaffold.of(context).showSnackBar(snackBar);
-                          });
+                          if (_pinCode.text == userBox.get('pincode')) {
+                            userBox.put('firstName', _userName.text);
+                            final snackBar = SnackBar(
+                              content: Text('User name has been changed'),
+                            );
+                            Navigator.of(context).pop();
+                            Future.delayed(Duration(milliseconds: 300), () {
+                              Scaffold.of(context).showSnackBar(snackBar);
+                            });
+                          }
                           ;
                         },
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -325,17 +328,16 @@ class _SettingsPageState extends State<SettingsPage> {
                               fontSize: 18,
                               color: Theme.of(context).colorScheme.primary),
                           onDone: (text) {
-                            if (text != userBox.get('pincode')) {
-                              setState(() {
-                                error = true;
-                                errorMsg = 'Your old pin is incorrect!';
-                              });
-                            } else {
-                              setState(() {
-                                error = false;
-                                errorMsg = '';
-                              });
-                            }
+                            //TODO: check is old pin correct
+                            //if (text != userBox.get('pincode')) {
+                            //setState(() {
+                            //error = true;
+                            //});
+                            //} else {
+                            //setState(() {
+                            //error = false;
+                            //});
+                            //}
                           },
                           highlight: true,
                           highlightColor: Theme.of(context).colorScheme.primary,
@@ -419,22 +421,12 @@ class _SettingsPageState extends State<SettingsPage> {
                           pinBoxRadius: 10.0,
                           hasTextBorderColor:
                               Theme.of(context).colorScheme.primary),
-                      SizedBox(height: 20),
-                      Text(errorMsg, key: UniqueKey()),
                       SizedBox(height: 30),
                       RaisedButton(
                         child: Text("Update"),
                         onPressed: () {
-                          if (_oldPinCode.text != userBox.get('pincode')) {
-                            setState(() {
-                              error = true;
-                              errorMsg = 'Your old pin is incorrect!';
-                            });
-                          } else {
-                            setState(() {
-                              error = false;
-                              errorMsg = '';
-                            });
+                          if (_oldPinCode.text == userBox.get('pincode') &&
+                              _newPinCode.text == _confirmNewPin.text) {
                             userBox.put('pincode', _confirmNewPin.text);
                             final snackBar = SnackBar(
                               content: Text('Pin code has been changed'),
