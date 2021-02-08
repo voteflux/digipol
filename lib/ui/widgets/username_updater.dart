@@ -13,7 +13,7 @@ class _UsernameUpdaterState extends State<UsernameUpdater> {
   final TextEditingController _userName = TextEditingController();
   final TextEditingController _pinCode = TextEditingController();
   Box userBox = Hive.box<String>(HIVE_USER_PREFS_STR);
-  bool hasError = false;
+  bool hasError = true;
   String errorMsg = '';
 
   @override
@@ -145,12 +145,7 @@ class _UsernameUpdaterState extends State<UsernameUpdater> {
                 } else if (exp.allMatches(_userName.text).length != 0)
                   setState(() {
                     hasError = true;
-                    errorMsg = 'No special charactors allowed in Username';
-                  });
-                else
-                  setState(() {
-                    hasError = false;
-                    errorMsg = '';
+                    errorMsg = 'No special characters allowed in Username';
                   });
                 if (!hasError) {
                   userBox.put('firstName', _userName.text);
