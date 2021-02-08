@@ -246,6 +246,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             final snackBar = SnackBar(
                               content: Text('User name has been changed'),
                             );
+                            _pinCode.text = '';
                             Navigator.of(context).pop();
                             Future.delayed(Duration(milliseconds: 300), () {
                               Scaffold.of(context).showSnackBar(snackBar);
@@ -431,6 +432,9 @@ class _SettingsPageState extends State<SettingsPage> {
                             final snackBar = SnackBar(
                               content: Text('Pin code has been changed'),
                             );
+                            _oldPinCode.text = '';
+                            _newPinCode.text = '';
+                            _confirmNewPin.text = '';
                             Navigator.of(context).pop();
                             Future.delayed(Duration(milliseconds: 300), () {
                               Scaffold.of(context).showSnackBar(snackBar);
@@ -487,7 +491,7 @@ class _SettingsPageState extends State<SettingsPage> {
       }),
       SettingEntry("Submit an issue/feedback", () {
         launch(
-            "https://docs.google.com/forms/d/12ctu92x3W-Wwn5R-XMz-D-t5kK_GXBHnmJAiRFPxqac/edit?usp=sharing");
+            "https://docs.google.com/forms/d/e/1FAIpQLScFzoEslP6z4oStSYaOROCWSELb2Y9vESB2VT7fsLRZplRP_A/viewform?usp=sf_link");
       }),
       SettingEntry("Security info", () async {
         if (pubKey == "") await getPubKey();
