@@ -147,6 +147,11 @@ class _UsernameUpdaterState extends State<UsernameUpdater> {
                     hasError = true;
                     errorMsg = 'No special characters allowed in Username';
                   });
+                else
+                  setState(() {
+                    hasError = false;
+                    errorMsg = '';
+                  });
                 if (!hasError) {
                   userBox.put('firstName', _userName.text);
                   final snackBar = SnackBar(
