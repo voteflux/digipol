@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,6 +10,10 @@ import 'package:voting_app/core/services/wallet.dart';
 import 'package:voting_app/core/viewmodels/settings_model.dart';
 import 'package:voting_app/ui/styles.dart';
 import 'package:voting_app/ui/views/base_view.dart';
+import 'package:hive/hive.dart';
+import '../../core/consts.dart';
+import '../widgets/username_updater.dart';
+import '../widgets/pincode_updater.dart';
 
 import '../../locator.dart';
 
@@ -23,6 +26,12 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   final WalletService walletService = locator<WalletService>();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  Widget drawer = Drawer(key: UniqueKey());
+
+  Box userBox = Hive.box<String>(HIVE_USER_PREFS_STR);
+  //TODO: display error message when old pin incorrect or two new pins don't match
+  //bool error = false;
+  //String errorMsg = '';
 
   String version = "...";
   String pubKey = "";
@@ -32,7 +41,9 @@ class _SettingsPageState extends State<SettingsPage> {
     super.initState();
 
     PackageInfo.fromPlatform().then((PackageInfo packageInfo) {
-      setState(() { version = packageInfo.version; });
+      setState(() {
+        version = packageInfo.version;
+      });
     });
     // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
     //   getPubKey();
@@ -41,189 +52,187 @@ class _SettingsPageState extends State<SettingsPage> {
 
   Future getPubKey() async {
     var ethAddress = await walletService.ethereumAddress();
-    setState(() { pubKey = ethAddress.toString(); });
+    setState(() {
+      pubKey = ethAddress.toString();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return BaseView<SettingsModel>(
-      onModelReady: (model) => print('user'),
-      builder: (context, model, child) => Scaffold(
-        key: _scaffoldKey,
-        // Disable opening the end drawer with a swipe gesture.
-        body: Align(
-          alignment: Alignment.topCenter,
-          child: Container(
-            child: SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    alignment: Alignment.center,
-                    height: 50,
-                    child: Text(
-                      'Settings',
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+        onModelReady: (model) => model.setUser(),
+        builder: (context, model, child) => Scaffold(
+              key: _scaffoldKey,
+              // Disable opening the end drawer with a swipe gesture.
+              endDrawer: drawer,
+              body: Builder(
+                builder: (context) => Align(
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 20),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            "Settings",
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            width: appSizes.mediumWidth,
+                            child: Column(
+                              children: [
+                                _account(context),
+                                SizedBox(height: 10),
+                                _helpAndInfo(),
+                                Divider(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary),
+                                // SizedBox(height: 10),
+                                // _account(),
+                                // Divider(color: Theme.of(context).colorScheme.secondary),
+                                SizedBox(height: 10),
+                                _community(),
+                                // Divider(color: Theme.of(context).colorScheme.secondary),
+                                // _appearance(),
+                                Divider(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary),
+                                // _notifications(),
+                                // SizedBox(height: 30),
+                                _signout(),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    width: appSizes.mediumWidth,
-                    child: Column(
-                      children: [
-                        SizedBox(height: 10),
-                        _helpAndInfo(),
-                        Divider(color: Theme.of(context).colorScheme.secondary),
-                        // SizedBox(height: 10),
-                        // _account(),
-                        // Divider(color: Theme.of(context).colorScheme.secondary),
-                        SizedBox(height: 10),
-                        _community(),
-                        // Divider(color: Theme.of(context).colorScheme.secondary),
-                        // _appearance(),
-                        Divider(color: Theme.of(context).colorScheme.secondary),
-                        // _notifications(),
-                        // SizedBox(height: 30),
-                        _signout(),
-                      ],
-                    ),
-                  )
-                ],
+                ),
               ),
-            ),
-          ),
-        ),
-      ),
-    );
+            ));
   }
 
-  Widget _account() {
+  Widget _account(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Align(child: Text(
-          "Account",
-          style: TextStyle(
-              color: Theme.of(context).colorScheme.primary,
-              fontSize: 14,
-              fontWeight: FontWeight.w700),
-        ), alignment: Alignment.center),
+        Align(
+            child: Text(
+              "Account",
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w700),
+            ),
+            alignment: Alignment.center),
         SettingEntry("Change username", () {
-          print("change username");
+          setState(() {
+            drawer = Drawer(
+              key: UniqueKey(),
+              child: UsernameUpdater(),
+            );
+          });
+          //_scaffoldKey.currentState.openEndDrawer();
+          Scaffold.of(context).openEndDrawer();
         }),
         SettingEntry("Change pin", () {
-          print("change pin");
-        }),
-      ],
-    );
-  }
-
-  Widget _appearance() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Align(child: Text(
-          "Apprearance",
-          style: TextStyle(
-              color: Theme.of(context).colorScheme.primary,
-              fontSize: 14,
-              fontWeight: FontWeight.w700),
-        ), alignment: Alignment.center),
-        SettingEntry("Language (coming soon)", () {
-          print("change language");
-        }),
-        SettingEntry("Dark / light (coming soon)", () {
-          print("change theme");
+          setState(() {
+            drawer = Drawer(
+              key: UniqueKey(),
+              child: PincodeUpdater(),
+            );
+          });
+          //_scaffoldKey.currentState.openEndDrawer();
+          Scaffold.of(context).openEndDrawer();
         }),
       ],
     );
   }
 
   Widget _helpAndInfo() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Align(child: Text(
-          "Help and Info",
-          style: TextStyle(
-              color: Theme.of(context).colorScheme.primary,
-              fontSize: 14,
-              fontWeight: FontWeight.w700),
-        ), alignment: Alignment.center),
-        Container(
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Align(
+          child: Text(
+            "Help and Info",
+            style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+                fontSize: 14,
+                fontWeight: FontWeight.w700),
+          ),
+          alignment: Alignment.center),
+      Container(
           height: 40,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("App Version",
-                style: TextStyle(
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Text(
+              "App Version",
+              style: TextStyle(
                   color: Theme.of(context).colorScheme.onSurface,
                   fontSize: 14,
-                  fontWeight: FontWeight.w400
-                ),
-              ),
-              Text(version,
-                style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400
-                ),
-              )
-            ]
-          )
-        ),
-        SettingEntry("Revisit introduction", () {
-          Navigator.pushNamed(context, Routes.onBoardingView);
-        }),
-        SettingEntry("Submit an issue/feedback", () {
-          launch("https://docs.google.com/forms/d/12ctu92x3W-Wwn5R-XMz-D-t5kK_GXBHnmJAiRFPxqac/edit?usp=sharing");
-        }),
-        SettingEntry("Security info", () async {
-          if (pubKey == "") await getPubKey();
-          await showDialog<void>(
+                  fontWeight: FontWeight.w400),
+            ),
+            Text(
+              version,
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400),
+            )
+          ])),
+      SettingEntry("Revisit introduction", () {
+        Navigator.pushNamed(context, Routes.onBoardingView);
+      }),
+      SettingEntry("Submit an issue/feedback", () {
+        launch(
+            "https://docs.google.com/forms/d/e/1FAIpQLScFzoEslP6z4oStSYaOROCWSELb2Y9vESB2VT7fsLRZplRP_A/viewform?usp=sf_link");
+      }),
+      SettingEntry("Security info", () async {
+        if (pubKey == "") await getPubKey();
+        await showDialog<void>(
             context: context,
-            builder: (BuildContext context) { return _securityDialog(); }
-          );
-        })
-      ]
-    );
+            builder: (BuildContext context) {
+              return _securityDialog();
+            });
+      })
+    ]);
   }
 
   Widget _community() {
-     return Column(
+    return Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
             "Join the Flux Community!",
             style: TextStyle(
-              color: Theme.of(context).colorScheme.primary,
-              fontSize: 14,
-              fontWeight: FontWeight.w700
-            ),
+                color: Theme.of(context).colorScheme.primary,
+                fontSize: 14,
+                fontWeight: FontWeight.w700),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 10),
           SignInButtonBuilder(
             text: "Join our Discord",
-            image: SvgPicture.asset("assets/graphics/discord-logo.svg", width: 20),
+            image:
+                SvgPicture.asset("assets/graphics/discord-logo.svg", width: 20),
             iconColor: Colors.white,
             onPressed: () {
               launch("https://discord.io/FluxParty");
             },
-            backgroundColor: Color.fromRGBO(114,137,218,1),
+            backgroundColor: Color.fromRGBO(114, 137, 218, 1),
           ),
           SizedBox(height: 10),
-          SignInButton(
-            Buttons.FacebookNew,
-            text: "Like us on Facebook",
-            onPressed: () {
-              launch("https://www.facebook.com/VoteFlux.org");
-            }
-          ),
+          SignInButton(Buttons.FacebookNew, text: "Like us on Facebook",
+              onPressed: () {
+            launch("https://www.facebook.com/VoteFlux.org");
+          }),
           SizedBox(height: 10),
           SignInButton(
             Buttons.Twitter,
@@ -248,29 +257,7 @@ class _SettingsPageState extends State<SettingsPage> {
               launch("mailto://digipol@voteflux.org");
             },
           )
-        ]
-    );
-  }
-
-  Widget _notifications() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Notifications",
-          style: TextStyle(
-              color: Theme.of(context).colorScheme.primary,
-              fontSize: 14,
-              fontWeight: FontWeight.w700),
-        ),
-        SettingEntry("Push notifications", () {
-          print("Push notifications");
-        }),
-        SettingEntry("Edit preference", () {
-          print("Edit preference");
-        }),
-      ],
-    );
+        ]);
   }
 
   Widget _signout() {
@@ -280,7 +267,8 @@ class _SettingsPageState extends State<SettingsPage> {
       padding: EdgeInsets.symmetric(vertical: 5),
       color: Theme.of(context).colorScheme.secondary,
       onPressed: () {
-        Navigator.pushNamedAndRemoveUntil(context, Routes.startupView, (r) => false);
+        Navigator.pushNamedAndRemoveUntil(
+            context, Routes.startupView, (r) => false);
       },
       child: Text(
         'Sign out',
@@ -292,23 +280,21 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget SettingEntry(String text, Function func) {
     return FlatButton(
       height: 40,
-      onPressed: () { func(); },
+      onPressed: () {
+        func();
+      },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             text,
             style: TextStyle(
-              color: Theme.of(context).colorScheme.onSurface,
-              fontSize: 14,
-              fontWeight: FontWeight.w400
-            ),
+                color: Theme.of(context).colorScheme.onSurface,
+                fontSize: 14,
+                fontWeight: FontWeight.w400),
           ),
-          Icon(
-            Icons.arrow_forward_ios_rounded,
-            color: Theme.of(context).colorScheme.primary,
-            size: 16
-          ),
+          Icon(Icons.arrow_forward_ios_rounded,
+              color: Theme.of(context).colorScheme.primary, size: 16),
         ],
       ),
     );
@@ -316,39 +302,32 @@ class _SettingsPageState extends State<SettingsPage> {
 
   Widget _securityDialog() {
     return SimpleDialog(
-      backgroundColor: Theme.of(context).backgroundColor,
-      title: Align(
-        alignment: Alignment.center,
-        child: Text(
-          'Public Key',
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.primary,
-            fontSize: 14,
-            fontWeight: FontWeight.w700
+        backgroundColor: Theme.of(context).backgroundColor,
+        title: Align(
+          alignment: Alignment.center,
+          child: Text(
+            'Public Key',
+            style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+                fontSize: 14,
+                fontWeight: FontWeight.w700),
           ),
         ),
-      ),
-      children: <Widget>[
-        Padding(
-          padding: EdgeInsets.all(20),
-          child: Align(
-            alignment: Alignment.center,
-            child: Text(
-              pubKey,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600
-              ),
-            ),
-          )
-        ),
-        IconButton(
-          icon: Icon(Icons.copy),
-          onPressed: () {
-            Clipboard.setData(ClipboardData(text: pubKey));
-          }
-        )
-      ]
-    );
+        children: <Widget>[
+          Padding(
+              padding: EdgeInsets.all(20),
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  pubKey,
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                ),
+              )),
+          IconButton(
+              icon: Icon(Icons.copy),
+              onPressed: () {
+                Clipboard.setData(ClipboardData(text: pubKey));
+              })
+        ]);
   }
 }

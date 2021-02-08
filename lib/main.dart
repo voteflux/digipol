@@ -97,7 +97,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 3,
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(50.0),
@@ -109,7 +109,7 @@ class _MainScreenState extends State<MainScreen> {
                 unselectedLabelColor: Colors.grey,
                 tabs: <Tab>[
                   Tab(icon: Icon(Icons.assignment)),
-                  Tab(icon: Icon(Icons.assignment_late)),
+//                  Tab(icon: Icon(Icons.assignment_late)),
                   Tab(icon: Icon(Icons.account_circle_rounded)),
                   Tab(icon: Icon(Icons.settings)),
                 ]),
@@ -118,7 +118,7 @@ class _MainScreenState extends State<MainScreen> {
         body: TabBarView(
           children: <Widget>[
             AllBillsPage(),
-            AllIssuesPage(),
+//            AllIssuesPage(),
             ProfileHubPage(),
             SettingsPage()
           ],
